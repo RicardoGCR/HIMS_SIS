@@ -91,6 +91,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         txtCOD_CAB_RES.setVisible(false);
         txtCOD_DETALLE_RES.setVisible(false);
         lblPerB.setVisible(false);
+        btnGuardarDetalleRes.setEnabled(false);
  
     }
 
@@ -1211,6 +1212,11 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("DIAGNOSTICO:");
 
+        EP_Descripcion_EC.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                EP_Descripcion_ECCaretUpdate(evt);
+            }
+        });
         jScrollPane3.setViewportView(EP_Descripcion_EC);
 
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 0, 10)); // NOI18N
@@ -1707,6 +1713,11 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
        if(txtCOD_CABECERA.getText().equalsIgnoreCase("")){
             GUARDAR_RESULTADO_CABECERA_EC();   
             mostrar_VER_DETALLE_EC();
+            btnGuardarDetalleRes.setEnabled(false);
+            EP_CONCLUSION_EC.setEnabled(false);
+            EP_Descripcion_EC.setEnabled(false);
+            btnBuscarCIE10.setEnabled(false);
+            jButton1.setEnabled(false);
        }else{
            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
            int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
@@ -1716,6 +1727,11 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                         RX_EC_ESTADO_RESULTADO_MODIFICAR_CAJA_EC();
                         GUARDAR_RESULTADO_DETALLE_EC_CAB();
                         mostrar_VER_DETALLE_EC();
+                        btnGuardarDetalleRes.setEnabled(false);
+                        EP_CONCLUSION_EC.setEnabled(false);
+                        EP_Descripcion_EC.setEnabled(false);
+                        btnBuscarCIE10.setEnabled(false);
+                        jButton1.setEnabled(false);
                     }
        }
         
@@ -1823,6 +1839,10 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
     private void txt_CIE10_ECKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CIE10_ECKeyReleased
         txt_CIE10_EC.setText(txt_CIE10_EC.getText().toUpperCase());
     }//GEN-LAST:event_txt_CIE10_ECKeyReleased
+
+    private void EP_Descripcion_ECCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_EP_Descripcion_ECCaretUpdate
+        btnGuardarDetalleRes.setEnabled(true);
+    }//GEN-LAST:event_EP_Descripcion_ECCaretUpdate
 
     public void GUARDAR_RESULTADO_CABECERA_EC(){
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));

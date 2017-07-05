@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9d346365-fce3-47cb-ac7b-922e320415ce">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.layers" value="##Mon Jul 25 17:45:23 COT 2016\nlayer.1.name=Layer 1\nlayer.1.visible=false\nlayer.1.id=1\nlayer.0.name=Background\nlayer.0.visible=true\nlayer.0.id=0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\sunat_archivos\\sfs\\FORM\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RUTA_IMAGEN_QR" class="java.lang.String"/>
+	<queryString language="xPath">
+		<![CDATA[/Invoice/InvoiceLine]]>
+	</queryString>
+	<field name="InvoicedQuantity" class="java.lang.String">
+		<fieldDescription><![CDATA[InvoicedQuantity]]></fieldDescription>
+	</field>
+	<field name="ID" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/ID]]></fieldDescription>
+	</field>
+	<field name="IssueDate" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/IssueDate]]></fieldDescription>
+	</field>
+	<field name="InvoiceTypeCode" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/InvoiceTypeCode]]></fieldDescription>
+	</field>
+	<field name="DocumentCurrencyCode" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/DocumentCurrencyCode]]></fieldDescription>
+	</field>
+	<field name="Name" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingSupplierParty/Party/PartyName/Name]]></fieldDescription>
+	</field>
+	<field name="RegistrationName" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingSupplierParty/Party/PartyLegalEntity/RegistrationName]]></fieldDescription>
+	</field>
+	<field name="StreetName" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingSupplierParty/Party/PostalAddress/StreetName]]></fieldDescription>
+	</field>
+	<field name="AdditionalAccountID" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingCustomerParty/AdditionalAccountID]]></fieldDescription>
+	</field>
+	<field name="StreetName2" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingCustomerParty/Party/PostalAddress/StreetName]]></fieldDescription>
+	</field>
+	<field name="Amount" class="java.lang.String">
+		<fieldDescription><![CDATA[AllowanceCharge/Amount]]></fieldDescription>
+	</field>
+	<field name="PriceAmount" class="java.lang.String">
+		<fieldDescription><![CDATA[Price/PriceAmount]]></fieldDescription>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<fieldDescription><![CDATA[Item/Description]]></fieldDescription>
+	</field>
+	<field name="unitCode" class="java.lang.String">
+		<fieldDescription><![CDATA[InvoicedQuantity/@unitCode]]></fieldDescription>
+	</field>
+	<field name="PayableAmount4" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/LegalMonetaryTotal/PayableAmount]]></fieldDescription>
+	</field>
+	<field name="AdditionalAccountID2" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingCustomerParty/AdditionalAccountID]]></fieldDescription>
+	</field>
+	<field name="RegistrationName2" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingCustomerParty/Party/PartyLegalEntity/RegistrationName]]></fieldDescription>
+	</field>
+	<field name="PaidAmount" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/PrepaidPayment/PaidAmount]]></fieldDescription>
+	</field>
+	<field name="TaxAmount" class="java.lang.String">
+		<fieldDescription><![CDATA[TaxTotal/TaxAmount]]></fieldDescription>
+	</field>
+	<field name="TaxAmount2" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/TaxTotal/TaxSubtotal/TaxAmount]]></fieldDescription>
+	</field>
+	<field name="PaymentDueDate" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/PaymentMeans/PaymentDueDate]]></fieldDescription>
+	</field>
+	<field name="ID2" class="java.lang.String">
+		<fieldDescription><![CDATA[Item/SellersItemIdentification/ID]]></fieldDescription>
+	</field>
+	<field name="StreetName3" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingSupplierParty/Party/PostalAddress/StreetName]]></fieldDescription>
+	</field>
+	<field name="CustomerAssignedAccountID2" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingSupplierParty/CustomerAssignedAccountID]]></fieldDescription>
+	</field>
+	<field name="DigestValue" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/UBLExtensions/UBLExtension/ExtensionContent/Signature/SignedInfo/Reference/DigestValue]]></fieldDescription>
+	</field>
+	<field name="CustomerAssignedAccountID" class="java.lang.String">
+		<fieldDescription><![CDATA[/Invoice/AccountingCustomerParty/CustomerAssignedAccountID]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<rectangle>
+				<reportElement x="398" y="6" width="154" height="68" uuid="5290fb47-5c6e-43e7-80fd-0cdd721bef8b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="415" y="15" width="128" height="20" uuid="2c03e753-d777-429b-a7f9-e692f5b164e7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA ELECTRÓNICA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="415" y="54" width="128" height="20" uuid="b3992d01-3e27-4c5f-9a97-91f620e780b9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="12" y="14" width="245" height="20" uuid="055cb54c-d067-4671-b626-0f9e04fe3071"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="12" y="34" width="245" height="20" uuid="c0675966-3343-458f-91e1-7b0719ef6550"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RegistrationName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="12" y="55" width="245" height="20" uuid="b450d0f0-b568-45e2-a609-b9186a4e05fe"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{StreetName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="88" width="140" height="16" uuid="f40fe65e-e9ae-4d05-9ba3-7f82fae4a0e3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Establecimiento del Emisor:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="152" y="87" width="398" height="16" uuid="1d9f1b78-1906-4c1f-9bfe-7542d633a182"/>
+				<textFieldExpression><![CDATA[$F{StreetName3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="415" y="36" width="128" height="18" uuid="7266cad3-bd08-4e27-a889-a5a6a8bed001"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CustomerAssignedAccountID2}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="267" y="6" width="123" height="68" uuid="edccce3f-d70c-4aa9-b38a-3c4b3a1b53f2"/>
+				<imageExpression><![CDATA[$P{RUTA_IMAGEN_QR}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="156" splitType="Stretch">
+			<rectangle>
+				<reportElement x="182" y="122" width="214" height="32" backcolor="#99CCFF" uuid="c142533c-6b7c-4aaa-bfd5-edd146ee4e02"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="396" y="122" width="54" height="32" backcolor="#99CCFF" uuid="b6fc0dd9-166d-4b82-95c0-cdc03a1d14eb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="450" y="122" width="100" height="32" backcolor="#99CCFF" uuid="c275ad8d-f9f3-4617-bb7d-b4445be5dd97"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="62" y="122" width="63" height="32" backcolor="#99CCFF" uuid="f4e6e274-4cf0-432a-8b55-3750e132858a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="125" y="122" width="57" height="32" backcolor="#99CCFF" uuid="b34c078b-0b0d-48f9-bd03-eaf24348271e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="12" y="122" width="50" height="32" backcolor="#99CCFF" uuid="3b21fe37-054c-4666-9208-ba6bbdaaf1bf"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="12" y="9" width="100" height="16" uuid="7a4b0b98-a8dc-4442-84a6-cb6e6d25e4a0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Vencimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="26" width="100" height="16" uuid="5ae8d4c5-b724-4472-9ce3-fe99464bc169"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Emisión]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="45" width="100" height="16" uuid="d69ae55d-5c18-48d8-9201-1c1199f0f9fa"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Señor(es)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="84" width="100" height="16" uuid="c5e7665d-be29-4b21-a08a-37fe2ae35613"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="102" width="100" height="16" uuid="a1984741-b476-4aae-81ed-dc841724b3d1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Moneda:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="117" y="102" width="426" height="16" uuid="bc9c6274-c09c-4c7f-bb6a-ff3b69b8b983"/>
+				<textFieldExpression><![CDATA[$F{DocumentCurrencyCode}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="117" y="26" width="426" height="16" uuid="a1252ce7-1abf-4ff5-8a0c-d889053be551"/>
+				<textFieldExpression><![CDATA[$F{IssueDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="62" y="122" width="63" height="32" backcolor="#99CCFF" uuid="b7944a46-4468-4e0b-90c9-40b4d2d88eb7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Unidad Medida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="122" width="54" height="32" backcolor="#99CCFF" uuid="f6894ca1-db34-49ff-9940-9fc5bade3872"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Valor Unitario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="122" width="57" height="32" backcolor="#99CCFF" uuid="e4f5372d-4bd3-4f34-bb9b-c0e093d5da09"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="122" width="50" height="32" forecolor="#000000" backcolor="#99CCFF" uuid="d5c7019e-c0ac-4e29-8c58-2db9a123b536"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="122" width="100" height="32" backcolor="#99CCFF" uuid="6d7eacbc-5e14-4c98-86f2-daddf30e286b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Descuento Por Item]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="117" y="45" width="426" height="16" uuid="14e2144f-6551-46d1-89a3-96599e85768f"/>
+				<textFieldExpression><![CDATA[$F{RegistrationName2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="117" y="84" width="426" height="16" uuid="3b2584c9-8531-4666-9d6a-0a222d343bce"/>
+				<textFieldExpression><![CDATA[$F{StreetName2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="64" width="100" height="16" uuid="d37925b0-095d-48cd-8576-bc8b2d8c2586"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[R.U.C]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="117" y="9" width="426" height="16" uuid="d102aeea-511a-4f18-ab9e-692dcb516ccf"/>
+				<textFieldExpression><![CDATA[$F{PaymentDueDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="182" y="122" width="185" height="32" backcolor="#99CCFF" uuid="7c4dcfca-9f54-4e82-92a0-c1a8f8239cac"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="117" y="64" width="426" height="16" uuid="a5fdb4d0-44e0-488d-946c-fb05c0f2da83"/>
+				<textFieldExpression><![CDATA[$F{CustomerAssignedAccountID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="12" y="3" width="50" height="16" uuid="1bc7d04a-f5be-4664-bd2f-019910dff8ac"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{InvoicedQuantity}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="182" y="3" width="214" height="16" uuid="0eb38153-c5d0-4a7d-b421-33b12b03f384"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Description}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="63" y="3" width="62" height="16" uuid="224ebca5-3e05-4a6e-9187-8a18d707af99"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{unitCode}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="396" y="3" width="54" height="16" uuid="bbc70948-dae6-4e88-9c9e-d90b89fc0580"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PriceAmount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="455" y="3" width="95" height="16" uuid="8ef71f77-05e9-41cf-9403-0058a795224f"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Amount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="125" y="3" width="57" height="16" uuid="7a893001-dac4-479f-b695-6210a939464b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="70" splitType="Stretch">
+			<rectangle>
+				<reportElement x="7" y="28" width="538" height="36" uuid="51571806-e753-4c6f-b3bb-bb15319bfb87"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="15" y="28" width="520" height="37" uuid="96393898-a92f-4239-b47d-173faaccf719"/>
+				<text><![CDATA[Representación impresa de la factura electrónica generada desde el sistema facturador SUNAT. Puede verificarla utilizando su clave SOL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="7" y="5" width="533" height="20" uuid="d95465c4-6042-4aa0-a10d-c4fe00f4e8ea"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{DigestValue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="247" splitType="Stretch">
+			<subreport>
+				<reportElement x="12" y="10" width="531" height="109" uuid="ef02f7f1-a537-4371-8328-80403c79785c"/>
+				<subreportParameter name="XML_DATA_DOCUMENT">
+					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Plantilla_reporte_factura_subtotal.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="12" y="125" width="531" height="92" uuid="68dccd9b-1a3c-4769-a48b-f3d44ea1916b"/>
+				<subreportParameter name="XML_DATA_DOCUMENT">
+					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Plantilla_reporte_factura_impuesto.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

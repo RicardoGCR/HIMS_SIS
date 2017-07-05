@@ -1930,6 +1930,9 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
             <Component class="javax.swing.JEditorPane" name="EP_Descripcion_EC">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="EP_Descripcion_ECCaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

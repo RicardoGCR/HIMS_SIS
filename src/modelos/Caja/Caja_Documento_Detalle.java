@@ -144,6 +144,48 @@ Conexion con = new Conexion();
         }
         return cod;
     }
+     
+     public String CodPrecio_COD_PRECIO_FR(String precio,String FP)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC CAJA_VERIFICAR_PRECIO_FR ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, precio);
+            cmd.setString(2, FP);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_PRECIO DEL CODIGO DEL PRECIO FR : " + ex.getMessage());
+        }
+        return cod;
+    }
+    public String CodPrecio_CODIGO_FR(String precio,String FP){
+        String cod="";
+        try
+        {
+            String sql = "EXEC CAJA_CODIGO_PRECIO_FR ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, precio);
+            cmd.setString(2, FP);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_PRECIO DEL CODIGO DEL PRECIO FR : " + ex.getMessage());
+        }
+        return cod;
+    }
     
     public String VisibleAdmin(String codigo)
     {
@@ -343,6 +385,25 @@ public void DetalleID(String ap_id){
             //
         } catch (Exception e) {
             System.out.println("Error: CONSULTA DE DESCUENTO EXISTENCIAS " + e.getMessage());
+        }
+    }
+    
+    public void CONSULTAR_COD_FP_FR(String ap_id){
+        String consulta="";
+        try {
+            consulta="CAJA_CAMBIAR_FP_FR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){  
+            /////////Referida
+                Caja_Pagos.lblFP.setText(r.getString(1));   
+                System.out.println("NUEVA FORMA DE PAGO " +r.getString(1));
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTA ID FP " + e.getMessage());
         }
     }
     

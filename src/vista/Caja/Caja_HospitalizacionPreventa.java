@@ -304,6 +304,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                         System.out.println("PAPELETA DE HOSPITALKIZACION GENERADA");
                         AsignarCamas();
                         Caja_Pagos.lblIdMedico.setText(txtMedico.getText());
+                        Caja_Pagos.GuardarPapeleta.setUndecorated(true);
                         Caja_Pagos.GuardarPapeleta.setVisible(true);
                         dispose();
 //                        cp.setCA_ID(cama);

@@ -66,6 +66,8 @@ public class Caja_Preventa {
     private String elisa_prueba_config;
     private String elisa_consejero;
     private String Sexo;
+    private int Id_DetalleFR;
+    private int Id_Cabecera;
 
     private String procedencia;
     
@@ -380,6 +382,27 @@ public class Caja_Preventa {
         }
         return resp;
     }
+    public boolean modificarDetallePreventaFR(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_DetallePreventaFR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_DetalleFR());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
     public boolean modificarPreventaRetorno(){
         boolean resp = false;
         try
@@ -387,6 +410,27 @@ public class Caja_Preventa {
             String sql = "Exec Caja_Actualizar_Preventa_RETORNO ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId_preventa());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean modificarPreventaRetornoFR(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_CabPreventaFR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_Cabecera());
 
             if(!cmd.execute())
             {
@@ -1578,6 +1622,22 @@ public class Caja_Preventa {
 
     public void setSexo(String Sexo) {
         this.Sexo = Sexo;
+    }
+
+    public int getId_DetalleFR() {
+        return Id_DetalleFR;
+    }
+
+    public void setId_DetalleFR(int Id_DetalleFR) {
+        this.Id_DetalleFR = Id_DetalleFR;
+    }
+
+    public int getId_Cabecera() {
+        return Id_Cabecera;
+    }
+
+    public void setId_Cabecera(int Id_Cabecera) {
+        this.Id_Cabecera = Id_Cabecera;
     }
     
     

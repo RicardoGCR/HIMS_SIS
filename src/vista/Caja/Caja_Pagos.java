@@ -9041,7 +9041,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 });
                                                                                                                 jScrollPane1.setViewportView(tbFP);
 
-                                                                                                                lblDes.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                                lblDes.setForeground(new java.awt.Color(204, 204, 204));
                                                                                                                 lblDes.setText("Escriba y pulse enter para seleccionar");
 
                                                                                                                 btnBuscarReporte1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -9827,8 +9827,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         System.out.println(""+c);
     
         if(lblDNI.getText().equals("        ")||(c<8)) {
-                ActualizarDNI.setUndecorated(true);
+                
                 ActualizarDNI.setVisible(true);
+                ActualizarDNI.setUndecorated(true);
                 txtDNIActu.requestFocus();
             } 
         if(!lblDNI.getText().equals("        ")&&(c==8)) {

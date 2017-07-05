@@ -485,9 +485,9 @@ public class Facturador extends javax.swing.JFrame {
             txtCGarantia = new javax.swing.JTextField();
             tablaS = new javax.swing.JScrollPane();
             tbFacturacion = new javax.swing.JTable(){
-                /*public boolean isCellEditable(int rowIndex, int colIndex){
+                public boolean isCellEditable(int rowIndex, int colIndex){
                     return false; //Disallow the editing of any cell
-                }*/};
+                }};
                 jPanel36 = new javax.swing.JPanel();
                 jLabel29 = new javax.swing.JLabel();
                 panelCPT15 = new javax.swing.JPanel();
@@ -2851,12 +2851,20 @@ public class Facturador extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         sumatoriaIGV = 0.00;
         sumatoriaTotal = 0.00;
+        double igv,importeTotalVenta;
         for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
             sumatoriaIGV = sumatoriaIGV + Double.parseDouble(tbFacturacion.getValueAt(i,5).toString());     
             sumatoriaTotal = sumatoriaTotal + Double.parseDouble(tbFacturacion.getValueAt(i,7).toString());       
         }
-        txtMtoIGV.setText(String.valueOf(Math.rint(sumatoriaIGV*100)/100));
-        txtImporteTotalVenta.setText(String.valueOf(Math.rint(sumatoriaTotal*100)/100));
+        igv = sumatoriaIGV;
+        BigDecimal bd2 = new BigDecimal(igv);
+        bd2 = bd2.setScale(2, BigDecimal.ROUND_HALF_UP);
+        //
+        importeTotalVenta = sumatoriaTotal;
+        BigDecimal bdImporte  = new BigDecimal(importeTotalVenta);
+        bdImporte = bdImporte.setScale(2, BigDecimal.ROUND_HALF_UP);
+        txtMtoIGV.setText(String.valueOf(bd2));
+        txtImporteTotalVenta.setText(String.valueOf(bdImporte));
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtPlacaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPlacaCaretUpdate

@@ -84,8 +84,7 @@ DefaultTableModel m,n,muestra;
 //        setLocationRelativeTo(null);//en el centro
 //        setResizable(false);//para que no funcione el boton maximizar
         buscar_HC.setResizable(false);
-        dateDesde.setBackground(Color.white);
-        dateHasta.setBackground(Color.white);
+        
         //fecha
        Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 

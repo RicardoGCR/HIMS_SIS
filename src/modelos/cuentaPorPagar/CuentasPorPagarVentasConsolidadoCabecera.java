@@ -1,5 +1,6 @@
 package modelos.cuentaPorPagar;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -275,12 +276,19 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
             cmd.setString(2, tipo);
             ResultSet r= cmd.executeQuery();
             int c=1;
+            double redondeo,ventaInafectada;
             while(r.next()){
             if(tipo.equalsIgnoreCase("5")){
-                Facturador.txtValorVentaGravada.setText(r.getString(1)); 
+                redondeo = Double.parseDouble(r.getString(1));
+                BigDecimal bdVentaGravada  = new BigDecimal(redondeo);
+                bdVentaGravada = bdVentaGravada.setScale(2, BigDecimal.ROUND_HALF_UP);
+                Facturador.txtValorVentaGravada.setText(bdVentaGravada.toString()); 
             }
             if(tipo.equalsIgnoreCase("T")){
-                Facturador.txtValorVentaInafectada.setText(r.getString(1)); 
+                redondeo = Double.parseDouble(r.getString(1));
+                BigDecimal bdVentaGravada  = new BigDecimal(redondeo);
+                bdVentaGravada = bdVentaGravada.setScale(2, BigDecimal.ROUND_HALF_UP);
+                Facturador.txtValorVentaInafectada.setText(bdVentaGravada.toString()); 
             }
             }
             //

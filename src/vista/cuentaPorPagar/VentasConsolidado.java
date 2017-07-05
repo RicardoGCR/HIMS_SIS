@@ -128,11 +128,9 @@ public class VentasConsolidado extends javax.swing.JFrame {
          public void actualizarEstadoFacturacion(JTable tabla){
             CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
             int fila = tabla.getSelectedRow();
-
             if(cabecera1.actualizarEstadoFacturacion(String.valueOf(tabla.getValueAt(fila,11)),"F")){
 
 //               cabecera1.listarPorFacturar(Facturador.tbFacturacion,txtActoMedico.getText());
-
 
                cabecera1.listarPorFacturar(Facturador.tbFacturacion,lblDNI.getText());
 
@@ -141,9 +139,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
                 cabecera1.ventasConsolidadoDetalles(tbFarmacia,lblIdCabecera.getText(),"FR");
                 cabecera1.ventasConsolidadoDetalles(tbLaboratorio,lblIdCabecera.getText(),"LA");
                 cabecera1.ventasConsolidadoDetalles(tbRayos,lblIdCabecera.getText(),"RX");
-                cabecera1.calcularPrecioVenta(lblDNI.getText());
+
+//                cabecera1.calcularPrecioVenta(txtActoMedico.getText());
                 cabecera1.calculoValorVenta(lblDNI.getText(), "5");
                 cabecera1.calculoValorVenta(lblDNI.getText(), "T");
+                cabecera1.calcularPrecioVenta(lblDNI.getText());
                 Facturador.btnGuardar.doClick();
             } else {
                JOptionPane.showMessageDialog(null,"No se puedo generar esta factura");
@@ -1471,8 +1471,8 @@ public class VentasConsolidado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFacturarLaboratorioActionPerformed
 
     private void btnFacturarProcedimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarProcedimientosActionPerformed
-         if(Facturado==false){
-            Facturador fac=  new Facturador();
+             if(Facturado==false){
+             Facturador fac=  new Facturador();
             fac.setVisible(true);
             Facturado= true;
         } else {

@@ -3,7 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarSfsRpta.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/Facturador.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/FacturadorPagos.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/VentasConsolidado.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/HIMS/src/modelos/SIS/SIS_REGLA_VALIDACION_DET_PRES.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/03.07.2017%2015.09/src/vista/cuentaPorPagar/VentasConsolidado.java</file>
+            <file>file:/D:/03.07.2017%2015.09/src/modelos/cuentaPorPagar/CuentasPorPagarVentasConsolidadoCabecera.java</file>
+            <file>file:/D:/03.07.2017%2015.09/src/vista/cuentaPorPagar/FacturadorPagos.java</file>
+            <file>file:/D:/03.07.2017%2015.09/src/modelos/cuentaPorPagar/CuentasPorPagarSfsRpta.java</file>
+=======
+            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+            <file>file:/D:/proyecto/HIMS/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
+>>>>>>> 21b6a685b21e335bbe3999bb28d56028d7e87bc7
+>>>>>>> 6c5ffde2d835ff832571a708d18d86d1bf34fc7a
+>>>>>>> 889ad2c49b3341923f113730ff8fc34fb5286108
+>>>>>>> 59d5889e45c46af61533a150c71d225d36cd79d0
+>>>>>>> 2990bff80bc05c7096aa06c260e4903172436512
         </group>
     </open-files>
 </project-private>

@@ -45,6 +45,10 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     private double montoIsc;
     private double otrosTributos;
     private double importaTotalVta;
+    private String placa;
+    private String contratante;
+    private String poliza;
+    private String cartaGarantia;
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
@@ -67,7 +71,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId());
             cmd.setString(2, getSerie());
@@ -90,6 +94,10 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             cmd.setDouble(19, getMontoIsc());
             cmd.setDouble(20, getOtrosTributos());
             cmd.setDouble(21, getImportaTotalVta());
+            cmd.setString(22, getPlaca());
+            cmd.setString(23, getContratante());
+            cmd.setString(24, getPoliza());
+            cmd.setString(25, getCartaGarantia());
             if(!cmd.execute())
             {
                 resp = true;
@@ -559,6 +567,62 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
      */
     public void setImportaTotalVta(double importaTotalVta) {
         this.importaTotalVta = importaTotalVta;
+    }
+
+    /**
+     * @return the placa
+     */
+    public String getPlaca() {
+        return placa;
+    }
+
+    /**
+     * @param placa the placa to set
+     */
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    /**
+     * @return the contratante
+     */
+    public String getContratante() {
+        return contratante;
+    }
+
+    /**
+     * @param contratante the contratante to set
+     */
+    public void setContratante(String contratante) {
+        this.contratante = contratante;
+    }
+
+    /**
+     * @return the poliza
+     */
+    public String getPoliza() {
+        return poliza;
+    }
+
+    /**
+     * @param poliza the poliza to set
+     */
+    public void setPoliza(String poliza) {
+        this.poliza = poliza;
+    }
+
+    /**
+     * @return the cartaGarantia
+     */
+    public String getCartaGarantia() {
+        return cartaGarantia;
+    }
+
+    /**
+     * @param cartaGarantia the cartaGarantia to set
+     */
+    public void setCartaGarantia(String cartaGarantia) {
+        this.cartaGarantia = cartaGarantia;
     }
     
 }

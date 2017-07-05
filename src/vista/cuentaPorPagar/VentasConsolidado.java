@@ -141,7 +141,8 @@ public class VentasConsolidado extends javax.swing.JFrame {
                 cabecera1.ventasConsolidadoDetalles(tbRayos,lblIdCabecera.getText(),"RX");
 
 //                cabecera1.calcularPrecioVenta(txtActoMedico.getText());
-
+                cabecera1.calculoValorVenta(lblDNI.getText(), "5");
+                cabecera1.calculoValorVenta(lblDNI.getText(), "T");
                 cabecera1.calcularPrecioVenta(lblDNI.getText());
                 Facturador.btnGuardar.doClick();
             } else {

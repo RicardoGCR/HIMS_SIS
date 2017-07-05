@@ -92,6 +92,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
           tb_examen_det.getSelectionModel().setSelectionInterval(0, 0);
           tb_examen_det.requestFocus();
         
+          btnGuardarCabeceraRes.setEnabled(false);
     }
 
     /**
@@ -314,7 +315,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             }
         ));
         tb_Personal_rol.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tb_Personal_rol.setRowHeight(22);
+        tb_Personal_rol.setRowHeight(30);
         tb_Personal_rol.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -446,7 +447,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             }
         ));
         tb_Personal_rol_todo.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tb_Personal_rol_todo.setRowHeight(22);
+        tb_Personal_rol_todo.setRowHeight(30);
         tb_Personal_rol_todo.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol_todo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -568,7 +569,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1468, 768));
 
         jpanel.setBackground(new java.awt.Color(34, 113, 179));
 
@@ -583,7 +583,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblIDArea.setForeground(new java.awt.Color(255, 255, 255));
         lblIDArea.setText("jLabel1");
 
-        lblNomA.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        lblNomA.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblNomA.setForeground(new java.awt.Color(255, 255, 255));
         lblNomA.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNomA.setText("jLabel1");
@@ -609,12 +609,12 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblCod_Personal_Sol.setForeground(new java.awt.Color(255, 255, 255));
         lblCod_Personal_Sol.setText("codPersonal");
 
-        lblFechaReg.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
+        lblFechaReg.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         lblFechaReg.setForeground(new java.awt.Color(255, 255, 255));
         lblFechaReg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFechaReg.setText("00/00/00");
 
-        lblHoraReg.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
+        lblHoraReg.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         lblHoraReg.setForeground(new java.awt.Color(255, 255, 255));
         lblHoraReg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHoraReg.setText("00:00:00");
@@ -625,35 +625,35 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblUsu.setText("Usuario");
 
-        jLabel15.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Forma de Pago:");
 
-        lblFP.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        lblFP.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         lblFP.setForeground(new java.awt.Color(255, 255, 255));
         lblFP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFP.setText("forma PAGO");
 
-        jLabel23.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("N° FUA:");
 
-        lblFUA.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        lblFUA.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         lblFUA.setForeground(new java.awt.Color(255, 255, 255));
         lblFUA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFUA.setText("----");
 
-        jLabel29.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("N° de Examen:");
 
-        lblNumExamen.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        lblNumExamen.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         lblNumExamen.setForeground(new java.awt.Color(255, 255, 255));
         lblNumExamen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNumExamen.setText("10000");
 
-        jLabel30.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setText("Fecha y Hora Resultado:");
@@ -1200,7 +1200,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         ));
         tb_examen_det.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_examen_det.setComponentPopupMenu(jPopupMenu2);
-        tb_examen_det.setRowHeight(25);
+        tb_examen_det.setRowHeight(35);
         tb_examen_det.getTableHeader().setReorderingAllowed(false);
         tb_examen_det.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1254,6 +1254,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("CONCLUSION DIAGNOSTICA:");
 
+        EP_CONCLUSION.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                EP_CONCLUSIONCaretUpdate(evt);
+            }
+        });
         jScrollPane9.setViewportView(EP_CONCLUSION);
 
         jLabel21.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
@@ -1671,7 +1676,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                             EP_Descripcion.setEnabled(true);
                             EP_CONCLUSION.setEnabled(true);
                             btnBuscarCIE10.setEnabled(true);
-                                                    
+                            btnGuardarCabeceraRes.setEnabled(false);                        
                         }
                         EP_Descripcion.requestFocus();
         }catch(Exception e){
@@ -1767,7 +1772,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                     }
         }
         
-       
+       btnGuardarCabeceraRes.setEnabled(false);
         
     }//GEN-LAST:event_btnGuardarCabeceraResActionPerformed
 
@@ -1828,6 +1833,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     private void txt_CIE10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CIE10KeyReleased
         txt_CIE10.setText(txt_CIE10.getText().toUpperCase());
     }//GEN-LAST:event_txt_CIE10KeyReleased
+
+    private void EP_CONCLUSIONCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_EP_CONCLUSIONCaretUpdate
+        btnGuardarCabeceraRes.setEnabled(true);
+    }//GEN-LAST:event_EP_CONCLUSIONCaretUpdate
 
       
     public void mostrar_Cod_Cabecera_RESULTADO(String cod){
@@ -2376,26 +2385,30 @@ public void guardar_resultado_detalle(){
     public void GUARDAR_RESULTADO_DETALLE_RX(){  
         
         int id = Integer.parseInt(txtCAB_RESULTADO.getText());
+            if(EP_CONCLUSION.getText().equalsIgnoreCase("") || EP_Descripcion.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(this, "Asegurese de Ingresar Todos los Campos");
+            }else{
+                RX_EC_RESULTADO_DETALLE rxg1 = new RX_EC_RESULTADO_DETALLE(); 
+                rxg1.setCOD_CAB_RESULTADO(id);
+                rxg1.setCOD_EXAMEN_DETALLE(Integer.parseInt(txtCOD_EXAMEN_DETALLE.getText()));
+                rxg1.setDESCRIPCION_RESULTADO(EP_Descripcion.getText());
+                rxg1.setCONCLUSION_DIAGNOSTICA(EP_CONCLUSION.getText());                   
+                rxg1.setNOM_USU(lblUsu.getText());
+
+                rxg1.RX_EC_RESULTADO_DETALLE_GUARDAR();
+
+                txtCOD_DET_RES.setText(rxg1.RX_EC_ID());
+                if(tbCIE10.getRowCount()!=0){
+                    guardarDetalleDiagnostico();
+                    Clear_Tb_GuardarDetalle_RESULTADO();
+                    EP_Descripcion.setText("");
+                    EP_CONCLUSION.setText("");
+ //                   Clear_Tb_GuardarDetalle();
+                }else{
+                    System.out.println("error al guardar detalle diagnostico ");
+                } 
+            }    
                 
-               RX_EC_RESULTADO_DETALLE rxg1 = new RX_EC_RESULTADO_DETALLE(); 
-               rxg1.setCOD_CAB_RESULTADO(id);
-               rxg1.setCOD_EXAMEN_DETALLE(Integer.parseInt(txtCOD_EXAMEN_DETALLE.getText()));
-               rxg1.setDESCRIPCION_RESULTADO(EP_Descripcion.getText());
-               rxg1.setCONCLUSION_DIAGNOSTICA(EP_CONCLUSION.getText());                   
-               rxg1.setNOM_USU(lblUsu.getText());
-               
-               rxg1.RX_EC_RESULTADO_DETALLE_GUARDAR();
-               
-               txtCOD_DET_RES.setText(rxg1.RX_EC_ID());
-               if(tbCIE10.getRowCount()!=0){
-                   guardarDetalleDiagnostico();
-                   Clear_Tb_GuardarDetalle_RESULTADO();
-                   EP_Descripcion.setText("");
-                   EP_CONCLUSION.setText("");
-//                   Clear_Tb_GuardarDetalle();
-               }else{
-                   System.out.println("error al guardar detalle diagnostico ");
-               }  
            
     }
 
@@ -2747,7 +2760,7 @@ public void guardar_resultado_detalle(){
     private javax.swing.JButton btnBuscarCIE10;
     private javax.swing.JButton btnBuscarPersonal;
     private javax.swing.JButton btnBuscarPersonal_TODO;
-    private javax.swing.JButton btnGuardarCabeceraRes;
+    public static javax.swing.JButton btnGuardarCabeceraRes;
     public static javax.swing.JButton btnPersonalResRealiza;
     public static javax.swing.JButton btnPersonalResultado;
     private javax.swing.JButton btnRegresarRes;

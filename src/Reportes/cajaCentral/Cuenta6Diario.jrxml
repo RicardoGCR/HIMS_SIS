@@ -3,7 +3,7 @@
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.948717100000002"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="288"/>
+	<property name="ireport.y" value="192"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -66,7 +66,7 @@ ORDER BY cnc.nomen_caja]]>
 	<group name="Group1">
 		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
 		<groupHeader>
-			<band height="29"/>
+			<band height="7"/>
 		</groupHeader>
 		<groupFooter>
 			<band height="39"/>
@@ -76,7 +76,7 @@ ORDER BY cnc.nomen_caja]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="141" splitType="Stretch">
+		<band height="129" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="376" height="43" uuid="56774d27-0293-4317-bdf2-fd46272a7070"/>
 				<textElement verticalAlignment="Top">
@@ -176,10 +176,11 @@ ORDER BY cnc.nomen_caja]]>
 	<detail>
 		<band height="79" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="2" y="0" width="555" height="24" forecolor="#B89F7D" backcolor="#D6D9DF" uuid="e8f7239f-6107-452a-8b8a-c8b75185df8b"/>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="24" forecolor="#B89F7D" backcolor="#D6D9DF" uuid="e8f7239f-6107-452a-8b8a-c8b75185df8b"/>
 				<elementGroup/>
 				<textField>
-					<reportElement x="0" y="0" width="220" height="20" uuid="8c6844a6-ceb7-4e1a-a419-aeab4d5921cd"/>
+					<reportElement x="0" y="0" width="458" height="24" forecolor="#333333" uuid="8c6844a6-ceb7-4e1a-a419-aeab4d5921cd"/>
+					<textElement verticalAlignment="Middle"/>
 					<textFieldExpression><![CDATA[$F{Cuenta}]]></textFieldExpression>
 				</textField>
 			</frame>
@@ -198,7 +199,7 @@ ORDER BY cnc.nomen_caja]]>
 				<text><![CDATA[CPT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="339" y="39" width="67" height="20" uuid="402dfd23-fe0c-47c9-b93e-eb4173d1323b"/>
+				<reportElement x="343" y="39" width="67" height="20" uuid="402dfd23-fe0c-47c9-b93e-eb4173d1323b"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
@@ -219,7 +220,7 @@ ORDER BY cnc.nomen_caja]]>
 				<text><![CDATA[TOTAL]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="339" y="59" width="67" height="20" uuid="646c23d2-00c8-43d3-8824-12104b22410c"/>
+				<reportElement x="343" y="59" width="67" height="20" uuid="646c23d2-00c8-43d3-8824-12104b22410c"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -240,14 +241,14 @@ ORDER BY cnc.nomen_caja]]>
 				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="132" y="59" width="207" height="20" uuid="53faf5b4-d983-49a5-81a1-302637b5a198"/>
+				<reportElement x="132" y="59" width="211" height="20" uuid="53faf5b4-d983-49a5-81a1-302637b5a198"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CPT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="2" y="59" width="120" height="20" uuid="eba0fcb7-6062-4dba-8c15-a87ed541ca34"/>
+				<reportElement x="0" y="59" width="120" height="20" uuid="eba0fcb7-6062-4dba-8c15-a87ed541ca34"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>

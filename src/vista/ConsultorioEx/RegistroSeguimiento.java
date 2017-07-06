@@ -2546,7 +2546,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         vacunas1.ConsultoriosExtVacunasListar(id);
        
         RSAIVacunas.lblId.setText(String.valueOf(id));
-    
         try {
             V.setMaximum(true);
         } catch (PropertyVetoException ex) {

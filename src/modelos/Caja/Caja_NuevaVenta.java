@@ -26,6 +26,9 @@ import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import vista.Caja.Caja_Pagos;
 import static vista.Caja.Caja_Pagos.lblTotalDiario;
+import vista.Caja.Caja_Reporte_CCTA6;
+import vista.Caja.Caja_Reporte_Fechas;
+import vista.Caja.Caja_Reportes;
 /**
  *
  * @author MYS1
@@ -181,7 +184,8 @@ public void ReporteFechas(String USUARIO,int F1,int F2) {
             ventanavisor.setTitle("Reporte");
            ventanavisor.setVisible(true);
         } catch (Exception e) {
-            Caja_Pagos.ErrorPrint.setVisible(true);
+            Caja_Reporte_Fechas.ErrorPrint.setUndecorated(true);
+            Caja_Reporte_Fechas.ErrorPrint.setVisible(true);
         }
     }
 public void ReporteFechasCC6(String USUARIO,int F1,int F2, String FP,String CC6) {
@@ -197,9 +201,11 @@ public void ReporteFechasCC6(String USUARIO,int F1,int F2, String FP,String CC6)
             ventanavisor.setTitle("Reporte");
            ventanavisor.setVisible(true);
         } catch (Exception e) {
-            Caja_Pagos.ErrorPrint.setVisible(true);
+            Caja_Reporte_CCTA6.ErrorPrint.setUndecorated(true);
+            Caja_Reporte_CCTA6.ErrorPrint.setVisible(true);
         }
     }
+
 
 public void ConsultoriosExtPREVENTAListar(String ap_id){
         String consulta="";
@@ -1036,6 +1042,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/report1.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
                 Caja_Pagos.ErrorPrint.setVisible(true);
                 
             }
@@ -1047,6 +1054,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorio - copia.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
                 Caja_Pagos.ErrorPrint.setVisible(true);
                 
             }

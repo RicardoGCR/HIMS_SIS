@@ -198,6 +198,26 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
         return resp;
     }
     
+    public boolean actualizarestadoFacturacionPorDocumento(String id)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CUENTAS_POR_PAGAR_ACTUALIZAR_ESTADO_FACTURACION_DOCUMENTO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, id);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: actualizarestadoFacturacionPorDocumento: " + ex.toString());
+        }
+        return resp;
+    }
+    
     public void formatoListarPorFacturar(JTable tabla) {
         tabla.getColumnModel().getColumn(0).setPreferredWidth(60);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(800);

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteFactura" language="groovy" pageWidth="554" pageHeight="802" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2cc5038d-9b6f-465d-a97e-cd1ef2257af3">
-	<property name="ireport.zoom" value="1.8150000000000033"/>
-	<property name="ireport.x" value="375"/>
-	<property name="ireport.y" value="400"/>
+	<property name="ireport.zoom" value="3.21538321500001"/>
+	<property name="ireport.x" value="1085"/>
+	<property name="ireport.y" value="447"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -99,6 +99,10 @@
 	<field name="VENTA_EXONERADA" class="java.math.BigDecimal"/>
 	<field name="MONTO_IGV" class="java.math.BigDecimal"/>
 	<field name="IMPORTE_TOTAL_VTA" class="java.math.BigDecimal"/>
+	<field name="ESTADO" class="java.lang.String"/>
+	<field name="DNI" class="java.lang.String"/>
+	<field name="HC" class="java.lang.String"/>
+	<field name="PACIENTE" class="java.lang.String"/>
 	<variable name="IMPORTE_TOTAL_VTA_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
 		<variableExpression><![CDATA[$F{IMPORTE_TOTAL_VTA}]]></variableExpression>
 	</variable>
@@ -244,7 +248,7 @@
 				<textFieldExpression><![CDATA[$F{CPF_FECHA_EMISION}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="119" y="29" width="333" height="16" forecolor="#313030" uuid="01e65926-5018-4e6c-8881-62be3c56e455"/>
+				<reportElement x="119" y="29" width="247" height="16" forecolor="#313030" uuid="01e65926-5018-4e6c-8881-62be3c56e455"/>
 				<textFieldExpression><![CDATA[$F{repre_empre_jerar}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -252,12 +256,54 @@
 				<textFieldExpression><![CDATA[$F{nro_documento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="119" y="68" width="333" height="16" forecolor="#313030" uuid="60cc7b87-584e-4b76-9264-f8d5034ca687"/>
+				<reportElement x="119" y="68" width="226" height="16" forecolor="#313030" uuid="60cc7b87-584e-4b76-9264-f8d5034ca687"/>
 				<textFieldExpression><![CDATA[$F{direccion_empre_jerar}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="119" y="86" width="100" height="16" forecolor="#313030" uuid="fdd3f8a5-b85c-43db-bccc-11a5fd36a560"/>
 				<textFieldExpression><![CDATA[$F{CPF_TIPO_MONEDA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="45" width="54" height="19" uuid="62663d17-61df-4c33-b634-2bdd693e130e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PACIENTE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="402" y="45" width="144" height="19" uuid="1b75887d-5b5b-4ce9-b0ed-ba1c244b83fa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PACIENTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="66" width="54" height="16" uuid="d5821679-3d4e-411b-ae7c-d1702235cc3f"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="84" width="54" height="16" uuid="73d3105c-a0da-44cc-9685-a1e841520362"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº H.C.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="402" y="66" width="96" height="16" uuid="8ce7b332-ade1-4bff-baaf-bb46fba4b066"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="84" width="96" height="16" uuid="1c23bcd7-3bf2-4613-b076-ae393b665929"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HC}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -356,7 +402,7 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="161" splitType="Stretch">
+		<band height="186" splitType="Stretch">
 			<staticText>
 				<reportElement x="345" y="65" width="100" height="14" uuid="09944832-2195-4789-8a77-3f4479af29b7"/>
 				<textElement textAlignment="Right">
@@ -435,12 +481,26 @@
 				<textFieldExpression><![CDATA[$F{VENTA_EXONERADA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="445" y="144" width="100" height="13" uuid="4f553143-905e-489e-a0d1-59bba6a67ab5"/>
+				<reportElement x="445" y="143" width="100" height="13" uuid="4f553143-905e-489e-a0d1-59bba6a67ab5"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{IMPORTE_TOTAL_VTA}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="445" y="160" width="100" height="14" uuid="13c96b43-249f-4c04-aafc-040873dd7b96"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ESTADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="345" y="160" width="100" height="14" uuid="15501da8-b01f-400e-855e-41cb42bfe6de"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADO:]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>

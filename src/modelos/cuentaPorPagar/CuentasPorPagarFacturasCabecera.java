@@ -49,6 +49,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     private String contratante;
     private String poliza;
     private String cartaGarantia;
+    private String dni;
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
@@ -71,7 +72,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId());
             cmd.setString(2, getSerie());
@@ -98,6 +99,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             cmd.setString(23, getContratante());
             cmd.setString(24, getPoliza());
             cmd.setString(25, getCartaGarantia());
+            cmd.setString(26, getDni());
             if(!cmd.execute())
             {
                 resp = true;
@@ -638,6 +640,20 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
      */
     public void setCartaGarantia(String cartaGarantia) {
         this.cartaGarantia = cartaGarantia;
+    }
+
+    /**
+     * @return the dni
+     */
+    public String getDni() {
+        return dni;
+    }
+
+    /**
+     * @param dni the dni to set
+     */
+    public void setDni(String dni) {
+        this.dni = dni;
     }
     
 }

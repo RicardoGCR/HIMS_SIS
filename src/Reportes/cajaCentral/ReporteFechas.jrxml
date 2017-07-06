@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDiario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="116460bc-b7e4-4692-82f2-1112038e3efc">
 	<property name="ireport.zoom" value="1.948717100000003"/>
-	<property name="ireport.x" value="366"/>
-	<property name="ireport.y" value="365"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="506"/>
 	<parameter name="USUARIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -118,7 +118,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 					     and (convert(int,right(CAJA_DOCUMENTO_CABECERA.fecha_actu,4) +  substring(CAJA_DOCUMENTO_CABECERA.fecha_actu,4,2)+ left(CAJA_DOCUMENTO_CABECERA.fecha_actu,2))<=$P{F2}))AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO
-						 ORDER BY CAJA_DOCUMENTO_CABECERA.fecha_actu]]>
+						 ORDER BY CAJA_DOCUMENTO_CABECERA.fecha_actu DESC]]>
 	</queryString>
 	<field name="tipo_documento" class="java.lang.String"/>
 	<field name="DOCUMENTO" class="java.lang.String"/>
@@ -132,7 +132,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 	<field name="Id_ActoMedico" class="java.lang.Long"/>
 	<field name="id_documento" class="java.lang.String"/>
 	<field name="DESCRIP" class="java.lang.String"/>
-	<field name="IMAGEN" class="java.io.InputStream"/>
+	<field name="IMAGEN" class="java.lang.Object"/>
 	<field name="Alias" class="java.lang.String"/>
 	<field name="cajero" class="java.lang.String"/>
 	<field name="hoy" class="java.lang.String"/>
@@ -537,14 +537,14 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nota]]></text>
+				<text><![CDATA[NOTA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="280" y="117" width="100" height="20" uuid="a5948cc2-2b07-40bd-9fef-9940775166ed"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Recaudador]]></text>
+				<text><![CDATA[RECAUDADOR]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="408" y="130" width="147" height="11" uuid="6dad99d5-00ed-4ce0-8e15-b698a6a8a522"/>

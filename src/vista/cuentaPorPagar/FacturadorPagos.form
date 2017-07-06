@@ -55,8 +55,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="tablaS" min="-2" pref="295" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="spFacturaDetalles" max="32767" attributes="0"/>
                           <Component id="pnlImportes" max="32767" attributes="0"/>
+                          <Component id="spFacturaDetalles" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -296,8 +296,6 @@
             <CompoundBorder/>
           </Border>
         </Property>
-        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
-        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="0"/>
         </Property>
@@ -410,8 +408,7 @@
             <CompoundBorder/>
           </Border>
         </Property>
-        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
-        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+        <Property name="verticalScrollBarPolicy" type="int" value="22"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="0"/>
         </Property>
@@ -645,7 +642,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel35" alignment="0" pref="204" max="32767" attributes="0"/>
+                          <Component id="jLabel35" alignment="0" pref="199" max="32767" attributes="0"/>
                           <Component id="panelCPT21" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>

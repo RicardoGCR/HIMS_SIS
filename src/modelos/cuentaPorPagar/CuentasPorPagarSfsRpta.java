@@ -125,7 +125,7 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         tabla.getColumnModel().getColumn(6).setMaxWidth(0);
         tabla.getColumnModel().getColumn(7).setMinWidth(0);
         tabla.getColumnModel().getColumn(7).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(75);
     }
     
     public void listarFacturasDetalles(JTable tabla, String id) {

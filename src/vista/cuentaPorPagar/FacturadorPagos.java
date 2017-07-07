@@ -105,7 +105,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
    
     public void agregarFacturas(){
         DefaultTableModel m;
-        File ruta = new File("C:\\sunat_archivos\\sfs\\RPTA");
+        File ruta = new File("Z:\\");
         //        System.out.println(ruta.getAbsolutePath());
         String[] nombres_archivos = ruta.list();
         m = (DefaultTableModel) tbFacturas.getModel();
@@ -155,6 +155,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
         lblId = new javax.swing.JLabel();
         lblMant = new javax.swing.JLabel();
         lblEmpresa = new javax.swing.JLabel();
+        btnPagar1 = new javax.swing.JButton();
         tablaS = new javax.swing.JScrollPane();
         tbFacturas = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -277,6 +278,26 @@ public class FacturadorPagos extends javax.swing.JFrame {
                         .addContainerGap())
                 );
 
+                btnPagar1.setBackground(new java.awt.Color(102, 0, 102));
+                btnPagar1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                btnPagar1.setForeground(new java.awt.Color(51, 51, 51));
+                btnPagar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Caja fuerte-64.png"))); // NOI18N
+                btnPagar1.setMnemonic('B');
+                btnPagar1.setText("Imprimir");
+                btnPagar1.setToolTipText("Buscar Empresa");
+                btnPagar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 5));
+                btnPagar1.setBorderPainted(false);
+                btnPagar1.setContentAreaFilled(false);
+                btnPagar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                btnPagar1.setDefaultCapable(false);
+                btnPagar1.setFocusPainted(false);
+                btnPagar1.setFocusable(false);
+                btnPagar1.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        btnPagar1ActionPerformed(evt);
+                    }
+                });
+
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
                 jPanel1Layout.setHorizontalGroup(
@@ -286,7 +307,9 @@ public class FacturadorPagos extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
                         .addComponent(pnlAtajos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(38, 38, 38)
+                        .addComponent(btnPagar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                 );
@@ -295,10 +318,14 @@ public class FacturadorPagos extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnlAtajos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblusu))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnPagar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pnlAtajos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblusu))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
                 );
 
                 tablaS.setBackground(new java.awt.Color(255, 255, 255));
@@ -534,7 +561,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
                     .addGroup(jPanel42Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelCPT21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
@@ -638,9 +665,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
                 );
                 pnlPagarLayout.setVerticalGroup(
                     pnlPagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlPagarLayout.createSequentialGroup()
-                        .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1, Short.MAX_VALUE))
+                    .addComponent(btnPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                 );
 
                 jPanel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -1066,6 +1091,30 @@ public class FacturadorPagos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tbFacturasMouseReleased
 
+    private void btnPagar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagar1ActionPerformed
+        if(dtFechaI.getDate() == null || dtFechaF.getDate() == null){
+            if(rbtPorCancelar.isSelected()){ 
+                rpta.reporteFacturasPorFecha("F","","");
+            } else 
+            if(rbtCanceladas.isSelected()){
+                rpta.reporteFacturasPorFecha("C","","");
+            } else 
+            if(rbtTodas.isSelected()){
+                rpta.reporteFacturasPorFecha("T","","");
+            }
+        } else {
+            if(rbtPorCancelar.isSelected()){ 
+                rpta.reporteFacturasPorFecha("F",determinarFecha(dtFechaI),determinarFecha(dtFechaF));
+            } else 
+            if(rbtCanceladas.isSelected()){
+                rpta.reporteFacturasPorFecha("C",determinarFecha(dtFechaI),determinarFecha(dtFechaF));
+            } else 
+            if(rbtTodas.isSelected()){
+                rpta.reporteFacturasPorFecha("T",determinarFecha(dtFechaI),determinarFecha(dtFechaF));
+            }
+        }
+    }//GEN-LAST:event_btnPagar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1107,6 +1156,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
     public static javax.swing.JButton btnGuardar;
     private javax.swing.JMenuItem btnImprimir;
     private javax.swing.JButton btnPagar;
+    private javax.swing.JButton btnPagar1;
     private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JDateChooser dtFechaF;
     private com.toedter.calendar.JDateChooser dtFechaI;

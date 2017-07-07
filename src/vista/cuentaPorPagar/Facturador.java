@@ -73,6 +73,8 @@ import vista.Caja.Caja_Empresa_jerarquia;
 import static vista.Principal.fechaActual;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
 import static vista.cuentaPorPagar.VentasConsolidado.Facturado;
+import static vista.cuentaPorPagar.VentasConsolidado.cbxActoMedico;
+import static vista.cuentaPorPagar.VentasConsolidado.lblCantidadActoMedico;
 import static vista.cuentaPorPagar.VentasConsolidado.lblDNI;
 /**
  *
@@ -491,9 +493,9 @@ public class Facturador extends javax.swing.JFrame {
             txtCGarantia = new javax.swing.JTextField();
             tablaS = new javax.swing.JScrollPane();
             tbFacturacion = new javax.swing.JTable(){
-                /*public boolean isCellEditable(int rowIndex, int colIndex){
+                public boolean isCellEditable(int rowIndex, int colIndex){
                     return false; //Disallow the editing of any cell
-                }*/};
+                }};
                 jPanel36 = new javax.swing.JPanel();
                 jLabel29 = new javax.swing.JLabel();
                 panelCPT15 = new javax.swing.JPanel();
@@ -2624,7 +2626,16 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_tbFacturacionMousePressed
 
     private void tbFacturacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbFacturacionKeyPressed
-
+        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+            int fila = tbFacturacion.getSelectedRow();
+        if(evt.getKeyCode()==KeyEvent.VK_DELETE){
+            if(cabecera1.actualizarEstadoFacturacion(String.valueOf(tbFacturacion.getValueAt(fila,8)),"P")){
+                cabecera1.listarPorFacturar(tbFacturacion,lblDNI.getText());
+                VentasConsolidado.btnNuevo.doClick();
+                VentasConsolidado.txtDni.setText(lblDNI.getText());
+                VentasConsolidado.T3.doClick();
+            }
+        }
     }//GEN-LAST:event_tbFacturacionKeyPressed
 
     private void txtDsctoGlobalCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDsctoGlobalCaretUpdate

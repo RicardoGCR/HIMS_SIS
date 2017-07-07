@@ -1677,6 +1677,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                     EP_CONCLUSION_EC.setEnabled(true);
                     EP_Descripcion_EC.setEnabled(true);
                     btnBuscarCIE10.setEnabled(true);
+                    jButton1.setEnabled(true);
 
                 }
                 

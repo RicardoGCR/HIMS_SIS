@@ -1110,6 +1110,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
         txtAM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtAM.setEnabled(false);
+        txtAM.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtAMCaretUpdate(evt);
+            }
+        });
 
         txtEdad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtEdad.setEnabled(false);
@@ -1837,6 +1842,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     private void EP_CONCLUSIONCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_EP_CONCLUSIONCaretUpdate
         btnGuardarCabeceraRes.setEnabled(true);
     }//GEN-LAST:event_EP_CONCLUSIONCaretUpdate
+
+    private void txtAMCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtAMCaretUpdate
+       txtAMB.setText(txtAM.getText());
+    }//GEN-LAST:event_txtAMCaretUpdate
 
       
     public void mostrar_Cod_Cabecera_RESULTADO(String cod){

@@ -132,7 +132,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 	<field name="Id_ActoMedico" class="java.lang.Long"/>
 	<field name="id_documento" class="java.lang.String"/>
 	<field name="DESCRIP" class="java.lang.String"/>
-	<field name="IMAGEN" class="java.lang.Object"/>
+	<field name="IMAGEN" class="java.io.InputStream"/>
 	<field name="Alias" class="java.lang.String"/>
 	<field name="cajero" class="java.lang.String"/>
 	<field name="hoy" class="java.lang.String"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteFechasCta6" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2284845-8cfc-4268-a98e-bd15f7b996b8">
-	<property name="ireport.zoom" value="1.331000000000001"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="92"/>
+	<property name="ireport.zoom" value="3.797498335832418"/>
+	<property name="ireport.x" value="1120"/>
+	<property name="ireport.y" value="659"/>
 	<parameter name="F1" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -21,7 +21,7 @@
 	<queryString>
 		<![CDATA[DECLARE @USUARIO VARCHAR(70)
 SET @USUARIO = ( SELECT Usu_Codigo FROM USUARIO where Usu_Usuario =$P{USU})
-select CDD.id_cod_doc_det,CDC.id_documento,RTRIM(CDC.serie_documento)+'-'+CDC.num_documento as 'DOCUMENTO',
+select CDD.id_cod_doc_det,CDC.id_documento,RTRIM(CDC.serie_documento)+'-'+CDC.num_documento as 'DOCUMENTO',CDC.Id_ActoMedico,CJFP.nom_forma_pago,
 CNC.nomen_caja,CNC.descripcion_nomen_tipo,CDD.cantidad_detalle,
 left(CDD.precio_detalle,len(CDD.precio_detalle)) AS 'Precio',
 left(CDD.total_detalle,len(CDD.total_detalle)) AS 'Total',
@@ -30,7 +30,37 @@ cc6.cuenta_6+' '+ cc6.descripcion_6 AS 'Cuenta',
 (SELECT Usu_Usuario FROM USUARIO where Usu_Codigo =@USUARIO) AS 'Alias',
 (select PERSONAL_PERSONAL.ape_pat_per+' '+PERSONAL_PERSONAL.ape_mat_per+' '+PERSONAL_PERSONAL.nombres_per from PERSONAL_PERSONAL,
 USUARIO where PERSONAL_PERSONAL.cod_per=USUARIO.cod_per and USUARIO.Usu_Codigo=@USUARIO)as cajero,(select CONVERT(VARCHAR(10),GETDATE(),103))as hoy,
-( select HOST_NAME())as PC, (SELECT NRO_PC FROM SISTEMA_CONFIGURACION_PC_AREA WHERE NOM_PC=HOST_NAME()) AS NRO,cdc.fecha_actu,cdc.hora_actu
+( select HOST_NAME())as PC, (SELECT NRO_PC FROM SISTEMA_CONFIGURACION_PC_AREA WHERE NOM_PC=HOST_NAME()) AS NRO,cdc.fecha_actu,cdc.hora_actu,
+ (SELECT ROUND(CAST ((sum (CDC.total_doc)) AS decimal (10,2)),2) from CAJA_DOCUMENTO_DETALLE CDD,CAJA_PRECIOS CP,CAJA_NOMENCLATURA_CAJA CNC,
+CAJA_CUENTA_6 CC6, CAJA_DOCUMENTO_CABECERA CDC,ADMISION_HISTORIA_CLINICA HC,CAJA_JERARQUIA_FORMA_PAGO CJFP
+WHERE CDC.id_documento=CDD.id_documento AND
+CDD.cod_precio=CP.cod_precio AND
+CP.cod_nomen_caja=CNC.cod_nomen_caja AND
+CNC.id_cuenta6=CC6.id_cuenta6 AND
+CDC.id_hc=HC.id_hc AND
+CDC.cod_jerar_forma_pago=CJFP.cod_jerar_forma_pago AND
+						 HC.estado_hc='A'AND
+						 CDC.cod_motiv_anu ='MA001' AND
+						 CDC.cod_usu=@USUARIO AND
+						 CJFP.nom_forma_pago  LIKE '%'+ $P{FP}+'%' AND
+						 CC6.cuenta_6= $P{CC6} AND
+						 ((convert(int,right(CDC.fecha_actu,4) +  substring(CDC.fecha_actu,4,2)+ left(CDC.fecha_actu,2))>=$P{F1})
+					     and (convert(int,right(CDC.fecha_actu,4) +  substring(CDC.fecha_actu,4,2)+ left(CDC.fecha_actu,2))<=$P{F2}))) AS SUMA,
+(SELECT COUNT (CDC.total_doc) from CAJA_DOCUMENTO_DETALLE CDD,CAJA_PRECIOS CP,CAJA_NOMENCLATURA_CAJA CNC,
+CAJA_CUENTA_6 CC6, CAJA_DOCUMENTO_CABECERA CDC,ADMISION_HISTORIA_CLINICA HC,CAJA_JERARQUIA_FORMA_PAGO CJFP
+WHERE CDC.id_documento=CDD.id_documento AND
+CDD.cod_precio=CP.cod_precio AND
+CP.cod_nomen_caja=CNC.cod_nomen_caja AND
+CNC.id_cuenta6=CC6.id_cuenta6 AND
+CDC.id_hc=HC.id_hc AND
+CDC.cod_jerar_forma_pago=CJFP.cod_jerar_forma_pago AND
+						 HC.estado_hc='A'AND
+						 CDC.cod_motiv_anu ='MA001' AND
+						 CDC.cod_usu=@USUARIO AND
+						 CJFP.nom_forma_pago  LIKE '%'+ $P{FP}+'%' AND
+						 CC6.cuenta_6= $P{CC6} AND
+						 ((convert(int,right(CDC.fecha_actu,4) +  substring(CDC.fecha_actu,4,2)+ left(CDC.fecha_actu,2))>=$P{F1})
+					     and (convert(int,right(CDC.fecha_actu,4) +  substring(CDC.fecha_actu,4,2)+ left(CDC.fecha_actu,2))<=$P{F2}))) AS CANTIDAD
 
 
 from CAJA_DOCUMENTO_DETALLE CDD,CAJA_PRECIOS CP,CAJA_NOMENCLATURA_CAJA CNC,
@@ -42,6 +72,7 @@ CNC.id_cuenta6=CC6.id_cuenta6 AND
 CDC.id_hc=HC.id_hc AND
 CDC.cod_jerar_forma_pago=CJFP.cod_jerar_forma_pago AND
 						 HC.estado_hc='A'AND
+						 CDC.cod_motiv_anu ='MA001' AND
 						 CDC.cod_usu=@USUARIO AND
 						 CJFP.nom_forma_pago  LIKE '%'+ $P{FP}+'%' AND
 						 CC6.cuenta_6= $P{CC6} AND
@@ -53,6 +84,8 @@ ORDER BY CDC.fecha_actu asc]]>
 	<field name="id_cod_doc_det" class="java.lang.Long"/>
 	<field name="id_documento" class="java.lang.String"/>
 	<field name="DOCUMENTO" class="java.lang.String"/>
+	<field name="Id_ActoMedico" class="java.lang.Long"/>
+	<field name="nom_forma_pago" class="java.lang.String"/>
 	<field name="nomen_caja" class="java.lang.String"/>
 	<field name="descripcion_nomen_tipo" class="java.lang.String"/>
 	<field name="cantidad_detalle" class="java.lang.Integer"/>
@@ -60,7 +93,7 @@ ORDER BY CDC.fecha_actu asc]]>
 	<field name="Total" class="java.lang.String"/>
 	<field name="Cuenta" class="java.lang.String"/>
 	<field name="DESCRIP" class="java.lang.String"/>
-	<field name="IMAGEN" class="java.lang.Object"/>
+	<field name="IMAGEN" class="java.io.InputStream"/>
 	<field name="Alias" class="java.lang.String"/>
 	<field name="cajero" class="java.lang.String"/>
 	<field name="hoy" class="java.lang.String"/>
@@ -68,11 +101,13 @@ ORDER BY CDC.fecha_actu asc]]>
 	<field name="NRO" class="java.lang.Long"/>
 	<field name="fecha_actu" class="java.lang.String"/>
 	<field name="hora_actu" class="java.lang.String"/>
+	<field name="SUMA" class="java.math.BigDecimal"/>
+	<field name="CANTIDAD" class="java.lang.Integer"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="113" splitType="Stretch">
+		<band height="132" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="278" height="55" uuid="118ea824-a3ad-435d-8116-ab974b2d675e"/>
 				<textElement>
@@ -109,14 +144,14 @@ ORDER BY CDC.fecha_actu asc]]>
 				<text><![CDATA[Cajero]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="57" y="50" width="221" height="20" uuid="14f7e286-a05c-4323-a06f-cb79fe1aace3"/>
+				<reportElement x="71" y="50" width="207" height="20" uuid="14f7e286-a05c-4323-a06f-cb79fe1aace3"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cajero}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="57" y="70" width="147" height="20" uuid="e4cb4680-98f0-4385-bbb0-74d584c82e19"/>
+				<reportElement x="71" y="70" width="147" height="20" uuid="e4cb4680-98f0-4385-bbb0-74d584c82e19"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -151,7 +186,7 @@ ORDER BY CDC.fecha_actu asc]]>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="57" y="90" width="100" height="20" uuid="94ffe132-826c-4631-8551-cb9035a90a29"/>
+				<reportElement x="71" y="90" width="100" height="20" uuid="94ffe132-826c-4631-8551-cb9035a90a29"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -168,10 +203,24 @@ ORDER BY CDC.fecha_actu asc]]>
 				<reportElement x="497" y="0" width="58" height="50" uuid="f2692b6e-9cde-4cc2-a895-2e89abddbb2c"/>
 				<imageExpression><![CDATA[$F{IMAGEN}]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement x="0" y="112" width="100" height="20" uuid="82b9ef58-68e8-4319-9d00-075a2b2e3ee2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Forma de Pago]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="71" y="112" width="175" height="20" uuid="0efd64ac-5d4a-4bce-96e4-a6afb351661b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FP}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="18" splitType="Stretch"/>
+		<band height="5" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="67" splitType="Stretch">
@@ -181,7 +230,7 @@ ORDER BY CDC.fecha_actu asc]]>
 				<textField>
 					<reportElement x="0" y="0" width="545" height="24" forecolor="#333333" uuid="bd7a1fa2-a5a9-402c-8dc9-6fd1c88707ab"/>
 					<textElement verticalAlignment="Middle">
-						<font size="12"/>
+						<font size="11"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Cuenta}]]></textFieldExpression>
 				</textField>
@@ -194,64 +243,88 @@ ORDER BY CDC.fecha_actu asc]]>
 				<text><![CDATA[Detalle de Movimientos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="381" y="46" width="52" height="20" uuid="c27cdff9-1a92-4aa5-a3c4-23ce9a65dd65"/>
+				<reportElement x="410" y="46" width="39" height="20" uuid="c27cdff9-1a92-4aa5-a3c4-23ce9a65dd65"/>
 				<textElement>
-					<font size="10"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[PRECIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="45" width="120" height="20" uuid="b894d7de-c4db-45f4-a235-e74cda31f43f"/>
+				<reportElement x="0" y="46" width="120" height="20" uuid="b894d7de-c4db-45f4-a235-e74cda31f43f"/>
 				<textElement>
-					<font size="10"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[DOCUMENTO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="320" y="46" width="61" height="20" uuid="309e32b2-5685-413b-8bcb-c7f2f6a17303"/>
+				<reportElement x="363" y="46" width="47" height="20" uuid="309e32b2-5685-413b-8bcb-c7f2f6a17303"/>
 				<textElement>
-					<font size="10"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="433" y="46" width="54" height="20" uuid="30db29f3-90f1-409f-8d58-8a50874aa13d"/>
+				<reportElement x="453" y="46" width="42" height="20" uuid="30db29f3-90f1-409f-8d58-8a50874aa13d"/>
 				<textElement>
-					<font size="10"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[TOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="487" y="46" width="100" height="20" uuid="d99e7dfb-0198-4948-8824-cfee486c3cab"/>
+				<reportElement x="499" y="46" width="56" height="20" uuid="d99e7dfb-0198-4948-8824-cfee486c3cab"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="46" width="42" height="20" uuid="aaa8faaa-0e73-4551-a05d-4d91457caaeb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CPT ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="46" width="62" height="20" uuid="8f622f0f-51d9-4e9f-9aa0-051d43ed5a4d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ACTO MÉDICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="46" width="150" height="20" uuid="4046a20a-b406-48d0-a97c-923109b3036f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCIÓN ]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="15" splitType="Stretch">
 			<textField>
-				<reportElement x="320" y="1" width="48" height="13" uuid="2fdc3c43-a0d1-48e1-820e-d6f592544a8a"/>
-				<textElement>
+				<reportElement x="363" y="1" width="45" height="13" uuid="2fdc3c43-a0d1-48e1-820e-d6f592544a8a"/>
+				<textElement textAlignment="Center">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cantidad_detalle}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="381" y="1" width="52" height="13" uuid="bd6683ff-b199-472f-96d7-5c2a0b029994"/>
+				<reportElement x="410" y="1" width="39" height="13" uuid="bd6683ff-b199-472f-96d7-5c2a0b029994"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Precio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="433" y="1" width="54" height="13" uuid="e7679997-11d9-417c-bb09-fb35eb975a77"/>
+				<reportElement x="453" y="1" width="42" height="13" uuid="e7679997-11d9-417c-bb09-fb35eb975a77"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="487" y="1" width="68" height="13" uuid="2bc7bf96-f47f-429c-8a9e-acfac7f84841"/>
+				<reportElement x="499" y="1" width="56" height="13" uuid="2bc7bf96-f47f-429c-8a9e-acfac7f84841"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
@@ -263,6 +336,27 @@ ORDER BY CDC.fecha_actu asc]]>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DOCUMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="0" width="145" height="14" uuid="c707cc59-aa76-497a-9bbd-9b5e02319411"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="1" width="42" height="14" uuid="d4884e48-1233-470a-9d7a-54edc6e528f7"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomen_caja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="1" width="37" height="14" uuid="a11d60c1-b0b1-426c-a825-28436c875d2b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Id_ActoMedico}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -313,25 +407,11 @@ ORDER BY CDC.fecha_actu asc]]>
 				<textFieldExpression><![CDATA[$F{cajero}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="41" width="120" height="20" uuid="d2c2d1e1-9072-4f8a-936d-03aff5d42b3a"/>
+				<reportElement x="0" y="46" width="120" height="20" uuid="d2c2d1e1-9072-4f8a-936d-03aff5d42b3a"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Cantidad de Documentos]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="182" y="91" width="14" height="18" uuid="ef4b7490-d1c9-4fe8-9acd-b3c238d1b558"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[S/.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="91" width="220" height="18" uuid="a2b3cad5-20be-4014-b831-3c67bf61ee3a"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[Total de Documentos por Otras Forma de Pago]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="7" width="98" height="20" uuid="80c6988a-c115-4778-a94e-79d818d42471"/>
@@ -341,7 +421,7 @@ ORDER BY CDC.fecha_actu asc]]>
 				<text><![CDATA[Resumen]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="182" y="53" width="14" height="20" uuid="51c38539-3bac-467e-834d-8a985c0c9346"/>
+				<reportElement x="182" y="62" width="14" height="20" uuid="51c38539-3bac-467e-834d-8a985c0c9346"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -350,27 +430,6 @@ ORDER BY CDC.fecha_actu asc]]>
 			<line>
 				<reportElement x="28" y="175" width="286" height="1" uuid="b2498148-de49-4ac6-a83c-fc84a7e2bb11"/>
 			</line>
-			<staticText>
-				<reportElement x="182" y="65" width="14" height="20" uuid="1c8ec160-7d7c-4f7f-ac37-ed3275fb28f8"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[S/.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="182" y="78" width="14" height="20" uuid="c1b2c1fa-4693-4fed-80ec-e4afe02ca442"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[S/.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="78" width="174" height="20" uuid="93aa30cd-25b7-4e96-a3a0-b9e3dd81a8e4"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[Total de Documentos por Contado]]></text>
-			</staticText>
 			<staticText>
 				<reportElement x="282" y="130" width="100" height="20" uuid="f891d90c-ce3f-48a2-af6e-022e48cf0dbb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -382,18 +441,11 @@ ORDER BY CDC.fecha_actu asc]]>
 				<reportElement x="408" y="130" width="147" height="1" uuid="61cd225b-3d6c-46d4-bc2a-52713d44326d"/>
 			</line>
 			<staticText>
-				<reportElement x="0" y="53" width="136" height="20" uuid="da5a11a5-19c3-48d8-9465-6441fe467855"/>
+				<reportElement x="0" y="62" width="136" height="20" uuid="da5a11a5-19c3-48d8-9465-6441fe467855"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Suma Total Sin Anulación]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="65" width="138" height="20" uuid="3271d874-6fcd-49da-9867-8cb81180080d"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[Total de Documento Anulados]]></text>
+				<text><![CDATA[Suma Total]]></text>
 			</staticText>
 			<line>
 				<reportElement x="282" y="129" width="100" height="1" uuid="d9ef7097-7cd3-4444-ad44-17d170215958"/>
@@ -408,6 +460,20 @@ ORDER BY CDC.fecha_actu asc]]>
 			<line>
 				<reportElement x="0" y="1" width="555" height="1" forecolor="#333333" uuid="4d4fb893-772b-449d-953e-f54d226ef0ee"/>
 			</line>
+			<textField>
+				<reportElement x="196" y="62" width="100" height="20" uuid="b5f4b402-18b5-450f-b94d-26fb72d8adf2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="47" width="100" height="20" uuid="7d822232-3b36-458a-b301-6043d937b204"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+			</textField>
 		</band>
 	</summary>
 </jasperReport>

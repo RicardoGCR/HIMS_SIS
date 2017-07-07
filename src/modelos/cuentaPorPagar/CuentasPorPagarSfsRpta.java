@@ -9,12 +9,18 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import modelos.Caja.Caja_NuevaVenta;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 public class CuentasPorPagarSfsRpta implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -65,7 +71,7 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         return resp;
     }
     
-    public void listarFacturasAceptadas(JTable tabla, String nombre,String estado) {
+    public void listarFacturasAceptadas(JTable tabla, String nombre,String estado,String fechaI,String fechaF) {
         String consulta = "";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -74,10 +80,12 @@ public class CuentasPorPagarSfsRpta implements Serializable {
             JTable p = new JTable(m);
             String fila[] = new String[9];
             Caja_NuevaVenta obj = new Caja_NuevaVenta();
-            consulta = "CUENTAS_POR_PAGAR_LISTAR_SFS_RPTA ?,?";
+            consulta = "CUENTAS_POR_PAGAR_LISTAR_SFS_RPTA ?,?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, nombre);
             cmd.setString(2, estado);
+            cmd.setString(3, fechaI);
+            cmd.setString(4, fechaF);
             ResultSet r = cmd.executeQuery();
             int c = 1;
             while (r.next()) {
@@ -104,9 +112,9 @@ public class CuentasPorPagarSfsRpta implements Serializable {
     }
 
     public void formatoListarFacturasAceptadas(JTable tabla) {
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(65);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(100);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(90);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(70);
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
         tabla.getColumnModel().getColumn(3).setMaxWidth(0);
         tabla.getColumnModel().getColumn(4).setMinWidth(0);
@@ -117,7 +125,7 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         tabla.getColumnModel().getColumn(6).setMaxWidth(0);
         tabla.getColumnModel().getColumn(7).setMinWidth(0);
         tabla.getColumnModel().getColumn(7).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(80);
     }
     
     public void listarFacturasDetalles(JTable tabla, String id) {
@@ -166,6 +174,19 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(7).setPreferredWidth(70);
         tabla.setRowHeight(35);
+    }
+    
+    public void reporteFactura(String idFactura) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("FACTURA", idFactura);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cuentasPorPagar/reporteFactura.jasper"), parametros, con.conectar());          
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Factura Electrónica .::. " + idFactura );
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "reporteFactura:"+e.getMessage());
+        }
     }
     
     public CuentasPorPagarSfsRpta() {

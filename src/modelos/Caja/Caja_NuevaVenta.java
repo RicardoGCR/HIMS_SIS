@@ -181,7 +181,23 @@ public void ReporteFechas(String USUARIO,int F1,int F2) {
             ventanavisor.setTitle("Reporte");
            ventanavisor.setVisible(true);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error_reporte Fechas:"+e.getMessage());
+            Caja_Pagos.ErrorPrint.setVisible(true);
+        }
+    }
+public void ReporteFechasCC6(String USUARIO,int F1,int F2, String FP,String CC6) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("USU", USUARIO);
+            parametros.put("F1", F1);
+            parametros.put("F2", F2);
+            parametros.put("FP", FP);
+            parametros.put("CC6", CC6);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteFechasCta6.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Reporte");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            Caja_Pagos.ErrorPrint.setVisible(true);
         }
     }
 
@@ -1020,7 +1036,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/report1.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
-                Caja_Pagos.ErrorPrint.setVisible(false);
+                Caja_Pagos.ErrorPrint.setVisible(true);
                 
             }
     } 
@@ -1031,7 +1047,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorio - copia.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
-                Caja_Pagos.ErrorPrint.setVisible(false);
+                Caja_Pagos.ErrorPrint.setVisible(true);
                 
             }
     } 
@@ -1571,9 +1587,118 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         tabla.setRowHeight(40);
     }
+      
+    public void CAJA_PREVENTAS_FR_DETALLE(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID_Detalle","ID_CABECERA","Descripción","Cantidad","Precio","Estado"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[6];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_PREVENTAS_FARMACIA_DETALLE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoPreventaFR_DETALLE(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: PREVENTA FR DETALLE: " + e.getMessage());
+        }
+    }
+     public void formatoPreventaFR_DETALLE(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.setRowHeight(40);
+    }
+     
+          public void ReporteFechasCajaCabeceraCC6(String Usuario,int Desde, int Hasta,String des,String CC6 ,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"id__detalle","documento","Serie - Nº Documento","CPT","Cantidad","Precio","Total","Cuenta 6"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[8];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_REPORTE_FECHAS_CC6 ?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Usuario);
+            cmd.setInt(2, Desde);
+            cmd.setInt(3, Hasta);
+            cmd.setString(4, des);
+            cmd.setString(5, CC6);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
 
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaReporteCabeceraCC6(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar REPORTE FECHAS CC6 " + e.getMessage());
+        }
+    }
+            public void formatoTablaReporteCabeceraCC6(JTable tabla){
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(350);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(60);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(60);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(60);
+            tabla.getColumnModel().getColumn(7).setMinWidth(0);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
       
-      
+        
+//        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(3).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(4).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(5).setPreferredWidth(150); 
+//        
+  
+        tabla.setRowHeight(40);
+        
+    }
+     
  public Caja_NuevaVenta(){
         Conexion con = new Conexion();
         cn = con.conectar();

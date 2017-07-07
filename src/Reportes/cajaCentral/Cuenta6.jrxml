@@ -35,19 +35,23 @@ CDC.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="25" splitType="Stretch">
+		<band height="63" splitType="Stretch">
 			<textField>
-				<reportElement x="20" y="0" width="100" height="20" uuid="c06221eb-6dc8-4056-8683-e0da6c95c4f4"/>
-				<textFieldExpression><![CDATA[$F{descripcion_6}]]></textFieldExpression>
+				<reportElement x="160" y="43" width="322" height="20" uuid="97c0ff94-19d1-487d-89c0-d7ed47cf349a"/>
+				<textFieldExpression><![CDATA[$F{cuenta_6}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="160" y="0" width="322" height="20" uuid="97c0ff94-19d1-487d-89c0-d7ed47cf349a"/>
-				<textFieldExpression><![CDATA[$F{cuenta_6}]]></textFieldExpression>
+				<reportElement x="20" y="43" width="100" height="20" uuid="c06221eb-6dc8-4056-8683-e0da6c95c4f4"/>
+				<textFieldExpression><![CDATA[$F{descripcion_6}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="273" y="0" width="282" height="20" uuid="63d89b64-56a0-4977-85ac-daacdc28027d"/>
+				<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
+			</textField>
 			<textField>
 				<reportElement x="160" y="0" width="100" height="20" uuid="50e5dd74-654e-4b85-804a-395dcc1f521c"/>
 				<textFieldExpression><![CDATA[$F{nomen_caja}]]></textFieldExpression>
@@ -55,10 +59,6 @@ CDC.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
 			<textField>
 				<reportElement x="20" y="0" width="140" height="20" uuid="cc27f29c-75bb-429a-9084-990ab1220b59"/>
 				<textFieldExpression><![CDATA[$F{DOCUMENTO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="273" y="0" width="282" height="20" uuid="63d89b64-56a0-4977-85ac-daacdc28027d"/>
-				<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

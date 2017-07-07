@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDiario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="116460bc-b7e4-4692-82f2-1112038e3efc">
-	<property name="ireport.zoom" value="2.1435888100000047"/>
+	<property name="ireport.zoom" value="1.331000000000003"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="563"/>
+	<property name="ireport.y" value="202"/>
 	<parameter name="USUARIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -21,7 +21,7 @@ SELECT        CAJA_TIPO_DOCUMENTO.tipo_documento, RTRIM(CAJA_DOCUMENTO_CABECERA.
 						 (SELECT TOP 1 upper( UE_DESC ) FROM SISTEMA_UNIDAD_EJECUTORA) AS DESCRIP,  (SELECT TOP 1 UE_LOGO  FROM SISTEMA_UNIDAD_EJECUTORA) AS IMAGEN,
 						 (SELECT Usu_Usuario FROM USUARIO where Usu_Codigo =@USUARIO) as 'Alias',
 						 (select PERSONAL_PERSONAL.ape_pat_per+' '+PERSONAL_PERSONAL.ape_mat_per+' '+PERSONAL_PERSONAL.nombres_per from PERSONAL_PERSONAL, USUARIO where PERSONAL_PERSONAL.cod_per=USUARIO.cod_per and USUARIO.Usu_Codigo=@USUARIO)as cajero,(select CONVERT(VARCHAR(10),GETDATE(),103))as hoy,(SELECT
-						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (6,2)),2)AS 'TOTAL'
+						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (10,2)),2)AS 'TOTAL'
 
 
 
@@ -50,7 +50,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO)
 	as cantidad,(SELECT
-						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (6,2)),2)AS 'TOTAL'
+						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (10,2)),2)AS 'TOTAL'
 
 
 
@@ -64,7 +64,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu!='MA001')as sumaAnulado,(SELECT
-						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (6,2)),2)AS 'TOTAL'
+						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (10,2)),2)AS 'TOTAL'
 
 
 
@@ -78,7 +78,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago IN('CONTADO' ,'EXONERACION') AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as CONTADO,
-						 (SELECT ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (6,2)),2)AS 'TOTAL'
+						 (SELECT ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (10,2)),2)AS 'TOTAL'
 
 
 
@@ -91,7 +91,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
                          CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
 						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
-						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago!='CONTADO' AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as OTROS,
+						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago NOT IN('CONTADO' ,'EXONERACION')  AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as OTROS,
 						 ( select HOST_NAME())as PC, (SELECT NRO_PC FROM SISTEMA_CONFIGURACION_PC_AREA WHERE NOM_PC=HOST_NAME()) AS NRO
 
 
@@ -257,7 +257,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 				<textElement>
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[Dscto.]]></text>
+				<text><![CDATA[DSCTO.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="427" y="2" width="100" height="20" uuid="17c03f41-37d7-48c7-9043-b230f5330972"/>
@@ -340,9 +340,14 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 	</columnFooter>
 	<pageFooter>
 		<band height="20" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="512" y="0" width="43" height="20" uuid="dbf3e0f5-d42c-469c-b05a-408fb400af9e"/>
+				<textFieldExpression><![CDATA["de "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
 			<textField>
-				<reportElement x="527" y="0" width="28" height="20" uuid="f1f53906-d7b7-46d8-b89f-9a1854ab955b"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				<reportElement x="464" y="0" width="48" height="20" uuid="56e751bb-bd52-40ad-a9b8-377f83ce1154"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" "]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>
@@ -471,7 +476,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Cajero]]></text>
+				<text><![CDATA[CAJERO]]></text>
 			</staticText>
 			<line>
 				<reportElement x="282" y="109" width="100" height="1" uuid="c432e1d9-3bfa-43d3-b10a-883841082dd4"/>
@@ -481,14 +486,14 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Recaudador]]></text>
+				<text><![CDATA[RECAUDADOR]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="141" width="100" height="15" uuid="3002a206-032f-4d82-910b-7ca49bc713dd"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nota]]></text>
+				<text><![CDATA[NOTA]]></text>
 			</staticText>
 			<line>
 				<reportElement x="28" y="155" width="286" height="1" uuid="09b386e0-3ac0-4081-a7fe-278c64f2ab0b"/>

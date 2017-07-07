@@ -211,6 +211,21 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         }
     }
 
+    public String idFactura(){
+        String id = "";
+        try {
+            String consulta = "EXEC CUENTAS_POR_PAGAR_FACTURAS_CABECERA_ID";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               id = r.getString(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error: idFactura " + ex.getMessage());
+        }
+        return id;
+    }
+    
     public CuentasPorPagarFacturasCabecera() {
         Conexion con = new Conexion();
         cn = con.conectar();

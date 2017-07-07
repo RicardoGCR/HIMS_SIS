@@ -171,8 +171,8 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         tabla.getColumnModel().getColumn(3).setPreferredWidth(500);
         tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(90);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(67);
         tabla.setRowHeight(35);
     }
     

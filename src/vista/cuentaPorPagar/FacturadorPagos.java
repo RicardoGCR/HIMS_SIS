@@ -303,8 +303,6 @@ public class FacturadorPagos extends javax.swing.JFrame {
 
                 tablaS.setBackground(new java.awt.Color(255, 255, 255));
                 tablaS.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-                tablaS.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-                tablaS.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
                 tablaS.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
                 tbFacturas.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
@@ -382,8 +380,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
 
                 spFacturaDetalles.setBackground(new java.awt.Color(255, 255, 255));
                 spFacturaDetalles.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-                spFacturaDetalles.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-                spFacturaDetalles.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+                spFacturaDetalles.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
                 spFacturaDetalles.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
                 tbFacturaDetalles.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -537,7 +534,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
                     .addGroup(jPanel42Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                             .addComponent(panelCPT21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
@@ -807,8 +804,8 @@ public class FacturadorPagos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(tablaS, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spFacturaDetalles)
-                                    .addComponent(pnlImportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(pnlImportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(spFacturaDetalles)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -1174,7 +1174,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             
             formatoExamen();
         
-        } catch (Exception e) {
+        }catch (Exception e) {
             System.out.println("Error buscar examen: " + e.getMessage());
         }
     }

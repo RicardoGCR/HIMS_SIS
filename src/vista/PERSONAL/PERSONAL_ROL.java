@@ -877,13 +877,14 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                             .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, P_ROL1Layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
-                                        .addGroup(P_ROL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel20)
-                                            .addComponent(txtHoras_Libres)
+                                        .addGroup(P_ROL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(P_ROL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(TXT_HORA_INICIO)
                                                 .addComponent(jLabel19)
-                                                .addComponent(TXT_HORA_FIN)))
+                                                .addComponent(TXT_HORA_FIN))
+                                            .addGroup(P_ROL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel20)
+                                                .addComponent(txtHoras_Libres)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -4418,6 +4419,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                 if((a > a1 && b > b1) || (a > a1 && b <= b1) || (a == a1 && b > b1)){
                         JOptionPane.showMessageDialog(ROL_ACTIVIDAD, "La Cantidad de Horas es Mayor a \n "
                                 + "la Cantidad de Horas Disponibles");
+                        
                 }else{
 //            cargareliminar_Per.setVisible(false);
 //            int filaselec=TB_TURNOS_UO.getSelectedRow();

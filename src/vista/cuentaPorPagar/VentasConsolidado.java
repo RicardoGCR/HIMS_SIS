@@ -34,7 +34,7 @@ import static vista.admisionEmergencia.FrmFormatoEmergencia.txtaMotivo;
 public class VentasConsolidado extends javax.swing.JFrame {
     DefaultTableModel m;
     Conexion cnn = new Conexion();
-    java.sql.Connection conexion=null;
+    static java.sql.Connection conexion=null;
     Conexion c=new Conexion();
     public static boolean Facturado= false;
     CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
@@ -128,7 +128,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }     
     }
     
-    public void listarActoMedico(String dni){
+    public static void listarActoMedico(String dni){
         try {
             Statement sta=conexion.createStatement();
             ResultSet rs=sta.executeQuery("EXEC CUENTAS_POR_PAGAR_LISTAR_ACTO_MEDICO '"+dni+"'");
@@ -1782,7 +1782,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblApellidos;
-    private javax.swing.JLabel lblCantidadActoMedico;
+    public static javax.swing.JLabel lblCantidadActoMedico;
     public static javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblEcografias;
     private javax.swing.JLabel lblFarmacia;

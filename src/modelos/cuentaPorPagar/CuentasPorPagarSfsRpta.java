@@ -189,6 +189,21 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         }
     }
     
+    public void reporteFacturasPorFecha(String estado,String fechaI,String fechaF) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("ESTADO", estado);
+            parametros.put("FECHAI", fechaI);
+            parametros.put("FECHAF", fechaF);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cuentasPorPagar/facturas.jasper"), parametros, con.conectar());          
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Factura Electrónica .::. " + fechaI + " - " + fechaF );
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "reporteFacturasPorFecha:"+e.getMessage());
+        }
+    }
+    
     public CuentasPorPagarSfsRpta() {
          Conexion con = new Conexion();
          cn = con.conectar();

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="facturaPorEstados" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f0982ed4-376d-4393-8259-9f9c45e57f74">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ESTADO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ESTADO_1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT CASE CUENTAS_POR_PAGAR_FACTURAS_CABECERA.ESTADO
+			WHEN 'C' THEN 'CANCELADO'
+			WHEN 'F' THEN 'FACTURADO' END ESTADO,COUNT(ESTADO) 'CANTIDAD',
+			SUM(MONTO_IGV) as 'IGV',
+			SUM(VALOR_VINAFECTADA) AS 'VALOR INAFECTA',
+			SUM(VALOR_VGRAVADA) AS 'VALOR GRAVADO',
+			SUM(IMPORTE_TOTAL_VTA) AS 'IMPORTE TOTAL'
+			FROM CUENTAS_POR_PAGAR_SFS_RPTA,CUENTAS_POR_PAGAR_FACTURAS_CABECERA,SISTEMA_UNIDAD_EJECUTORA UE
+			WHERE SUBSTRING(NOMBRE,14,2) = '01'
+			AND SUBSTRING(NOMBRE,17,13) = CUENTAS_POR_PAGAR_FACTURAS_CABECERA.CPF_SERIE + '-'+CUENTAS_POR_PAGAR_FACTURAS_CABECERA.CPF_CORRELATIVO
+			AND CUENTAS_POR_PAGAR_FACTURAS_CABECERA.ESTADO_ANULACION = 'A'
+			AND CUENTAS_POR_PAGAR_FACTURAS_CABECERA.ESTADO = $P{ESTADO_1}
+			GROUP BY ESTADO]]>
+	</queryString>
+	<field name="ESTADO" class="java.lang.String"/>
+	<field name="CANTIDAD" class="java.lang.Integer"/>
+	<field name="IGV" class="java.math.BigDecimal"/>
+	<field name="VALOR INAFECTA" class="java.math.BigDecimal"/>
+	<field name="VALOR GRAVADO" class="java.math.BigDecimal"/>
+	<field name="IMPORTE TOTAL" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="12" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="160" splitType="Stretch">
+			<staticText>
+				<reportElement x="50" y="12" width="100" height="20" uuid="329f483e-a200-4b82-b8c2-251d8b890f5f"/>
+				<text><![CDATA[ESTADO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="12" width="100" height="20" uuid="01aced7f-49d2-4093-a764-4b0a48a2861f"/>
+				<textFieldExpression><![CDATA[$F{ESTADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="51" y="39" width="100" height="20" uuid="19ee755e-7959-45c3-92ca-0122f87706c9"/>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="151" y="39" width="100" height="20" uuid="9356b805-958e-4704-ba9e-41698baa6d61"/>
+				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="52" y="66" width="100" height="20" uuid="a6abf3a4-fda3-41c0-8d79-af640635d3ad"/>
+				<text><![CDATA[IGV]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="152" y="66" width="100" height="20" uuid="35889c04-c518-4fdc-bd71-2fd48104e264"/>
+				<textFieldExpression><![CDATA[$F{IGV}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="53" y="90" width="100" height="20" uuid="952229f5-83f3-4afa-a1b1-16705514fd26"/>
+				<text><![CDATA[VALOR INAFECTA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="90" width="100" height="20" uuid="af8d8943-aa19-47ae-92e7-2111e5582818"/>
+				<textFieldExpression><![CDATA[$F{VALOR INAFECTA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="53" y="117" width="100" height="20" uuid="05af13c6-db09-4764-95d9-5d9e8be76f49"/>
+				<text><![CDATA[VALOR GRAVADO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="117" width="100" height="20" uuid="5f4a45af-bbd7-4366-866e-124656391f59"/>
+				<textFieldExpression><![CDATA[$F{VALOR GRAVADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="53" y="134" width="100" height="20" uuid="226c1dc4-4484-4da0-b11f-0f4c85487047"/>
+				<text><![CDATA[IMPORTE TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="134" width="100" height="20" uuid="73591893-6ed6-4e00-83bb-9f6aa2617839"/>
+				<textFieldExpression><![CDATA[$F{IMPORTE TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

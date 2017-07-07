@@ -6023,8 +6023,8 @@ Conexion c=new Conexion();
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 1))+ "|" + 
                                  String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|" + 
-                                  String.valueOf(tbFacturacion.getValueAt(c, 6)) + "|" +
-                                 String.valueOf(tbFacturacion.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
+                                  String.valueOf(tbFacturacionDebito.getValueAt(c, 6)) + "|" +
+                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
                                 txtISCDebito.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +
@@ -6038,8 +6038,8 @@ Conexion c=new Conexion();
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 1))+ "|" + 
                                  String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|"  + 
-                                  String.valueOf(tbFacturacion.getValueAt(c, 6)) + "|" +
-                                 String.valueOf(tbFacturacion.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
+                                  String.valueOf(tbFacturacionDebito.getValueAt(c, 6)) + "|" +
+                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
                                 txtISCDebito.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +

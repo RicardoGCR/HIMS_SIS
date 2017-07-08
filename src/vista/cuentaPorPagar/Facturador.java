@@ -73,6 +73,9 @@ import vista.Caja.Caja_Empresa_jerarquia;
 import static vista.Principal.fechaActual;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
 import static vista.cuentaPorPagar.VentasConsolidado.Facturado;
+import static vista.cuentaPorPagar.VentasConsolidado.cbxActoMedico;
+import static vista.cuentaPorPagar.VentasConsolidado.lblCantidadActoMedico;
+import static vista.cuentaPorPagar.VentasConsolidado.lblDNI;
 /**
  *
  * @author PC02
@@ -420,6 +423,8 @@ public class Facturador extends javax.swing.JFrame {
             lblEmpresa = new javax.swing.JLabel();
             btnGuardar = new javax.swing.JButton();
             lblusu = new javax.swing.JLabel();
+            lblDNI3 = new javax.swing.JLabel();
+            lblDNI = new javax.swing.JLabel();
             jPanel5 = new javax.swing.JPanel();
             jPanel6 = new javax.swing.JPanel();
             jLabel2 = new javax.swing.JLabel();
@@ -719,6 +724,16 @@ public class Facturador extends javax.swing.JFrame {
                 lblusu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
                 lblusu.setText("Usuario: Silvana");
 
+                lblDNI3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+                lblDNI3.setForeground(new java.awt.Color(41, 127, 184));
+                lblDNI3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+                lblDNI3.setText("Dni del Paciente:");
+
+                lblDNI.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+                lblDNI.setForeground(new java.awt.Color(41, 127, 184));
+                lblDNI.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+                lblDNI.setText("DNI");
+
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
                 jPanel1Layout.setHorizontalGroup(
@@ -726,7 +741,10 @@ public class Facturador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 541, Short.MAX_VALUE)
+                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(44, 44, 44)
                                 .addComponent(lblMant)
@@ -736,10 +754,10 @@ public class Facturador extends javax.swing.JFrame {
                                 .addComponent(lblEmpresa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnGuardar)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblDNI3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                 );
                 jPanel1Layout.setVerticalGroup(
@@ -753,9 +771,12 @@ public class Facturador extends javax.swing.JFrame {
                                 .addComponent(lblId)
                                 .addComponent(lblEmpresa)
                                 .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblusu)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblDNI3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblDNI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addContainerGap())
                 );
 
@@ -2605,11 +2626,20 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_tbFacturacionMousePressed
 
     private void tbFacturacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbFacturacionKeyPressed
-
+        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+            int fila = tbFacturacion.getSelectedRow();
+        if(evt.getKeyCode()==KeyEvent.VK_DELETE){
+            if(cabecera1.actualizarEstadoFacturacion(String.valueOf(tbFacturacion.getValueAt(fila,8)),"P")){
+                cabecera1.listarPorFacturar(tbFacturacion,lblDNI.getText());
+                VentasConsolidado.btnNuevo.doClick();
+                VentasConsolidado.txtDni.setText(lblDNI.getText());
+                VentasConsolidado.T3.doClick();
+            }
+        }
     }//GEN-LAST:event_tbFacturacionKeyPressed
 
     private void txtDsctoGlobalCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDsctoGlobalCaretUpdate
-        // TODO add your handling code here:
+        btnGuardar.doClick();
     }//GEN-LAST:event_txtDsctoGlobalCaretUpdate
 
     private void txtDsctoGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDsctoGlobalActionPerformed
@@ -2740,6 +2770,7 @@ public class Facturador extends javax.swing.JFrame {
                     facturaCabecera.setPoliza(txtPoliza.getText());
                     facturaCabecera.setContratante(txtContratante.getText());
                     facturaCabecera.setCartaGarantia(txtCGarantia.getText());
+                    facturaCabecera.setDni(lblDNI.getText());
             if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera(lblMant.getText())){
                 if(crearCabecera()){
                     CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
@@ -2769,14 +2800,14 @@ public class Facturador extends javax.swing.JFrame {
                         facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
                         facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
                         facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
-                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(txtMtoIGV.getText())));
+                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
                         facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
                         facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
                         facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
                         facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
                         facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
                         facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
-                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(txtImporteTotalVenta.getText())));
+                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
                         facturaDetalle.setCodUsu(cabecera.codUsuario(lblusu.getText()));
                         facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
                         if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle(lblMant.getText())){
@@ -3027,6 +3058,8 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JLabel lblCodDomicilioFiscal;
+    public static javax.swing.JLabel lblDNI;
+    public static javax.swing.JLabel lblDNI3;
     private javax.swing.JLabel lblEmpresa;
     private javax.swing.JLabel lblFechaEmision;
     private javax.swing.JLabel lblId;

@@ -125,7 +125,7 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         tabla.getColumnModel().getColumn(6).setMaxWidth(0);
         tabla.getColumnModel().getColumn(7).setMinWidth(0);
         tabla.getColumnModel().getColumn(7).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(75);
     }
     
     public void listarFacturasDetalles(JTable tabla, String id) {
@@ -171,8 +171,8 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         tabla.getColumnModel().getColumn(3).setPreferredWidth(500);
         tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(90);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(67);
         tabla.setRowHeight(35);
     }
     
@@ -186,6 +186,21 @@ public class CuentasPorPagarSfsRpta implements Serializable {
             ventanavisor.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "reporteFactura:"+e.getMessage());
+        }
+    }
+    
+    public void reporteFacturasPorFecha(String estado,String fechaI,String fechaF) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("ESTADO", estado);
+            parametros.put("FECHAI", fechaI);
+            parametros.put("FECHAF", fechaF);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cuentasPorPagar/facturas.jasper"), parametros, con.conectar());          
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Factura Electrónica .::. " + fechaI + " - " + fechaF );
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "reporteFacturasPorFecha:"+e.getMessage());
         }
     }
     

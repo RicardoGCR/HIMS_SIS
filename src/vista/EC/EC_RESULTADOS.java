@@ -17,6 +17,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -50,6 +51,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         initComponents();
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         //FECHA Y HORA
         h1 = new Thread(this);
@@ -86,18 +88,23 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         fecha_inicio_EC_R = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtBuscarPaciente_EC_R = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        lblNomArea_EC = new javax.swing.JLabel();
-        lblNumeArea_EC = new javax.swing.JLabel();
         cbFecha_EC_R = new javax.swing.JCheckBox();
-        lblFecha_EC_R = new javax.swing.JLabel();
-        lblHora_EC_R = new javax.swing.JLabel();
         fecha_fin_EC_R = new com.toedter.calendar.JDateChooser();
         EC_BUSCAR_R = new javax.swing.JButton();
+        jPanel23 = new javax.swing.JPanel();
+        txtBuscarPaciente_EC_R = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_RESULTADOS_EC = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        lblfecha_F2 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        lblFecha_EC_R = new javax.swing.JLabel();
+        lblHora_EC_R = new javax.swing.JLabel();
+        lblNumeArea_EC = new javax.swing.JLabel();
+        lblNomArea_EC = new javax.swing.JLabel();
         lblfecha_I_R = new javax.swing.JLabel();
         lblG_R = new javax.swing.JLabel();
         lblfecha_F_R = new javax.swing.JLabel();
@@ -120,16 +127,15 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jpanel.setBackground(new java.awt.Color(34, 113, 179));
 
         titulo5.setBackground(new java.awt.Color(0, 102, 102));
-        titulo5.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        titulo5.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
         titulo5.setForeground(new java.awt.Color(255, 255, 255));
         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo5.setText("Examenes EC");
         titulo5.setToolTipText("");
         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        lblUsu.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 25)); // NOI18N
         lblUsu.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsu.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblUsu.setText("Usuario");
 
@@ -146,42 +152,20 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 9)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("FECHA INICIO");
+        jLabel1.setText("FECHA INICIO:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 9)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("FECHA TERMINO");
+        jLabel2.setText("FECHA TERMINO:");
 
-        txtBuscarPaciente_EC_R.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtBuscarPaciente_EC_RCaretUpdate(evt);
-            }
-        });
-        txtBuscarPaciente_EC_R.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBuscarPaciente_EC_RKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBuscarPaciente_EC_RKeyTyped(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 9)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("AM, DNI , HC, APELLIDOS Y NOMBRES");
 
-        lblNomArea_EC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblNomArea_EC.setForeground(new java.awt.Color(255, 255, 255));
-        lblNomArea_EC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblNomArea_EC.setText("jLabel3");
-
-        lblNumeArea_EC.setForeground(new java.awt.Color(255, 255, 255));
-        lblNumeArea_EC.setText("jLabel3");
-
         cbFecha_EC_R.setBackground(new java.awt.Color(255, 255, 255));
-        cbFecha_EC_R.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        cbFecha_EC_R.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         cbFecha_EC_R.setForeground(new java.awt.Color(255, 255, 255));
         cbFecha_EC_R.setText("BUSCAR POR RANGO DE FECHAS");
         cbFecha_EC_R.addActionListener(new java.awt.event.ActionListener() {
@@ -194,12 +178,6 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                 cbFecha_EC_RPropertyChange(evt);
             }
         });
-
-        lblFecha_EC_R.setForeground(new java.awt.Color(255, 255, 255));
-        lblFecha_EC_R.setText("jLabel3");
-
-        lblHora_EC_R.setForeground(new java.awt.Color(255, 255, 255));
-        lblHora_EC_R.setText("jLabel3");
 
         fecha_fin_EC_R.setBackground(new java.awt.Color(255, 255, 255));
         fecha_fin_EC_R.setDateFormatString("dd-MM-yyyy");
@@ -217,6 +195,36 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             }
         });
 
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtBuscarPaciente_EC_R.setBorder(null);
+        txtBuscarPaciente_EC_R.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarPaciente_EC_RCaretUpdate(evt);
+            }
+        });
+        txtBuscarPaciente_EC_R.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarPaciente_EC_RKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarPaciente_EC_RKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addComponent(txtBuscarPaciente_EC_R)
+                .addContainerGap())
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtBuscarPaciente_EC_R, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
         jpanel.setLayout(jpanelLayout);
         jpanelLayout.setHorizontalGroup(
@@ -224,75 +232,58 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             .addGroup(jpanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanelLayout.createSequentialGroup()
-                        .addComponent(titulo5)
-                        .addGap(77, 77, 77)
-                        .addComponent(lblFecha_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblHora_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNumeArea_EC)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblNomArea_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(titulo5)
                             .addComponent(cbFecha_EC_R)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jpanelLayout.createSequentialGroup()
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(fecha_inicio_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(8, 8, 8)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fecha_fin_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(EC_BUSCAR_R, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtBuscarPaciente_EC_R)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-                        .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(fecha_inicio_EC_R, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                    .addComponent(fecha_fin_EC_R, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EC_BUSCAR_R, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jpanelLayout.setVerticalGroup(
             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(titulo5)
+                .addGap(93, 93, 93)
+                .addComponent(cbFecha_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titulo5)
-                    .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNomArea_EC)
-                            .addComponent(lblNumeArea_EC)))
-                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblFecha_EC_R)
-                        .addComponent(lblHora_EC_R)))
+                    .addComponent(jLabel1)
+                    .addComponent(fecha_inicio_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpanelLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(fecha_fin_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)))
+                        .addGap(55, 55, 55)
+                        .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel4))
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(cbFecha_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jpanelLayout.createSequentialGroup()
-                                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel2))
-                                    .addGap(0, 0, 0)
-                                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(fecha_inicio_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fecha_fin_EC_R, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jpanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(txtBuscarPaciente_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(EC_BUSCAR_R, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(0, 14, Short.MAX_VALUE))))
+                        .addGap(29, 29, 29)
+                        .addComponent(EC_BUSCAR_R)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -315,52 +306,139 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         ));
         tb_RESULTADOS_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_RESULTADOS_EC.setComponentPopupMenu(jPopupMenu1);
-        tb_RESULTADOS_EC.setRowHeight(22);
+        tb_RESULTADOS_EC.setRowHeight(35);
         tb_RESULTADOS_EC.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tb_RESULTADOS_EC);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("RESULTADOS DEL DIA");
+        jPanel4.setBackground(new java.awt.Color(43, 43, 43));
 
-        lblfecha_I_R.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI Light", 0, 23)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("EXAMENES DEL DIA");
+
+        lblfecha_F2.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        lblfecha_F2.setForeground(new java.awt.Color(255, 255, 255));
+        lblfecha_F2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblfecha_F2.setText(" ");
+
+        jLabel13.setForeground(new java.awt.Color(43, 43, 43));
+        jLabel13.setText("jLabel3");
+
+        jLabel14.setForeground(new java.awt.Color(43, 43, 43));
+        jLabel14.setText("jLabel3");
+
+        lblFecha_EC_R.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha_EC_R.setText("jLabel3");
+
+        lblHora_EC_R.setForeground(new java.awt.Color(255, 255, 255));
+        lblHora_EC_R.setText("jLabel3");
+
+        lblNumeArea_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumeArea_EC.setText("jLabel3");
+
+        lblNomArea_EC.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        lblNomArea_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblNomArea_EC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNomArea_EC.setText("jLabel3");
+
+        lblfecha_I_R.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lblfecha_I_R.setForeground(new java.awt.Color(255, 255, 255));
         lblfecha_I_R.setText("  ");
 
-        lblG_R.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblG_R.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lblG_R.setForeground(new java.awt.Color(255, 255, 255));
         lblG_R.setText("-");
 
-        lblfecha_F_R.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblfecha_F_R.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lblfecha_F_R.setForeground(new java.awt.Color(255, 255, 255));
         lblfecha_F_R.setText(" ");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(186, 186, 186)
+                        .addComponent(lblFecha_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblHora_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNumeArea_EC)
+                        .addGap(52, 52, 52))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblfecha_I_R, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblG_R)
+                        .addGap(10, 10, 10)
+                        .addComponent(lblfecha_F_R, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(273, 273, 273)
+                        .addComponent(lblfecha_F2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(35, 35, 35)
+                .addComponent(lblNomArea_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(377, 377, 377)
+                .addComponent(jLabel13)
+                .addGap(183, 183, 183)
+                .addComponent(jLabel14)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel15))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblNumeArea_EC)
+                                    .addComponent(lblNomArea_EC)))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblFecha_EC_R)
+                                .addComponent(lblHora_EC_R)))))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblfecha_F2)
+                    .addComponent(lblfecha_I_R)
+                    .addComponent(lblG_R)
+                    .addComponent(lblfecha_F_R))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(lblfecha_I_R, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(lblG_R)
-                .addGap(10, 10, 10)
-                .addComponent(lblfecha_F_R, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(533, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblfecha_I_R)
-                        .addComponent(lblG_R)
-                        .addComponent(lblfecha_F_R))
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE))
+                .addGap(129, 129, 129)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -417,13 +495,22 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             int mesAC = Integer.parseInt(fecha.substring(3, 5));
             int anioAC = Integer.parseInt(fecha.substring(6, 10));
 
-            int diaIN = fecha_inicio_EC_R.getCalendar().get(Calendar.DAY_OF_MONTH);
-            int mesIN = fecha_inicio_EC_R.getCalendar().get(Calendar.MONTH) + 1;
-            int anioIN = fecha_inicio_EC_R.getCalendar().get(Calendar.YEAR);
+            String diaIN = new SimpleDateFormat("dd").format(fecha_inicio_EC_R.getDate());
+            String mesIN = new SimpleDateFormat("MM").format(fecha_inicio_EC_R.getDate());
+            String anioIN = new SimpleDateFormat("yyy").format(fecha_inicio_EC_R.getDate());
+         
+//            int diaIN = fecha_inicio_EC_R.getCalendar().get(Calendar.DAY_OF_MONTH);
+//            int mesIN = fecha_inicio_EC_R.getCalendar().get(Calendar.MONTH) + 1;
+//            int anioIN = fecha_inicio_EC_R.getCalendar().get(Calendar.YEAR);
 
-            int diaFN = fecha_fin_EC_R.getCalendar().get(Calendar.DAY_OF_MONTH);
-            int mesFN = fecha_fin_EC_R.getCalendar().get(Calendar.MONTH) + 1;
-            int anioFN = fecha_fin_EC_R.getCalendar().get(Calendar.YEAR);
+            String diaFN = new SimpleDateFormat("dd").format(fecha_fin_EC_R.getDate());
+            String mesFN = new SimpleDateFormat("MM").format(fecha_fin_EC_R.getDate());
+            String anioFN = new SimpleDateFormat("yyy").format(fecha_fin_EC_R.getDate());
+         
+//            
+//            int diaFN = fecha_fin_EC_R.getCalendar().get(Calendar.DAY_OF_MONTH);
+//            int mesFN = fecha_fin_EC_R.getCalendar().get(Calendar.MONTH) + 1;
+//            int anioFN = fecha_fin_EC_R.getCalendar().get(Calendar.YEAR);
 
             //            if(fecha_inicio.getDate()==null || fecha_fin.getDate()==null){
                 //              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
@@ -442,6 +529,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                         lblfecha_I_R.setText(diaIN + "/" + mesIN + "/" + anioIN);
                         lblfecha_F_R.setText(diaFN + "/" + mesFN + "/" + anioFN);
                         lblG_R.setVisible(true);
+                        lblfecha_I_R.setVisible(true);
+                        lblfecha_F_R.setVisible(true);
                         txtBuscarPaciente_EC_R.requestFocus();
                         //                       }
                     //                }
@@ -606,9 +695,10 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             fecha_inicio_EC_R.setEnabled(true);
             fecha_fin_EC_R.setEnabled(true);
             txtBuscarPaciente_EC_R.setText("");
-            lblfecha_I_R.setVisible(true);
-            lblfecha_F_R.setVisible(true);
-            lblG_R.setVisible(true);
+//            lblfecha_I_R.setVisible(true);
+//            lblfecha_F_R.setVisible(true);
+//            lblG_R.setVisible(true);
+            EC_BUSCAR_R.setEnabled(true);
         }else{
             fecha_inicio_EC_R.setEnabled(false);
             fecha_fin_EC_R.setEnabled(false);
@@ -618,6 +708,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             lblfecha_I_R.setVisible(false);
             lblfecha_F_R.setVisible(false);
             lblG_R.setVisible(false);
+            EC_BUSCAR_R.setEnabled(false);
+            txtBuscarPaciente_EC_R.requestFocus();
         }
     }
     
@@ -794,11 +886,15 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private com.toedter.calendar.JDateChooser fecha_fin_EC_R;
     private com.toedter.calendar.JDateChooser fecha_inicio_EC_R;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -809,6 +905,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JLabel lblNomArea_EC;
     private javax.swing.JLabel lblNumeArea_EC;
     public static javax.swing.JLabel lblUsu;
+    private javax.swing.JLabel lblfecha_F2;
     private javax.swing.JLabel lblfecha_F_R;
     private javax.swing.JLabel lblfecha_I_R;
     private javax.swing.JTable tb_RESULTADOS_EC;

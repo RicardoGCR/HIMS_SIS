@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteFactura" language="groovy" pageWidth="554" pageHeight="802" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2cc5038d-9b6f-465d-a97e-cd1ef2257af3">
-	<property name="ireport.zoom" value="3.21538321500001"/>
-	<property name="ireport.x" value="1085"/>
-	<property name="ireport.y" value="447"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -402,105 +402,6 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="186" splitType="Stretch">
-			<staticText>
-				<reportElement x="345" y="65" width="100" height="14" uuid="09944832-2195-4789-8a77-3f4479af29b7"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Op. Inafectas:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="345" y="46" width="100" height="14" uuid="7356eda3-7ba3-488b-bb55-71bc6854fce9"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Op. Gravadas:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="345" y="85" width="100" height="14" uuid="c1c3903f-1e35-41aa-9701-6c6cc8f3af50"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Op. Exoneradas:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="345" y="27" width="100" height="14" uuid="d83975a2-64e6-4dba-b6fd-d6208825d73f"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Monto Descuentos:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="345" y="125" width="100" height="14" uuid="9db4f5c4-9e87-42dc-82a7-c89282bea599"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[IGV:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="345" y="143" width="100" height="14" uuid="6240b346-874d-4233-b6ab-54f88633e23d"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Importe Total:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="445" y="125" width="100" height="14" forecolor="#202020" uuid="418e92d0-faf7-4561-9305-54fa0d5eb073"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MONTO_IGV}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="445" y="27" width="100" height="14" forecolor="#202020" uuid="c846fdd8-9dd9-4fff-a130-0b40935e77c9"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTAL_DSCTO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="445" y="46" width="100" height="14" forecolor="#202020" uuid="8b23571c-9a20-4350-8b6d-538f28367562"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{VALOR_VGRAVADA}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="445" y="65" width="100" height="14" forecolor="#202020" uuid="b96de73b-6910-4022-8d41-29faa8691e23"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{VALOR_VINAFECTADA}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="445" y="85" width="100" height="14" forecolor="#202020" uuid="c5fe6f9e-7b92-4fcc-89a5-7a29e00cc3b9"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{VENTA_EXONERADA}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="445" y="143" width="100" height="13" uuid="4f553143-905e-489e-a0d1-59bba6a67ab5"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{IMPORTE_TOTAL_VTA}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="445" y="160" width="100" height="14" uuid="13c96b43-249f-4c04-aafc-040873dd7b96"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ESTADO}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="345" y="160" width="100" height="14" uuid="15501da8-b01f-400e-855e-41cb42bfe6de"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ESTADO:]]></text>
-			</staticText>
-		</band>
+		<band height="186" splitType="Stretch"/>
 	</summary>
 </jasperReport>

@@ -405,7 +405,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                      <Component id="txt_COD_UNI_ORG_ACTIVIDADES" min="-2" pref="145" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txt_COD_UNI_ORG_ACTIVIDADES" pref="145" max="32767" attributes="0"/>
+                          <Component id="LBL_HORA_FIN_1" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="txt_COD_UNI_ORGANICA_JERAR" min="-2" pref="125" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -414,14 +417,17 @@
                               <Component id="TXT_AR_ID_ACTI" min="-2" pref="56" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                               <Component id="LBL_CANTIDAD_HORAS_TOTAL" min="-2" pref="111" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="TXT_HORA_QUITAR_CBX" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="TXT_HORA_QUITAR_CBX_FIN" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="LBL_HORA_TOTAL_QUITAR" min="-2" pref="133" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="LBL_HORAS_LIBRES_SUMA" min="-2" pref="102" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="174" max="32767" attributes="0"/>
                               <Component id="btnguardar_ACTIVIDAD_ROL" min="-2" pref="42" max="-2" attributes="1"/>
                           </Group>
                       </Group>
@@ -432,20 +438,34 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txt_COD_UNI_ORG_ACTIVIDADES" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TXT_AR_ID_ACTI" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_COD_UNI_ORGANICA_JERAR" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="LBL_CANTIDAD_HORAS_TOTAL" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txt_COD_UNI_ORG_ACTIVIDADES" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TXT_AR_ID_ACTI" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_COD_UNI_ORGANICA_JERAR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="LBL_CANTIDAD_HORAS_TOTAL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="TXT_HORA_QUITAR_CBX" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TXT_HORA_QUITAR_CBX_FIN" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="LBL_HORA_TOTAL_QUITAR" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="LBL_HORAS_LIBRES_SUMA" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="LBL_HORA_TOTAL_QUITAR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LBL_HORAS_LIBRES_SUMA" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="LBL_HORA_FIN_1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -534,6 +554,24 @@
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JTextField" name="LBL_HORA_FIN_1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField1"/>
+              </Properties>
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="LBL_HORA_FIN_1CaretUpdate"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="TXT_HORA_QUITAR_CBX">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="TXT_HORA_QUITAR_CBX_FIN">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField1"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="P_ROL1">
@@ -557,13 +595,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="TXT_HORA_INICIO" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="TXT_HORA_FIN" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="146" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtHoras_Libres" min="-2" pref="73" max="-2" attributes="0"/>
@@ -580,8 +618,9 @@
                               <Component id="LBL_TOTAL_HORA" min="-2" pref="99" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="btn_AGREGAR_ACTIVIDADES" min="-2" pref="133" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="BTN_QUITAR_ACTIVIDAD" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -611,13 +650,13 @@
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtHoras_Libres" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="TXT_HORA_INICIO" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="TXT_HORA_FIN" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtHoras_Libres" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -669,6 +708,7 @@
                 <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
               <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="btn_AGREGAR_ACTIVIDADESItemStateChanged"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AGREGAR_ACTIVIDADESActionPerformed"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btn_AGREGAR_ACTIVIDADESKeyPressed"/>
               </Events>
@@ -798,7 +838,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="txt_ACTIVIDAD" pref="359" max="32767" attributes="0"/>
+                          <Component id="txt_ACTIVIDAD" pref="405" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn_BUSCAR_ACTIVIDAD" min="-2" pref="28" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -1875,10 +1915,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lbl_turnos_disponibles" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
@@ -1890,9 +1926,15 @@
                               <Component id="LBL_GUION" min="-2" pref="8" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="LBL_AREA" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lbl_turnos_disponibles" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="TXT_MOSTRAR_HORA_GUARDAR_UO" min="-2" pref="111" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="P_ROL" min="-2" max="-2" attributes="0"/>
@@ -1912,8 +1954,11 @@
                           <Component id="lbl_nombre_S" alignment="1" max="32767" attributes="0"/>
                           <Component id="LBL_AREA" alignment="1" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_turnos_disponibles" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbl_turnos_disponibles" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="TXT_MOSTRAR_HORA_GUARDAR_UO" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="157" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
@@ -2154,7 +2199,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" pref="323" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" pref="328" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2397,6 +2442,8 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="TXT_MOSTRAR_HORA_GUARDAR_UO">
             </Component>
           </SubComponents>
         </Container>

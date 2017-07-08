@@ -207,6 +207,26 @@ Conexion con = new Conexion();
         }
         return cod;
     }
+    public String VisibleAdminCPT(String codigo)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC Caja_Listar_Visible_Admin_CPT ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, codigo);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_PRECIO: " + ex.getMessage());
+        }
+        return cod;
+    }
     
     
 public boolean DetalleVenta(){

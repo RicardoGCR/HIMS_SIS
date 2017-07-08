@@ -79,7 +79,7 @@ DefaultTableModel m;
 
         btnBuscarReporte1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnBuscarReporte1.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarReporte1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imprimir-32.png"))); // NOI18N
+        btnBuscarReporte1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Eliminar archivo-32.png"))); // NOI18N
         btnBuscarReporte1.setText("Anuladas");
         btnBuscarReporte1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btnBuscarReporte1.setContentAreaFilled(false);
@@ -95,12 +95,12 @@ DefaultTableModel m;
 
         btnBuscarReporte.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnBuscarReporte.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Play-32.png"))); // NOI18N
+        btnBuscarReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Contabilidad-32 (1).png"))); // NOI18N
         btnBuscarReporte.setText("Especifica de Detalle");
         btnBuscarReporte.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btnBuscarReporte.setContentAreaFilled(false);
         btnBuscarReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscarReporte.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        btnBuscarReporte.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnBuscarReporte.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnBuscarReporte.setIconTextGap(30);
         btnBuscarReporte.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +111,7 @@ DefaultTableModel m;
 
         btnBuscarReporte2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnBuscarReporte2.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarReporte2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imprimir-32.png"))); // NOI18N
+        btnBuscarReporte2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Calendario-32.png"))); // NOI18N
         btnBuscarReporte2.setText("Por Fechas");
         btnBuscarReporte2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btnBuscarReporte2.setContentAreaFilled(false);
@@ -148,13 +148,13 @@ DefaultTableModel m;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(73, 73, 73)
                 .addComponent(btnBuscarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscarReporte1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscarReporte2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 

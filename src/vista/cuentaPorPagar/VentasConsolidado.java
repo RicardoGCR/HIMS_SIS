@@ -1537,7 +1537,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbLaboratorio);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
+        //
     }//GEN-LAST:event_btnFacturarLaboratorioActionPerformed
 
     private void btnFacturarProcedimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarProcedimientosActionPerformed
@@ -1550,7 +1554,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbProcedimientos);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
+        
     }//GEN-LAST:event_btnFacturarProcedimientosActionPerformed
 
     private void btnFacturarRayosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarRayosActionPerformed
@@ -1563,7 +1571,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbRayos);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
+        
     }//GEN-LAST:event_btnFacturarRayosActionPerformed
 
     private void btnFacturarEcografiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarEcografiasActionPerformed
@@ -1576,7 +1588,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbEcografias);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
+        
     }//GEN-LAST:event_btnFacturarEcografiasActionPerformed
 
     private void btnFacturarFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarFarmaciaActionPerformed
@@ -1589,6 +1605,9 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbFarmacia);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
     }//GEN-LAST:event_btnFacturarFarmaciaActionPerformed
 

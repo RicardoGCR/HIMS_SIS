@@ -89,6 +89,23 @@ public void Caja_Correlativo(){
             System.out.println("Error al generar serie y numero " + ex.getMessage());
         }
     }
+
+    public void CAJA_CANTIDAD_DIAS(String total){
+        String consulta="";
+        try {
+            consulta="CAJA_DIAS_HOSPITALIZADOS ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, total);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Pagos.lblCantidad.setText(r.getString(1));     
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CONTAR DIAS " + e.getMessage());
+        }
+    }
     
 
 public void SumaTotalReporte(String total){
@@ -353,7 +370,7 @@ public boolean ActualizarVenta()
         }
         catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error ACTUALIZAR CABECERA: " + ex.getMessage());
         }
         return resp;
     }
@@ -385,8 +402,7 @@ public boolean ActualizarVentaEx()
         return resp;
     }
 
-public boolean Nuevo()
-        {
+public boolean Nuevo(){
         boolean resp = false;
         try{
             String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
@@ -422,6 +438,47 @@ public boolean Nuevo()
         return resp;
     }
 
+    public boolean INICIAR_HOSPITALIZACION_H(){
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_REGISTRAR_DIAS_H ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ININCIAR HOSPITALIZACION: " + ex.getMessage());
+        }
+        return resp;
+    }
+
+        public boolean DIAS_HOSPITALIZACION(){
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_CALCULAR_DIAS_H ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error TERMINAR HOSPITALIZACION: " + ex.getMessage());
+        }
+        return resp;
+    }
+
+    
     public boolean eliminar(){
         boolean resp = false;
         try
@@ -1051,7 +1108,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         try {
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
-           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorio - copia.jasper"), parametros, con.conectar());   
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorio - copia.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 Caja_Pagos.ErrorPrint.setUndecorated(true);
@@ -1695,6 +1752,66 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             tabla.getColumnModel().getColumn(6).setPreferredWidth(60);
             tabla.getColumnModel().getColumn(7).setMinWidth(0);
             tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+      
+        
+//        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(3).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(4).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(5).setPreferredWidth(150); 
+//        
+  
+        tabla.setRowHeight(40);
+        
+    }
+            
+    public void CAJA_LIQUIDACION_ALTA(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Documento","Fecha","Acto Médico","CPT","Área","Cantidad","Precio","Total","COD_NOMEN"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[9];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_CONSOLIDADO_CREDITO_HOSPITALARIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaLiquidacion(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: LISTAR LIQUIDACION " + e.getMessage());
+        }
+    }
+        public void formatoTablaLiquidacion(JTable tabla){
+
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(80);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(60);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(350);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(60);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(60);
+            tabla.getColumnModel().getColumn(7).setPreferredWidth(60);
+            tabla.getColumnModel().getColumn(8).setMinWidth(0);
+            tabla.getColumnModel().getColumn(8).setMaxWidth(0);
       
         
 //        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 

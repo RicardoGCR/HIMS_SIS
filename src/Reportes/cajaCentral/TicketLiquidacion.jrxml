@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="184"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -169,7 +169,7 @@ AND  CDC.id_documento=     $P{doc}]]>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="81" splitType="Stretch">
+		<band height="99" splitType="Stretch">
 			<textField>
 				<reportElement x="69" y="22" width="100" height="10" uuid="248bf25e-ff25-4970-9620-59996a71d912"/>
 				<textElement>
@@ -255,7 +255,7 @@ AND  CDC.id_documento=     $P{doc}]]>
 				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement key="table 1" mode="Opaque" x="2" y="65" width="198" height="16" uuid="f26c0eac-752c-4080-894d-cb30984ffba3"/>
+				<reportElement key="table 1" mode="Opaque" x="2" y="83" width="198" height="16" uuid="f26c0eac-752c-4080-894d-cb30984ffba3"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="DetalleDoc" uuid="9fdf4a53-af04-4c32-b7f6-901119e781d9">
 						<datasetParameter name="id">
@@ -334,6 +334,13 @@ AND  CDC.id_documento=     $P{doc}]]>
 					</jr:column>
 				</jr:table>
 			</componentElement>
+			<staticText>
+				<reportElement x="2" y="66" width="198" height="12" uuid="e549d250-0741-473e-bfc6-99773a2b5fa9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Lucida Sans Typewriter" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LIQUIDACIÓN DE ALTA]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -361,7 +368,7 @@ AND  CDC.id_documento=     $P{doc}]]>
 		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="118" splitType="Stretch">
+		<band height="68" splitType="Stretch">
 			<staticText>
 				<reportElement x="1" y="1" width="100" height="10" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
 				<textElement>

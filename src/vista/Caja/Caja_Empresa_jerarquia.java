@@ -961,7 +961,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                     );
 
                     cbxTipoDoc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                    cbxTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "2 CARNET DE EXTRANJERIA", "3 RUC", "4 PASAPORTE", "5 CED.DIPLOMATICA DE IDENTIDAD" }));
+                    cbxTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "4 CARNET DE EXTRANJERIA", "6 RUC", "7 PASAPORTE", "A CED.DIPLOMATICA DE IDENTIDAD" }));
                     cbxTipoDoc.setEnabled(false);
 
                     jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

@@ -4,6 +4,7 @@ SELECT * FROM SISTEMA_UNIDAD_EJECUTORA
 SELECT * FROM CAJA_EMPRESA_JERARQUIA_PAGO
 select * from CUENTAS_POR_PAGAR_FACTURAS_CABECERA
 SELECT * FROM CUENTAS_POR_PAGAR_NOTA_CREDITO
+SELECT * FROM CUENTAS_POR_PAGAR_NOTA_DEBITO
 
 alter procedure sp_CUENTAS_POR_PAGAR_NOTA_CREDITO_reporte
 @cnc_id bigint
@@ -24,12 +25,17 @@ go
 
 exec sp_CUENTAS_POR_PAGAR_NOTA_CREDITO_reporte 33 
 
+select convert(int,right(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4) + 
+substring(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4,2)+ 
+left(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,2))
 
 ALTER PROCEDURE sp_CUENTAS_POR_PAGAR_NOTA_CREDITO_listar
+@FECHADESDE int,
+@FECHAHASTA int,
 @buscar varchar(20),
 @tipo char(1)
 as
-if(@tipo=1)--LISTADO
+if(@tipo=1)--LISTADO DEL DIA
 begin
 SELECT NC.CNC_ID,NC.CNC_SERIE+'-'+NC.CNC_CORRELATIVO,NC.CNC_FECHA_EMISION,FC.CPF_ID,
 FC.CPF_SERIE+'-'+FC.CPF_CORRELATIVO,FC.CPF_FECHA_EMISION,EJ.repre_empre_jerar,ej.correo,
@@ -37,6 +43,9 @@ EJ.tipo_documento,EJ.nro_documento,FC.CPF_TIPO_MONEDA,NC.CNC_DESCRIPCION
 FROM CUENTAS_POR_PAGAR_FACTURAS_CABECERA FC,CUENTAS_POR_PAGAR_NOTA_CREDITO NC,
 CAJA_EMPRESA_JERARQUIA_PAGO EJ 
 WHERE FC.CPF_ID=NC.CPF_ID AND EJ.cod_empre_jerar=FC.cod_empre_jerar 
+and (convert(int,right(nc.CNC_FECHA_EMISION,4) +  substring(nc.CNC_FECHA_EMISION,4,2)+ left(nc.CNC_FECHA_EMISION,2))>=convert(int,right(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4) +  substring(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4,2)+ left(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,2))) 
+and (convert(int,right(nc.CNC_FECHA_EMISION,4) +  substring(nc.CNC_FECHA_EMISION,4,2)+ left(nc.CNC_FECHA_EMISION,2)))<=convert(int,right(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4) +  substring(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4,2)+ left(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,2))
+order by CPF_FECHA_EMISION desc
 end
 if(@tipo=2)--todo
 begin
@@ -47,6 +56,9 @@ FROM CUENTAS_POR_PAGAR_FACTURAS_CABECERA FC,CUENTAS_POR_PAGAR_NOTA_CREDITO NC,
 CAJA_EMPRESA_JERARQUIA_PAGO EJ
 WHERE FC.CPF_ID=NC.CPF_ID AND EJ.cod_empre_jerar=FC.cod_empre_jerar 
 AND ej.nro_documento like @buscar+'%'
+and (convert(int,right(nc.CNC_FECHA_EMISION,4) +  substring(nc.CNC_FECHA_EMISION,4,2)+ left(nc.CNC_FECHA_EMISION,2))>=@FECHADESDE) 
+and (convert(int,right(nc.CNC_FECHA_EMISION,4) +  substring(nc.CNC_FECHA_EMISION,4,2)+ left(nc.CNC_FECHA_EMISION,2))<=@FECHAHASTA)
+order by CPF_FECHA_EMISION desc
 END
 if(@tipo=3)--factura
 begin
@@ -57,6 +69,9 @@ FROM CUENTAS_POR_PAGAR_FACTURAS_CABECERA FC,CUENTAS_POR_PAGAR_NOTA_CREDITO NC,
 CAJA_EMPRESA_JERARQUIA_PAGO EJ
 WHERE FC.CPF_ID=NC.CPF_ID AND EJ.cod_empre_jerar=FC.cod_empre_jerar 
 AND ej.nro_documento like @buscar+'%' and fc.CPF_DOCUMENTO='01 FACTURA'
+and (convert(int,right(nc.CNC_FECHA_EMISION,4) +  substring(nc.CNC_FECHA_EMISION,4,2)+ left(nc.CNC_FECHA_EMISION,2))>=@FECHADESDE) 
+and (convert(int,right(nc.CNC_FECHA_EMISION,4) +  substring(nc.CNC_FECHA_EMISION,4,2)+ left(nc.CNC_FECHA_EMISION,2))<=@FECHAHASTA)
+order by CPF_FECHA_EMISION desc
 end
 if(@tipo=4)--boleta
 begin
@@ -67,7 +82,91 @@ FROM CUENTAS_POR_PAGAR_FACTURAS_CABECERA FC,CUENTAS_POR_PAGAR_NOTA_CREDITO NC,
 CAJA_EMPRESA_JERARQUIA_PAGO EJ
 WHERE FC.CPF_ID=NC.CPF_ID AND EJ.cod_empre_jerar=FC.cod_empre_jerar 
 AND ej.nro_documento like @buscar+'%' and fc.CPF_DOCUMENTO='03 BOLETA'
+and (convert(int,right(nc.CNC_FECHA_EMISION,4) +  substring(nc.CNC_FECHA_EMISION,4,2)+ left(nc.CNC_FECHA_EMISION,2))>=@FECHADESDE) 
+and (convert(int,right(nc.CNC_FECHA_EMISION,4) +  substring(nc.CNC_FECHA_EMISION,4,2)+ left(nc.CNC_FECHA_EMISION,2))<=@FECHAHASTA)
+order by CPF_FECHA_EMISION desc
+end
+
+GO
+
+EXEC sp_CUENTAS_POR_PAGAR_NOTA_CREDITO_listar '20170702','20170708','','2'
+
+
+ALTER PROCEDURE sp_CUENTAS_POR_PAGAR_NOTA_DEBITO_listar
+@FECHADESDE int,
+@FECHAHASTA int,
+@buscar varchar(20),
+@tipo char(1)
+as
+if(@tipo=1)--LISTADO
+begin
+SELECT ND.CND_ID,ND.CND_SERIE+'-'+ND.CND_CORRELATIVO,ND.CND_FECHA_EMISION,FC.CPF_ID,
+FC.CPF_SERIE+'-'+FC.CPF_CORRELATIVO,FC.CPF_FECHA_EMISION,EJ.repre_empre_jerar,ej.correo,
+EJ.tipo_documento,EJ.nro_documento,FC.CPF_TIPO_MONEDA,ND.CND_DESCRIPCION
+FROM CUENTAS_POR_PAGAR_FACTURAS_CABECERA FC,CUENTAS_POR_PAGAR_NOTA_DEBITO ND,
+CAJA_EMPRESA_JERARQUIA_PAGO EJ 
+WHERE FC.CPF_ID=ND.CPF_ID AND EJ.cod_empre_jerar=FC.cod_empre_jerar 
+and (convert(int,right(nd.CND_FECHA_EMISION,4) +  substring(nd.CND_FECHA_EMISION,4,2)+ left(nd.CND_FECHA_EMISION,2))>=convert(int,right(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4) +  substring(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4,2)+ left(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,2)))  
+and (convert(int,right(nd.CND_FECHA_EMISION,4) +  substring(nd.CND_FECHA_EMISION,4,2)+ left(nd.CND_FECHA_EMISION,2))<=convert(int,right(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4) +  substring(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,4,2)+ left(FORMAT ( GETDATE(), 'dd/MM/yyyy', 'en-US' ) ,2))) 
+order by CPF_FECHA_EMISION desc
+end
+if(@tipo=2)--todo
+begin
+SELECT ND.CND_ID,ND.CND_SERIE+'-'+ND.CND_CORRELATIVO,ND.CND_FECHA_EMISION,FC.CPF_ID,
+FC.CPF_SERIE+'-'+FC.CPF_CORRELATIVO,FC.CPF_FECHA_EMISION,EJ.repre_empre_jerar,ej.correo,
+EJ.tipo_documento,EJ.nro_documento,FC.CPF_TIPO_MONEDA,ND.CND_DESCRIPCION
+FROM CUENTAS_POR_PAGAR_FACTURAS_CABECERA FC,CUENTAS_POR_PAGAR_NOTA_DEBITO ND,
+CAJA_EMPRESA_JERARQUIA_PAGO EJ 
+WHERE FC.CPF_ID=ND.CPF_ID AND EJ.cod_empre_jerar=FC.cod_empre_jerar 
+AND ej.nro_documento like @buscar+'%'
+and (convert(int,right(nd.CND_FECHA_EMISION,4) +  substring(nd.CND_FECHA_EMISION,4,2)+ left(nd.CND_FECHA_EMISION,2))>=@FECHADESDE) 
+and (convert(int,right(nd.CND_FECHA_EMISION,4) +  substring(nd.CND_FECHA_EMISION,4,2)+ left(nd.CND_FECHA_EMISION,2))<=@FECHAHASTA)
+order by CPF_FECHA_EMISION desc
+END
+if(@tipo=3)--factura
+begin
+SELECT ND.CND_ID,ND.CND_SERIE+'-'+ND.CND_CORRELATIVO,ND.CND_FECHA_EMISION,FC.CPF_ID,
+FC.CPF_SERIE+'-'+FC.CPF_CORRELATIVO,FC.CPF_FECHA_EMISION,EJ.repre_empre_jerar,ej.correo,
+EJ.tipo_documento,EJ.nro_documento,FC.CPF_TIPO_MONEDA,ND.CND_DESCRIPCION
+FROM CUENTAS_POR_PAGAR_FACTURAS_CABECERA FC,CUENTAS_POR_PAGAR_NOTA_DEBITO ND,
+CAJA_EMPRESA_JERARQUIA_PAGO EJ 
+WHERE FC.CPF_ID=ND.CPF_ID AND EJ.cod_empre_jerar=FC.cod_empre_jerar 
+AND ej.nro_documento like @buscar+'%' and fc.CPF_DOCUMENTO='01 FACTURA'
+and (convert(int,right(nd.CND_FECHA_EMISION,4) +  substring(nd.CND_FECHA_EMISION,4,2)+ left(nd.CND_FECHA_EMISION,2))>=@FECHADESDE) 
+and (convert(int,right(nd.CND_FECHA_EMISION,4) +  substring(nd.CND_FECHA_EMISION,4,2)+ left(nd.CND_FECHA_EMISION,2))<=@FECHAHASTA)
+order by CPF_FECHA_EMISION desc
+end
+if(@tipo=4)--boleta
+begin
+SELECT ND.CND_ID,ND.CND_SERIE+'-'+ND.CND_CORRELATIVO,ND.CND_FECHA_EMISION,FC.CPF_ID,
+FC.CPF_SERIE+'-'+FC.CPF_CORRELATIVO,FC.CPF_FECHA_EMISION,EJ.repre_empre_jerar,ej.correo,
+EJ.tipo_documento,EJ.nro_documento,FC.CPF_TIPO_MONEDA,ND.CND_DESCRIPCION
+FROM CUENTAS_POR_PAGAR_FACTURAS_CABECERA FC,CUENTAS_POR_PAGAR_NOTA_DEBITO ND,
+CAJA_EMPRESA_JERARQUIA_PAGO EJ 
+WHERE FC.CPF_ID=ND.CPF_ID AND EJ.cod_empre_jerar=FC.cod_empre_jerar 
+AND ej.nro_documento like @buscar+'%' and fc.CPF_DOCUMENTO='03 BOLETA'
+and (convert(int,right(nd.CND_FECHA_EMISION,4) +  substring(nd.CND_FECHA_EMISION,4,2)+ left(nd.CND_FECHA_EMISION,2))>=@FECHADESDE) 
+and (convert(int,right(nd.CND_FECHA_EMISION,4) +  substring(nd.CND_FECHA_EMISION,4,2)+ left(nd.CND_FECHA_EMISION,2))<=@FECHAHASTA)
+order by CPF_FECHA_EMISION desc
 end
 GO
 
-EXEC sp_CUENTAS_POR_PAGAR_NOTA_CREDITO_listar '','1'
+EXEC sp_CUENTAS_POR_PAGAR_NOTA_DEBITO_listar '','','','1'
+
+ALTER procedure sp_CUENTAS_POR_PAGAR_NOTA_CREDITO_DEBITO_detalle
+@CPF_ID BIGINT
+as
+select FD.CPD_COD_UNIDAD, NC.nomen_caja,NC.descripcion_nomen_tipo,
+FD.CPD_VALOR_U,FD.CPD_CANTIDAD,FD.CPD_PRECIO_VENTA,FD.CPD_IGV,FD.CPD_DSCTO,FD.CPD_VALOR_VENTA
+from CUENTAS_POR_PAGAR_FACTURAS_CABECERA fc,CUENTAS_POR_PAGAR_FACTURAS_DETALLE fd,
+CAJA_NOMENCLATURA_CAJA NC
+where fc.CPF_ID=fd.CPF_ID AND NC.cod_nomen_caja=FD.COD_NOMEN_CAJA
+AND FC.CPF_ID=@CPF_ID
+go
+
+EXEC sp_CUENTAS_POR_PAGAR_NOTA_CREDITO_DEBITO_detalle '10124'
+
+select * from CUENTAS_POR_PAGAR_FACTURAS_CABECERA WHERE CPF_ID='10124'
+select * from CUENTAS_POR_PAGAR_FACTURAS_DETALLE WHERE CPF_ID='10124'
+
+select * from CAJA_NOMENCLATURA_CAJA where nomen_caja not like 'FR%'

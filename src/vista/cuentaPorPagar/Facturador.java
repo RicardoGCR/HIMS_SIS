@@ -2634,6 +2634,8 @@ public class Facturador extends javax.swing.JFrame {
                 VentasConsolidado.btnNuevo.doClick();
                 VentasConsolidado.txtDni.setText(lblDNI.getText());
                 VentasConsolidado.T3.doClick();
+            } else {
+                System.out.println("error");
             }
         }
     }//GEN-LAST:event_tbFacturacionKeyPressed

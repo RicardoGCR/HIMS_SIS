@@ -7,6 +7,10 @@
 =======
         <group>
 <<<<<<< HEAD
+            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/NewJFrame.java</file>
+=======
+<<<<<<< HEAD
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Precios.java</file>
             <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reportes.java</file>
@@ -44,6 +48,7 @@
             <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/FacturadorPagos.java</file>
             <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarVentasConsolidadoCabecera.java</file>
 >>>>>>> 27f9e38127b6d7d8f22f67c425a2caf658bba105
+>>>>>>> 91dd868c297e2a2f2ad53a33db2615c949a4c93b
         </group>
 >>>>>>> 91dd868c297e2a2f2ad53a33db2615c949a4c93b
     </open-files>

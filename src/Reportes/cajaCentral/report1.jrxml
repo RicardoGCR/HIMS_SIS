@@ -52,7 +52,7 @@
 		</parameter>
 		<queryString>
 			<![CDATA[SELECT        CAJA_NOMENCLATURA_CAJA.descripcion_nomen_tipo AS CPT, CAJA_DOCUMENTO_DETALLE.cantidad_detalle,
-						 left(CAJA_DOCUMENTO_DETALLE.total_detalle,len(CAJA_DOCUMENTO_DETALLE.total_detalle)) as PRECIO,
+						 left(CAJA_DOCUMENTO_DETALLE.precio_detalle,len(CAJA_DOCUMENTO_DETALLE.precio_detalle)) as PRECIO,
                          CAJA_DOCUMENTO_DETALLE.id_documento
 FROM            CAJA_PRECIOS INNER JOIN
                          CAJA_NOMENCLATURA_CAJA ON CAJA_PRECIOS.cod_nomen_caja = CAJA_NOMENCLATURA_CAJA.cod_nomen_caja INNER JOIN

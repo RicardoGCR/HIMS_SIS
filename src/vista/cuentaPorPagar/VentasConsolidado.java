@@ -1468,7 +1468,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
 
     private void txtActoMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtActoMedicoCaretUpdate
         buscarVentas();
-        
     }//GEN-LAST:event_txtActoMedicoCaretUpdate
 
     private void cbxActoMedicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxActoMedicoItemStateChanged

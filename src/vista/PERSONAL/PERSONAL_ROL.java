@@ -1466,6 +1466,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                 txtMedico_UOCaretUpdate(evt);
                             }
                         });
+                        txtMedico_UO.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtMedico_UOActionPerformed(evt);
+                            }
+                        });
 
                         btnBuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
                         btnBuscarP.setToolTipText("");
@@ -3105,6 +3110,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
 
     }//GEN-LAST:event_D_FECHAKeyPressed
 
+    private void txtMedico_UOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedico_UOActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMedico_UOActionPerformed
+
     public void CANTIDAD_HORAS_LIBRES_RESTA(){
         String L = LBL_TOTAL_HORA.getText();
         String L1 = LBL_CANTIDAD_HORAS_TOTAL.getText();
@@ -3320,10 +3329,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         try {
             
             String titulosb[]={"Nº","Cod. Turno UO","Cod. Turno","Cod. Horarios","Cod. T Turno",
-                "Turno","Nomenclatura","Hora Inicio", "Hora Fin", "AR_ID","Hora Total","Pasar Día"};
+                "Turno","Nomenclatura","Hora Inicio", "Hora Fin", "AR_ID","Hora Total","Pasar Día",
+                "Precio Normal", "Precio Sabado", "Precio Domingo","Precio Feriado"};
             msb1=new DefaultTableModel(null,titulosb);
             JTable psb=new JTable(msb1);
-            String filasb[]=new String[12];
+            String filasb[]=new String[16];
             TB_TURNOS_UO.setModel(msb1);
             TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb1);
             TB_TURNOS_UO.setRowSorter(elQueOrdenasb);
@@ -3408,6 +3418,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             TB_TURNOS_UO.getColumnModel().getColumn(9).setPreferredWidth(150);
             TB_TURNOS_UO.getColumnModel().getColumn(10).setPreferredWidth(100);
             TB_TURNOS_UO.getColumnModel().getColumn(11).setPreferredWidth(100);
+            TB_TURNOS_UO.getColumnModel().getColumn(12).setPreferredWidth(100);
+            TB_TURNOS_UO.getColumnModel().getColumn(13).setPreferredWidth(100);
+            TB_TURNOS_UO.getColumnModel().getColumn(14).setPreferredWidth(100);
+            TB_TURNOS_UO.getColumnModel().getColumn(15).setPreferredWidth(100);
             //Ocultar
             TB_TURNOS_UO.getColumnModel().getColumn(2).setMinWidth(0);
             TB_TURNOS_UO.getColumnModel().getColumn(2).setMaxWidth(0);    
@@ -3483,10 +3497,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         String consulta="";
                         TB_TURNOS_UO.setModel(new DefaultTableModel());
                         String titulos[]={"Nº","Cod. Turno UO","Cod. Turno","Cod. Horarios","Cod. T Turno",
-                        "Turno","Nomenclatura","Hora Inicio", "Hora Fin", "AR_ID","Total Hora","Pasar Día"};
+                        "Turno","Nomenclatura","Hora Inicio", "Hora Fin", "AR_ID","Total Hora","Pasar Día",
+                        "Precio Normal", "Precio Sabado", "Precio Domingo","Precio Feriado"};
                         m2=new DefaultTableModel(null,titulos);
                         JTable p=new JTable(m2);
-                        String fila[]=new String[12];
+                        String fila[]=new String[16];
                         Usuario obj=new Usuario();
                         consulta="exec PERSONAL_TURNOS_UO_AR ?";
                         PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -3506,6 +3521,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                             fila[9]=r.getString(9);
                             fila[10]=r.getString(10);
                             fila[11]=r.getString(11);
+                            fila[12]=r.getString(12);
+                            fila[13]=r.getString(13);
+                            fila[14]=r.getString(14);
+                            fila[15]=r.getString(15);
                             
                             m2.addRow(fila);
                             c++;

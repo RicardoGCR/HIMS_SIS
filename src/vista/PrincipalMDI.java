@@ -42,6 +42,7 @@ import vista.ConsultorioEx.RegistroEmbarazo;
 import vista.ConsultorioEx.RegistroSeguimiento;
 import vista.ConsultorioEx.Triaje;
 import vista.EC.EC_BUSCAR_EXAMEN_CAJA;
+import vista.EC.EC_RESULTADOS;
 import vista.LABORATORIO.frm_LAB_ESQUEMA_RESULTADO_INGRESO;
 import vista.LABORATORIO.frm_LAB_MUESTRA_EXAMEN;
 import vista.LABORATORIO.frm_LAB_VALORES_REFERENCIALES_INGRESO;
@@ -5864,15 +5865,24 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
+        EC_BUSCAR_EXAMEN_CAJA examenEC = new EC_BUSCAR_EXAMEN_CAJA();
+        examenEC.setVisible(true);
+        String u = lblUsu.getText();
+        EC_BUSCAR_EXAMEN_CAJA.lblUsu.setText(u);
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        // TODO add your handling code here:
+        EC_RESULTADOS examenEC_res = new EC_RESULTADOS();
+        examenEC_res.setVisible(true);
+        String u = lblUsu.getText();
+        EC_RESULTADOS.lblUsu.setText(u);
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
+        EC_RESULTADOS examenEC_res = new EC_RESULTADOS();
+        examenEC_res.setVisible(true);
+        String u = lblUsu.getText();
+        EC_RESULTADOS.lblUsu.setText(u);
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jLabel71MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel71MouseClicked

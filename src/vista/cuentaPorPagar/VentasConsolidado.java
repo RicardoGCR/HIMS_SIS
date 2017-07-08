@@ -34,7 +34,7 @@ import static vista.admisionEmergencia.FrmFormatoEmergencia.txtaMotivo;
 public class VentasConsolidado extends javax.swing.JFrame {
     DefaultTableModel m;
     Conexion cnn = new Conexion();
-    java.sql.Connection conexion=null;
+    static java.sql.Connection conexion=null;
     Conexion c=new Conexion();
     public static boolean Facturado= false;
     CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
@@ -128,7 +128,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }     
     }
     
-    public void listarActoMedico(String dni){
+    public static void listarActoMedico(String dni){
         try {
             Statement sta=conexion.createStatement();
             ResultSet rs=sta.executeQuery("EXEC CUENTAS_POR_PAGAR_LISTAR_ACTO_MEDICO '"+dni+"'");
@@ -1537,7 +1537,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbLaboratorio);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
+        //
     }//GEN-LAST:event_btnFacturarLaboratorioActionPerformed
 
     private void btnFacturarProcedimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarProcedimientosActionPerformed
@@ -1550,7 +1554,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbProcedimientos);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
+        
     }//GEN-LAST:event_btnFacturarProcedimientosActionPerformed
 
     private void btnFacturarRayosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarRayosActionPerformed
@@ -1563,7 +1571,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbRayos);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
+        
     }//GEN-LAST:event_btnFacturarRayosActionPerformed
 
     private void btnFacturarEcografiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarEcografiasActionPerformed
@@ -1576,7 +1588,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbEcografias);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
+        
     }//GEN-LAST:event_btnFacturarEcografiasActionPerformed
 
     private void btnFacturarFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarFarmaciaActionPerformed
@@ -1589,6 +1605,9 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbFarmacia);
         cabecera1.ventasConsolidadoCabecera(tbCabecera,txtActoMedico.getText());
+        btnNuevo.doClick();
+        txtDni.setText(Facturador.lblDNI.getText());
+        T3.doClick();
         buscarVentas();
     }//GEN-LAST:event_btnFacturarFarmaciaActionPerformed
 
@@ -1782,7 +1801,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblApellidos;
-    private javax.swing.JLabel lblCantidadActoMedico;
+    public static javax.swing.JLabel lblCantidadActoMedico;
     public static javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblEcografias;
     private javax.swing.JLabel lblFarmacia;

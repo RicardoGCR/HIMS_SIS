@@ -194,6 +194,8 @@ public class FacturadorPagos extends javax.swing.JFrame {
                 rbtTodas = new javax.swing.JRadioButton();
                 lblEmpresa1 = new javax.swing.JLabel();
                 lblEmpresa2 = new javax.swing.JLabel();
+                pnlImprimir = new javax.swing.JPanel();
+                btnPagar1 = new javax.swing.JButton();
 
                 btnImprimir.setText("Imprimir");
                 btnImprimir.addActionListener(new java.awt.event.ActionListener() {
@@ -534,9 +536,9 @@ public class FacturadorPagos extends javax.swing.JFrame {
                     .addGroup(jPanel42Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                             .addComponent(panelCPT21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(30, Short.MAX_VALUE))
                 );
                 jPanel42Layout.setVerticalGroup(
                     jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -638,9 +640,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
                 );
                 pnlPagarLayout.setVerticalGroup(
                     pnlPagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlPagarLayout.createSequentialGroup()
-                        .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1, Short.MAX_VALUE))
+                    .addComponent(btnPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                 );
 
                 jPanel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -715,9 +715,9 @@ public class FacturadorPagos extends javax.swing.JFrame {
                         .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                         .addComponent(pnlPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(50, Short.MAX_VALUE))
                 );
                 pnlImportesLayout.setVerticalGroup(
                     pnlImportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -791,6 +791,38 @@ public class FacturadorPagos extends javax.swing.JFrame {
                 lblEmpresa2.setForeground(new java.awt.Color(51, 51, 51));
                 lblEmpresa2.setText("Estado");
 
+                pnlImprimir.setBackground(new java.awt.Color(41, 127, 184));
+
+                btnPagar1.setBackground(new java.awt.Color(102, 0, 102));
+                btnPagar1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                btnPagar1.setForeground(new java.awt.Color(51, 51, 51));
+                btnPagar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Print-32 (1).png"))); // NOI18N
+                btnPagar1.setMnemonic('P');
+                btnPagar1.setToolTipText("Buscar Empresa");
+                btnPagar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 5));
+                btnPagar1.setBorderPainted(false);
+                btnPagar1.setContentAreaFilled(false);
+                btnPagar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                btnPagar1.setDefaultCapable(false);
+                btnPagar1.setFocusPainted(false);
+                btnPagar1.setFocusable(false);
+                btnPagar1.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        btnPagar1ActionPerformed(evt);
+                    }
+                });
+
+                javax.swing.GroupLayout pnlImprimirLayout = new javax.swing.GroupLayout(pnlImprimir);
+                pnlImprimir.setLayout(pnlImprimirLayout);
+                pnlImprimirLayout.setHorizontalGroup(
+                    pnlImprimirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPagar1, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                );
+                pnlImprimirLayout.setVerticalGroup(
+                    pnlImprimirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPagar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                );
+
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
@@ -799,34 +831,36 @@ public class FacturadorPagos extends javax.swing.JFrame {
                         .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(tablaS, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(pnlImportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(spFacturaDetalles)))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEmpresa1)
-                                    .addComponent(lblEmpresa2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rbtPorCancelar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblEmpresa1)
+                                            .addComponent(lblEmpresa2))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rbtCanceladas)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rbtTodas))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(dtFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(dtFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(rbtPorCancelar)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(rbtCanceladas)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(rbtTodas))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(dtFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(dtFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(pnlImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap())))
                 );
                 layout.setVerticalGroup(
@@ -834,24 +868,27 @@ public class FacturadorPagos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbtPorCancelar)
-                            .addComponent(rbtCanceladas)
-                            .addComponent(rbtTodas)
-                            .addComponent(lblEmpresa2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(dtFechaF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dtFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblEmpresa1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(rbtPorCancelar)
+                                    .addComponent(rbtCanceladas)
+                                    .addComponent(rbtTodas)
+                                    .addComponent(lblEmpresa2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(dtFechaF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(dtFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblEmpresa1)))
+                            .addComponent(pnlImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(spFacturaDetalles, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+                                .addComponent(spFacturaDetalles, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
                                 .addGap(0, 0, 0)
                                 .addComponent(pnlImportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(tablaS)))
@@ -1066,6 +1103,30 @@ public class FacturadorPagos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tbFacturasMouseReleased
 
+    private void btnPagar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagar1ActionPerformed
+        if(dtFechaI.getDate() == null || dtFechaF.getDate() == null){
+            if(rbtPorCancelar.isSelected()){ 
+                rpta.reporteFacturasPorFecha("F","","");
+            } else 
+            if(rbtCanceladas.isSelected()){
+                rpta.reporteFacturasPorFecha("C","","");
+            } else 
+            if(rbtTodas.isSelected()){
+                rpta.reporteFacturasPorFecha("T","","");
+            }
+        } else {
+            if(rbtPorCancelar.isSelected()){ 
+                rpta.reporteFacturasPorFecha("F",determinarFecha(dtFechaI),determinarFecha(dtFechaF));
+            } else 
+            if(rbtCanceladas.isSelected()){
+                rpta.reporteFacturasPorFecha("C",determinarFecha(dtFechaI),determinarFecha(dtFechaF));
+            } else 
+            if(rbtTodas.isSelected()){
+                rpta.reporteFacturasPorFecha("T",determinarFecha(dtFechaI),determinarFecha(dtFechaF));
+            }
+        }
+    }//GEN-LAST:event_btnPagar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1107,6 +1168,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
     public static javax.swing.JButton btnGuardar;
     private javax.swing.JMenuItem btnImprimir;
     private javax.swing.JButton btnPagar;
+    private javax.swing.JButton btnPagar1;
     private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JDateChooser dtFechaF;
     private com.toedter.calendar.JDateChooser dtFechaI;
@@ -1136,6 +1198,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
     private javax.swing.JPanel panelCPT21;
     private javax.swing.JPanel pnlAtajos;
     private javax.swing.JPanel pnlImportes;
+    private javax.swing.JPanel pnlImprimir;
     private javax.swing.JPanel pnlPagar;
     private javax.swing.JRadioButton rbtCanceladas;
     private javax.swing.JRadioButton rbtPorCancelar;

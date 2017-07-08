@@ -91,10 +91,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
         fecha1 = new javax.swing.JComboBox();
         fecha2 = new javax.swing.JComboBox();
+        fecha3 = new javax.swing.JComboBox();
+        fecha4 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fecha1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "02:00:00", "02:15:00", "08:20:00", "09:30:00", "10:00:00", "10:30:00", "11:50:00", "11:10:00", "13:20:00", "14:10:00", "15:59:00", "16:01:00", "17:01:00", "18:01:00", "17:02:00", "18:05:00", "18:37:00", "19:01:00", "19:49:00", "20:16:00", "21:30:00", "22:10:00", "22:50:00", "23:15:00", "23:59:00", "18:46:00" }));
+        fecha1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "00:00:00", "00:01:00", "00:30:00", "01:00:00", "01:01:00", "01:30:00", "02:00:00", "02:01:00", "02:30:00", "03:00:00", "03:01:00", "03:30:00", "04:00:00", "04:01:00", "04:30:00", "05:00:00", "05:01:00", "05:30:00", "06:00:00", "06:01:00", "06:30:00", "07:00:00", "07:01:00", "07:30:00", "08:00:00", "08:01:00", "08:30:00", "09:00:00", "09:01:00", "09:30:00", "10:00:00", "10:01:00", "10:30:00", "11:00:00", "11:01:00", "11:30:00", "12:00:00", "12:01:00", "12:30:00", "13:00:00", "13:01:30", "13:30:00", "14:00:00", "14:01:00", "14:30:00", "15:00:00", "15:01:00", "15:30:00", "16:00:00", "16:01:00", "16:30:00", "17:00:00", "17:01:00", "17:30:00", "18:00:00", "18:01:00", "18:30:00", "19:00:00", "19:01:00", "19:30:00", "20:00:00", "20:01:00", "20:30:00", "21:00:00", "21:01:00", "21:30:00", "22:00:00", "22:01:00", "22:30:00", "23:00:00", "23:01:00", "23:30:00", "15:40:00" }));
         fecha1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 fecha1ItemStateChanged(evt);
@@ -106,7 +108,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        fecha2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "03:00:00", "08:20:00", "09:30:00", "10:00:00", "10:30:00", "11:50:00", "11:10:00", "13:20:00", "14:10:00", "15:59:00", "16:01:00", "17:01:00", "18:01:00", "17:02:00", "18:05:00", "18:37:00", "19:01:00", "19:49:00", "20:16:00", "21:30:00", "22:10:00", "22:50:00", "23:15:00", "23:59:00", "22:00:00", "18:30:00", "18:31:00", "00:00:00", "00:48:00", "00:57:00", "01:46:00", "03:00:00", "08:50:00" }));
+        fecha2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "00:00:00", "00:01:00", "00:30:00", "01:00:00", "01:01:00", "01:30:00", "02:00:00", "02:01:00", "02:30:00", "03:00:00", "03:01:00", "03:30:00", "04:00:00", "04:01:00", "04:30:00", "05:00:00", "05:01:00", "05:30:00", "06:00:00", "06:01:00", "06:30:00", "07:00:00", "07:01:00", "07:30:00", "08:00:00", "08:01:00", "08:30:00", "09:00:00", "09:01:00", "09:30:00", "10:00:00", "10:01:00", "10:30:00", "11:00:00", "11:01:00", "11:30:00", "12:00:00", "12:01:00", "12:30:00", "13:00:00", "13:01:30", "13:30:00", "14:00:00", "14:01:00", "14:30:00", "15:00:00", "15:01:00", "15:30:00", "16:00:00", "16:01:00", "16:30:00", "17:00:00", "17:01:00", "17:30:00", "18:00:00", "18:01:00", "18:30:00", "19:00:00", "19:01:00", "19:30:00", "20:00:00", "20:01:00", "20:30:00", "21:00:00", "21:01:00", "21:30:00", "22:00:00", "22:01:00", "22:30:00", "23:00:00", "23:01:00", "23:30:00", "22:50:00" }));
         fecha2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 fecha2ItemStateChanged(evt);
@@ -115,6 +117,30 @@ public class NewJFrame extends javax.swing.JFrame {
         fecha2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 fecha2PropertyChange(evt);
+            }
+        });
+
+        fecha3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "00:00:00", "00:01:00", "00:30:00", "01:00:00", "01:01:00", "01:30:00", "02:00:00", "02:01:00", "02:30:00", "03:00:00", "03:01:00", "03:30:00", "04:00:00", "04:01:00", "04:30:00", "05:00:00", "05:01:00", "05:30:00", "06:00:00", "06:01:00", "06:30:00", "07:00:00", "07:01:00", "07:30:00", "08:00:00", "08:01:00", "08:30:00", "09:00:00", "09:01:00", "09:30:00", "10:00:00", "10:01:00", "10:30:00", "11:00:00", "11:01:00", "11:30:00", "12:00:00", "12:01:00", "12:30:00", "13:00:00", "13:01:30", "13:30:00", "14:00:00", "14:01:00", "14:30:00", "15:00:00", "15:01:00", "15:30:00", "16:00:00", "16:01:00", "16:30:00", "17:00:00", "17:01:00", "17:30:00", "18:00:00", "18:01:00", "18:30:00", "19:00:00", "19:01:00", "19:30:00", "20:00:00", "20:01:00", "20:30:00", "21:00:00", "21:01:00", "21:30:00", "22:00:00", "22:01:00", "22:30:00", "23:00:00", "23:01:00", "23:30:00", "15:40:00" }));
+        fecha3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                fecha3ItemStateChanged(evt);
+            }
+        });
+        fecha3.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                fecha3PropertyChange(evt);
+            }
+        });
+
+        fecha4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "00:00:00", "00:01:00", "00:30:00", "01:00:00", "01:01:00", "01:30:00", "02:00:00", "02:01:00", "02:30:00", "03:00:00", "03:01:00", "03:30:00", "04:00:00", "04:01:00", "04:30:00", "05:00:00", "05:01:00", "05:30:00", "06:00:00", "06:01:00", "06:30:00", "07:00:00", "07:01:00", "07:30:00", "08:00:00", "08:01:00", "08:30:00", "09:00:00", "09:01:00", "09:30:00", "10:00:00", "10:01:00", "10:30:00", "11:00:00", "11:01:00", "11:30:00", "12:00:00", "12:01:00", "12:30:00", "13:00:00", "13:01:30", "13:30:00", "14:00:00", "14:01:00", "14:30:00", "15:00:00", "15:01:00", "15:30:00", "16:00:00", "16:01:00", "16:30:00", "17:00:00", "17:01:00", "17:30:00", "18:00:00", "18:01:00", "18:30:00", "19:00:00", "19:01:00", "19:30:00", "20:00:00", "20:01:00", "20:30:00", "21:00:00", "21:01:00", "21:30:00", "22:00:00", "22:01:00", "22:30:00", "23:00:00", "23:01:00", "23:30:00", "22:50:00" }));
+        fecha4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                fecha4ItemStateChanged(evt);
+            }
+        });
+        fecha4.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                fecha4PropertyChange(evt);
             }
         });
 
@@ -127,15 +153,25 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fecha4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fecha3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
-                .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(fecha3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(fecha4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(194, Short.MAX_VALUE))
         );
 
@@ -166,18 +202,20 @@ public class NewJFrame extends javax.swing.JFrame {
         
         int hora =0, minuto=0, segundo =0;
         
-        hora= a + a1;
-        minuto = b + b1;
-        
-        if(minuto > 60){
-            hora = hora + 1;
-            minuto = minuto - 60;
-        }
-        
-        if(minuto == 60){
-            hora = hora + 1;
-            minuto = 00;
-        }
+        ///////////////SUMAR HORA/////////////
+//        hora= a + a1;
+//        minuto = b + b1;
+//        
+//        if(minuto > 60){
+//            hora = hora + 1;
+//            minuto = minuto - 60;
+//        }
+//        
+//        if(minuto == 60){
+//            hora = hora + 1;
+//            minuto = 00;
+//        }
+        //////////////////////////////////////
 //        
 //        
 //        if(a < a1 && b < b1){
@@ -203,24 +241,112 @@ public class NewJFrame extends javax.swing.JFrame {
         
         
         
+        
+        
+        
 //        //// PASAR DIA
-//        if(a1==00 && b1==00){
-//            hora = (24 - a) -1;
-//            minuto = 60 - b;
+        
+        if(a < a1 && b < b1){
+            hora = a1 - a;
+            minuto = b1 - b;
+        }
+        
+        if(a == a1 && b < b1){
+            hora = 00;
+            minuto = b1 - b;
+        }
+        
+        if(a < a1 && b == b1){
+            hora = a1 - a;
+            minuto = 00;
+        }
+        
+        if(a < a1 && b > b1){
+            hora = (a1 - a) - 1;
+            int m=0;
+            m = 60 - b;
+            minuto = m + b1;
+        }
+        
+        
+        if(a==00 && b==00 && c==00){
+            hora=a1;
+            minuto=b1;
+        }
+        
+        if(a1==00 && b1==00 && b!=00){
+            hora = (24 - a) - 1;
+            minuto = 60 - b;
+        }else{
+            if(a1==00 && b1==00 && b==00){
+                hora = (24 - a);
+                minuto = 00;
+            }
+        }
+        
+        if(a1==00 && b1 > 0 && a !=00 && b != 00){
+            int q=0, w=0, q1=0,w1=0;
+            q = (24 - a) -1;
+            w = 60 - b;
+            q1 = 00;
+            w1 = b1;
+            hora = q + q1 ;
+            minuto = w + w1;
+            
+            if(minuto >= 60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }
+        }
+        
+        
+        if(a!=00 && b!=00 && a1!=00 & b1!=00){
+            int z=0,x=0,z1=0,x1=0;
+            z = (24 - a) - 1;
+            x = 60 - b;
+            
+            z1= a1;
+            x1= b1;
+                        
+            hora = z+z1;
+            minuto = x+x1;
+            
+            if(minuto >=60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }       
+        }
+//        else{
+//            if(a!=00 && b==00 && a1!=00 & b1==00){
+//                
+//            }
 //        }
-//        if(a1==00 && b1 > 0){
-//            int q=0, w=0, q1=0,w1=0;
-//            q = (24 - a) -1;
-//            w = 60 - b;
-//            q1 = 00;
-//            w1 = b1;
-//            hora = q + q1 ;
-//            minuto = w + w1;
+//        else{
+//            if(a1!=00 && b1 > 0 && a==00 && b==00){
+//                //////////
+//                int q=0, w=0, q1=0,w1=0;
+//                q = (24 - a) -1;
+//                w = 60 - b;
+//                q1 = 00;
+//                w1 = b1;
+//                hora = q + q1 ;
+//                minuto = w + w1;
 //            
-//            if(minuto > 60){
-//            hora = hora + 1;
-//            minuto = minuto - 60;
+//                if(minuto >= 60){
+//                    hora = hora + 1;
+//                    minuto = minuto - 60;
+//                }
+//                ///////////
+//            }
 //        }
+        
+        
+        
+        
+//            else{
+//            if(a1==00 && b1 > 0 && a !=00 && b != 00){
+//                
+//            }
 //        }
         
         String horaf = "", minutof ="";
@@ -241,6 +367,189 @@ public class NewJFrame extends javax.swing.JFrame {
     private void fecha2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha2PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_fecha2PropertyChange
+
+    private void fecha3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fecha3ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fecha3ItemStateChanged
+
+    private void fecha3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha3PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fecha3PropertyChange
+
+    private void fecha4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fecha4ItemStateChanged
+        /////PASAR DIA
+        
+        String k = fecha3.getSelectedItem().toString();
+        String k2 = fecha4.getSelectedItem().toString();
+        
+        int p = Integer.parseInt(k.substring(0, 2));
+        int q = Integer.parseInt(k.substring(3, 5));
+        int r = Integer.parseInt(k.substring(6, 8));
+        
+        int p1 = Integer.parseInt(k2.substring(0, 2));
+        int q1 = Integer.parseInt(k2.substring(3, 5));
+        int r1 = Integer.parseInt(k2.substring(6, 8));
+        
+        int hora =0, minuto=0, segundo =0;
+        
+        ////TODO SEA IGUAL A 0
+        if(p==00 && q==00 && p1==00 & q1==00){
+        
+            hora = 24;
+            minuto = 00;
+              
+        }
+        
+        //////todo sea diferente a 0
+        if(p!=00 && q!=00 && p1!=00 & q1!=00){
+            int z=0,x=0,z1=0,x1=0;
+            z = (24 - p) - 1;
+            x = 60 - q;
+            
+            z1= p1;
+            x1= q1;
+                        
+            hora = z+z1;
+            minuto = x+x1;
+            
+            if(minuto >=60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }       
+        }
+        
+        
+        
+        //////minutos igual a 0
+        if(p!=00 && q==00 && p1!=00 & q1==00){
+            int z=0,x=0,z1=0,x1=0;
+            z = (24 - p) - 1;
+            x = 60 - q;
+            
+            z1= p1;
+            x1= q1;
+                        
+            hora = z+z1;
+            minuto = x+x1;
+            
+            if(minuto >=60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }       
+        }
+        
+        
+        if(p!=00 && q==00 && p1!=00 & q1!=00){
+            int z=0,x=0,z1=0,x1=0;
+            z = (24 - p) - 1;
+            x = 60 - q;
+            
+            z1= p1;
+            x1= q1;
+                        
+            hora = z+z1;
+            minuto = x+x1;
+            
+            if(minuto >=60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }       
+        }
+////        
+        
+        if(p!=00 && q!=00 && p1!=00 & q1==00){
+            int z=0,x=0,z1=0,x1=0;
+            z = (24 - p) - 1;
+            x = 60 - q;
+            
+            z1= p1;
+            x1= q1;
+                        
+            hora = z+z1;
+            minuto = x+x1;
+            
+            if(minuto >=60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }       
+        }
+        
+        
+        
+        if(p!=00 && q!=00 && p1==00 & q1!=00){
+            int z=0,x=0,z1=0,x1=0;
+            z = (24 - p) - 1;
+            x = 60 - q;
+            
+            z1= p1;
+            x1= q1;
+                        
+            hora = z+z1;
+            minuto = x+x1;
+            
+            if(minuto >=60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }       
+        }
+        
+        if(p==00 && q!=00 && p1!=00 & q1!=00){
+            int z=0,x=0,z1=0,x1=0;
+            z = p;
+            x = q;
+            
+            z1= p1;
+            x1= q1;
+                        
+            hora = z+z1;
+            minuto = x+x1;
+            
+            if(minuto >=60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }       
+        }
+        
+        if(p==00 && q==00 && p1!=00 & q1!=00){
+                                  
+            hora = 24 + p1;
+            minuto = q1;  
+       
+        }
+        
+        if(p==00 && q==00 && p1!=00 & q1==00){
+                                  
+            hora = 24 + p1;
+            minuto = q1;  
+       
+        }
+        
+        if(p==00 && q==00 && p1==00 & q1!=00){
+                                  
+            hora = 24 + p1;
+            minuto = q1;  
+       
+        }
+        
+        String horaf = "", minutof ="";
+        if(hora < 10){
+            horaf = ("0" + hora);
+        }else{
+            horaf = String.valueOf(hora);
+        }
+        if(minuto < 10){
+            minutof = ("0" + minuto);
+        }else{
+            minutof = String.valueOf(minuto);
+        }
+
+        System.out.println("hora pasar dia: " + horaf + " " + minutof + " " + segundo+"0");
+
+    }//GEN-LAST:event_fecha4ItemStateChanged
+
+    private void fecha4PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha4PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fecha4PropertyChange
 
     
     public void hora(){
@@ -311,5 +620,7 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox fecha1;
     private javax.swing.JComboBox fecha2;
+    private javax.swing.JComboBox fecha3;
+    private javax.swing.JComboBox fecha4;
     // End of variables declaration//GEN-END:variables
 }

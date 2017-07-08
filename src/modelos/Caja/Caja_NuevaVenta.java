@@ -89,6 +89,23 @@ public void Caja_Correlativo(){
             System.out.println("Error al generar serie y numero " + ex.getMessage());
         }
     }
+
+    public void CAJA_CANTIDAD_DIAS(String total){
+        String consulta="";
+        try {
+            consulta="CAJA_DIAS_HOSPITALIZADOS ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, total);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                Caja_Pagos.lblCantidad.setText(r.getString(1));     
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CONTAR DIAS " + e.getMessage());
+        }
+    }
     
 
 public void SumaTotalReporte(String total){
@@ -353,7 +370,7 @@ public boolean ActualizarVenta()
         }
         catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error ACTUALIZAR CABECERA: " + ex.getMessage());
         }
         return resp;
     }
@@ -385,8 +402,7 @@ public boolean ActualizarVentaEx()
         return resp;
     }
 
-public boolean Nuevo()
-        {
+public boolean Nuevo(){
         boolean resp = false;
         try{
             String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
@@ -422,6 +438,47 @@ public boolean Nuevo()
         return resp;
     }
 
+    public boolean INICIAR_HOSPITALIZACION_H(){
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_REGISTRAR_DIAS_H ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ININCIAR HOSPITALIZACION: " + ex.getMessage());
+        }
+        return resp;
+    }
+
+        public boolean DIAS_HOSPITALIZACION(){
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_CALCULAR_DIAS_H ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error TERMINAR HOSPITALIZACION: " + ex.getMessage());
+        }
+        return resp;
+    }
+
+    
     public boolean eliminar(){
         boolean resp = false;
         try

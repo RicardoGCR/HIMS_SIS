@@ -413,7 +413,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="7f" red="29" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;span style=&quot;font-size:&apos;30px&apos;&quot;&gt;Cuenta por Pagar - &lt;/span&gt;Factura Electr&#xf3;nica&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;span style=&quot;font-size:&apos;30px&apos;&quot;&gt;Cuenta por Pagar - &lt;/span&gt;Comunicaci&#xf3;n de Baja&lt;/html&gt;"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -1033,7 +1033,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="530" width="140" height="-1"/>
+          <AbsoluteConstraints x="20" y="530" width="140" height="70"/>
         </Constraint>
       </Constraints>
 

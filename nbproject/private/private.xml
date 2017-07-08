@@ -3,56 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
             <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
             <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/NewJFrame.java</file>
-=======
-            <file>file:/D:/pry/HIMS/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/Facturador.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/VentasConsolidado.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarVentasConsolidadoCabecera.java</file>
->>>>>>> c0c9b3340d5940b6d4a87d7b462ee4d1dcbbea90
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reporte_Anulados.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reporte_Fechas.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reportes.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reporte_CCTA6.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarFacturasCabecera.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarSfsRpta.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/Facturador.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/FacturadorPagos.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/admisionEmergencia/AdmisionEmergenciaCabecera.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/admisionEmergencia/AdmisionEmergenciaTopico.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/admisionCentral/FrmNuevaHistoriaC.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Nomenclaturas.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reporte_Cuentas.java</file>
-=======
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_BUSCAR_RESULTADO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/cuentaPorPagar/ComunicacionBaja.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_MUESTRA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/cuentaPorPagar/NotasCreditoDebito.java</file>
-            <file>file:/E:/pry/SISGESH/src/modelos/cuentaPorPagar/CuentasPorPagarComunicacionDeBaja.java</file>
->>>>>>> cc4ec50c45cdcbe30fbfbc2fa36c645d448c8b91
->>>>>>> e0b4939889df396b6345d9f262589abfce08fff4
->>>>>>> b43b9f26bddc2136e91bb85959fc1e84cd63b112
->>>>>>> 86433175dd77a00da7170f0c0e5f56ddd3a537bb
->>>>>>> 03803672ea44bee20bd616ee094393193cc1758b
->>>>>>> f72fded71ebb55d27f5138bb927e7c8eae03e5d7
         </group>
     </open-files>
 </project-private>

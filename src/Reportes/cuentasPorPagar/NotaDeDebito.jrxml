@@ -64,11 +64,11 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[exec sp_CUENTAS_POR_PAGAR_NOTA_CREDITO_reporte $P{cnc_id}]]>
+		<![CDATA[exec sp_CUENTAS_POR_PAGAR_NOTA_DEBITO_reporte $P{cnc_id}]]>
 	</queryString>
-	<field name="CNC_ID" class="java.lang.Long"/>
+	<field name="CND_ID" class="java.lang.Long"/>
 	<field name="sc_nc" class="java.lang.String"/>
-	<field name="CNC_FECHA_EMISION" class="java.lang.String"/>
+	<field name="CND_FECHA_EMISION" class="java.lang.String"/>
 	<field name="CPF_ID" class="java.lang.Long"/>
 	<field name="FAC_BOL" class="java.lang.String"/>
 	<field name="sc_factura" class="java.lang.String"/>
@@ -77,7 +77,7 @@
 	<field name="TIPO_DOCUMENTO" class="java.lang.String"/>
 	<field name="nro_documento" class="java.lang.String"/>
 	<field name="CPF_TIPO_MONEDA" class="java.lang.String"/>
-	<field name="CNC_DESCRIPCION" class="java.lang.String"/>
+	<field name="CND_DESCRIPCION" class="java.lang.String"/>
 	<field name="UNIDAD" class="java.lang.String"/>
 	<field name="DIRECCION" class="java.lang.String"/>
 	<field name="RUC" class="java.lang.String"/>
@@ -94,7 +94,7 @@
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[NOTA DE CRÉDITO ELECTRÓNICA]]></text>
+				<text><![CDATA[NOTA DE DÉBITO ELECTRÓNICA]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="366" y="34" width="178" height="20" uuid="df786d22-b486-4974-a0ab-d6bdbd6e5f83"/>

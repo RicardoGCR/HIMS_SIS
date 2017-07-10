@@ -392,7 +392,6 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     ////////////////////////////////////////////////////////////
                     ////////////////////////////////////////////////////////////
                     Caja_NuevaVenta CCD = new Caja_NuevaVenta();
-                    
                     CCD.CAJA_LIQUIDACION_ALTA(lblHc.getText(), tb_Liquidacion);
                     if(tb_Liquidacion.getRowCount()>0){
                         PaginasVentas.setSelectedIndex(3);
@@ -404,6 +403,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         ModificarALTA();
                         suma();
                         panelNumeros.setVisible(true);
+                        lblTipoTicket.setText("A");//A - ALTA
                     }
                     
                     
@@ -414,6 +414,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     GuardarDetalle();
                     panelNumeros.setVisible(true);
                     suma();
+                    lblTipoTicket.setText("N");//N - NORMAL
                 }
                 ////////////////////////////////////////////////////////////////
                 
@@ -427,6 +428,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         GuardarDetalle();
                         panelNumeros.setVisible(true);
                         suma();
+                        lblTipoTicket.setText("N");//N - NORMAL
                                 
                     }else if(!lblDescuentoContadorS.getText().equals(lblTotalItems.getText())){
 
@@ -1274,6 +1276,31 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                        
     }
      
+          public void ActualizarEstadoCRED_HOSPITALARIO(){
+  
+                        Caja_NuevaVenta cno = new Caja_NuevaVenta();
+                        cno.setId_documento(jLabel36.getText());
+                        if(cno.ActualizarEstadoPagoCREDITO_HOSPITALARIO()==true){
+                            System.out.println("Actualizado ESTADO CRED");
+
+                        } else {
+                            System.out.println("No SE ACTUALIZO EL ESTADO CRED ");
+                        }
+            
+    }
+                  public void ActualizarEstadoCRED_HOSPITALARIO_det(){
+  
+                        Caja_NuevaVenta cno = new Caja_NuevaVenta();
+                        cno.setId_Cod_det(Integer.parseInt(lblIdDocDet.getText()));
+                        if(cno.ActualizarEstadoPagoCREDITO_HOSPITALARIO_det()==true){
+                            System.out.println("Actualizado ESTADO CRED det ");
+
+                        } else {
+                            System.out.println("No SE ACTUALIZO EL ESTADO CRED det ");
+                        }
+            
+    }
+     
      public void Modificar(){
   
                         Caja_NuevaVenta cno = new Caja_NuevaVenta();
@@ -1551,6 +1578,172 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                              System.out.println("erorr detalle");
                        }     
  }
+    
+        public void GuardarDetalleCREDITO_ALTA(){
+        
+        if(!lblVisAdmi.getText().equals("N")&&lblMant.getText().equals("H")&&(!lblContador.getText().equals(lblNumeroTotal.getText()))){  //&&(Integer.parseInt(lblNumero.getText())<=0)
+                                ///////////////////////////CITAS
+                                    Caja_NuevaVenta CNVAC = new Caja_NuevaVenta();
+                                    CNVAC.setCA_ID(Integer.parseInt(lblCAid.getText()));
+                                    int c=0,d=0;
+                                    c=Integer.parseInt(lblContador.getText());
+                                    d=c+1;
+                                    CNVAC.setCONTADOR_CITAS(d); 
+                                    CNVAC.setCITAS_CAJA(Integer.parseInt(lblNumero.getText())-1); 
+                                    if(CNVAC.ActualizarCitas()==true){
+                                      System.out.println("Actualizado N Cita PARA HOY");  
+
+                                    }else {
+                                        System.out.println("Error actualizar N CITAS HOY");  
+                                    }
+                                
+                            }else if(!lblVisAdmi.getText().equals("N")&&lblMant.getText().equals("M")&&(!lblContadorF.getText().equals(lblNumeroFT.getText()))){//&&(Integer.parseInt(lblNumeroFuturo.getText())<=0)
+                                ///////////////////////////CITAS
+                                    Caja_NuevaVenta CNVACF = new Caja_NuevaVenta();
+                                    CNVACF.setCA_ID(Integer.parseInt(lblCAid.getText()));
+                                    int c=0,d=0;
+                                    c=Integer.parseInt(lblContadorF.getText());
+                                    d=c+1;
+                                    CNVACF.setCONTADOR_CITAS(d); 
+                                    
+                   
+                                       CNVACF.setCITAS_CAJA(Integer.parseInt(lblNumeroFuturo.getText())-1);   
+                                    
+                                   
+                                    if(CNVACF.ActualizarCitasFuturas()==true){
+                                      System.out.println("Actualizado N Cita A FUTURO");  
+
+                                    }else {
+                                        System.out.println("Error actualizar N CITAS A FUTURO");  
+                                    }
+                                
+                            }else if(!lblVisAdmi.getText().equals("N")&&lblMant.getText().equals("A")&&(!lblContadorA.getText().equals(lblNumeroAF.getText()))){ //&&(Integer.parseInt(lblNumero.getText())<=0)
+                                   Caja_NuevaVenta CNVACA = new Caja_NuevaVenta();
+                                    CNVACA.setCA_ID(Integer.parseInt(lblCAid.getText()));
+                                    int h=0,i=0;
+                                    h=Integer.parseInt(lblContadorA.getText());
+                                    i=h+1;
+                                    CNVACA.setCONTADOR_CITAS(i); 
+                                    CNVACA.setCITAS_CAJA(Integer.parseInt(lblNumerosAdicional.getText())-1); 
+                                    if(CNVACA.ActualizarCitasAdicionales()==true){
+                                      System.out.println("Actualizado N Cita ADICIONALES");  
+
+                                    }else {
+                                        System.out.println("Error actualizar N CITAS ADICIONALES");  
+                                    } 
+                }
+        
+
+                Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
+                Caja_Documento_Detalle cnvd1 = new Caja_Documento_Detalle();
+               // cnvd.setId_cod_doc_det(Integer.parseInt(CodDet.getText() ));
+                cnvd.setId_documento(lblcodigo.getText());     
+                cnvd.setCod_precio(cnvd.CodPrecio(lblCajaNomenclaturaPrecio.getText(),"CREDITO HOSPITALARIO"));
+//                cnvd.setNom_consultorio_citas(lblServicioArea.getText());
+                cnvd.setCantidad_detalle(Integer.parseInt(lblCantidad.getText()));
+                cnvd.setPrecio_detalle(Double.parseDouble(cnvd.CodPrecio1(lblCajaNomenclaturaPrecio.getText(),txtFormaPago.getText())));
+                int cantidad=0;
+                double precio=0;
+                double total=0;
+                cantidad=Integer.parseInt(lblCantidad.getText());
+                precio=Double.parseDouble(cnvd.CodPrecio1(lblCajaNomenclaturaPrecio.getText(),txtFormaPago.getText()));
+                total=cantidad*precio;
+                cnvd.setTotal_detalle(total);
+                cnvd.setDescu_exo_detalle(Double.parseDouble("0"));
+                cnvd.setPersonal_aten(lblIdMedico.getText()); 
+                if(!lblVisAdmi.getText().equals("N")&&lblMant.getText().equals("H")&&(!lblContador.getText().equals(lblNumeroTotal.getText()))){
+                    int a=0,b=0;
+                    a=Integer.parseInt(lblContador.getText());
+                    b=a+1; 
+                    cnvd.setNum_aten(String.valueOf(b));
+                }else  if(!lblVisAdmi.getText().equals("N")&&lblMant.getText().equals("M")){
+                    int e=0,f=0;
+                    e=Integer.parseInt(lblContadorF.getText());
+                    f=e+1; 
+                    cnvd.setNum_aten(String.valueOf(f));
+                }else if(!lblVisAdmi.getText().equals("N")&&lblMant.getText().equals("A")){
+                    int p=0,q=0;
+                    p=Integer.parseInt(lblContadorA.getText());
+                    q=p+1; 
+                    cnvd.setNum_aten(String.valueOf(q)); 
+                }else if(!lblVisAdmi.getText().equals("N")&&lblMant.getText().equals("V")){
+                    int EME=1;
+                   
+                    cnvd.setNum_aten(String.valueOf(EME)); 
+                }
+                if(lblVisAdmi.getText().equals("N")){
+                    cnvd.setNum_aten(""); 
+                }
+
+                cnvd.setTurno_cita(lblTurno.getText());
+                cnvd.setCod_usu(cnvd.codUsuario(lblusu.getText()));
+                
+                
+                    if(cnvd.DetalleVenta()==true){
+                           
+                               
+                                cnvd1.Detalle(lblcodigo.getText(),tb_CPT);
+                           
+                           PreventaHOSDET();
+                           panelMensaje.setVisible(true);   
+                           panelMensaje.setBackground(new Color(0,153,102)); 
+                           Mensaje4.setText("Datos Guardados de forma correcta");
+                           btnCorrectoSi.setVisible(true);
+                           btnCorrectoSi.setText("OK");
+                           btnCorrectoNo.setVisible(false);
+                           
+                           btnCorrectoSi.requestFocus();
+                           
+                            lblCPT.setVisible(true);
+                            panelCPT.setVisible(true);
+                            
+                            panelTablaCPT.setVisible(true);
+                            panelAnular.setVisible(false);
+                            lblTurno.setText("");
+
+                           System.out.println("Guardado detalle");
+                           tgDetalle=0;
+                           Caja_Documento_Detalle IDHC = new Caja_Documento_Detalle();
+                           IDHC.DetalleID(lblcodigo.getText());
+                           if(lblConsultorio.getText().equals("S")){
+                               btnBuscarCPT.setEnabled(false);
+                           }else  if(!lblConsultorio.getText().equals("S")){
+                               btnBuscarCPT.setEnabled(true); 
+                           }
+                          
+                           
+                           
+                           if(!lblVisAdmi.getText().equals("N")){
+                               Caja_Documento_Detalle MHC = new Caja_Documento_Detalle();
+                               MHC.setCod_usu(MHC.codUsuario(lblusu.getText()));
+                               MHC.setId_documento(lblIdDetalle.getText()); 
+                                    if(MHC.MovimientoHC()==true){
+                                      System.out.println("Guardado Movimiento HC");  
+
+                                    }else {
+                                        System.out.println("Error guaradar Movimiento HC");  
+                                    }  
+                            }
+
+                            panelTablaCPT.setVisible(true);
+
+                            btnImprimir.setEnabled(true);
+//                            DefaultTableModel modelo1 = (DefaultTableModel)tbConsultaDESCUENTO.getModel(); 
+//                            int b=tbConsultaDESCUENTO.getRowCount();
+//                            for(int j=0;j<b;j++){
+//                                        modelo1.removeRow(0);
+//                            }
+
+                       } else {
+                                panelMensaje.setVisible(true);
+                                panelMensaje.setBackground(new Color(255,91,70)); 
+                                Mensaje4.setText("Ocurrió un error verifique");
+                                btnCorrectoSi.setVisible(false);
+                                btnCorrectoNo.setVisible(false);
+                             System.out.println("erorr detalle");
+                       }     
+ }
+   
     
     public void INICIAR_HOSPITALIZACION(){
                 Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
@@ -2700,6 +2893,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 }};
                                                                                                                 resumen2 = new javax.swing.JPanel();
                                                                                                                 APENOM2 = new javax.swing.JLabel();
+                                                                                                                jLabel36 = new javax.swing.JLabel();
+                                                                                                                lblIdDocDet = new javax.swing.JLabel();
                                                                                                                 panelLiquidar = new javax.swing.JPanel();
                                                                                                                 Mensaje8 = new javax.swing.JLabel();
                                                                                                                 jPanel21 = new javax.swing.JPanel();
@@ -2769,6 +2964,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 lblImpresora = new javax.swing.JLabel();
                                                                                                                 lblVisibleImprimir = new javax.swing.JLabel();
                                                                                                                 lblVisibleImprimirAM = new javax.swing.JLabel();
+                                                                                                                lblTipoTicket = new javax.swing.JLabel();
 
                                                                                                                 BHC.setAlwaysOnTop(true);
                                                                                                                 BHC.setMinimumSize(new java.awt.Dimension(749, 350));
@@ -8949,6 +9145,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 APENOM2.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                                 APENOM2.setText("<html>Consolidado - Liquidación de Alta <span style=\"font-size:'14px'\"><br>Credito Hospitalario</br></span></html>");
 
+                                                                                                                jLabel36.setText("jLabel36");
+
+                                                                                                                lblIdDocDet.setText("jLabel87");
+
                                                                                                                 javax.swing.GroupLayout resumen2Layout = new javax.swing.GroupLayout(resumen2);
                                                                                                                 resumen2.setLayout(resumen2Layout);
                                                                                                                 resumen2Layout.setHorizontalGroup(
@@ -8956,7 +9156,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                     .addGroup(resumen2Layout.createSequentialGroup()
                                                                                                                         .addContainerGap()
                                                                                                                         .addComponent(APENOM2, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                        .addContainerGap(641, Short.MAX_VALUE))
+                                                                                                                        .addGap(27, 27, 27)
+                                                                                                                        .addGroup(resumen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                            .addComponent(jLabel36)
+                                                                                                                            .addComponent(lblIdDocDet))
+                                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                                 );
                                                                                                                 resumen2Layout.setVerticalGroup(
                                                                                                                     resumen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -8964,6 +9168,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                         .addContainerGap()
                                                                                                                         .addComponent(APENOM2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                         .addContainerGap(21, Short.MAX_VALUE))
+                                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resumen2Layout.createSequentialGroup()
+                                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                        .addComponent(jLabel36)
+                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                        .addComponent(lblIdDocDet)
+                                                                                                                        .addGap(10, 10, 10))
                                                                                                                 );
 
                                                                                                                 panelLiquidar.setBackground(new java.awt.Color(0, 153, 102));
@@ -8974,6 +9184,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 Mensaje8.setText("Cargar para la venta");
                                                                                                                 Mensaje8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                                                                                 Mensaje8.setIconTextGap(20);
+                                                                                                                Mensaje8.addMouseListener(new java.awt.event.MouseAdapter() {
+                                                                                                                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                                                                                                        Mensaje8MouseClicked(evt);
+                                                                                                                    }
+                                                                                                                });
 
                                                                                                                 javax.swing.GroupLayout panelLiquidarLayout = new javax.swing.GroupLayout(panelLiquidar);
                                                                                                                 panelLiquidar.setLayout(panelLiquidarLayout);
@@ -9498,6 +9713,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 lblVisibleImprimirAM.setForeground(new java.awt.Color(41, 127, 184));
                                                                                                                 lblVisibleImprimirAM.setText("jLabel36");
 
+                                                                                                                lblTipoTicket.setText("jLabel87");
+
                                                                                                                 javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
                                                                                                                 jPanel21.setLayout(jPanel21Layout);
                                                                                                                 jPanel21Layout.setHorizontalGroup(
@@ -9534,7 +9751,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addComponent(lblCodigoImprimir)
                                                                                                                             .addComponent(lblVisibleImprimir)
                                                                                                                             .addGroup(jPanel21Layout.createSequentialGroup()
-                                                                                                                                .addGap(176, 176, 176)
+                                                                                                                                .addComponent(lblTipoTicket)
+                                                                                                                                .addGap(136, 136, 136)
                                                                                                                                 .addComponent(lblImpresora))
                                                                                                                             .addGroup(jPanel21Layout.createSequentialGroup()
                                                                                                                                 .addComponent(PanelDesastre, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -9569,9 +9787,14 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                         .addComponent(lblCodigoImprimir)
                                                                                                                         .addGap(0, 0, 0)
                                                                                                                         .addComponent(lblVisibleImprimir)
-                                                                                                                        .addGap(3, 3, 3)
-                                                                                                                        .addComponent(lblImpresora)
-                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                                                                                                                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                                                                                                                .addGap(3, 3, 3)
+                                                                                                                                .addComponent(lblImpresora))
+                                                                                                                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                                .addComponent(lblTipoTicket)))
+                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                         .addContainerGap())
                                                                                                                 );
@@ -10902,7 +11125,8 @@ PaginasVentas.setSelectedIndex(1);
     }//GEN-LAST:event_btnEliminarDetalleActionPerformed
 
     private void eli5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli5ActionPerformed
-                EliminarDetalleVenta();
+
+        EliminarDetalleVenta();
 //                EliminarKardexLA();
 //            try{
 //                Caja_NuevaVenta ELIMD = new Caja_NuevaVenta();
@@ -10945,16 +11169,40 @@ PaginasVentas.setSelectedIndex(1);
 
     private void btnTerminiarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminiarVentaActionPerformed
         
-        if(lblVisAdmi.getText().equals("N")){
+        if(lblTipoTicket.getText().equals("N")&&!txtFormaPago.getText().equals("SIS")){
           nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
 //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
 //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
-        }else if(!lblVisAdmi.getText().equals("N")){
+        }else if(lblTipoTicket.getText().equals("C")&&!txtFormaPago.getText().equals("SIS")){
           nuevaV.reporteVentaConsultas(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+        } else if(lblTipoTicket.getText().equals("A")&&!txtFormaPago.getText().equals("SIS")){
+          nuevaV.reporteALTA(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+        } else if(lblTipoTicket.getText().equals("H")&&!txtFormaPago.getText().equals("SIS")){
+          nuevaV.reporteHOSPITALIZACION(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());////////////////////////////////////////////
+          ////////////////////////////////////////////////////////CUANDO SEA SIS
+        }else if(lblTipoTicket.getText().equals("N")&&txtFormaPago.getText().equals("SIS")){
+          nuevaV.reporteVentaLaRxEcSIS(lblcodigo.getText());
+//        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+//        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+        }else if(lblTipoTicket.getText().equals("C")&&txtFormaPago.getText().equals("SIS")){
+          nuevaV.reporteVentaConsultasSIS(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+        } else if(lblTipoTicket.getText().equals("A")&&txtFormaPago.getText().equals("SIS")){
+          nuevaV.reporteALTA(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+        } else if(lblTipoTicket.getText().equals("H")&&!txtFormaPago.getText().equals("SIS")){
+          nuevaV.reporteHOSPITALIZACION(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
         }
-            
 
         lblCPT.setVisible(false);
         panelCPT.setVisible(false);
@@ -11468,6 +11716,7 @@ PaginasVentas.setSelectedIndex(1);
             txtT6.setText("");
             txtT8.setText("");
             suma();  
+            lblTipoTicket.setText("C");//C - CONSULTORIO
 
     }//GEN-LAST:event_btnReservarActionPerformed
 
@@ -11539,25 +11788,34 @@ PaginasVentas.setSelectedIndex(1);
     }//GEN-LAST:event_btnBuscarPaciente4ActionPerformed
 
     private void tb_CPTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_CPTMouseClicked
-        
-        int fila=tb_CPT.getSelectedRow();
-        if(evt.getClickCount()==1){
-            lblDetalleId.setText(String.valueOf(tb_CPT.getValueAt(fila, 12)));
+        if (!txtFormaPago.getText().equals("CREDITO HOSPITALARIO")){
+            int fila=tb_CPT.getSelectedRow();
+            if(evt.getClickCount()==1){
+                lblDetalleId.setText(String.valueOf(tb_CPT.getValueAt(fila, 12)));
 
-            int filaseleccionada;
-            try{
+                int filaseleccionada;
+                try{
 
-                filaseleccionada= tb_CPT.getSelectedRow();
-                if (filaseleccionada!=-1){
-                    panelEliminacion.setVisible(true);
-                    panelMensaje.setVisible(false);
+                    filaseleccionada= tb_CPT.getSelectedRow();
+                    if (filaseleccionada!=-1){
+                        panelEliminacion.setVisible(true);
+                        btnEliminarDetalle.setText("Eliminar Este Registro ?");
+
+                        panelMensaje.setVisible(false);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error: " + e.getMessage());
                 }
-            } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
+                //           
             }
-            //            
-
+            
+        }else if (txtFormaPago.getText().equals("CREDITO HOSPITALARIO")){
+            panelEliminacion.setVisible(true);
+            btnEliminarDetalle.setText("Este CPT es por CREDITO, No se puede ELIMINAR");
+            eli5.setVisible(false);
+            noeli5.setVisible(false);
         }
+        
     }//GEN-LAST:event_tb_CPTMouseClicked
 
     private void tb_CPTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_CPTKeyPressed
@@ -11776,6 +12034,7 @@ PaginasVentas.setSelectedIndex(1);
         panelNumeros.setVisible(true);
         suma();
         GuardarPapeleta.dispose();  
+        lblTipoTicket.setText("H");//H - HOSPITALIZACION
     }//GEN-LAST:event_btnGuardarDetalleActionPerformed
 
     private void eli6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli6ActionPerformed
@@ -11986,9 +12245,46 @@ PaginasVentas.setSelectedIndex(1);
         int fila=tb_Liquidacion.getSelectedRow();
         if(evt.getClickCount()==1){
             panelLiquidar.setVisible(true);
+//            lblServicio.setText(String.valueOf(tb_Liquidacion.getValueAt(fila, 7)));
+            lblCajaNomenclaturaPrecio.setText(String.valueOf(tb_Liquidacion.getValueAt(fila, 8)));
+            jLabel36.setText(String.valueOf(tb_Liquidacion.getValueAt(fila, 9)));
+            lblNomenclatura.setText(String.valueOf(tb_Liquidacion.getValueAt(fila, 8)));
+            lblIdDocDet.setText(String.valueOf(tb_Liquidacion.getValueAt(fila, 10)));
 
         }
+        
+ 
     }//GEN-LAST:event_tb_LiquidacionMouseClicked
+
+    private void Mensaje8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mensaje8MouseClicked
+ 
+        if(tb_Liquidacion.getRowCount()>0){
+            GuardarDetalle();
+            panelNumeros.setVisible(true);
+            suma();
+            ActualizarEstadoCRED_HOSPITALARIO_det();
+            Caja_NuevaVenta CCD = new Caja_NuevaVenta();
+            CCD.CAJA_LIQUIDACION_ALTA(lblHc.getText(), tb_Liquidacion);
+            
+        }else if(tb_Liquidacion.getRowCount()==0){
+            Caja_NuevaVenta CCD = new Caja_NuevaVenta();
+            lblCajaNomenclaturaPrecio.setText("CN00761");
+            lblNomenclatura.setText("CN00761");
+            TERMINAR_HOSPITALIZACION();
+            System.out.println("Vamo llamando el registro");
+            CCD.CAJA_CANTIDAD_DIAS(lblHc.getText());
+            GuardarDetalleCREDITO_ALTA();
+            ModificarALTA();
+            suma();
+            panelNumeros.setVisible(true);
+            ActualizarEstadoCRED_HOSPITALARIO();
+            lblTipoTicket.setText("A"); //A-ALTA
+            PaginasVentas.setSelectedIndex(1);
+        }    
+            
+          
+
+    }//GEN-LAST:event_Mensaje8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -12188,6 +12484,7 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -12385,6 +12682,7 @@ PaginasVentas.setSelectedIndex(1);
     public static javax.swing.JLabel lblID_DETALLE_VENTA;
     public static javax.swing.JLabel lblIdDetalle;
     private javax.swing.JLabel lblIdDetallePreventa;
+    private javax.swing.JLabel lblIdDocDet;
     public static javax.swing.JLabel lblIdMedico;
     public static javax.swing.JLabel lblIdPreventa;
     public static javax.swing.JLabel lblIdPreventaAlta;
@@ -12415,6 +12713,7 @@ PaginasVentas.setSelectedIndex(1);
     public static javax.swing.JLabel lblServicio;
     private javax.swing.JLabel lblServicioArea;
     private javax.swing.JLabel lblSinAnulacion;
+    private javax.swing.JLabel lblTipoTicket;
     public static javax.swing.JLabel lblTotalAnulado;
     public static javax.swing.JLabel lblTotalContado;
     public static javax.swing.JLabel lblTotalDiario;
@@ -12427,7 +12726,7 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel lblVisibleImprimirAM;
     private javax.swing.JLabel lblcod;
     private javax.swing.JLabel lblcodanu;
-    private javax.swing.JLabel lblcodigo;
+    public static javax.swing.JLabel lblcodigo;
     private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JButton noeli;

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="2.143588810000002"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="240"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -256,7 +256,7 @@ AND  CDC.id_documento=  $P{doc}]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="119">
+		<band height="114">
 			<textField>
 				<reportElement x="-4" y="25" width="187" height="20" uuid="c1e118fe-22f2-4de5-a434-9f0dcbf61501"/>
 				<textElement>
@@ -265,63 +265,63 @@ AND  CDC.id_documento=  $P{doc}]]>
 				<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-4" y="48" width="100" height="20" uuid="b92de826-f820-410d-978b-190dbafdc558"/>
+				<reportElement x="-4" y="45" width="100" height="20" uuid="b92de826-f820-410d-978b-190dbafdc558"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[SERVICIO :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="46" y="48" width="126" height="20" uuid="e3387f89-ceb5-453c-844b-91c2d84cbf4d"/>
+				<reportElement x="46" y="45" width="126" height="20" uuid="e3387f89-ceb5-453c-844b-91c2d84cbf4d"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nom_consultorio_citas}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-4" y="61" width="100" height="20" uuid="dd74f175-d2ad-4450-a2e1-328c10af8b5e"/>
+				<reportElement x="-4" y="58" width="100" height="20" uuid="dd74f175-d2ad-4450-a2e1-328c10af8b5e"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[MÉDICO :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="36" y="61" width="227" height="20" uuid="8b5d026e-1a06-48a0-90cf-c7ee562903b7"/>
+				<reportElement x="36" y="58" width="227" height="20" uuid="8b5d026e-1a06-48a0-90cf-c7ee562903b7"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{personal_aten}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-4" y="73" width="100" height="20" uuid="57326ac0-9eb2-4820-9fd6-9e11aa9f6179"/>
+				<reportElement x="-4" y="70" width="100" height="20" uuid="57326ac0-9eb2-4820-9fd6-9e11aa9f6179"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[TURNO :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="32" y="73" width="100" height="20" uuid="f2c03347-829b-4a03-b5ea-03d232db7a2d"/>
+				<reportElement x="32" y="70" width="100" height="20" uuid="f2c03347-829b-4a03-b5ea-03d232db7a2d"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{turno_cita}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-4" y="85" width="100" height="20" uuid="7d554bdb-6905-47a9-b5cc-48dea967cbc2"/>
+				<reportElement x="-4" y="82" width="100" height="20" uuid="7d554bdb-6905-47a9-b5cc-48dea967cbc2"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[Nº CAMA : ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-4" y="97" width="117" height="16" uuid="029a66d3-7c30-4cfa-b13d-59928fecd94b"/>
+				<reportElement x="-4" y="94" width="117" height="16" uuid="029a66d3-7c30-4cfa-b13d-59928fecd94b"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" isBold="true"/>
 				</textElement>
-				<text><![CDATA[IMPORTE TOTAL S/. ]]></text>
+				<text><![CDATA[IMPORTE TOTAL S/. :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="114" y="97" width="62" height="16" uuid="12696c13-7a6f-4d06-bc3f-3ec8b92cbe33"/>
+				<reportElement x="114" y="94" width="62" height="16" uuid="12696c13-7a6f-4d06-bc3f-3ec8b92cbe33"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" isBold="true"/>
 				</textElement>
@@ -337,7 +337,7 @@ AND  CDC.id_documento=  $P{doc}]]>
 			<staticText>
 				<reportElement x="-4" y="5" width="176" height="20" uuid="8a293afa-776f-4cba-92e3-30841ffde515"/>
 				<textElement textAlignment="Center">
-					<font fontName="Lucida Sans Typewriter" size="10" isBold="true"/>
+					<font fontName="Lucida Sans Typewriter" size="12"/>
 				</textElement>
 				<text><![CDATA[HOSPITALIZACIÓN]]></text>
 			</staticText>

@@ -5005,8 +5005,8 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                 String day = days[calendar.get(Calendar.DAY_OF_WEEK)];
                 
                 TXT_NOMBRE_DIA.setText(day);
-                TXT_MES.setText(MES);
                 TXT_DIA.setText(DIA);
+                TXT_MES.setText(MES);
                 
             } catch (Exception e) {
                 System.out.println("error fecha: " + e.getMessage());
@@ -5035,13 +5035,21 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     || (TXT_MES.getText().equalsIgnoreCase("12") && TXT_DIA.getText().equalsIgnoreCase("25")))
             {
                 ////pasar el pago por feriados
+//                  String precio_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));      
+                  String precio_R_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));;
+                
+                  BigDecimal bd2_f = new BigDecimal(precio_R_feriado);
+
+                  bd2_f = bd2_f.setScale(0, BigDecimal.ROUND_HALF_UP);
+                
+                  txtTotal_Pago.setText(String.valueOf(bd2_f));
                 
             }else{
-                  String precio = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 12));
+//                  String precio_normal = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 12));
                 
-                  String precio_R = precio;
+                  String precio_R_normal = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 12));
                 
-                  BigDecimal bd2 = new BigDecimal(precio_R);
+                  BigDecimal bd2 = new BigDecimal(precio_R_normal);
 
                   bd2 = bd2.setScale(0, BigDecimal.ROUND_HALF_UP);
                 

@@ -725,11 +725,11 @@ public class BoletaElectronica extends javax.swing.JFrame {
                         facturaDetalle.setCpdAfecIgv("10 GRAVADO-OPERACIÓN ONEROSA"); 
                         facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble("0.00")));
                         facturaDetalle.setCpdAfecIsc("01 SISTEMA AL VALOR"); 
-                        facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())));
-                        facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
+                        facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbBoletaDetalles.getValueAt(i,3).toString())));
+                        facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbBoletaDetalles.getValueAt(i,8).toString())));
                         facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
                         facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
-                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
+                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble("0.00")));
                         facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
                         facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
                         facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));

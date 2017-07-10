@@ -367,6 +367,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     Caja_HospitalizacionPreventa.lblActoMedico.setText(lblActoMedico.getText());
                     Caja_HospitalizacionPreventa.lblJerarFP.setText(lblFP.getText());
                     lblMant.setText("V");
+                    jLabel7.setText(lblcodigo.getText());
                     
                 }else  if (!lblNomenclatura.getText().equals("CN00767         ")){
                     Caja_NuevaVenta CNV = new Caja_NuevaVenta();

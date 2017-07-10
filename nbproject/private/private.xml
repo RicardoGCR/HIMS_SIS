@@ -2,54 +2,8 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-<<<<<<< HEAD
             <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/NewJFrame.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Precios.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reportes.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/NewJFrame.java</file>
-=======
-            <file>file:/D:/pry/HIMS/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/Facturador.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/VentasConsolidado.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarVentasConsolidadoCabecera.java</file>
->>>>>>> c0c9b3340d5940b6d4a87d7b462ee4d1dcbbea90
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reporte_Anulados.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reporte_Fechas.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reportes.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Reporte_CCTA6.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarFacturasCabecera.java</file>
->>>>>>> 3cf1000c24b7eb929329521c065803d6f561db94
-            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarSfsRpta.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/Facturador.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/VentasConsolidado.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/FacturadorPagos.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarVentasConsolidadoCabecera.java</file>
->>>>>>> 27f9e38127b6d7d8f22f67c425a2caf658bba105
->>>>>>> 91dd868c297e2a2f2ad53a33db2615c949a4c93b
         </group>
->>>>>>> 91dd868c297e2a2f2ad53a33db2615c949a4c93b
     </open-files>
 </project-private>

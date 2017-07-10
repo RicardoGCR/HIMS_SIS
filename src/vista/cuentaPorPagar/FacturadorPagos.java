@@ -52,7 +52,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
         spFacturaDetalles.setVisible(false);
         pnlImportes.setVisible(false);
         cerrar();
-//        agregarFacturas();
+        agregarFacturas();
         rpta.listarFacturasAceptadas(tbFacturas, "","F","","");
         tbFacturas.getSelectionModel().setSelectionInterval (0,0) ;
         tbFacturas.requestFocus();
@@ -105,7 +105,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
    
     public void agregarFacturas(){
         DefaultTableModel m;
-        File ruta = new File("C:\\sunat_archivos\\sfs\\RPTA");
+        File ruta = new File("W:\\sfs\\RPTA");
         //        System.out.println(ruta.getAbsolutePath());
         String[] nombres_archivos = ruta.list();
         m = (DefaultTableModel) tbFacturas.getModel();

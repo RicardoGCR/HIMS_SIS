@@ -26,6 +26,7 @@ import modelos.Usuario;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.cuentaPorPagar.CuentasPorPagarFacturasDetalle;
 import modelos.cuentaPorPagar.CuentasPorPagarNotaDeCreditoCabecera;
+import modelos.cuentaPorPagar.CuentasPorPagarSfsRpta;
 import servicios.Conexion;
 import static vista.Principal.fechaActual;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
@@ -79,7 +80,7 @@ Conexion c=new Conexion();
         BUSCAR_FACTURA_BOLETA.setLocationRelativeTo(null);
         BUSCAR_FACTURA_BOLETA.getContentPane().setBackground(Color.white);
         
-     
+         agregarFacturas();
         
         
         //salir presionando escape
@@ -95,6 +96,22 @@ Conexion c=new Conexion();
         });
     }
 
+     public void agregarFacturas(){
+        DefaultTableModel m;
+        File ruta = new File("C:\\sunat_archivos\\sfs\\RPTA");
+        //        System.out.println(ruta.getAbsolutePath());
+        String[] nombres_archivos = ruta.list();
+        m = (DefaultTableModel) tbFacturasRpta.getModel();
+        m.addColumn("Tipo",nombres_archivos);
+        CuentasPorPagarSfsRpta rpta = new CuentasPorPagarSfsRpta();
+        rpta.mantenimientoCuentasPorPagarSfsRptaNotas("E");
+        rpta.mantenimientoCuentasPorPagarSfsRptaNotas("R");
+        for (int i = 0; i < tbFacturasRpta.getRowCount(); i++){
+            rpta.setNombre(String.valueOf(tbFacturasRpta.getValueAt(i, 0)));
+            rpta.mantenimientoCuentasPorPagarSfsRptaNotas("I");
+        }
+    }
+     
     public void limpiar(){
         cbxAfecIGV.setSelectedIndex(0);
          cbxAfecISC.setSelectedIndex(0);
@@ -192,7 +209,8 @@ Conexion c=new Conexion();
             JTable p=new JTable(m);
             String fila[]=new String[20];
            Usuario obj=new Usuario();
-            consulta="exec sp_CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar ?,?";
+//            consulta="exec sp_CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar ?,?";
+            consulta="exec sp_CUENTAS_POR_PAGAR_LISTAR_SFS_RPTA ?,?";
 
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, buscar);
@@ -427,6 +445,8 @@ Conexion c=new Conexion();
         jLabel69 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbFacturasRpta = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_Factura_Boleta = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -830,6 +850,19 @@ Conexion c=new Conexion();
                         }
                     });
 
+                    tbFacturasRpta.setModel(new javax.swing.table.DefaultTableModel(
+                        new Object [][] {
+                            {},
+                            {},
+                            {},
+                            {}
+                        },
+                        new String [] {
+
+                        }
+                    ));
+                    jScrollPane1.setViewportView(tbFacturasRpta);
+
                     javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
                     jpanel.setLayout(jpanelLayout);
                     jpanelLayout.setHorizontalGroup(
@@ -850,21 +883,26 @@ Conexion c=new Conexion();
                                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel69, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                                         .addComponent(panelCPT50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(351, 351, 351)
+                                    .addGap(272, 272, 272)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
                                     .addComponent(jButton1)
                                     .addContainerGap())))
                     );
                     jpanelLayout.setVerticalGroup(
                         jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jpanelLayout.createSequentialGroup()
-                            .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(titulo5)
-                                .addComponent(lblEstado))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cbxBuscarDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                                .addComponent(panelCPT50, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jpanelLayout.createSequentialGroup()
+                                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(titulo5)
+                                        .addComponent(lblEstado))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cbxBuscarDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                                        .addComponent(panelCPT50, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(0, 0, 0)
                             .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel68)
@@ -905,7 +943,6 @@ Conexion c=new Conexion();
                         BUSCAR_FACTURA_BOLETALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(BUSCAR_FACTURA_BOLETALayout.createSequentialGroup()
                             .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap(25, Short.MAX_VALUE))
                     );
@@ -3101,6 +3138,7 @@ Conexion c=new Conexion();
                             .addComponent(panelCPT27, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
 
+                    lblIdCredito.setForeground(new java.awt.Color(255, 255, 255));
                     lblIdCredito.setText("jLabel70");
 
                     lblUsu.setText("Silvana");
@@ -5739,14 +5777,20 @@ Conexion c=new Conexion();
     private void btnAgregarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFacturaActionPerformed
         BUSCAR_FACTURA_BOLETA.setVisible(true);
        lblEstado.setText("1");
+       
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar("","1");
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_formato();
+//        CuentasPorPagarSfsRpta rpta=new CuentasPorPagarSfsRpta();
+//        rpta.listarFacturasAceptadas(tbFacturasRpta, "","F","","");
+       
+       
         
     tb_Factura_Boleta.getSelectionModel().setSelectionInterval(0, 0);
             tb_Factura_Boleta.requestFocus();
        
     }//GEN-LAST:event_btnAgregarFacturaActionPerformed
 
+    
     private void txtISCCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtISCCaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_txtISCCaretUpdate
@@ -6534,6 +6578,7 @@ Conexion c=new Conexion();
     private javax.swing.JPanel jPanel84;
     private javax.swing.JPanel jPanel85;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpanel;
     public static javax.swing.JTextField lblCorrelativoCreditoF;
@@ -6602,6 +6647,7 @@ Conexion c=new Conexion();
     private javax.swing.JScrollPane tablaS1;
     private javax.swing.JTable tbFacturacion;
     private javax.swing.JTable tbFacturacionDebito;
+    private javax.swing.JTable tbFacturasRpta;
     private javax.swing.JTable tb_Factura_Boleta;
     private javax.swing.JLabel titulo5;
     public static javax.swing.JTextField txtApeNom;

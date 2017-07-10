@@ -195,20 +195,21 @@ public class BoletaElectronica extends javax.swing.JFrame {
         txtDni = new javax.swing.JTextField();
         lbldetalle = new javax.swing.JLabel();
         btnIniciar1 = new javax.swing.JButton();
-        lblApeNom = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        txtMtoIGV = new javax.swing.JLabel();
+        txtValorVentaGravada = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
+        lblusu = new javax.swing.JLabel();
+        txtTotalDscto = new javax.swing.JLabel();
         txtDsctoGlobal = new javax.swing.JLabel();
         txtOtrosCargos = new javax.swing.JLabel();
-        txtTotalDscto = new javax.swing.JLabel();
-        txtValorVentaGravada = new javax.swing.JLabel();
-        txtValorVentaInafectada = new javax.swing.JLabel();
-        txtVentaExonerada = new javax.swing.JLabel();
-        txtMtoIGV = new javax.swing.JLabel();
-        txtMtoISC = new javax.swing.JLabel();
         txtOtrosTributos = new javax.swing.JLabel();
+        txtVentaExonerada = new javax.swing.JLabel();
         txtImporteTotalVenta = new javax.swing.JLabel();
         lblDNI = new javax.swing.JLabel();
-        lblusu = new javax.swing.JLabel();
-        lblId = new javax.swing.JLabel();
+        txtMtoISC = new javax.swing.JLabel();
+        txtValorVentaInafectada = new javax.swing.JLabel();
+        lblApeNom = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         tablaS = new javax.swing.JScrollPane();
@@ -294,34 +295,103 @@ public class BoletaElectronica extends javax.swing.JFrame {
                     }
                 });
 
-                lblApeNom.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
-                lblApeNom.setText("jLabel2");
+                txtMtoIGV.setText("jLabel2");
+
+                txtValorVentaGravada.setText("jLabel2");
+
+                lblId.setText("jLabel2");
+
+                lblusu.setText("jLabel2");
+
+                txtTotalDscto.setText("jLabel2");
 
                 txtDsctoGlobal.setText("jLabel2");
 
                 txtOtrosCargos.setText("jLabel2");
 
-                txtTotalDscto.setText("jLabel2");
-
-                txtValorVentaGravada.setText("jLabel2");
-
-                txtValorVentaInafectada.setText("jLabel2");
+                txtOtrosTributos.setText("jLabel2");
 
                 txtVentaExonerada.setText("jLabel2");
-
-                txtMtoIGV.setText("jLabel2");
-
-                txtMtoISC.setText("jLabel2");
-
-                txtOtrosTributos.setText("jLabel2");
 
                 txtImporteTotalVenta.setText("jLabel2");
 
                 lblDNI.setText("jLabel2");
 
-                lblusu.setText("jLabel2");
+                txtMtoISC.setText("jLabel2");
 
-                lblId.setText("jLabel2");
+                txtValorVentaInafectada.setText("jLabel2");
+
+                lblApeNom.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+                lblApeNom.setText("jLabel2");
+
+                javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+                jPanel3.setLayout(jPanel3Layout);
+                jPanel3Layout.setHorizontalGroup(
+                    jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtValorVentaInafectada)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txtDsctoGlobal)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtOtrosTributos))
+                            .addComponent(txtValorVentaGravada)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txtTotalDscto)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblDNI))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txtOtrosCargos)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtImporteTotalVenta))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblApeNom)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtMtoISC, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMtoIGV)
+                                    .addComponent(txtVentaExonerada))
+                                .addGap(38, 38, 38)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblId)
+                                    .addComponent(lblusu))))
+                        .addContainerGap())
+                );
+                jPanel3Layout.setVerticalGroup(
+                    jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblApeNom)
+                            .addComponent(txtMtoISC))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDsctoGlobal)
+                            .addComponent(txtOtrosTributos))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtOtrosCargos)
+                            .addComponent(txtImporteTotalVenta))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTotalDscto)
+                            .addComponent(lblDNI))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtValorVentaGravada)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtValorVentaInafectada)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtVentaExonerada)
+                            .addComponent(lblId))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtMtoIGV)
+                            .addComponent(lblusu))
+                        .addContainerGap())
+                );
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
@@ -333,35 +403,10 @@ public class BoletaElectronica extends javax.swing.JFrame {
                             .addComponent(btnIniciar1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtValorVentaInafectada)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtDsctoGlobal)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtOtrosTributos))
-                                    .addComponent(txtValorVentaGravada)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtTotalDscto)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblDNI))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtOtrosCargos)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtImporteTotalVenta))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblApeNom)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtMtoISC, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbldetalle)
-                                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtMtoIGV)
-                                            .addComponent(txtVentaExonerada))
-                                        .addGap(38, 38, 38)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblId)
-                                            .addComponent(lblusu))))
+                                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 10, Short.MAX_VALUE)))
                         .addContainerGap())
                 );
@@ -377,34 +422,8 @@ public class BoletaElectronica extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnIniciar1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblApeNom)
-                            .addComponent(txtMtoISC))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtDsctoGlobal)
-                            .addComponent(txtOtrosTributos))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtOtrosCargos)
-                            .addComponent(txtImporteTotalVenta))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTotalDscto)
-                            .addComponent(lblDNI))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtValorVentaGravada)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtValorVentaInafectada)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtVentaExonerada)
-                            .addComponent(lblId))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtMtoIGV)
-                            .addComponent(lblusu))
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
                 jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -573,7 +592,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
                                     .addComponent(lblSerie1))))
                         .addGap(18, 18, 18)
                         .addComponent(tablaS, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(tablaS1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0))
                 );
@@ -706,7 +725,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
                     CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
                     lblId.setText(facturaDetalle1.facturaCabeceraId());
                     String archivo = "20410275768" + "-" + 
-                    "03" +
+                    "03" + "-" +
                     lblSerie.getText() + "-" + 
                     lblNroCorrelativo.getText() + ".DET";
                     File crea_archivo = new File(archivo);
@@ -736,34 +755,32 @@ public class BoletaElectronica extends javax.swing.JFrame {
                         facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
                         facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
                         facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
-                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
+                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(tbBoletaDetalles.getValueAt(i,8).toString())));
                         facturaDetalle.setCodUsu(cabecera.codUsuario(lblusu.getText()));
-                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
-                        if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle(lblMant.getText())){
-                            cab.actualizarEstadoFacturacion(tbFacturacion.getValueAt(i,8).toString(), "L");
+                        facturaDetalle.setFormaPago("");
+                        if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle("I")){
+                            cab.actualizarEstadoFacturacion(tbBoletaDetalles.getValueAt(i,12).toString(), "L");
                             if(crearDetalles(crea_archivo, archivo)){
                                 rpta = true;
-                                Facturado = false;
                             } else
                                 rpta = false;
-                                Facturado = false;
                         }
                 }
                     if(rpta==true){
-                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
-                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
-                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-                    if(guardar == 0){ // SELECCION SI
-                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
-                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
-                        rpta2.reporteFactura(cab3.idFactura());
-                    }
-                    dispose();
-                    VentasConsolidado.txtDni.requestFocus();
-                    VentasConsolidado.txtDni.setText("");
-                    VentasConsolidado.T3.doClick();
-                    VentasConsolidado.cbxActoMedico.removeAllItems();
-                    VentasConsolidado.btnNuevo.doClick();
+                    JOptionPane.showMessageDialog(this, "Boleta Electrónica Generada");
+//                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
+//                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+//                    if(guardar == 0){ // SELECCION SI
+//                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
+//                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
+//                        rpta2.reporteFactura(cab3.idFactura());
+//                    }
+//                    dispose();
+//                    VentasConsolidado.txtDni.requestFocus();
+//                    VentasConsolidado.txtDni.setText("");
+//                    VentasConsolidado.T3.doClick();
+//                    VentasConsolidado.cbxActoMedico.removeAllItems();
+//                    VentasConsolidado.btnNuevo.doClick();
                     } else {
                         JOptionPane.showMessageDialog(this, "Error al crear la boleta electrónica");
                     }
@@ -826,6 +843,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblApeNom;

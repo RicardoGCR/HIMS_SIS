@@ -290,7 +290,6 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                 int AM = Integer.parseInt(lblActoMedico.getText());
                 String FP= lblJerarFP.getText();
                 String Medic = lblIdMedic.getText();
-                String DOC =jLabel7.getText();
                 
                     cp.setId_hc(id_hc);
                     cp.setCA_ID(cama);
@@ -300,7 +299,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                     cp.setACTO_MEDICO(AM);
                     cp.setCod_jerar_forma_pago(FP);
                     cp.setCod_medico(Medic);
-                    cp.setId_documento(DOC);
+                    cp.setId_documento(jLabel7.getText());
                     
                     
                     if(cp.CAJA_mantenimientoPreventaHospitalizacion()==true){ 
@@ -1501,7 +1500,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    public static javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel8;

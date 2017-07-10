@@ -52,7 +52,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
         spFacturaDetalles.setVisible(false);
         pnlImportes.setVisible(false);
         cerrar();
-        agregarFacturas();
+//        agregarFacturas();
         rpta.listarFacturasAceptadas(tbFacturas, "","F","","");
         tbFacturas.getSelectionModel().setSelectionInterval (0,0) ;
         tbFacturas.requestFocus();

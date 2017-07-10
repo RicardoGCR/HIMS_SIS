@@ -204,6 +204,31 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         }
     }
     
+    
+    public boolean mantenimientoCuentasPorPagarSfsRptaNotas(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_NOTAS_SFS_RPTA  ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getNombre());
+            cmd.setString(2, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoCuentasPorPagarSfsRptaNotas: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+        
+    
+    
     public CuentasPorPagarSfsRpta() {
          Conexion con = new Conexion();
          cn = con.conectar();

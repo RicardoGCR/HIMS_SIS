@@ -18,6 +18,8 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Formatter;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -28,6 +30,9 @@ import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.cuentaPorPagar.CuentasPorPagarComunicacionDeBaja;
 import modelos.cuentaPorPagar.CuentasPorPagarFacturasDetalle;
 import modelos.cuentaPorPagar.CuentasPorPagarNotaDeCreditoCabecera;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import static vista.Principal.fechaActual;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
@@ -407,6 +412,11 @@ Conexion c=new Conexion();
                         btnGuardar2.setDefaultCapable(false);
                         btnGuardar2.setFocusPainted(false);
                         btnGuardar2.setFocusable(false);
+                        btnGuardar2.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnGuardar2ActionPerformed(evt);
+                            }
+                        });
 
                         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
                         jPanel4.setLayout(jPanel4Layout);
@@ -427,8 +437,14 @@ Conexion c=new Conexion();
                         jLabel1.setForeground(new java.awt.Color(41, 127, 184));
                         jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta por Pagar - </span>Notas de Crédito y Débito</html>");
 
+                        lblUsu.setBackground(new java.awt.Color(255, 255, 255));
+                        lblUsu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                        lblUsu.setForeground(new java.awt.Color(51, 51, 51));
                         lblUsu.setText("Silvana");
 
+                        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+                        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
                         jLabel2.setText("Usuario:");
 
                         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -438,7 +454,7 @@ Conexion c=new Conexion();
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 523, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 520, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -702,7 +718,7 @@ Conexion c=new Conexion();
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addContainerGap()
                                         .addComponent(jScrollPane3)))
-                                .addContainerGap(28, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
                         jPanel5Layout.setVerticalGroup(
                             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -903,7 +919,7 @@ Conexion c=new Conexion();
                                                 .addComponent(jLabel70)
                                                 .addGap(65, 65, 65)
                                                 .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 489, Short.MAX_VALUE))
+                                        .addGap(0, 471, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                         .addContainerGap()
                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -926,11 +942,11 @@ Conexion c=new Conexion();
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel70)
                                     .addComponent(jLabel71))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(61, Short.MAX_VALUE))
+                                .addContainerGap(56, Short.MAX_VALUE))
                         );
 
                         tab.addTab("", jPanel6);
@@ -1004,6 +1020,9 @@ Conexion c=new Conexion();
         if(dtFechaI.getDate()==null || dtFechaF.getDate()==null){
               JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
             }
+        else if(txtBuscarDocumento.getText().equalsIgnoreCase("")){
+            
+        }
         else{
         DecimalFormat df = new DecimalFormat("00");
         int dia,mes,anio,diah,mesh,anioh;
@@ -1091,6 +1110,9 @@ Conexion c=new Conexion();
      if(dtFechaIND.getDate()==null || dtFechaFND.getDate()==null){
               JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
             }
+     else if(txtBuscarDocumentoND.getText().equalsIgnoreCase("")){
+            
+        }
         else{
         DecimalFormat df = new DecimalFormat("00");
         int dia,mes,anio,diah,mesh,anioh;
@@ -1188,6 +1210,48 @@ Conexion c=new Conexion();
         lblCredito.setFont(new Font("Segoe UI Semilight",0, 14));
         lblDebito.setFont(new Font("Segoe UI Semilight",1, 15));
     }//GEN-LAST:event_lblLineDebMouseClicked
+
+    private void btnGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar2ActionPerformed
+          try {
+              if(tab.getSelectedIndex()==0){
+                   int filaselec=tb_Nota_Credito.getSelectedRow();
+           if(filaselec<0){
+               JOptionPane.showMessageDialog(rootPane, "Seleccione una Nota de Crédito");
+           }else{
+             String cod=tb_Nota_Credito.getValueAt(filaselec, 0).toString();
+         
+            Map parametros=new HashMap();
+            parametros.put("cnc_id",cod);
+            
+                JasperPrint informe=JasperFillManager.fillReport(getClass().
+                    getResourceAsStream("/Reportes/cuentasPorPagar/NotaDeCredito.jasper"), parametros,c.conectar());
+
+                JasperViewer ventana= new JasperViewer(informe,false);
+                ventana.setTitle("RESULTADO - "+tb_Nota_Credito.getValueAt(filaselec, 10).toString());
+                ventana.setVisible(true);
+           }
+              }else if(tab.getSelectedIndex()==1){
+                   int filaselec=tb_Nota_Debito.getSelectedRow();
+           if(filaselec<0){
+               JOptionPane.showMessageDialog(rootPane, "Seleccione una Nota de Débito");
+           }else{
+             String cod=tb_Nota_Debito.getValueAt(filaselec, 0).toString();
+         
+            Map parametros=new HashMap();
+            parametros.put("cnc_id",cod);
+            
+                JasperPrint informe=JasperFillManager.fillReport(getClass().
+                    getResourceAsStream("/Reportes/cuentasPorPagar/NotaDeDebito.jasper"), parametros,c.conectar());
+
+                JasperViewer ventana= new JasperViewer(informe,false);
+                ventana.setTitle("RESULTADO - "+tb_Nota_Debito.getValueAt(filaselec, 10).toString());
+                ventana.setVisible(true);
+           }}
+          
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al Cargar el reporte"+e.getMessage());
+            }
+    }//GEN-LAST:event_btnGuardar2ActionPerformed
 
     public void CUENTAS_POR_PAGAR_NOTAS_CREDITO_DEBITO_DETALLE(JTable table,String cpf_id ){
           try {

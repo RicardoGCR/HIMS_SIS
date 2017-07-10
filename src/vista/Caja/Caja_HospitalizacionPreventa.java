@@ -290,6 +290,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                 int AM = Integer.parseInt(lblActoMedico.getText());
                 String FP= lblJerarFP.getText();
                 String Medic = lblIdMedic.getText();
+                String DOC =Caja_Pagos.lblcodigo.getText();
                 
                     cp.setId_hc(id_hc);
                     cp.setCA_ID(cama);
@@ -299,6 +300,8 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                     cp.setACTO_MEDICO(AM);
                     cp.setCod_jerar_forma_pago(FP);
                     cp.setCod_medico(Medic);
+                    cp.setId_documento(DOC);
+                    
                     
                     if(cp.CAJA_mantenimientoPreventaHospitalizacion()==true){ 
                         System.out.println("PAPELETA DE HOSPITALKIZACION GENERADA");

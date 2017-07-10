@@ -69,7 +69,7 @@ private double TOTAL_DOCUUMENTO;
 private int IdDetalle;
 private int dni;
 private String EstadoVisibleAdmision;
-
+private int Id_Cod_det;
 
         
 ////////////////////////////////////////////////////
@@ -318,6 +318,51 @@ public void ConsultoriosExtPREVENTAListarCEX(String ap_id){
         } catch (Exception e) {
             System.out.println("Error: LISTAR AP  " + e.getMessage());
         }
+    }
+        
+    public boolean ActualizarEstadoPagoCREDITO_HOSPITALARIO()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTUALIZAR_FP_CREDITOH ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_documento());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error CRED : " + ex.getMessage());
+        }
+        return resp;
+    }
+       public boolean ActualizarEstadoPagoCREDITO_HOSPITALARIO_det()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTUALIZAR_FP_CREDITOH_DETALLE ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_Cod_det());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error CRED : " + ex.getMessage());
+        }
+        return resp;
     }
 
 public boolean NuevoActoMedico()
@@ -1104,6 +1149,20 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 
             }
     } 
+    
+    public void reporteVentaLaRxEcSIS(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/SIS.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
+                Caja_Pagos.ErrorPrint.setVisible(true);
+                
+            }
+    }
+    
     public void reporteVentaConsultas(String id_documento) {
         try {
             Map parametros = new HashMap();
@@ -1116,6 +1175,45 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 
             }
     } 
+    
+    public void reporteVentaConsultasSIS(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorio - copia.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
+                Caja_Pagos.ErrorPrint.setVisible(true);
+                
+            }
+    }
+    
+     public void reporteALTA(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketLiquidacion.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
+                Caja_Pagos.ErrorPrint.setVisible(true);
+                
+            }
+    } 
+     public void reporteHOSPITALIZACION(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketHospitalizacion.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
+                Caja_Pagos.ErrorPrint.setVisible(true);
+                
+            }
+    }
     
     public boolean ActualizarDNI(){
         boolean resp = false;
@@ -1768,10 +1866,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Documento","Fecha","Acto Médico","CPT","Área","Cantidad","Precio","Total","COD_NOMEN"};
+            String titulos[]={"Documento","Fecha","Acto Médico","CPT","Área","Cantidad","Precio","Total","COD_NOMEN","ID","IDDET"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[9];
+            String fila[]=new String[11];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec CAJA_CONSOLIDADO_CREDITO_HOSPITALARIO ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -1788,6 +1886,8 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                     fila[6]=r.getString(7); 
                     fila[7]=r.getString(8); 
                     fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
                         m.addRow(fila);
                         c++;
                 }
@@ -1812,6 +1912,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             tabla.getColumnModel().getColumn(7).setPreferredWidth(60);
             tabla.getColumnModel().getColumn(8).setMinWidth(0);
             tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(9).setMinWidth(0);
+            tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(10).setMinWidth(0);
+            tabla.getColumnModel().getColumn(10).setMaxWidth(0);
       
         
 //        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
@@ -2096,6 +2200,14 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
 
     public void setEstadoVisibleAdmision(String EstadoVisibleAdmision) {
         this.EstadoVisibleAdmision = EstadoVisibleAdmision;
+    }
+
+    public int getId_Cod_det() {
+        return Id_Cod_det;
+    }
+
+    public void setId_Cod_det(int Id_Cod_det) {
+        this.Id_Cod_det = Id_Cod_det;
     }
     
     

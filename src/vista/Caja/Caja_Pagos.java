@@ -124,7 +124,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
          ErrorPrint.setLocationRelativeTo(null);//en el centro
 
          
-        
+         panelLiquidar.setVisible(false);
          panelMensaje.setVisible(false);
          panelCPT.setVisible(false);
          ///////////////////
@@ -138,6 +138,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
           PaginasVentas.setEnabledAt(0,false);
           PaginasVentas.setEnabledAt(1, false);
           PaginasVentas.setEnabledAt(2, false);
+          PaginasVentas.setEnabledAt(3, false);
 
          
           panelAbonos.setVisible(false);
@@ -345,7 +346,6 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
              //////////////////////////////////////////////DESCUENTOS LA Y EC
                 Caja_Documento_Detalle CDDCD = new Caja_Documento_Detalle();
-
                 CDDCD.DESCUENTO_LA_EC(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 8)),lblGrupoA.getText(),tbConsultaDESCUENTO);
 
 //                CDDCD.DESCUENTO_LA_EC(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 8)),lblGrupoA.getText(),tbConsultaDESCUENTO);
@@ -389,15 +389,26 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     
                     
                     System.out.println("-----------------ALTA------------------");
+                    ////////////////////////////////////////////////////////////
+                    ////////////////////////////////////////////////////////////
                     Caja_NuevaVenta CCD = new Caja_NuevaVenta();
-                    TERMINAR_HOSPITALIZACION();
-                    System.out.println("Vamo llamando el registro");
-                    CCD.CAJA_CANTIDAD_DIAS(lblHc.getText());
-                    GuardarDetalle();
-                    ModificarALTA();
-                    suma();
-                    panelNumeros.setVisible(true);
                     
+                    CCD.CAJA_LIQUIDACION_ALTA(lblHc.getText(), tb_Liquidacion);
+                    if(tb_Liquidacion.getRowCount()>0){
+                        PaginasVentas.setSelectedIndex(3);
+                    }else if(tb_Liquidacion.getRowCount()==0){
+                        TERMINAR_HOSPITALIZACION();
+                        System.out.println("Vamo llamando el registro");
+                        CCD.CAJA_CANTIDAD_DIAS(lblHc.getText());
+                        GuardarDetalle();
+                        ModificarALTA();
+                        suma();
+                        panelNumeros.setVisible(true);
+                    }
+                    
+                    
+                    ////////////////////////////////////////////////////////////
+                    ////////////////////////////////////////////////////////////
                     
                 }else if (!lblNomenclatura.getText().equals("CN00761         ")){
                     GuardarDetalle();
@@ -2683,16 +2694,14 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                             jLabel88 = new javax.swing.JLabel();
                                                                                                             jPanel6 = new javax.swing.JPanel();
                                                                                                             jScrollPane12 = new javax.swing.JScrollPane();
-                                                                                                            tb_ReporteDiario1 = new javax.swing.JTable(){
+                                                                                                            tb_Liquidacion = new javax.swing.JTable(){
                                                                                                                 public boolean isCellEditable(int rowIndex, int colIndex){
                                                                                                                     return false; //Disallow the editing of any cell
                                                                                                                 }};
                                                                                                                 resumen2 = new javax.swing.JPanel();
                                                                                                                 APENOM2 = new javax.swing.JLabel();
-                                                                                                                btnImprimir2 = new javax.swing.JButton();
-                                                                                                                panelIMprimir1 = new javax.swing.JPanel();
+                                                                                                                panelLiquidar = new javax.swing.JPanel();
                                                                                                                 Mensaje8 = new javax.swing.JLabel();
-                                                                                                                eli8 = new javax.swing.JButton();
                                                                                                                 jPanel21 = new javax.swing.JPanel();
                                                                                                                 jLabel57 = new javax.swing.JLabel();
                                                                                                                 lblusu = new javax.swing.JLabel();
@@ -8901,8 +8910,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 jScrollPane12.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                                 jScrollPane12.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
 
-                                                                                                                tb_ReporteDiario1.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                                                tb_ReporteDiario1.setModel(new javax.swing.table.DefaultTableModel(
+                                                                                                                tb_Liquidacion.setForeground(new java.awt.Color(51, 51, 51));
+                                                                                                                tb_Liquidacion.setModel(new javax.swing.table.DefaultTableModel(
                                                                                                                     new Object [][] {
                                                                                                                         {null, null, null, null},
                                                                                                                         {null, null, null, null},
@@ -8913,47 +8922,32 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                         "Title 1", "Title 2", "Title 3", "Title 4"
                                                                                                                     }
                                                                                                                 ));
-                                                                                                                tb_ReporteDiario1.setGridColor(new java.awt.Color(255, 255, 255));
-                                                                                                                tb_ReporteDiario1.setRowHeight(25);
-                                                                                                                tb_ReporteDiario1.setSelectionBackground(new java.awt.Color(102, 102, 102));
-                                                                                                                tb_ReporteDiario1.getTableHeader().setReorderingAllowed(false);
-                                                                                                                tb_ReporteDiario1.addMouseListener(new java.awt.event.MouseAdapter() {
+                                                                                                                tb_Liquidacion.setGridColor(new java.awt.Color(255, 255, 255));
+                                                                                                                tb_Liquidacion.setRowHeight(25);
+                                                                                                                tb_Liquidacion.setSelectionBackground(new java.awt.Color(102, 102, 102));
+                                                                                                                tb_Liquidacion.getTableHeader().setReorderingAllowed(false);
+                                                                                                                tb_Liquidacion.addMouseListener(new java.awt.event.MouseAdapter() {
                                                                                                                     public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                                                                                                        tb_ReporteDiario1MouseClicked(evt);
+                                                                                                                        tb_LiquidacionMouseClicked(evt);
                                                                                                                     }
                                                                                                                     public void mousePressed(java.awt.event.MouseEvent evt) {
-                                                                                                                        tb_ReporteDiario1MousePressed(evt);
+                                                                                                                        tb_LiquidacionMousePressed(evt);
                                                                                                                     }
                                                                                                                 });
-                                                                                                                tb_ReporteDiario1.addKeyListener(new java.awt.event.KeyAdapter() {
+                                                                                                                tb_Liquidacion.addKeyListener(new java.awt.event.KeyAdapter() {
                                                                                                                     public void keyPressed(java.awt.event.KeyEvent evt) {
-                                                                                                                        tb_ReporteDiario1KeyPressed(evt);
+                                                                                                                        tb_LiquidacionKeyPressed(evt);
                                                                                                                     }
                                                                                                                 });
-                                                                                                                jScrollPane12.setViewportView(tb_ReporteDiario1);
+                                                                                                                jScrollPane12.setViewportView(tb_Liquidacion);
 
                                                                                                                 resumen2.setBackground(new java.awt.Color(43, 43, 43));
                                                                                                                 resumen2.setForeground(new java.awt.Color(43, 43, 43));
                                                                                                                 resumen2.setPreferredSize(new java.awt.Dimension(610, 113));
 
-                                                                                                                APENOM2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                                                                                                                APENOM2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
                                                                                                                 APENOM2.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                                 APENOM2.setText("<html>Consolidado - Liquidación de Alta <span style=\"font-size:'14px'\"><br>Credito Hospitalario</br></span></html>");
-
-                                                                                                                btnImprimir2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                                                                                                                btnImprimir2.setForeground(new java.awt.Color(240, 240, 240));
-                                                                                                                btnImprimir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imprimir-32.png"))); // NOI18N
-                                                                                                                btnImprimir2.setText("Imprimir");
-                                                                                                                btnImprimir2.setContentAreaFilled(false);
-                                                                                                                btnImprimir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                                                                                                btnImprimir2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-                                                                                                                btnImprimir2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-                                                                                                                btnImprimir2.setIconTextGap(30);
-                                                                                                                btnImprimir2.addActionListener(new java.awt.event.ActionListener() {
-                                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                                                                                        btnImprimir2ActionPerformed(evt);
-                                                                                                                    }
-                                                                                                                });
 
                                                                                                                 javax.swing.GroupLayout resumen2Layout = new javax.swing.GroupLayout(resumen2);
                                                                                                                 resumen2.setLayout(resumen2Layout);
@@ -8961,56 +8955,37 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                     resumen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                     .addGroup(resumen2Layout.createSequentialGroup()
                                                                                                                         .addContainerGap()
-                                                                                                                        .addComponent(APENOM2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 571, Short.MAX_VALUE)
-                                                                                                                        .addComponent(btnImprimir2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                        .addComponent(APENOM2, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                        .addContainerGap(641, Short.MAX_VALUE))
                                                                                                                 );
                                                                                                                 resumen2Layout.setVerticalGroup(
                                                                                                                     resumen2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resumen2Layout.createSequentialGroup()
-                                                                                                                        .addGap(11, 11, 11)
-                                                                                                                        .addComponent(APENOM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                        .addContainerGap(52, Short.MAX_VALUE))
-                                                                                                                    .addComponent(btnImprimir2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                    .addGroup(resumen2Layout.createSequentialGroup()
+                                                                                                                        .addContainerGap()
+                                                                                                                        .addComponent(APENOM2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                        .addContainerGap(21, Short.MAX_VALUE))
                                                                                                                 );
 
-                                                                                                                panelIMprimir1.setBackground(new java.awt.Color(0, 153, 102));
+                                                                                                                panelLiquidar.setBackground(new java.awt.Color(0, 153, 102));
 
                                                                                                                 Mensaje8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                                                                                 Mensaje8.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                                                Mensaje8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imprimir-32.png"))); // NOI18N
-                                                                                                                Mensaje8.setText("Imprimiendo una copia del documento");
+                                                                                                                Mensaje8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Carrito de compras-40.png"))); // NOI18N
+                                                                                                                Mensaje8.setText("Cargar para la venta");
+                                                                                                                Mensaje8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                                                                                 Mensaje8.setIconTextGap(20);
 
-                                                                                                                eli8.setForeground(new java.awt.Color(240, 240, 240));
-                                                                                                                eli8.setText("OK");
-                                                                                                                eli8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-                                                                                                                eli8.setContentAreaFilled(false);
-                                                                                                                eli8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                                                                                                eli8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                                                                                                                eli8.setIconTextGap(30);
-                                                                                                                eli8.addActionListener(new java.awt.event.ActionListener() {
-                                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                                                                                        eli8ActionPerformed(evt);
-                                                                                                                    }
-                                                                                                                });
-
-                                                                                                                javax.swing.GroupLayout panelIMprimir1Layout = new javax.swing.GroupLayout(panelIMprimir1);
-                                                                                                                panelIMprimir1.setLayout(panelIMprimir1Layout);
-                                                                                                                panelIMprimir1Layout.setHorizontalGroup(
-                                                                                                                    panelIMprimir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                    .addGroup(panelIMprimir1Layout.createSequentialGroup()
-                                                                                                                        .addGap(19, 19, 19)
-                                                                                                                        .addComponent(Mensaje8)
-                                                                                                                        .addGap(47, 47, 47)
-                                                                                                                        .addComponent(eli8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                                javax.swing.GroupLayout panelLiquidarLayout = new javax.swing.GroupLayout(panelLiquidar);
+                                                                                                                panelLiquidar.setLayout(panelLiquidarLayout);
+                                                                                                                panelLiquidarLayout.setHorizontalGroup(
+                                                                                                                    panelLiquidarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLiquidarLayout.createSequentialGroup()
+                                                                                                                        .addContainerGap()
+                                                                                                                        .addComponent(Mensaje8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                                 );
-                                                                                                                panelIMprimir1Layout.setVerticalGroup(
-                                                                                                                    panelIMprimir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIMprimir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                        .addComponent(Mensaje8, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                                                                                                                        .addComponent(eli8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                panelLiquidarLayout.setVerticalGroup(
+                                                                                                                    panelLiquidarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                    .addComponent(Mensaje8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                 );
 
                                                                                                                 javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -9019,14 +8994,14 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                     jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                     .addComponent(resumen2, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
                                                                                                                     .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
-                                                                                                                    .addComponent(panelIMprimir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                    .addComponent(panelLiquidar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                                 );
                                                                                                                 jPanel6Layout.setVerticalGroup(
                                                                                                                     jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                                                                                                         .addComponent(resumen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                         .addGap(0, 0, 0)
-                                                                                                                        .addComponent(panelIMprimir1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                        .addComponent(panelLiquidar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                         .addGap(0, 0, 0)
                                                                                                                         .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE))
                                                                                                                 );
@@ -11999,25 +11974,21 @@ PaginasVentas.setSelectedIndex(1);
         panelEliminarFR.setVisible(true);
     }//GEN-LAST:event_btnEliminarHOS1ActionPerformed
 
-    private void eli8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli8ActionPerformed
+    private void tb_LiquidacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_LiquidacionKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_eli8ActionPerformed
+    }//GEN-LAST:event_tb_LiquidacionKeyPressed
 
-    private void btnImprimir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir2ActionPerformed
+    private void tb_LiquidacionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_LiquidacionMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnImprimir2ActionPerformed
+    }//GEN-LAST:event_tb_LiquidacionMousePressed
 
-    private void tb_ReporteDiario1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_ReporteDiario1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_ReporteDiario1KeyPressed
+    private void tb_LiquidacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_LiquidacionMouseClicked
+        int fila=tb_Liquidacion.getSelectedRow();
+        if(evt.getClickCount()==1){
+            panelLiquidar.setVisible(true);
 
-    private void tb_ReporteDiario1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_ReporteDiario1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_ReporteDiario1MousePressed
-
-    private void tb_ReporteDiario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_ReporteDiario1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_ReporteDiario1MouseClicked
+        }
+    }//GEN-LAST:event_tb_LiquidacionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -12138,7 +12109,6 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JButton btnGuardarDetalle;
     public static javax.swing.JButton btnImprimir;
     public static javax.swing.JButton btnImprimir1;
-    private javax.swing.JButton btnImprimir2;
     public static javax.swing.JButton btnLista;
     public static javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevo1;
@@ -12170,7 +12140,6 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JButton eli5;
     private javax.swing.JButton eli6;
     private javax.swing.JButton eli7;
-    private javax.swing.JButton eli8;
     private javax.swing.JButton eli9;
     private javax.swing.JLabel elimdp;
     private javax.swing.JButton elimma;
@@ -12493,7 +12462,7 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JPanel panelExoneracion;
     private javax.swing.JPanel panelFormaPago;
     private javax.swing.JPanel panelIMprimir;
-    private javax.swing.JPanel panelIMprimir1;
+    private javax.swing.JPanel panelLiquidar;
     private javax.swing.JPanel panelMensaje;
     private javax.swing.JPanel panelNumeros;
     private javax.swing.JPanel panelOpcionesEmergencia;
@@ -12532,9 +12501,9 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JTable tb_CPTBUSCAR;
     private javax.swing.JTable tb_Empresa;
     private javax.swing.JTable tb_FP;
+    private javax.swing.JTable tb_Liquidacion;
     private javax.swing.JTable tb_ReporteDetalle;
     private javax.swing.JTable tb_ReporteDiario;
-    private javax.swing.JTable tb_ReporteDiario1;
     private javax.swing.JTable tb_consultorios;
     public static javax.swing.JTable tb_medicos;
     public static javax.swing.JTable tb_medicos1;

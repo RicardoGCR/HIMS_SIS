@@ -299,6 +299,8 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                     cp.setACTO_MEDICO(AM);
                     cp.setCod_jerar_forma_pago(FP);
                     cp.setCod_medico(Medic);
+                    cp.setId_documento(jLabel7.getText());
+                    
                     
                     if(cp.CAJA_mantenimientoPreventaHospitalizacion()==true){ 
                         System.out.println("PAPELETA DE HOSPITALKIZACION GENERADA");
@@ -371,6 +373,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         lblMant = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         lblIDHC = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -552,7 +555,6 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
 
         Genero.setAlwaysOnTop(true);
         Genero.setMinimumSize(new java.awt.Dimension(612, 282));
-        Genero.setPreferredSize(new java.awt.Dimension(612, 282));
         Genero.setResizable(false);
 
         jPanel55.setBackground(new java.awt.Color(235, 105, 57));
@@ -730,6 +732,8 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         lblIDHC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblIDHC.setForeground(new java.awt.Color(235, 105, 57));
 
+        jLabel7.setText("jLabel7");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -759,7 +763,10 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblIDHC, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblIDHC, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jLabel7)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -776,6 +783,8 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblIDHC, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMant)
                     .addComponent(lblID))
@@ -1491,6 +1500,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel8;

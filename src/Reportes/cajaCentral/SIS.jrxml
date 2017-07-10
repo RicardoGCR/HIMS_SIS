@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="2.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="279"/>
+	<property name="ireport.x" value="68"/>
+	<property name="ireport.y" value="144"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -343,14 +343,14 @@ AND  CDC.id_documento=     $P{doc}]]>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" isBold="true"/>
 				</textElement>
-				<text><![CDATA[IMPORTE TOTAL S/. : 0.00]]></text>
+				<text><![CDATA[IMPORTE TOTAL S/. 0.00]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="22" width="182" height="10" uuid="d3f9444b-9887-400f-bc2c-ca054d338393"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
-				<text><![CDATA[Atención Subvencionada Por SIS ]]></text>
+				<text><![CDATA[ATENCIÓN SUBVENCIONADA POR SIS]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="32" width="182" height="10" uuid="8b9e9b00-8395-4c63-965a-e97b545af0d3"/>

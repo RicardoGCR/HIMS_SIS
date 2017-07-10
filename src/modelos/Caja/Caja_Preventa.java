@@ -68,6 +68,7 @@ public class Caja_Preventa {
     private String Sexo;
     private int Id_DetalleFR;
     private int Id_Cabecera;
+    private String id_documento;
 
     private String procedencia;
     
@@ -136,7 +137,7 @@ public class Caja_Preventa {
         boolean resp = false;
         try{
             String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION_NUEVO "
-                        + "?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_hc());
             cmd.setInt(2, getCA_ID());
@@ -146,6 +147,7 @@ public class Caja_Preventa {
             cmd.setInt(6, getACTO_MEDICO());
             cmd.setString(7, getCod_jerar_forma_pago());
             cmd.setString(8, getCod_medico());
+            cmd.setString(9, getId_documento());
             if(!cmd.execute())
             {
                 resp = true;
@@ -1639,6 +1641,15 @@ public class Caja_Preventa {
     public void setId_Cabecera(int Id_Cabecera) {
         this.Id_Cabecera = Id_Cabecera;
     }
+
+    public String getId_documento() {
+        return id_documento;
+    }
+
+    public void setId_documento(String id_documento) {
+        this.id_documento = id_documento;
+    }
+    
     
     
 

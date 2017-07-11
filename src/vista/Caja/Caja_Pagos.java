@@ -1211,7 +1211,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         CNVVAC.setUsu_Exoneracion(lblUsuPorcentaje.getText());
         CNVVAC.setPorcentaje_Exoneracion(lblPorcentaje.getText());
         CNVVAC.setId_ActoMedico(Integer.parseInt(lblActoMedico.getText()));
-        CNVVAC.setEstadoVisibleAdmision(lblConsultorio.getText());
+        CNVVAC.setEstadoVisibleAdmision(lblTipoTicket.getText());
         CNVVAC.setCod_jerar_forma_pago(lblFP.getText());
 
         if(CNVVAC.ActualizarVenta()==true){
@@ -1263,7 +1263,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         CNVVAC.setUsu_Exoneracion(lblUsuPorcentaje.getText());
         CNVVAC.setPorcentaje_Exoneracion(lblPorcentaje.getText());
         CNVVAC.setId_ActoMedico(Integer.parseInt(lblActoMedico.getText()));
-        CNVVAC.setEstadoVisibleAdmision(lblConsultorio.getText());
+        CNVVAC.setEstadoVisibleAdmision(lblTipoTicket.getText());
 
         if(CNVVAC.ActualizarVentaEx()==true){
                    System.out.println("CABECERA ACTUALIZADA");
@@ -2965,6 +2965,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 lblVisibleImprimir = new javax.swing.JLabel();
                                                                                                                 lblVisibleImprimirAM = new javax.swing.JLabel();
                                                                                                                 lblTipoTicket = new javax.swing.JLabel();
+                                                                                                                lblFpReim = new javax.swing.JLabel();
 
                                                                                                                 BHC.setAlwaysOnTop(true);
                                                                                                                 BHC.setMinimumSize(new java.awt.Dimension(749, 350));
@@ -8864,7 +8865,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 btnImprimir1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                                                                                 btnImprimir1.setForeground(new java.awt.Color(240, 240, 240));
                                                                                                                 btnImprimir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imprimir-32.png"))); // NOI18N
-                                                                                                                btnImprimir1.setText("Imprimir");
+                                                                                                                btnImprimir1.setText("Imprimir Reporte");
                                                                                                                 btnImprimir1.setContentAreaFilled(false);
                                                                                                                 btnImprimir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                                                                                 btnImprimir1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -8900,7 +8901,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                                     .addComponent(lblTotalContado)
                                                                                                                                     .addComponent(lblTotalPendiente))))
                                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                                        .addComponent(btnImprimir1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                        .addComponent(btnImprimir1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                                 );
                                                                                                                 resumen1Layout.setVerticalGroup(
                                                                                                                     resumen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -9701,19 +9702,21 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addComponent(lblConsultorio)))
                                                                                                                 );
 
-                                                                                                                lblCodigoImprimir.setForeground(new java.awt.Color(41, 127, 184));
+                                                                                                                lblCodigoImprimir.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                                 lblCodigoImprimir.setText("jLabel75");
 
-                                                                                                                lblImpresora.setForeground(new java.awt.Color(41, 127, 184));
+                                                                                                                lblImpresora.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                                 lblImpresora.setText("jLabel99");
 
-                                                                                                                lblVisibleImprimir.setForeground(new java.awt.Color(41, 127, 184));
+                                                                                                                lblVisibleImprimir.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                                 lblVisibleImprimir.setText("jLabel36");
 
-                                                                                                                lblVisibleImprimirAM.setForeground(new java.awt.Color(41, 127, 184));
+                                                                                                                lblVisibleImprimirAM.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                                 lblVisibleImprimirAM.setText("jLabel36");
 
                                                                                                                 lblTipoTicket.setText("jLabel87");
+
+                                                                                                                lblFpReim.setText("jLabel87");
 
                                                                                                                 javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
                                                                                                                 jPanel21.setLayout(jPanel21Layout);
@@ -9748,6 +9751,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                     .addGroup(jPanel21Layout.createSequentialGroup()
                                                                                                                         .addGap(28, 28, 28)
                                                                                                                         .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                            .addComponent(lblFpReim)
                                                                                                                             .addComponent(lblCodigoImprimir)
                                                                                                                             .addComponent(lblVisibleImprimir)
                                                                                                                             .addGroup(jPanel21Layout.createSequentialGroup()
@@ -9794,6 +9798,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addGroup(jPanel21Layout.createSequentialGroup()
                                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                                                 .addComponent(lblTipoTicket)))
+                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                        .addComponent(lblFpReim)
                                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                         .addContainerGap())
@@ -10945,25 +10951,73 @@ PaginasVentas.setSelectedIndex(1);
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         if(lblImpresora.getText().equals("copia")){
-            
-            if(lblVisibleImprimir.getText().equals("N")){
-                    nuevaV.reporteVentaLaRxEc(lblCodigoImprimir.getText());
-                    panelIMprimir.setVisible(true);
-            }else if(!lblVisibleImprimir.getText().equals("N")){
-                    nuevaV.reporteVentaConsultas(lblCodigoImprimir.getText());
-                    panelIMprimir.setVisible(true);
+
+            if(lblVisibleImprimir.getText().equals("N")&&!lblFpReim.getText().equals("SIS")){
+                nuevaV.reporteVentaLaRxEc(lblCodigoImprimir.getText());
+                panelIMprimir.setVisible(true);
+            }else if(lblVisibleImprimir.getText().equals("C")&&!lblFpReim.getText().equals("SIS")){
+               nuevaV.reporteVentaConsultas(lblCodigoImprimir.getText());
+                panelIMprimir.setVisible(true);
+            } else if(lblVisibleImprimir.getText().equals("A")&&!lblFpReim.getText().equals("SIS")){
+               nuevaV.reporteALTA(lblCodigoImprimir.getText());
+                panelIMprimir.setVisible(true);
+            } else if(lblVisibleImprimir.getText().equals("H")&&!lblFpReim.getText().equals("SIS")){
+                nuevaV.reporteHOSPITALIZACION(lblCodigoImprimir.getText());
+                panelIMprimir.setVisible(true);
+              //////////////////////////////////////////////////////////////////////
+              //////////////////////////////////////////////////////////////////////
+              ////////////////////////////////////////////////////////CUANDO SEA SIS
+            }else if(lblVisibleImprimir.getText().equals("N")&&lblFpReim.getText().equals("SIS")){
+                nuevaV.reporteVentaLaRxEcSIS(lblCodigoImprimir.getText());
+                panelIMprimir.setVisible(true);
+            }else if(lblVisibleImprimir.getText().equals("C")&&lblFpReim.getText().equals("SIS")){
+                nuevaV.reporteVentaConsultasSIS(lblCodigoImprimir.getText());
+                panelIMprimir.setVisible(true);
+            } else if(lblVisibleImprimir.getText().equals("A")&&lblFpReim.getText().equals("SIS")){
+                nuevaV.reporteALTASIS(lblCodigoImprimir.getText());
+                panelIMprimir.setVisible(true);
+            } else if(lblVisibleImprimir.getText().equals("H")&&!lblFpReim.getText().equals("SIS")){
+                nuevaV.reporteHOSPITALIZACIONSIS(lblCodigoImprimir.getText());
+                panelIMprimir.setVisible(true);
             }
-            
-          nuevaV.reporteVentaLaRxEc(lblCodigoImprimir.getText());  
+
+
         }else if(lblImpresora.getText().equals("original")){
-            if(lblVisAdmi.getText().equals("N")){
-                    nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
-          //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
-          //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
-            }else if(!lblVisAdmi.getText().equals("N")){
-                    nuevaV.reporteVentaConsultas(lblcodigo.getText());
-          //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
-          //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+            if(lblTipoTicket.getText().equals("N")&&!txtFormaPago.getText().equals("SIS")){
+              nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+    //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+    //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+            }else if(lblTipoTicket.getText().equals("C")&&!txtFormaPago.getText().equals("SIS")){
+              nuevaV.reporteVentaConsultas(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+            } else if(lblTipoTicket.getText().equals("A")&&!txtFormaPago.getText().equals("SIS")){
+              nuevaV.reporteALTA(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+            } else if(lblTipoTicket.getText().equals("H")&&!txtFormaPago.getText().equals("SIS")){
+              nuevaV.reporteHOSPITALIZACION(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());////////////////////
+              //////////////////////////////////////////////////////////////////////
+              //////////////////////////////////////////////////////////////////////
+              ////////////////////////////////////////////////////////CUANDO SEA SIS
+            }else if(lblTipoTicket.getText().equals("N")&&txtFormaPago.getText().equals("SIS")){
+              nuevaV.reporteVentaLaRxEcSIS(lblcodigo.getText());
+    //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+    //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+            }else if(lblTipoTicket.getText().equals("C")&&txtFormaPago.getText().equals("SIS")){
+              nuevaV.reporteVentaConsultasSIS(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+            } else if(lblTipoTicket.getText().equals("A")&&txtFormaPago.getText().equals("SIS")){
+              nuevaV.reporteALTASIS(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+            } else if(lblTipoTicket.getText().equals("H")&&!txtFormaPago.getText().equals("SIS")){
+              nuevaV.reporteHOSPITALIZACIONSIS(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+    //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
             }
             lblCPT.setVisible(false);
             panelCPT.setVisible(false);
@@ -11184,7 +11238,9 @@ PaginasVentas.setSelectedIndex(1);
         } else if(lblTipoTicket.getText().equals("H")&&!txtFormaPago.getText().equals("SIS")){
           nuevaV.reporteHOSPITALIZACION(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
-//        nuevaV.reporteVentaConsultas(lblcodigo.getText());////////////////////////////////////////////
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());////////////////////
+          //////////////////////////////////////////////////////////////////////
+          //////////////////////////////////////////////////////////////////////
           ////////////////////////////////////////////////////////CUANDO SEA SIS
         }else if(lblTipoTicket.getText().equals("N")&&txtFormaPago.getText().equals("SIS")){
           nuevaV.reporteVentaLaRxEcSIS(lblcodigo.getText());
@@ -11195,11 +11251,11 @@ PaginasVentas.setSelectedIndex(1);
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
         } else if(lblTipoTicket.getText().equals("A")&&txtFormaPago.getText().equals("SIS")){
-          nuevaV.reporteALTA(lblcodigo.getText());
+          nuevaV.reporteALTASIS(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
         } else if(lblTipoTicket.getText().equals("H")&&!txtFormaPago.getText().equals("SIS")){
-          nuevaV.reporteHOSPITALIZACION(lblcodigo.getText());
+          nuevaV.reporteHOSPITALIZACIONSIS(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
         }
@@ -11733,6 +11789,7 @@ PaginasVentas.setSelectedIndex(1);
         if(evt.getClickCount()==1){
             lblCodigoImprimir.setText(String.valueOf(tb_ReporteDiario.getValueAt(fila, 12)));
             lblVisibleImprimir.setText(String.valueOf(tb_ReporteDiario.getValueAt(fila, 13)));
+            lblFpReim.setText(String.valueOf(tb_ReporteDiario.getValueAt(fila, 2)));
             btnImprimir.setEnabled(true);
             panelIMprimir.setVisible(false);
         }
@@ -12675,6 +12732,7 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel lblEstadoPreventa;
     public static javax.swing.JLabel lblFP;
     private javax.swing.JLabel lblFormaPago;
+    private javax.swing.JLabel lblFpReim;
     private javax.swing.JLabel lblFua;
     private javax.swing.JLabel lblGrupoA;
     private javax.swing.JLabel lblHC;

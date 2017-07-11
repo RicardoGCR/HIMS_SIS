@@ -111,7 +111,7 @@ Conexion c=new Conexion();
             JTable p=new JTable(m);
             String fila[]=new String[20];
            Usuario obj=new Usuario();
-            consulta="exec sp_CUENTAS_POR_PAGAR_FACTURA_BOLETA_72h_listar ?,?";
+            consulta="exec sp_CUENTAS_POR_PAGAR_LISTAR_SFS_RPTA_72h_LISTAR ?,?";
 
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, buscar);

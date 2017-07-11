@@ -54,6 +54,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
         lblIdCabecera.setVisible(false);
         lblCantidadActoMedico.setVisible(false);
         btnAM.setVisible(false);
+        btnFacturarPorDocumento.setVisible(false);
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");

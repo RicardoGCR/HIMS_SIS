@@ -679,16 +679,18 @@ public class NewJFrame extends javax.swing.JFrame {
 
           try {
               
-            String fechaSeleccionada = "17/07/2017";
+            String fechaSeleccionada = "06/06/1921";
             
              DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
              Date fecha = dfo.parse(fechaSeleccionada);
           
                 calendar.setTime(fecha);
                               
-                String[] days = new String[] { "SABADO", "DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES","VIERNES"};
+//                String[] days = new String[] { "SABADO", "DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES","VIERNES"};
 
-                String day = days[calendar.get(Calendar.DAY_OF_WEEK)];
+                 String[] days = {"VACIO","DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES","VIERNES","SABADO"};
+
+                String day = days[calendar.get(Calendar.DAY_OF_WEEK) ];
                 
                 System.out.println("fecha: " + day);
                 

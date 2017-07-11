@@ -1068,6 +1068,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         btnBuscarPersonal_rol1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
                         btnBuscarPersonal_rol1.setContentAreaFilled(false);
                         btnBuscarPersonal_rol1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                        btnBuscarPersonal_rol1.addMouseListener(new java.awt.event.MouseAdapter() {
+                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                btnBuscarPersonal_rol1MouseClicked(evt);
+                            }
+                        });
                         btnBuscarPersonal_rol1.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 btnBuscarPersonal_rol1ActionPerformed(evt);
@@ -3155,6 +3160,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLimite_Consultas_PerMouseClicked
 
+    private void btnBuscarPersonal_rol1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPersonal_rol1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPersonal_rol1MouseClicked
+
     public void CANTIDAD_HORAS_LIBRES_RESTA(){
         String L = LBL_TOTAL_HORA.getText();
         String L1 = LBL_CANTIDAD_HORAS_TOTAL.getText();
@@ -5000,7 +5009,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
           
                 calendar.setTime(fecha);
                               
-                String[] days = new String[] { "SABADO", "DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES","VIERNES"};
+                String[] days = new String[] { "VACIO", "DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES","VIERNES","SABADO"};
 
                 String day = days[calendar.get(Calendar.DAY_OF_WEEK)];
                 
@@ -5056,7 +5065,81 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                   txtTotal_Pago.setText(String.valueOf(bd2));
             }
         }else{
-            
+            if(TXT_NOMBRE_DIA.getText().equalsIgnoreCase("SABADO")){
+                    if((TXT_MES.getText().equalsIgnoreCase("01") && TXT_DIA.getText().equalsIgnoreCase("01")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("04") && TXT_DIA.getText().equalsIgnoreCase("13"))
+                        || (TXT_MES.getText().equalsIgnoreCase("04") && TXT_DIA.getText().equalsIgnoreCase("14")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("05") && TXT_DIA.getText().equalsIgnoreCase("01"))
+                        || (TXT_MES.getText().equalsIgnoreCase("06") && TXT_DIA.getText().equalsIgnoreCase("29")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("07") && TXT_DIA.getText().equalsIgnoreCase("28"))
+                        || (TXT_MES.getText().equalsIgnoreCase("07") && TXT_DIA.getText().equalsIgnoreCase("29"))
+                        || (TXT_MES.getText().equalsIgnoreCase("08") && TXT_DIA.getText().equalsIgnoreCase("30"))
+                        || (TXT_MES.getText().equalsIgnoreCase("10") && TXT_DIA.getText().equalsIgnoreCase("08")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("11") && TXT_DIA.getText().equalsIgnoreCase("01"))
+                        || (TXT_MES.getText().equalsIgnoreCase("12") && TXT_DIA.getText().equalsIgnoreCase("08"))
+                        || (TXT_MES.getText().equalsIgnoreCase("12") && TXT_DIA.getText().equalsIgnoreCase("25")))
+                    {  
+                        ////pasar el pago por feriados
+        //                  String precio_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));      
+                          String precio_R_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));;
+
+                          BigDecimal bd2_f = new BigDecimal(precio_R_feriado);
+
+                          bd2_f = bd2_f.setScale(0, BigDecimal.ROUND_HALF_UP);
+
+                          txtTotal_Pago.setText(String.valueOf(bd2_f));
+                        
+                    }else{
+                        
+//                          String precio_sabado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 12));
+                
+                          String precio_R_sabado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 13));
+
+                          BigDecimal bd2_s = new BigDecimal(precio_R_sabado);
+
+                          bd2_s = bd2_s.setScale(0, BigDecimal.ROUND_HALF_UP);
+
+                          txtTotal_Pago.setText(String.valueOf(bd2_s));
+                        
+                    }
+                
+            }else{
+                if(TXT_NOMBRE_DIA.getText().equalsIgnoreCase("DOMINGO")){
+                    if((TXT_MES.getText().equalsIgnoreCase("01") && TXT_DIA.getText().equalsIgnoreCase("01")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("04") && TXT_DIA.getText().equalsIgnoreCase("13"))
+                        || (TXT_MES.getText().equalsIgnoreCase("04") && TXT_DIA.getText().equalsIgnoreCase("14")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("05") && TXT_DIA.getText().equalsIgnoreCase("01"))
+                        || (TXT_MES.getText().equalsIgnoreCase("06") && TXT_DIA.getText().equalsIgnoreCase("29")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("07") && TXT_DIA.getText().equalsIgnoreCase("28"))
+                        || (TXT_MES.getText().equalsIgnoreCase("07") && TXT_DIA.getText().equalsIgnoreCase("29"))
+                        || (TXT_MES.getText().equalsIgnoreCase("08") && TXT_DIA.getText().equalsIgnoreCase("30"))
+                        || (TXT_MES.getText().equalsIgnoreCase("10") && TXT_DIA.getText().equalsIgnoreCase("08")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("11") && TXT_DIA.getText().equalsIgnoreCase("01"))
+                        || (TXT_MES.getText().equalsIgnoreCase("12") && TXT_DIA.getText().equalsIgnoreCase("08"))
+                        || (TXT_MES.getText().equalsIgnoreCase("12") && TXT_DIA.getText().equalsIgnoreCase("25")))
+                    {
+                        ////pasar el pago por feriados
+        //                  String precio_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));      
+                          String precio_R_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));;
+
+                          BigDecimal bd2_f = new BigDecimal(precio_R_feriado);
+
+                          bd2_f = bd2_f.setScale(0, BigDecimal.ROUND_HALF_UP);
+
+                          txtTotal_Pago.setText(String.valueOf(bd2_f));
+                    }else{
+//                          String precio_sabado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 12));
+                
+                          String precio_R_domingo = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 14));
+
+                          BigDecimal bd2_d = new BigDecimal(precio_R_domingo);
+
+                          bd2_d = bd2_d.setScale(0, BigDecimal.ROUND_HALF_UP);
+
+                          txtTotal_Pago.setText(String.valueOf(bd2_d));
+                    }
+                }
+            }           
         }
     }
     

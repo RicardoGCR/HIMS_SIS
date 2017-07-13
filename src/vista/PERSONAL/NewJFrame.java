@@ -102,6 +102,8 @@ public class NewJFrame extends javax.swing.JFrame {
         TXT_FECHA = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         TXT_FECHAAAAAA = new javax.swing.JTextField();
+        fecha5 = new javax.swing.JComboBox();
+        fecha6 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -194,28 +196,36 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        fecha5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "00:00:00", "00:01:00", "00:30:00", "01:00:00", "01:01:00", "01:30:00", "02:00:00", "02:01:00", "02:30:00", "03:00:00", "03:01:00", "03:30:00", "04:00:00", "04:01:00", "04:30:00", "05:00:00", "05:01:00", "05:30:00", "06:00:00", "06:01:00", "06:30:00", "07:00:00", "07:01:00", "07:30:00", "08:00:00", "08:01:00", "08:30:00", "09:00:00", "09:01:00", "09:30:00", "10:00:00", "10:01:00", "10:30:00", "11:00:00", "11:01:00", "11:30:00", "12:00:00", "12:01:00", "12:30:00", "13:00:00", "13:01:30", "13:30:00", "14:00:00", "14:01:00", "14:30:00", "15:00:00", "15:01:00", "15:30:00", "16:00:00", "16:01:00", "16:30:00", "17:00:00", "17:01:00", "17:30:00", "18:00:00", "18:01:00", "18:30:00", "19:00:00", "19:01:00", "19:30:00", "20:00:00", "20:01:00", "20:30:00", "21:00:00", "21:01:00", "21:30:00", "22:00:00", "22:01:00", "22:30:00", "23:00:00", "23:01:00", "23:30:00", "22:50:00" }));
+
+        fecha6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "00:00:00", "00:01:00", "00:30:00", "01:00:00", "01:01:00", "01:30:00", "02:00:00", "02:01:00", "02:30:00", "03:00:00", "03:01:00", "03:30:00", "04:00:00", "04:01:00", "04:30:00", "05:00:00", "05:01:00", "05:30:00", "06:00:00", "06:01:00", "06:30:00", "07:00:00", "07:01:00", "07:30:00", "08:00:00", "08:01:00", "08:30:00", "09:00:00", "09:01:00", "09:30:00", "10:00:00", "10:01:00", "10:30:00", "11:00:00", "11:01:00", "11:30:00", "12:00:00", "12:01:00", "12:30:00", "13:00:00", "13:01:30", "13:30:00", "14:00:00", "14:01:00", "14:30:00", "15:00:00", "15:01:00", "15:30:00", "16:00:00", "16:01:00", "16:30:00", "17:00:00", "17:01:00", "17:30:00", "18:00:00", "18:01:00", "18:30:00", "19:00:00", "19:01:00", "19:30:00", "20:00:00", "20:01:00", "20:30:00", "21:00:00", "21:01:00", "21:30:00", "22:00:00", "22:01:00", "22:30:00", "23:00:00", "23:01:00", "23:30:00", "22:50:00" }));
+        fecha6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                fecha6ItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(fecha2, 0, 112, Short.MAX_VALUE)
+                    .addComponent(fecha1, 0, 112, Short.MAX_VALUE)
+                    .addComponent(fecha5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fecha6, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(D_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TXT_FECHAAAAAA, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                            .addComponent(fecha4, 0, 112, Short.MAX_VALUE)
-                            .addComponent(fecha3, 0, 112, Short.MAX_VALUE)
-                            .addComponent(TXT_FECHA))
-                        .addGap(42, 42, 42))))
+                    .addComponent(D_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TXT_FECHAAAAAA, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                        .addComponent(fecha4, 0, 112, Short.MAX_VALUE)
+                        .addComponent(fecha3, 0, 112, Short.MAX_VALUE)
+                        .addComponent(TXT_FECHA)))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,12 +240,16 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
                         .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43)
-                .addComponent(D_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TXT_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(D_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fecha5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fecha6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(TXT_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(TXT_FECHAAAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
@@ -645,6 +659,112 @@ public class NewJFrame extends javax.swing.JFrame {
         fechaaaaaa();
     }//GEN-LAST:event_TXT_FECHAAAAAACaretUpdate
 
+    private void fecha6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fecha6ItemStateChanged
+        String L = fecha5.getSelectedItem().toString();
+        String L2 = fecha6.getSelectedItem().toString();
+        
+        int f = Integer.parseInt(L.substring(0, 2));
+        int g = Integer.parseInt(L.substring(3, 5));
+        int h = Integer.parseInt(L.substring(6, 8));
+        
+        int f1 = Integer.parseInt(L2.substring(0, 2));
+        int g1 = Integer.parseInt(L2.substring(3, 5));
+        int h1 = Integer.parseInt(L2.substring(6, 8));
+        
+        int hora =0, minuto=0, segundo =0;
+        
+        if(f < f1 && g < g1){
+            hora = f1 - f;
+            minuto = g1 - g;
+        }
+        
+        if(f == f1 && g < g1){
+            hora = 00;
+            minuto = g1 - g;
+        }
+        
+        if(f < f1 && g == g1){
+            hora = f1 - f;
+            minuto = 00;
+        }
+        
+        if(f < f1 && g > g1){
+            hora = (f1 - f) - 1;
+            int m=0;
+            m = 60 - g;
+            minuto = m + g1;
+        }
+        
+        if(f != 00 && g != 00 &f1 == 00 && g1 == 00){
+            hora = (24 - f) - 1;
+            minuto = 60 - g;
+        }
+        
+        if(f != 00 && g == 00 &f1 == 00 && g1 == 00){
+            hora = (24 - f);
+            minuto = 00;
+        }
+        
+        if(f == 00 && g == 00 &f1 != 00 && g1 != 00){
+            hora = f1;
+            minuto = g1;
+        }
+        
+        
+        
+        if(f > f1 && g ==00 && g1 ==00 || g1 !=00){
+            int a = 0, b=0, a1, b1;
+            a = 24-f;
+            b = 60-g;
+            
+            a1 = f1;
+            b1 = g1;
+            
+            hora = (a + a1) - 1;
+            minuto = b + b1;
+            
+            if(minuto>=60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }
+   
+        }
+        ////////////////////
+        if(f > f1 && g ==00 && g1 ==00 || g1 !=00 || g !=00){
+            int a = 0, b=0, a1, b1;
+            a = 24-f;
+            b = 60-g;
+            
+            a1 = f1;
+            b1 = g1;
+            
+            hora = (a + a1) - 1;
+            minuto = b + b1;
+            
+            if(minuto>=60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }
+   
+        }
+        
+        String horaf = "", minutof ="";
+        
+        if(hora < 10){
+            horaf = ("0" + hora);
+        }else{
+            horaf = String.valueOf(hora);
+        }
+        
+        if(minuto < 10){
+            minutof = ("0" + minuto);
+        }else{
+            minutof = String.valueOf(minuto);
+        }
+        
+        System.out.println("hora: " + horaf + ":"+ minutof +":"+segundo+"0");
+    }//GEN-LAST:event_fecha6ItemStateChanged
+
     
     public void hora(){
 //        try {
@@ -746,6 +866,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox fecha2;
     private javax.swing.JComboBox fecha3;
     private javax.swing.JComboBox fecha4;
+    private javax.swing.JComboBox fecha5;
+    private javax.swing.JComboBox fecha6;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     // End of variables declaration//GEN-END:variables
 }

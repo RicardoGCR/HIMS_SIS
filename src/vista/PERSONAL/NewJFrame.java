@@ -27,6 +27,11 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() throws ParseException {
         initComponents();
         this.setLocationRelativeTo(null);
+//        
+        
+//        obtenerDiaSemana();
+        
+        
 //        DateFormat hora1 = new SimpleDateFormat("HH:mm:ss"); 
 //        DateFormat hora2 = new SimpleDateFormat("HH:mm:ss"); 
 //        
@@ -93,6 +98,10 @@ public class NewJFrame extends javax.swing.JFrame {
         fecha2 = new javax.swing.JComboBox();
         fecha3 = new javax.swing.JComboBox();
         fecha4 = new javax.swing.JComboBox();
+        D_FECHA = new com.toedter.calendar.JDateChooser();
+        TXT_FECHA = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        TXT_FECHAAAAAA = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,6 +153,47 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        D_FECHA.setDateFormatString("dd-MM-yyyy");
+        D_FECHA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D_FECHAMouseClicked(evt);
+            }
+        });
+        D_FECHA.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                D_FECHAPropertyChange(evt);
+            }
+        });
+
+        TXT_FECHA.setText("FECHA");
+        TXT_FECHA.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TXT_FECHACaretUpdate(evt);
+            }
+        });
+        TXT_FECHA.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                TXT_FECHAAncestorMoved(evt);
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        jDateChooser1.setDateFormatString("dd-MM-yyyy");
+        jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser1PropertyChange(evt);
+            }
+        });
+
+        TXT_FECHAAAAAA.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TXT_FECHAAAAAACaretUpdate(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,13 +201,21 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fecha4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fecha3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(D_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TXT_FECHAAAAAA, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(fecha4, 0, 112, Short.MAX_VALUE)
+                            .addComponent(fecha3, 0, 112, Short.MAX_VALUE)
+                            .addComponent(TXT_FECHA))
+                        .addGap(42, 42, 42))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +230,15 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
                         .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(D_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TXT_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(TXT_FECHAAAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
 
         pack();
@@ -551,6 +617,34 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fecha4PropertyChange
 
+    private void D_FECHAPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_D_FECHAPropertyChange
+
+        TXT_FECHAAAAAA.setText(TXT_FECHA.getText());
+//        String FECHA2= new SimpleDateFormat("dd/MM/yyy").format(D_FECHA.getDate());
+//        TXT_FECHA.setText("FECHA");
+    }//GEN-LAST:event_D_FECHAPropertyChange
+
+    private void TXT_FECHACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_FECHACaretUpdate
+       String FECHA2= new SimpleDateFormat("dd/MM/yyy").format(D_FECHA.getDate());
+       TXT_FECHAAAAAA.setText(FECHA2);
+    }//GEN-LAST:event_TXT_FECHACaretUpdate
+
+    private void TXT_FECHAAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_TXT_FECHAAncestorMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_FECHAAncestorMoved
+
+    private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser1PropertyChange
+//        System.out.println("fecha " + jDateChooser1.getDate());
+    }//GEN-LAST:event_jDateChooser1PropertyChange
+
+    private void D_FECHAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D_FECHAMouseClicked
+     
+    }//GEN-LAST:event_D_FECHAMouseClicked
+
+    private void TXT_FECHAAAAAACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_FECHAAAAAACaretUpdate
+        fechaaaaaa();
+    }//GEN-LAST:event_TXT_FECHAAAAAACaretUpdate
+
     
     public void hora(){
 //        try {
@@ -577,6 +671,33 @@ public class NewJFrame extends javax.swing.JFrame {
 //         } catch (Exception e) {
 //             System.out.println("error" + e.getMessage());
 //        }
+    }
+    
+    
+    public void fechaaaaaa(){
+          Calendar calendar = Calendar.getInstance();
+
+          try {
+              
+            String fechaSeleccionada = "06/06/1921";
+            
+             DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+             Date fecha = dfo.parse(fechaSeleccionada);
+          
+                calendar.setTime(fecha);
+                              
+//                String[] days = new String[] { "SABADO", "DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES","VIERNES"};
+
+                 String[] days = {"VACIO","DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES","VIERNES","SABADO"};
+
+                String day = days[calendar.get(Calendar.DAY_OF_WEEK) ];
+                
+                System.out.println("fecha: " + day);
+                
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+   
     }
     /**
      * @param args the command line arguments
@@ -618,9 +739,13 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser D_FECHA;
+    private javax.swing.JTextField TXT_FECHA;
+    private javax.swing.JTextField TXT_FECHAAAAAA;
     private javax.swing.JComboBox fecha1;
     private javax.swing.JComboBox fecha2;
     private javax.swing.JComboBox fecha3;
     private javax.swing.JComboBox fecha4;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     // End of variables declaration//GEN-END:variables
 }

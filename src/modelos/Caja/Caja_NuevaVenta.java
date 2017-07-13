@@ -1202,11 +1202,37 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 
             }
     } 
+     public void reporteALTASIS(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketLiquidacionSIS.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
+                Caja_Pagos.ErrorPrint.setVisible(true);
+                
+            }
+    } 
      public void reporteHOSPITALIZACION(String id_documento) {
         try {
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketHospitalizacion.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
+                Caja_Pagos.ErrorPrint.setVisible(true);
+                
+            }
+    }
+     
+    public void reporteHOSPITALIZACIONSIS(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketHospitalizacionSIS.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 Caja_Pagos.ErrorPrint.setUndecorated(true);

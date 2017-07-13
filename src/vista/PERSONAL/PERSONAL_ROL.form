@@ -1436,6 +1436,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBuscarPersonal_rol1MouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarPersonal_rol1ActionPerformed"/>
           </Events>
         </Component>
@@ -1490,11 +1491,13 @@
                           <Component id="lblListado_Edicion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="TXT_CODIGO_ROL_G" min="-2" pref="83" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="TXT_NOMBRE_DIA" min="-2" pref="121" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="TXT_DIA" min="-2" pref="37" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TXT_UO_TB_PERSONAL_ROL" min="-2" pref="132" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TXT_UO_TB_TURNOS_UO" min="-2" pref="144" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="TXT_MES" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="lbl_id_per_uni_org" min="-2" pref="39" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtAR_ID" min="-2" pref="61" max="-2" attributes="0"/>
@@ -1531,9 +1534,10 @@
                       <Component id="txtNOMBRE" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCOD_ROL" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCOD_UO_1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TXT_UO_TB_PERSONAL_ROL" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="TXT_UO_TB_TURNOS_UO" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="TXT_CODIGO_ROL_G" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TXT_NOMBRE_DIA" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TXT_MES" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TXT_DIA" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="LBL_UNIDAD_ORGANICA_2" min="-2" max="-2" attributes="0"/>
@@ -1774,22 +1778,6 @@
             <Property name="text" type="java.lang.String" value="G"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TXT_UO_TB_PERSONAL_ROL">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="TXT_UO_TB_TURNOS_UO">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="TXT_CODIGO_ROL_G">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TXT_CODIGO_ROL_GActionPerformed"/>
@@ -1802,6 +1790,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel4"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TXT_NOMBRE_DIA">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TXT_MES">
+          <Events>
+            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="TXT_MESCaretUpdate"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TXT_DIA">
         </Component>
       </SubComponents>
     </Container>
@@ -2272,8 +2269,11 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtLimite_Consultas_PerCaretUpdate"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLimite_Consultas_PerMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLimite_Consultas_PerActionPerformed"/>
                     <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLimite_Consultas_PerKeyPressed"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLimite_Consultas_PerKeyReleased"/>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLimite_Consultas_PerKeyTyped"/>
                   </Events>
                 </Component>

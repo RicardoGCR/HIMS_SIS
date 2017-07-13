@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="2.143588810000002"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="473"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -46,6 +46,22 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<subDataset name="DetalleDoc" uuid="61acbba3-ce3a-4e29-9f2c-ab04b23a8606">
+		<parameter name="id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT  HH.HAB_NOM,HC.CA_DESC,SA.AR_DESC FROM CAJA_PREVENTA CPV, HOSPITALIZACION_CAMAS HC ,HOSPITALIZACION_HABITACION HH, SISTEMA_AREAS SA
+WHERE
+CPV.CA_ID=HC.CA_ID AND
+HC.HAB_ID=HH.HAB_ID  and
+CPV.AR_ID=SA.AR_ID AND
+CPV.id_documento=$P{id}]]>
+		</queryString>
+		<field name="HAB_NOM" class="java.lang.String"/>
+		<field name="CA_DESC" class="java.lang.String"/>
+		<field name="AR_DESC" class="java.lang.String"/>
+	</subDataset>
 	<parameter name="doc" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -64,11 +80,8 @@
 			   CDD.turno_cita,
 			   CPT.descripcion_nomen_tipo,
 			   left(CDD.total_detalle,len(CDD.total_detalle))as PRECIO
-
-
-
 FROM  ADMISION_HISTORIA_CLINICA AHC, CAJA_DOCUMENTO_CABECERA CDC,
- CAJA_ACTO_MEDICO CAM,CAJA_JERARQUIA_FORMA_PAGO CJ ,USUARIO U,PERSONAL_PERSONAL PP,CAJA_DOCUMENTO_DETALLE CDD,CAJA_PRECIOS PR,CAJA_NOMENCLATURA_CAJA CPT
+CAJA_ACTO_MEDICO CAM,CAJA_JERARQUIA_FORMA_PAGO CJ ,USUARIO U,PERSONAL_PERSONAL PP,CAJA_DOCUMENTO_DETALLE CDD,CAJA_PRECIOS PR,CAJA_NOMENCLATURA_CAJA CPT
 WHERE
 AHC.id_hc = CDC.id_hc AND
 CDC.Id_ActoMedico = CAM.ID_ACTOMEDICO AND
@@ -78,6 +91,7 @@ PP.cod_per=U.cod_per AND
 CDC.id_documento=CDD.id_documento AND
 PR.cod_precio=CDD.cod_precio AND
 PR.cod_nomen_caja=CPT.cod_nomen_caja
+
 
 
 AND  CDC.id_documento=  $P{doc}]]>
@@ -107,239 +121,230 @@ AND  CDC.id_documento=  $P{doc}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="31" splitType="Stretch">
+		<band height="48" splitType="Stretch">
 			<textField>
-				<reportElement x="-4" y="-11" width="152" height="38" uuid="b3c7f37f-5126-4ebc-b676-c0e5fb4e3416"/>
+				<reportElement x="2" y="-14" width="152" height="17" uuid="b3c7f37f-5126-4ebc-b676-c0e5fb4e3416"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="148" y="-17" width="35" height="38" uuid="8a2c6422-ef8c-4b2c-aba7-fa94645e6fe7"/>
+				<reportElement x="154" y="-18" width="36" height="30" uuid="8a2c6422-ef8c-4b2c-aba7-fa94645e6fe7"/>
 				<imageExpression><![CDATA[$F{IMAGEN}]]></imageExpression>
 			</image>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="38" splitType="Stretch">
 			<staticText>
-				<reportElement x="-4" y="-3" width="187" height="20" uuid="22ca2046-0a05-48f5-8020-3d65ac1000f0"/>
+				<reportElement x="2" y="23" width="187" height="20" uuid="22ca2046-0a05-48f5-8020-3d65ac1000f0"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[RUC: 20410275768]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-4" y="-21" width="187" height="20" uuid="238716cf-1030-4632-bd37-f2dc4bf91ded"/>
+				<reportElement x="2" y="3" width="187" height="20" uuid="238716cf-1030-4632-bd37-f2dc4bf91ded"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[AV. Alva Maurtua N° 600 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-4" y="-11" width="187" height="20" uuid="fa143640-a646-4c8f-b66e-c7334ba94c30"/>
+				<reportElement x="2" y="12" width="187" height="20" uuid="fa143640-a646-4c8f-b66e-c7334ba94c30"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[CHINCHA ALTA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-4" y="3" width="225" height="20" uuid="5e51b78f-5d0c-4abb-8d09-f982930a8ae7"/>
+				<reportElement x="2" y="27" width="225" height="16" uuid="5e51b78f-5d0c-4abb-8d09-f982930a8ae7"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter"/>
 				</textElement>
 				<text><![CDATA[----------------------------------------------------------------]]></text>
 			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch">
 			<textField>
-				<reportElement x="-4" y="14" width="182" height="20" uuid="3c6d56f0-bbce-4acb-b2b6-f6573c7ae64f"/>
+				<reportElement x="8" y="-11" width="182" height="20" uuid="3c6d56f0-bbce-4acb-b2b6-f6573c7ae64f"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ACTO_MEDICO}]]></textFieldExpression>
 			</textField>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="65" splitType="Stretch">
-			<textField>
-				<reportElement x="63" y="22" width="100" height="20" uuid="248bf25e-ff25-4970-9620-59996a71d912"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nom_forma_pago}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="-4" y="-8" width="100" height="20" uuid="45ec7c21-ba11-4120-9640-2c12ae9a7cb5"/>
+				<reportElement x="2" y="3" width="100" height="10" uuid="45ec7c21-ba11-4120-9640-2c12ae9a7cb5"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[TICKET DE VENTA]]></text>
 			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="147" splitType="Stretch">
 			<textField>
-				<reportElement x="26" y="2" width="70" height="20" uuid="2f690d70-d867-4b83-8156-64de83ad5926"/>
+				<reportElement x="69" y="22" width="100" height="10" uuid="248bf25e-ff25-4970-9620-59996a71d912"/>
+				<textElement>
+					<font fontName="Lucida Sans Typewriter" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom_forma_pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="2" width="42" height="10" uuid="2f690d70-d867-4b83-8156-64de83ad5926"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{serie}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="12" width="124" height="20" uuid="fb4c704d-81f4-4b0e-91ba-cd9a016fc0d6"/>
+				<reportElement x="60" y="12" width="124" height="10" uuid="fb4c704d-81f4-4b0e-91ba-cd9a016fc0d6"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{correlativo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-4" y="12" width="92" height="20" uuid="b64d63aa-8d2d-46d9-8409-58414321d866"/>
+				<reportElement x="2" y="12" width="92" height="10" uuid="b64d63aa-8d2d-46d9-8409-58414321d866"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[CORRELATIVO:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-4" y="2" width="50" height="20" uuid="7dbf4ebd-527d-402e-a18d-8d279bffcf7f"/>
+				<reportElement x="2" y="2" width="50" height="10" uuid="7dbf4ebd-527d-402e-a18d-8d279bffcf7f"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[SERIE:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-4" y="22" width="100" height="20" uuid="f9c3193c-f594-464a-a01c-04179e662b92"/>
+				<reportElement x="2" y="22" width="100" height="10" uuid="f9c3193c-f594-464a-a01c-04179e662b92"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[FORMA DE PAGO:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-4" y="42" width="100" height="20" uuid="87e0fec2-4259-4c56-9083-4f10ad93bc72"/>
+				<reportElement x="2" y="42" width="100" height="10" uuid="87e0fec2-4259-4c56-9083-4f10ad93bc72"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[PACIENTE:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="40" y="42" width="151" height="18" uuid="2c12d9f7-804a-49d8-a7d2-03d3667ba42b"/>
+				<reportElement x="46" y="42" width="151" height="10" uuid="2c12d9f7-804a-49d8-a7d2-03d3667ba42b"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PACIENTE}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-4" y="53" width="100" height="12" uuid="d90fed4d-e77c-46c2-acf7-15ac6acca201"/>
+				<reportElement x="2" y="52" width="100" height="10" uuid="d90fed4d-e77c-46c2-acf7-15ac6acca201"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[N° H.C.:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="36" y="53" width="100" height="12" uuid="96721188-3aad-47a7-a2d6-82bdcd0f1b9d"/>
+				<reportElement x="42" y="52" width="100" height="10" uuid="96721188-3aad-47a7-a2d6-82bdcd0f1b9d"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-4" y="32" width="100" height="20" uuid="052a11fd-c6b4-412e-a952-3e3b0ebd8f44"/>
+				<reportElement x="2" y="32" width="100" height="10" uuid="052a11fd-c6b4-412e-a952-3e3b0ebd8f44"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[DNI :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="22" y="32" width="100" height="20" uuid="c9bb3eea-3ff5-4039-9fbf-c04c76c4567f"/>
+				<reportElement x="28" y="32" width="100" height="10" uuid="c9bb3eea-3ff5-4039-9fbf-c04c76c4567f"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
 			</textField>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="114">
+			<componentElement>
+				<reportElement key="table 1" mode="Opaque" x="2" y="129" width="198" height="16" uuid="f26c0eac-752c-4080-894d-cb30984ffba3"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DetalleDoc" uuid="9fdf4a53-af04-4c32-b7f6-901119e781d9">
+						<datasetParameter name="id">
+							<datasetParameterExpression><![CDATA[$P{doc}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="198" uuid="2a6803ea-70d2-44d9-aade-4aceb27f4e38">
+						<jr:tableHeader height="19" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="198" height="14" uuid="cb3147c3-01c7-4cfd-a0b6-af5fa333a511"/>
+								<textElement>
+									<font fontName="Lucida Sans Typewriter" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA["SERVICIO :"+$F{AR_DESC}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:columnHeader height="16" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="198" height="10" uuid="45682dc9-8539-4e7b-b4bf-37171fcd21bf"/>
+								<textElement>
+									<font fontName="Lucida Sans Typewriter" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA["HABITACIÓN : "+$F{HAB_NOM}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell height="17" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="198" height="17" uuid="27b96329-53e5-40cc-8502-4a8479de55a8"/>
+								<textElement>
+									<font fontName="Lucida Sans Typewriter" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Nº CAMA : "+$F{CA_DESC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
 			<textField>
-				<reportElement x="-4" y="25" width="187" height="20" uuid="c1e118fe-22f2-4de5-a434-9f0dcbf61501"/>
+				<reportElement x="2" y="86" width="198" height="20" uuid="fbbc6b87-050e-452e-ba86-f6be6b216884"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-4" y="45" width="100" height="20" uuid="b92de826-f820-410d-978b-190dbafdc558"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter" size="8"/>
-				</textElement>
-				<text><![CDATA[SERVICIO :]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="46" y="45" width="126" height="20" uuid="e3387f89-ceb5-453c-844b-91c2d84cbf4d"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nom_consultorio_citas}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="-4" y="58" width="100" height="20" uuid="dd74f175-d2ad-4450-a2e1-328c10af8b5e"/>
+				<reportElement x="2" y="109" width="100" height="20" uuid="a450b132-6984-463b-8aa7-de72aacace6f"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[MÉDICO :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="36" y="58" width="227" height="20" uuid="8b5d026e-1a06-48a0-90cf-c7ee562903b7"/>
+				<reportElement x="46" y="109" width="153" height="20" uuid="b43a8c88-9120-4ca5-b350-4606c1d1475a"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{personal_aten}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-4" y="70" width="100" height="20" uuid="57326ac0-9eb2-4820-9fd6-9e11aa9f6179"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter" size="8"/>
-				</textElement>
-				<text><![CDATA[TURNO :]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="32" y="70" width="100" height="20" uuid="f2c03347-829b-4a03-b5ea-03d232db7a2d"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{turno_cita}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="-4" y="82" width="100" height="20" uuid="7d554bdb-6905-47a9-b5cc-48dea967cbc2"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter" size="8"/>
-				</textElement>
-				<text><![CDATA[Nº CAMA : ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="-4" y="94" width="117" height="16" uuid="029a66d3-7c30-4cfa-b13d-59928fecd94b"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter" isBold="true"/>
-				</textElement>
-				<text><![CDATA[IMPORTE TOTAL S/. :]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="114" y="94" width="62" height="16" uuid="12696c13-7a6f-4d06-bc3f-3ec8b92cbe33"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="-4" y="-5" width="225" height="20" uuid="e024a4ba-82d3-47ca-8824-072b55ee32ab"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter"/>
-				</textElement>
-				<text><![CDATA[----------------------------------------------------------------]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="-4" y="5" width="176" height="20" uuid="8a293afa-776f-4cba-92e3-30841ffde515"/>
+				<reportElement x="0" y="68" width="197" height="12" uuid="b36f5c3c-c76f-4e88-8851-d887fece898b"/>
 				<textElement textAlignment="Center">
-					<font fontName="Lucida Sans Typewriter" size="12"/>
+					<font fontName="Lucida Sans Typewriter" isBold="true"/>
 				</textElement>
 				<text><![CDATA[HOSPITALIZACIÓN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16">
+			<staticText>
+				<reportElement x="2" y="4" width="140" height="12" uuid="029a66d3-7c30-4cfa-b13d-59928fecd94b"/>
+				<textElement>
+					<font fontName="Lucida Sans Typewriter" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE TOTAL S/. 0.00]]></text>
 			</staticText>
 		</band>
 	</detail>
@@ -350,62 +355,90 @@ AND  CDC.id_documento=  $P{doc}]]>
 		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="74" splitType="Stretch">
+		<band height="108" splitType="Stretch">
 			<staticText>
-				<reportElement x="-5" y="4" width="100" height="20" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
+				<reportElement x="1" y="43" width="100" height="10" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[CAJERO :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="36" y="4" width="162" height="20" uuid="dd96d3ff-9cef-4aef-9025-211197b68ad2"/>
+				<reportElement x="42" y="43" width="162" height="10" uuid="dd96d3ff-9cef-4aef-9025-211197b68ad2"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PERSONAL}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-5" y="15" width="117" height="20" uuid="f5a908b2-5e4e-4bfa-b0cd-4de825960634"/>
+				<reportElement x="1" y="54" width="117" height="10" uuid="f5a908b2-5e4e-4bfa-b0cd-4de825960634"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[Fecha de Emisión :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="82" y="15" width="100" height="20" uuid="044a2abe-43a4-4686-ae82-91bee8b1f13c"/>
+				<reportElement x="88" y="54" width="54" height="10" uuid="044a2abe-43a4-4686-ae82-91bee8b1f13c"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_actu}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="-5" y="27" width="100" height="20" uuid="208f4eda-f792-4eca-bc53-08b4e7cc8d86"/>
-				<textElement>
-					<font fontName="Lucida Sans Typewriter" size="8"/>
-				</textElement>
-				<text><![CDATA[Hora de Emisión :]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="77" y="27" width="100" height="20" uuid="c6c76279-c29a-42a9-92f5-fe7299802d7b"/>
+				<reportElement x="85" y="66" width="66" height="10" uuid="c6c76279-c29a-42a9-92f5-fe7299802d7b"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{hora_actu}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-5" y="44" width="200" height="20" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
+				<reportElement x="1" y="78" width="200" height="10" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
 				<textElement textAlignment="Center">
-					<font fontName="Lucida Sans Typewriter" size="9"/>
+					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[Gracias por su visita]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-5" y="55" width="200" height="17" uuid="9fa5f130-6bef-4a10-90b4-2f9ba771111c"/>
+				<reportElement x="1" y="87" width="200" height="10" uuid="9fa5f130-6bef-4a10-90b4-2f9ba771111c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[Servicio de Atención - 056-261232]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="66" width="117" height="10" uuid="b35e77c8-be71-4984-a6b0-6421f9a1a563"/>
+				<textElement>
+					<font fontName="Lucida Sans Typewriter" size="8"/>
+				</textElement>
+				<text><![CDATA[Hora de Emisión :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="30" width="225" height="14" uuid="ad17b6c4-0c1c-4db5-bb89-60a91643ff44"/>
+				<textElement>
+					<font fontName="Lucida Sans Typewriter"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="10" width="182" height="10" uuid="e999bc4f-e7ac-490d-b81a-0797bc63e4a8"/>
+				<textElement>
+					<font fontName="Lucida Sans Typewriter" size="8"/>
+				</textElement>
+				<text><![CDATA[ATENCIÓN SUBVENCIONADA POR SIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="0" width="225" height="14" uuid="e79e692d-2ca9-4426-a0bc-d624a4204cb7"/>
+				<textElement>
+					<font fontName="Lucida Sans Typewriter"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="20" width="182" height="10" uuid="ebe22fd3-fd4b-4d97-bcba-08041bcca4d3"/>
+				<textElement>
+					<font fontName="Lucida Sans Typewriter" size="8"/>
+				</textElement>
+				<text><![CDATA[PRESTACIÓN GRATUITA ]]></text>
 			</staticText>
 		</band>
 	</summary>

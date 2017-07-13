@@ -410,6 +410,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="txtTotalVentas">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
@@ -467,8 +468,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="dtFechaF" min="-2" pref="205" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciar" min="-2" pref="111" max="-2" attributes="0"/>
-                      <EmptySpace pref="315" max="32767" attributes="0"/>
+                      <Component id="btnIniciar" min="-2" pref="145" max="-2" attributes="0"/>
+                      <EmptySpace pref="281" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblSerie" min="-2" max="-2" attributes="0"/>
@@ -665,6 +666,9 @@
             </Container>
             <Component class="com.toedter.calendar.JDateChooser" name="dtFechaI">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
@@ -676,6 +680,9 @@
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="dtFechaF">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
@@ -694,7 +701,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/Documento-32.png"/>
+                  <Image iconType="3" name="/imagenes/iconos/icons8-Play Filled-32.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Iniciar"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>

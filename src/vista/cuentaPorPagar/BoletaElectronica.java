@@ -5,6 +5,7 @@
  */
 package vista.cuentaPorPagar;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
@@ -14,7 +15,9 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Formatter;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
@@ -217,6 +220,33 @@ public class BoletaElectronica extends javax.swing.JFrame {
             txtTotalDscto.setText("0.00");
             txtValorVentaGravada.setText("0.00");
             txtVentaExonerada.setText("0.00");
+    }
+    
+    public String determinarFecha(JDateChooser calendario){
+         
+        String fecha = "";
+        try {
+        int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
+        int mes = calendario.getCalendar().get(Calendar.MONTH)+1;
+        int anio = calendario.getCalendar().get(Calendar.YEAR); 
+        
+            if(dia < 10 && mes < 10){
+            fecha = String.valueOf("0" + dia + "/" + "0" + mes + "/" + anio);
+        }else 
+            if(dia < 10 || mes < 10){
+                if(dia < 10 && mes >=10){
+                    fecha = String.valueOf("0" + dia + "/" + mes + "/" + anio);
+                } else 
+                    if(dia >= 10 && mes < 10){
+                        fecha = String.valueOf(dia + "/" + "0" + mes + "/" + anio);
+                    } 
+            } else 
+                fecha = String.valueOf(dia + "/" + mes + "/" + anio); 
+         } catch (Exception e) {
+                           JOptionPane.showMessageDialog(this, "Error referente a la fecha: " + e.getMessage());
+         }
+        
+        return fecha;
     }
     
     @SuppressWarnings("unchecked")
@@ -439,6 +469,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
                 panelCPT3.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
+                txtTotalVentas.setEditable(false);
                 txtTotalVentas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 txtTotalVentas.setForeground(new java.awt.Color(51, 51, 51));
                 txtTotalVentas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -590,17 +621,19 @@ public class BoletaElectronica extends javax.swing.JFrame {
                 });
                 tablaS1.setViewportView(tbBoletaDetalles);
 
+                dtFechaI.setBackground(new java.awt.Color(255, 255, 255));
                 dtFechaI.setForeground(new java.awt.Color(51, 51, 51));
                 dtFechaI.setDateFormatString("dd/MM/yyyy");
                 dtFechaI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+                dtFechaF.setBackground(new java.awt.Color(255, 255, 255));
                 dtFechaF.setForeground(new java.awt.Color(51, 51, 51));
                 dtFechaF.setDateFormatString("dd/MM/yyyy");
                 dtFechaF.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
                 btnIniciar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 btnIniciar.setForeground(new java.awt.Color(102, 102, 102));
-                btnIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Documento-32.png"))); // NOI18N
+                btnIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Play Filled-32.png"))); // NOI18N
                 btnIniciar.setText("Iniciar");
                 btnIniciar.setContentAreaFilled(false);
                 btnIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -648,8 +681,8 @@ public class BoletaElectronica extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dtFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
+                        .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(lblSerie)
@@ -721,7 +754,42 @@ public class BoletaElectronica extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDniKeyPressed
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-
+        ImageIcon continuar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Play Filled-32.png")); 
+        ImageIcon detener=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Detener Filled-32.png")); 
+        try {
+        boleta.ventasPorContado(tbBoletasCabecera, "", determinarFecha(dtFechaI), determinarFecha(dtFechaF));
+         if(tbBoletasCabecera.getRowCount()!=0){ //IF VERIFICA SI LA TABLA TIENE DATOS
+            if(btnIniciar.getText().equals("Iniciar")){ //INICIAR LA BUSQUEDA
+                btnIniciar.setIcon(detener);
+                btnIniciar.setText("Detener");
+                dtFechaI.setVisible(false);
+                dtFechaF.setVisible(false);
+                    cantidad = tbBoletasCabecera.getRowCount();
+                    txtTotalVentas.setText(String.valueOf(cantidad));
+                    boleta.ventasPorContadoDetalles(tbBoletaDetalles, String.valueOf(tbBoletasCabecera.getValueAt(0, 14)), "");
+                    boleta.generarSerieCorrelativo("B");
+                    boleta.ventasPorContadoDetalles(tbBoletaDetalles, String.valueOf(tbBoletasCabecera.getValueAt(0, 15)), "");
+                    lblDNI.setText(String.valueOf(tbBoletasCabecera.getValueAt(0, 4)));
+                    lblApeNom.setText(String.valueOf(tbBoletasCabecera.getValueAt(0, 6)));
+                    tbBoletasCabecera.getSelectionModel().setSelectionInterval (0,0) ;
+                    tbBoletasCabecera.requestFocus();
+                    calcularValores();
+            } else { // DETIENE LA BUSQUEDA
+                btnIniciar.setIcon(continuar); 
+                btnIniciar.setText("Iniciar");
+                boleta.ventasPorContado(tbBoletasCabecera, "","","");
+                dtFechaI.setVisible(true);
+                dtFechaF.setVisible(true);
+            }
+        } else {
+                JOptionPane.showMessageDialog(this, "No hay registros para mostrar");
+                btnIniciar.setIcon(continuar); 
+                btnIniciar.setText("Iniciar");
+                dtFechaI.setVisible(true);
+                dtFechaF.setVisible(true);
+        } // FIN IF VERIFICA SI LA TABLA TIENE DATOS
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void tbBoletasCabeceraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbBoletasCabeceraMouseClicked
@@ -752,6 +820,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
     }//GEN-LAST:event_tbBoletaDetallesKeyPressed
 
     private void btnIniciar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciar1ActionPerformed
+        try {
         lblCantidad.setText(txtTotalVentas.getText());
         boolean rpta = false;
             for(int c = 0;c<cantidad;c++){
@@ -859,16 +928,17 @@ public class BoletaElectronica extends javax.swing.JFrame {
             }
             } // fin de for cantidad
             //MOSTRAR BOLETAS GENERADAS Y NO GENERADAS
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
             JOptionPane.showMessageDialog(this, "Boletas electrónicas Generadas correctamente " + cantidadAceptas + 
                         "\nBoletas electrónicas Generadas incorrectamente " + cantidadRechazadas);        
     }//GEN-LAST:event_btnIniciar1ActionPerformed
 
     private void tbBoletasCabeceraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbBoletasCabeceraKeyReleased
-        int fila = tbBoletasCabecera.getSelectedRow();
+
         if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
-            boleta.ventasPorContadoDetalles(tbBoletaDetalles, String.valueOf(tbBoletasCabecera.getValueAt(fila, 15)), "");
-            lblDNI.setText(String.valueOf(tbBoletasCabecera.getValueAt(fila, 4)));
-            lblApeNom.setText(String.valueOf(tbBoletasCabecera.getValueAt(fila, 6)));
+            calcularValores();
         }
     }//GEN-LAST:event_tbBoletasCabeceraKeyReleased
 

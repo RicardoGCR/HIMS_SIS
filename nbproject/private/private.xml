@@ -2,35 +2,8 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-=======
         <group>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/BoletaElectronica.java</file>
         </group>
-=======
-<<<<<<< HEAD
-        <group>
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/NewJFrame.java</file>
-        </group>
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
->>>>>>> 88a0c1dda518129e4dc53388a07d9c194cda4466
-        <group>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-        </group>
-<<<<<<< HEAD
-=======
-=======
-        <group/>
->>>>>>> edec062463ef0598690eef645442d1124dedaa6f
->>>>>>> 9ab3d56c284fd231df74a48dbd67e2883c9ad310
->>>>>>> 09c66ce3831bc1052b195580c1ffaee7162e9847
->>>>>>> 18f4db4f8379f7cabd08d2654b83ef0805c930a3
->>>>>>> 88a0c1dda518129e4dc53388a07d9c194cda4466
     </open-files>
 </project-private>

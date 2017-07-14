@@ -2,7 +2,7 @@
  * YAMILA ROCCA RUIZ
  */
 package vista.admisionCentral;
-
+//IMPORTAR LIBRERIAS NECESARIAS Y PAQUETES
 import vista.admisionEmergencia.FrmFormatoEmergencia;
 import tablas.FormatoTablaHC;
 import java.awt.Color;
@@ -39,7 +39,6 @@ import modelos.admisionCentral.HistoriaClinica;
 import modelos.Usuario;
 import vista.*;
 import servicios.*;
-//import static vista.RegistroUsuario.cbxPersonal;
 import static vista.RegistroUsuario.txtCodigo;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -73,17 +72,21 @@ import vista.sectorizacion.FrmSector;
 /*
  * @author Yamila Rocca Ruiz
  */
-//ARRGLAR LA TABLA HISTORIA CLINICA
+
 public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
+    //DECLARAR VARIABLES PARA MOSTRAR HORAS, MINUTOS Y SEGUNDOS
     String hora, minutos, segundos, ampm;
     Calendar calendario;
     Thread h1;
+    //LLAMAR CONEXION
     Connection conexion=null;
     Conexion c=new Conexion();
     ResultSet r;
+    //INSTANCIAS CLASE DE HISTORIA CLINICA
     HistoriaClinica hC = new HistoriaClinica();
     DefaultTableModel m;
     PreparedStatement pstm;
+    //VARIABLE PARA CARGAR LAS HISTORIAS CLINICAS CON ESTADO 'ACTIVO'
     String estado = "A";
     
     /**
@@ -91,9 +94,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
      */
     public FrmNuevaHistoriaC() {
         initComponents();
+        // RESTRINGIR CANTIDAD DE CAMPO
         restringirCampos(8,txtDni);
         restringirCampos(10, txtFechaNac);
         restringirCampos(8, txtCodigo);
+        // FORMULARIO MAXIMMIZADO
         this.setExtendedState(MAXIMIZED_BOTH);
         h1 = new Thread(this);
         h1.start();
@@ -117,6 +122,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         txtLote.setVisible(false);
         cbxSector.setEnabled(false);
         btnNuevo.setMnemonic(KeyEvent.VK_N);
+        // AGREGAR MENSAJES DE ATAJOS A LOS BOTONES PRINCIPALES
         btnNuevo.setToolTipText("Nuevo (Alt+ N)");
         btnGuardar.setToolTipText("Guardar (Alt + G)");
         btnModificar.setToolTipText("Modificar (Alt + M)");
@@ -166,6 +172,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         restricted.setLimit(limite);
     }
     
+    //METODO PARA CALCULAR LA FECHA DEL DIA
     public void calcula() {
         Calendar calendario = new GregorianCalendar();
         java.util.Date fechaHoraActual = new java.util.Date();
@@ -183,7 +190,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
     
-  
+  // METODO PARA MOSTRAR LOS DEPARTAMENTOS
     public DefaultComboBoxModel departamento(){
        DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
        String   sql = null;
@@ -203,6 +210,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         return listmodel;
     }
     
+    //METODO PARA LIMPIAR LAS CAJAS DE TEXTO
     public void limpiar(){
         txtID.setText(hC.idHistoriaClinica());
         txtDni.setText("");
@@ -239,6 +247,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         txtTelefono.setText("");
         txtCelular.setText("");
         txtEstado.enable(false);
+        // METODO PARA MOSTRAR LA SIGUIENTE HISTORIA CLINICA
         mostrarNumHC();
         txtCodigo.setText("");
         txtLote.setText("");
@@ -254,6 +263,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         }
     }
     
+    //METODO PARA HABILITAR Y DESHABILITAR CAJAS DE TEXTO 
     public void habilitarOpciones(boolean opcion){
         txtDni.setEnabled(opcion);
         txtApellidoPat.setEnabled(opcion);
@@ -288,6 +298,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         rbtFemenino.setEnabled(opcion);
     }
     
+    //METODO PARA HABILITAR Y DESHABILITAR LOS BOTONES PRINCIPALES
     public void habilitarBotones(boolean opcion){
         btnNuevo.setEnabled(opcion);
         btnGuardar.setEnabled(!opcion);
@@ -296,6 +307,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         btnBuscar.setEnabled(opcion);
     }
     
+    //CABECERA DE LA TABLA HISTORIAS CLINICAS
     public void cabecera(){
         String titulos[]={"N°","ID","DNI","Apellido Pat","Apellido Mat","1er nombre",
                               "2do Nombre","3er Nombre","Fecha de Nac","S","Departamento Act","Provincia Act",
@@ -313,6 +325,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             this.tbHistoriaC.setModel(m);
     }
     
+    //FORMATO DE LA TABLA DE HISTORIAS CLINICAS - ESPACIOS
     public void formatoHistoriaClinica(){
             tbHistoriaC.getColumnModel().getColumn(1).setPreferredWidth(160);
             tbHistoriaC.getColumnModel().getColumn(0).setPreferredWidth(65);
@@ -347,6 +360,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             tbHistoriaC.setRowHeight(30);
     }
     
+    //METODO PARA BUSCAR LAS HISTORIAS CLINICAS
     public void buscar_HC(int index, String opcion, String descripcion){
     String consulta="";
         try {
@@ -423,6 +437,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         }
     }
     
+    //MOSTRAR EL CODIGO DE LA HISTORIA CLINICA CON FORMATO DE GUION (EJEMPLO 77777-77)
     public void mostrarNumHC(){
         char c1 = hC.codHistoriaClinica().charAt(0);
         char c2 = hC.codHistoriaClinica().charAt(1);
@@ -435,12 +450,14 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 + "-" + String.valueOf(c6)+String.valueOf(c7));
     }
     
+    //METODO PARA GUARDAR UNA NUEVA HISTORIA CLINICA
     public void btnGuardar(){
         try {
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Guardar-32.png")); 
         String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) 
                 + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6) + String.valueOf(txtCodigo.getText().charAt(7))) ;
 //        if(txtID.getText().equalsIgnoreCase(hC.idHistoriaClinica())){
+        //VALIDA QUE LOS CAMPOS PRINCIPALES ESTEN COMPLETOS, SINO MUESTR AUN MENSAJE DE ERROR
             if(txtDni.getText().equals("") || txtNombre1.getText().equals("") || txtApellidoPat.getText().equals("") ||
                    txtApellidoPat.getText().equals("") || txtFechaNac.getText().equals("") ||
                          cbxDepartamento.getSelectedIndex()==0 || cbxDepartamentoNac.getSelectedIndex() == 0 
@@ -460,10 +477,14 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     cbxDistritoNac.setEnabled(false);
                     //txtCodigo.setEnabled(true);
                 } else {
+                // SI LA CONDICION ANTERIOR ES CORRECTA, PIDE CONFIRMACION PARA EL GUARDAR EL NUEVO REGISTRO
         int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+        // SI SE CONFIRMA .. SE GUARDAN LOS DATOS DE LA HISTORIA CLINICA
                     if(guardar == 0 ){
+                        // SE INSTANCIA LA CLASE DE HISTORIA CLINICA
                     HistoriaClinica hC3 = new HistoriaClinica();
+                    // SE ENVIAN LOS DATOS MEDIANTE SETTERS
                     hC3.setId_hc(txtID.getText());
                     hC3.setCod_hc(codigo);
                     hC3.setDni(txtDni.getText());
@@ -502,6 +523,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     hC3.setNacionalidad(txtNacionalidad.getText().toUpperCase());
                     hC3.setNom_usu(lblUsuUsuario.getText().toUpperCase());
                     hC3.setRiesgo(txtRiesgo.getText().toUpperCase());
+                    // SI LA PROVINCIA SELECCIONADA NO ES CHINCHA ENTONCES SU SECTOR, TIPO DE DIRECCION Y NOMBRE ASIGNADOS ES DE TURISTA
+                    // YA QUE NO INCLUYE LA SECTORIZACION FUERA DE CHINCHA
                     if(!cbxProvincia.getSelectedItem().toString().equals("CHINCHA")){
                         hC3.setSe_cod("Turista");
                         hC3.setTipo_dir_nom("Turista");
@@ -523,27 +546,22 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                                              String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) +
                                              String.valueOf(cod_hc.charAt(4)) + String.valueOf(cod_hc.charAt(6)) + 
                                              String.valueOf(cod_hc.charAt(7));
+                            //IMPRIME REPORTE DE HISTORIA CLINICA
                             String rutaInforme = "src\\Reportes\\admisionCentral\\historiaClinica.jasper";
+                            // SE ENVIA COMO PAREMETRO EL NUMERO DE HISTORIA CLINICA PARA LA IMPRESION
                             Map parametros = new HashMap();
                             parametros.put("cod_hc", txtID.getText());
                             JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
                             JasperViewer ventanavisor = new JasperViewer(informe, false);
-                            ventanavisor.setTitle("Historia Clínica");
+                            ventanavisor.setTitle("Historia Clínica" + txtID.getText());
                             ventanavisor.setVisible(true);
-                            
-                            //String datos = codigo3 + "_" + txtApellidoPat.getText() + txtApellidoMat.getText() + txtNombre1.getText(); 
-                            /*JasperExportManager.exportReportToPdfFile(informe,"D:\\Historias-Clinicas\\"+datos+".pdf");
-                            String file = new String("D:\\Historias-Clinicas\\"+datos+".pdf");
-                            //definiendo la ruta en la propiedad file
-                            //Visualizar el PDF
-                            JOptionPane.showMessageDialog(this, "Exportando...");
-                            Runtime.getRuntime().exec("cmd /c start "+file);    */
                             limpiar();
                             habilitarBotones(true);
                             habilitarOpciones(false);
                        } else {
                            JOptionPane.showMessageDialog(this, "Error al modificar");
                        }
+                    //UNA VEZ MOSTRADO EL REPORTE, SE LIMPIAN LOS CAMPOS Y SE INICIALIZA NUEVAMENTE EL FORMULARIO
                     limpiar();
                     btnGuardar.setEnabled(false);
                     habilitarOpciones(false);
@@ -559,6 +577,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         }  
     }
     
+    //METODO PARA MOSTRAR HISTORIAS CLINICAS REASIGNADAS
     public void mostrarCodHC(String codigo){
     String consulta="";
         try {
@@ -593,6 +612,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         }
     }
     
+    // METODO PARA VALIDAR SI EXISTE YA LA HISTORIA CLINICA EN LOS REGISTROS DE LA BASE DE DATOS
     public void validaCampo() {
         String codigo;
         boolean existe = false; //variable bandera para comprobar si NO existe el expediente en la BD
@@ -615,6 +635,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
           }
     }
     
+    // METODO PARA VALIDAR SI EL DNI YA EXISTE EN LA BASE DE DATOS 
     public boolean validaDNI(String dni) {
         String codigo;
         boolean existe = false; //variable bandera para comprobar si NO existe el expediente en la BD
@@ -646,6 +667,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         return existe;
     }
     
+    // METODO PARA ENVIAR DATOS DE LA HISTORIA CLINICA (ELIMINADA CON ESTADO D ) - PARA SER REASIGNADA - ES DECIR LIMPIAR SUS CAMPOS
     public void enviarDatos(){
         int fila = tbHistoriaC.getSelectedRow();
             FrmNuevaHistoriaC nuevaHC = new FrmNuevaHistoriaC();
@@ -699,8 +721,6 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             FrmNuevaHistoriaC.txtOcupacion.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 23))); 
             FrmNuevaHistoriaC.txtTelefono.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 27))); 
             FrmNuevaHistoriaC.txtCelular.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 25))); 
-            
-            
             habilitarOpciones(false);
             btnEliminar.setEnabled(true);
     }
@@ -2623,13 +2643,19 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_txtEstadoActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        
+        // BOTON NUEVO - ME PERMITE SELECCIONAR TRES OPCIONES :
+        /*
+            1. AUTOMATICO - GENERA LA HISTORIA CLINICA EN BASE A + 1
+            2. CONTINUADOR - LE ASIGNO UN  NUMERO DE HISTORIA CLINICA
+            3. REASIGNADO - DE LAS HISTORIAAS CLINICAS ELIMINADAS, LIMPIO 
+            LOS DATOS DE UNA HISTORIA PARA REASIGNARLE NUEVOS DATOS
+        */
             try {
             if(btnNuevo.getText().equals("Nuevo")){
                 String[] opciones = {"Automático","Continuador","Reasignado"};
                 ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Documento-32.png")); 
                 String resp = (String) JOptionPane.showInputDialog(this,"Seleccione una opción:", "Opciones",JOptionPane.DEFAULT_OPTION, i, opciones, opciones[0]);
-                if(resp.equals("Automático")){
+                if(resp.equals("Automático")){ // PRIMER ESCENARIO - AUTOMATICO
                     habilitarOpciones(true);
                     btnGuardar.setEnabled(true);
                     btnEliminar.setEnabled(false);
@@ -2640,7 +2666,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     mostrarNumHC();
                     txtDni.requestFocus();
                 } else
-                if(resp.equals("Continuador")){
+                if(resp.equals("Continuador")){ //SEGUNDO ESCENARIO - CONTINUADOR
                     habilitarOpciones(true);
                     btnGuardar.setEnabled(true);
                     btnEliminar.setEnabled(false);
@@ -2657,7 +2683,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     ReasignarHC.getContentPane().setBackground(Color.WHITE);
                     mostrarCodHC("");
             } else 
-            if(btnNuevo.getText().equals("Reasignar")){
+            if(btnNuevo.getText().equals("Reasignar")){ // TERCER ESCENARIO - REASIGNADO
                 String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + 
                                 String.valueOf(txtCodigo.getText().charAt(1)) + 
                                 String.valueOf(txtCodigo.getText().charAt(2)) + 
@@ -2749,13 +2775,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     String datos = codigo3 + "_" + txtApellidoPat.getText() + txtApellidoMat.getText() + txtNombre1.getText(); 
                 
                             JasperViewer ventanavisor = new JasperViewer(informe, false);
-                            ventanavisor.setTitle("Historia Clínica");
+                            ventanavisor.setTitle("Historia Clínica" + codigo3);
                             ventanavisor.setVisible(true);
-//                    JasperExportManager.exportReportToPdfFile(informe,"D:\\Historias-Clinicas\\"+datos+".pdf");
-//                    String file = new String("D:\\Historias-Clinicas\\"+datos+".pdf");
-//                    //definiendo la ruta en la propiedad file
-//                    //Visualizar el PDF
-//                    Runtime.getRuntime().exec("cmd /c start "+file);   
                     JOptionPane.showMessageDialog(this, "Historia Clínica reasignada a " + 
                     txtApellidoPat.getText() + " " + txtApellidoMat.getText() + " " + 
                     txtNombre1.getText() + " " + txtNombre2.getText() + " " + txtNombre3.getText());
@@ -2790,6 +2811,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         
     }//GEN-LAST:event_btnNuevoActionPerformed
     
+    
+    //VALIDA SI EXISTE EL NUMERO DE HISTORIA CLINICA EN LA BASE DE DATOS
     public void validaCodigo(String codigo){
         String codigoMostrar = String.valueOf(codigo.charAt(0)) + String.valueOf(codigo.charAt(1)) + 
                                String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + String.valueOf(codigo.charAt(4)) + "-" + 
@@ -2809,11 +2832,14 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }
     
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        //VALIDA SI EL DNI NO EXISTE, 
+        //VALIDA SI LA HISTORIA CLINICA ESTA COMPLETA, SINO ME MUESTRA EL MENSAJE DE ERROR 
         if(validaDNI(txtDni.getText())==false){
             if(txtCodigo.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Debe ingresar un Número de HistoriaClínica");
             } else {
                 String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(5)) + String.valueOf(txtCodigo.getText().charAt(6)); 
+                //VALIDA QUE EL CODIGO NO EXISTA EN LA BASE DE DATOS
                 validaCodigo(codigo);
             }
         } 
@@ -2821,7 +2847,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Guardar-32.png")); 
-        if(btnModificar.getText().equals("Modificar")){
+        if(btnModificar.getText().equals("Modificar")){ // ME HABILITA LOS CAMPOS PARA MODIFICAR UN REGISTRO
             if(cbxTipoDireccion.getSelectedItem().equals("Urb")){
                 txtLote.setEnabled(true);
             }
@@ -2834,7 +2860,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             txtNumero.setEnabled(true);
             btnModificar.setIcon(i);
         } else 
-        if(btnModificar.getText().equals("Actualizar")){
+        if(btnModificar.getText().equals("Actualizar")){ // PERMITE ACTUALIZAR LOS DATOS D EUN REGISTRO
             if(txtID.getText() != (hC.idHistoriaClinica())){
                     int modificar = JOptionPane.showConfirmDialog(this, "¿Desea ACTUALIZAR los datos?",
                       "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
@@ -2932,7 +2958,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        if(btnEliminar.getText().equals("Eliminar")){
+        if(btnEliminar.getText().equals("Eliminar")){ // CAMBIO DE ESTADO A LA HISTORIA CLINICA DE ACTIVO A -> INACTIVO (D)
         ImageIcon ieli=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Basura-32.png")); 
         int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR?",
             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
@@ -2951,7 +2977,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             System.out.println("Error: " + e.toString());
         }
         }
-        if(btnEliminar.getText().equals("Restaurar")){
+        if(btnEliminar.getText().equals("Restaurar")){//SI EL BOTON ES RESTAURAR, RESTAURA LA HISTORIA CLINICA ESTADO A -> A
         ImageIcon ieli=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Restaurar-32.png")); 
         int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea RESTAURAR?",
             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
@@ -3058,6 +3084,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_tbHistoriaCKeyPressed
 
     private void cbxProvinciaNacItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinciaNacItemStateChanged
+        //TRAE LOS DISTRITOS DE ACUERDO A LA PROVINCIA SELECCIONADA
         try{  
                 if(evt.getStateChange()==ItemEvent.SELECTED){
                     if(this.cbxProvinciaNac.getSelectedIndex()>0){
@@ -3083,6 +3110,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_cbxProvinciaNacItemStateChanged
 
     private void cbxProvinciaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinciaItemStateChanged
+        //TRAE LOS DISTRITOS DE ACUERDO A LA PROVINCIA SELECCIONADA
         try{  
                 if(evt.getStateChange()==ItemEvent.SELECTED){
                     if(this.cbxProvincia.getSelectedIndex()>0){
@@ -3109,6 +3137,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_cbxProvinciaItemStateChanged
 
     private void cbxDepartamentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDepartamentoItemStateChanged
+        //TRAE LOS DISTRITOS DE ACUERDO A EL DEPARTAMENTO SELECCIONADO
         try{  
                 if(evt.getStateChange()==ItemEvent.SELECTED){
                     if(this.cbxDepartamento.getSelectedIndex()>0){
@@ -3135,6 +3164,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_cbxDepartamentoItemStateChanged
 
     private void cbxDepartamentoNacItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDepartamentoNacItemStateChanged
+        //TRAE LOS DISTRITOS DE ACUERDO A EL DEPARTAMENTO SELECCIONADO
         try{  
                 if(evt.getStateChange()==ItemEvent.SELECTED){
                     if(this.cbxDepartamentoNac.getSelectedIndex()>0){
@@ -3169,6 +3199,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_cbxTipoBusquedaAncestorAdded
 
     private void chkAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAActionPerformed
+        //BUSQUEDA DE HISTORIAS CLINICAS ACTIVAS - (A)
         int index = cbxTipoBusqueda.getSelectedIndex();
         String busqueda = txtBuscar.getText();
         String opcion = "";
@@ -3178,30 +3209,15 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_chkAActionPerformed
 
     private void chkAItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkAItemStateChanged
-        /*if(txtBuscar.getText().equals("")){
-            int index = cbxTipoBusqueda.getSelectedIndex();
-            //String busqueda = txtBuscar.getText();
-            String opcion = "";
-                buscar_HC(0, "", "");
-            
-        }*/
+     
     }//GEN-LAST:event_chkAItemStateChanged
 
     private void chkDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkDItemStateChanged
-        /*int index = cbxTipoBusqueda.getSelectedIndex();
-        String busqueda = txtBuscar.getText();
-        String opcion = "";
-        if(chkD.isSelected()){
-            buscar_HC(0, "", "");
-        }*/
+       
     }//GEN-LAST:event_chkDItemStateChanged
 
     private void chkDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkDActionPerformed
-        /*int index = cbxTipoBusqueda.getSelectedIndex();
-        String busqueda = txtBuscar.getText();
-        String opcion = "";
-            buscar_HC(index, "D", busqueda);
-        */
+        //BUSQUEDA DE HISTORIAS CLINICAS INACTIVAS - (D)
         int index = cbxTipoBusqueda.getSelectedIndex();
         String busqueda = txtBuscar.getText();
         String opcion = "";
@@ -3220,6 +3236,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_chkTItemStateChanged
 
     private void chkTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkTActionPerformed
+        //BUSQUEDA DE HISTORIAS CLINICAS (AMBOS ESTADO) - (A) Y (D) 
         int index = cbxTipoBusqueda.getSelectedIndex();
         String busqueda = txtBuscar.getText();
         String opcion = "";
@@ -3233,6 +3250,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_btnBuscarMouseClicked
 
     private void tbHistoriaCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbHistoriaCMouseClicked
+        //ENVIAR DATOS DE HISTORIAS CLINICAS AL HACER DOBLE CLICK SOBRE UN REGISTRO DE LA TABLA
         if(evt.getClickCount()==2)
             enviarDatos();
     }//GEN-LAST:event_tbHistoriaCMouseClicked

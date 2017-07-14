@@ -2209,19 +2209,19 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             
             P_ROL.setVisible(true);
             formatoPersonal_TURNOS_UO();
-            int filaselec=TB_TURNOS_UO.getSelectedRow();
-            String total = TB_TURNOS_UO.getValueAt(filaselec, 10).toString();
+            int filasel=TB_TURNOS_UO.getSelectedRow();
+            String total = TB_TURNOS_UO.getValueAt(filasel, 10).toString();
            
             String d = total.substring(0, 2);
             
             txtTotal_Horas.setText(d);
-            TXT_HORA_INICIO.setText(TB_TURNOS_UO.getValueAt(filaselec, 7).toString());
-            TXT_HORA_FIN.setText(TB_TURNOS_UO.getValueAt(filaselec, 8).toString());
-            LBL_PASAR_DIA.setText(TB_TURNOS_UO.getValueAt(filaselec, 11).toString());
+            TXT_HORA_INICIO.setText(TB_TURNOS_UO.getValueAt(filasel, 7).toString());
+            TXT_HORA_FIN.setText(TB_TURNOS_UO.getValueAt(filasel, 8).toString());
+            LBL_PASAR_DIA.setText(TB_TURNOS_UO.getValueAt(filasel, 11).toString());
             
             if(lblGM.getText().equalsIgnoreCase("M")){
-                lblCOD_UO_1.setText(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
-                LBL_UNIDAD_ORGANICA_2.setText(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
+                lblCOD_UO_1.setText(TB_TURNOS_UO.getValueAt(filasel, 1).toString());
+                LBL_UNIDAD_ORGANICA_2.setText(TB_TURNOS_UO.getValueAt(filasel, 1).toString());
                 
                 //////segundo I
 //                TXT_UO_TB_TURNOS_UO.setText(String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 1)));
@@ -2358,10 +2358,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
        if(evt.getClickCount()==2){
            if(lblGM.getText().equalsIgnoreCase("G")){
                 
-                int filaselect = TB_TURNOS_PERSONAL_ROL.getSelectedRow();
-                if(!String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselect, 10)).equals("null")){           
-                    TXT_COD_ROL_GUARDAR.setText(String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselect, 10)));
-                    TXT_MOSTRAR_HORA_GUARDAR_UO.setText(String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselect, 0)));
+                int filaseleccionada = TB_TURNOS_PERSONAL_ROL.getSelectedRow();
+                if(!String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaseleccionada, 10)).equals("null")){           
+                    TXT_COD_ROL_GUARDAR.setText(String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaseleccionada, 10)));
+                    TXT_MOSTRAR_HORA_GUARDAR_UO.setText(String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaseleccionada, 0)));
                     ROL_ACTIVIDAD.setVisible(true);
                     mostrar_ROL_ACTIVIDADES_GUARDAR();
                     txt_ACTIVIDAD.setEditable(false);
@@ -2388,33 +2388,85 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     txtHoras_Libres.setText("00:00:00");
                     
                 }else {
-
-                        TXT_COD_ROL_GUARDAR.setText("");
-                     
-                        ROL_ACTIVIDAD.setVisible(true);
-                        txt_ACTIVIDAD.setEditable(true);
-                        txt_ACTIVIDAD.requestFocus();
-                        mostrar_ROL_ACTIVIDADES_GUARDAR();
-                        cb_HORA_INICIO.setEnabled(true);
-                        cb_HORA_FIN.setEnabled(true);
-                        btn_AGREGAR_ACTIVIDADES.setEnabled(true);
-                        btnguardar_ACTIVIDAD_ROL.setEnabled(false);
-                        BTN_QUITAR_ACTIVIDAD.setEnabled(true);
-                        TB_ROL_ACTIVIDAD.setEnabled(true);
-                        TB_ROL_ACTIVIDAD.setBackground(Color.white);
-                        TB_ACTIVIDADES_LISTA.setEnabled(true);
-                        TB_ACTIVIDADES_LISTA.setBackground(Color.white);
+                    
+                    /////pasar dia, TOTAL DE HORAS
+                if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
+                    int filaa = TB_TURNOS_PERSONAL_ROL.getSelectedRow();
+                                        
+                    String horas = String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaa, 7));
+                    if(Integer.parseInt(horas) < 10){
+                        txtHoras_Libres.setText("0" + horas + ":00:00");
+                    }else{
+                        if(Integer.parseInt(horas) >= 10){
+                            txtHoras_Libres.setText(horas + ":00:00");
+                        }
                         
-                        int filaselec=TB_TURNOS_PERSONAL_ROL.getSelectedRow();
-                        String COD_TUR_UO = TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 0).toString();
-                        mostrar_HORAS(COD_TUR_UO);
-                        CANTIDAD_HORAS_TOTAL();
+                    }
+                    
+                }
+                /////////
+                    
+                        if(LBL_PASAR_DIA.getText().equalsIgnoreCase("N")){
+                            
+                            TXT_COD_ROL_GUARDAR.setText("");
+                     
+                            ROL_ACTIVIDAD.setVisible(true);
+                            txt_ACTIVIDAD.setEditable(true);
+                            txt_ACTIVIDAD.requestFocus();
+                            mostrar_ROL_ACTIVIDADES_GUARDAR();
+                            cb_HORA_INICIO.setEnabled(true);
+                            cb_HORA_FIN.setEnabled(true);
+                            btn_AGREGAR_ACTIVIDADES.setEnabled(true);
+                            btnguardar_ACTIVIDAD_ROL.setEnabled(false);
+                            BTN_QUITAR_ACTIVIDAD.setEnabled(true);
+                            TB_ROL_ACTIVIDAD.setEnabled(true);
+                            TB_ROL_ACTIVIDAD.setBackground(Color.white);
+                            TB_ACTIVIDADES_LISTA.setEnabled(true);
+                            TB_ACTIVIDADES_LISTA.setBackground(Color.white);
 
-                        txtHoras_Libres.setText(LBL_CANTIDAD_HORAS_TOTAL.getText());
-                        txt_ACTIVIDAD.setText("");
+                            int filaselec=TB_TURNOS_PERSONAL_ROL.getSelectedRow();
+                            String COD_TUR_UO = TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 0).toString();
+                            mostrar_HORAS(COD_TUR_UO);
+                            CANTIDAD_HORAS_TOTAL();
+
+                            txtHoras_Libres.setText(LBL_CANTIDAD_HORAS_TOTAL.getText());
+                            txt_ACTIVIDAD.setText("");
+                            
+                        }else{
+                            if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
+                                TXT_COD_ROL_GUARDAR.setText("");
+                     
+                            ROL_ACTIVIDAD.setVisible(true);
+                            txt_ACTIVIDAD.setEditable(true);
+                            txt_ACTIVIDAD.requestFocus();
+                            mostrar_ROL_ACTIVIDADES_GUARDAR();
+                            cb_HORA_INICIO.setEnabled(true);
+                            cb_HORA_FIN.setEnabled(true);
+                            btn_AGREGAR_ACTIVIDADES.setEnabled(true);
+                            btnguardar_ACTIVIDAD_ROL.setEnabled(false);
+                            BTN_QUITAR_ACTIVIDAD.setEnabled(true);
+                            TB_ROL_ACTIVIDAD.setEnabled(true);
+                            TB_ROL_ACTIVIDAD.setBackground(Color.white);
+                            TB_ACTIVIDADES_LISTA.setEnabled(true);
+                            TB_ACTIVIDADES_LISTA.setBackground(Color.white);
+
+                            int filaselec=TB_TURNOS_PERSONAL_ROL.getSelectedRow();
+                            String COD_TUR_UO = TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 0).toString();
+                            mostrar_HORAS(COD_TUR_UO);
+//                            CANTIDAD_HORAS_TOTAL();
+
+                            LBL_CANTIDAD_HORAS_TOTAL.setText(txtHoras_Libres.getText());
+                            txt_ACTIVIDAD.setText("");
+                            }
+                            
+                        }
+                        
                         
                        
                 }
+                
+                
+                
                 
            }else{
                if(lblGM.getText().equalsIgnoreCase("M")){

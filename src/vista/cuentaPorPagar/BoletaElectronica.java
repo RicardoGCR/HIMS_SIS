@@ -34,8 +34,10 @@ public class BoletaElectronica extends javax.swing.JFrame {
 
     CuentasPorPagarBoletaElectronica boleta = new CuentasPorPagarBoletaElectronica();
     String barra = File.separator;
+    // SE DEFINE LA CARPETA DATA, DONDE SE ENVIAN LOS REGISTROS DE SUNAT
     String ubicacion = "W:\\sfs\\DATA\\";
     int cantidad = 0;
+    //DECLARAR VARIABLES DE BOLETAS GENERADAS Y NO GENERADAS
     int cantidadAceptas = 0,cantidadRechazadas=0;
     public BoletaElectronica() {
         initComponents();
@@ -53,26 +55,37 @@ public class BoletaElectronica extends javax.swing.JFrame {
             }
         });
         cerrar();
+        //MUESTRA LA FECHA ACTUA
         lblFechaEmision.setText(fechaActual());
+        //LISTA LAS PRIMERAS 500 BOLETAS DE VENTAS POR CONTADO
         boleta.ventasPorContado(tbBoletasCabecera, "", "", "");
+        //CUENTA LOS REGISTROS DE LA TABLA
         cantidad = tbBoletasCabecera.getRowCount();
+        //COMPLETA EL CAMPO CON LA CANTIDAD DE LA TABLA DE CABECERA DE BOLETAS
         txtTotalVentas.setText(String.valueOf(cantidad));
+        //TRAE LOS DETALLES DE LA VENTA DE LA PRIMERA BOLETA
         boleta.ventasPorContadoDetalles(tbBoletaDetalles, String.valueOf(tbBoletasCabecera.getValueAt(0, 14)), "");
+        //GENERA EL CORRELATIVO DE VENTA DE BOLETA SEGUN LA SERIE
         boleta.generarSerieCorrelativo("B");
         boleta.ventasPorContadoDetalles(tbBoletaDetalles, String.valueOf(tbBoletasCabecera.getValueAt(0, 15)), "");
+        //MUESTRA LOS DATOS DE LA PERSONA PARA GUARDAR LOS CAMPOS EN LA TABLA DE BOLETAS Y AL FACTURADOR
         lblDNI.setText(String.valueOf(tbBoletasCabecera.getValueAt(0, 4)));
         lblApeNom.setText(String.valueOf(tbBoletasCabecera.getValueAt(0, 6)));
+        //SELECCIONA EL PRIMER REGISTRO DE LA TABLA DE CABECERA
         tbBoletasCabecera.getSelectionModel().setSelectionInterval (0,0) ;
         tbBoletasCabecera.requestFocus();
+        //CALCULA LOS VALORES DE VENTA DEL PRIMER REGISTRO
         calcularValores();
     }
 
+    //TRAE LA FECHA ACTUAL
     public String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         return date.format(now);
     }
     
+    //CREA LA CABECERA PARA LA BOLETA .CAB
     public boolean crearCabecera(){
         boolean retorna = false;
         String archivo = "20410275768" + "-" + 
@@ -112,6 +125,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
         return retorna;
     }   
     
+    //CREA EL DETALLE DE LA BOLETA PARA EL FACTURADOR .DET
     public void crearDetalle(File crea_archivo, String archivo){
         archivo = "20410275768" + "-" + 
                 "03-" +
@@ -145,6 +159,8 @@ public class BoletaElectronica extends javax.swing.JFrame {
             }
     }  
     
+    //CREA EL DETALLE PARA EL FACTURADOR (ARCHIVO .DET) 
+    //DE ACUERDO A LA CANTIDAD DE DETALLES QUE TENGA LA BOLETA DE VENTA
     public boolean crearDetalles(File crea_archivo, String archivo){
         boolean retorna = false;
         try {
@@ -193,6 +209,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
         }
     }
     
+    //CALCULA VALORES SEGUN EL REGISTRO SELECCIONADO DE LA BOLETA
     public void calcularValores(){
             int fila = tbBoletasCabecera.getSelectedRow();
             boleta.ventasPorContadoDetalles(tbBoletaDetalles, String.valueOf(tbBoletasCabecera.getValueAt(fila, 15)), "");
@@ -213,6 +230,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
             txtMtoIGV.setText(String.valueOf(bd2));
             txtImporteTotalVenta.setText(String.valueOf(bdImporte));
             txtValorVentaInafectada.setText(String.valueOf(bdImporte));
+            //VALORES POR DEFECTO ENVIADO CON 0.00 PORQUE NO AFECTAN 
             txtDsctoGlobal.setText("0.00");
             txtMtoISC.setText("0.00");
             txtOtrosCargos.setText("0.00");
@@ -222,6 +240,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
             txtVentaExonerada.setText("0.00");
     }
     
+    //METODO PARA DETERMINAR LA FECHA SEGUN EL RANGO DE BUSQUEDA
     public String determinarFecha(JDateChooser calendario){
          
         String fecha = "";
@@ -754,6 +773,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDniKeyPressed
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+        //CARGAR IMAGEN DE INICIAR Y DETENER DE BOTONES PARA BUSQUEDA
         ImageIcon continuar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Play Filled-32.png")); 
         ImageIcon detener=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Detener Filled-32.png")); 
         try {

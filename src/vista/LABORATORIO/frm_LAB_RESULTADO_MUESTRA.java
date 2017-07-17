@@ -1569,16 +1569,17 @@ int filtro=0;
                     txtPersonalRegistraR.getText().equalsIgnoreCase("")){
               JOptionPane.showMessageDialog(rootPane, "Seleccione un Personal para el Registro del Resultado");
               filtro=1;
-          }else if(tb_InsumosFinal.getRowCount()==0){
-              JOptionPane.showMessageDialog(this, "Antes de Guardar el Resultado debe realizar\nla Sustentación de los Insumos",null, 1, alerta);
-                filtro=1;
+          }
+          else if(tb_InsumosFinal.getRowCount()==0){
+//              JOptionPane.showMessageDialog(this, "Antes de Guardar el Resultado debe realizar\nla Sustentación de los Insumos",null, 1, alerta);
+//                filtro=1;
           }
            else {
               filtro=0;
               for(int j=0;j<tb_Detalle.getRowCount();j++){
               if(tb_Detalle.getValueAt(j, 5).toString().equalsIgnoreCase("")&&
                       tb_Detalle.getValueAt(j, 2).toString().equalsIgnoreCase("F")){
-//                      ||tb_Detalle.getValueAt(j, 20).toString().equalsIgnoreCase("")){
+
                   filtro=filtro+1;
               }}
               if(filtro>0){
@@ -1615,7 +1616,7 @@ int filtro=0;
   
                   if(meGuardar.LAB_Resultado_Muestra_Cab_guardar()){
                       Lab_guardar_detalleySub();
-                      Lab_guardar_Insumos();
+//                   Lab_guardar_Insumos();
                       JOptionPane.showMessageDialog(null, "Espere un momento, documento exportandose!", "Importante!", JOptionPane.INFORMATION_MESSAGE);
 
                       LAB_Resultado_Muestra_Cabecera mc=new LAB_Resultado_Muestra_Cabecera();
@@ -1624,18 +1625,18 @@ int filtro=0;
                       //guardando automaticamente en la ruta D:\\LABORATORIO-RESULTADOS
                       exportar_pdf_automaticamente();
                       
-                    JOptionPane.showMessageDialog(null, "Datos Guardados");
-                    limpiar();
-                      dispose();
+                     JOptionPane.showMessageDialog(null, "Datos Guardados");
+                     limpiar();
+                     dispose();
                      frm_LAB_RESULTADOS_MUESTRA_INGRESO tmi=new  frm_LAB_RESULTADOS_MUESTRA_INGRESO();
-                    tmi.setVisible(true);
-                  }
-                  else{
+                     tmi.setVisible(true);
+                     }
+                     else{
                     JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");
-                  }}}
-          }catch(Exception e) {
-              JOptionPane.showMessageDialog(this, e.getMessage());
-          }
+                     }}}
+                     }catch(Exception e) {
+                     JOptionPane.showMessageDialog(this, e.getMessage());
+                     }
     }//GEN-LAST:event_btnGenerarActionPerformed
         
     public void Lab_guardar_detalleySub(){

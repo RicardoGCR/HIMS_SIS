@@ -10380,7 +10380,7 @@
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnImprimir1" min="-2" pref="179" max="-2" attributes="0"/>
+                          <Component id="btnImprimir1" min="-2" pref="257" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -10551,7 +10551,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagenes/iconos/Imprimir-32.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Imprimir"/>
+                    <Property name="text" type="java.lang.String" value="Imprimir Reporte"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor de Mano"/>
@@ -11114,6 +11114,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblFpReim" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCodigoImprimir" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblVisibleImprimir" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -11170,6 +11171,8 @@
                           <Component id="lblTipoTicket" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblFpReim" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblusu" min="-2" pref="55" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -12047,7 +12050,7 @@
         <Component class="javax.swing.JLabel" name="lblCodigoImprimir">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b8" green="7f" red="29" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel75"/>
           </Properties>
@@ -12055,7 +12058,7 @@
         <Component class="javax.swing.JLabel" name="lblImpresora">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b8" green="7f" red="29" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel99"/>
           </Properties>
@@ -12063,7 +12066,7 @@
         <Component class="javax.swing.JLabel" name="lblVisibleImprimir">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b8" green="7f" red="29" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel36"/>
           </Properties>
@@ -12071,12 +12074,17 @@
         <Component class="javax.swing.JLabel" name="lblVisibleImprimirAM">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b8" green="7f" red="29" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel36"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTipoTicket">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel87"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblFpReim">
           <Properties>
             <Property name="text" type="java.lang.String" value="jLabel87"/>
           </Properties>

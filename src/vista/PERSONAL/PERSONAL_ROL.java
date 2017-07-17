@@ -2120,6 +2120,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     txtAR_ID.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 7)));
                     LBL_SERVICIO.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 9)));
                     LBL_AREA.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 8)));
+                    TXT_AR_ID_ACTI.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 7)));
                     
                     
                     MEDICOS_UO.dispose();
@@ -2543,7 +2544,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     }
                     }else{
                         if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
-                            ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA");
+                            ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA WHERE hora_completa >= '"+h1+"' or hora_completa <='"+h2+"'");
 //                            this.cb_HORA_INICIO.addItem("Seleccionar...");
 //                            this.cb_HORA_FIN.addItem("Seleccionar...");
                             while(rs.next()){
@@ -2755,7 +2756,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     }
                     }else{
                         if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
-                            ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA");
+                            ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA WHERE hora_completa >= '"+h1+"' OR hora_completa <='"+h2+"'");
 //                            this.cb_HORA_INICIO.addItem("Seleccionar...");
 //                            this.cb_HORA_FIN.addItem("Seleccionar...");
                             while(rs.next()){
@@ -2979,10 +2980,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = TB_ACTIVIDADES_LISTA.getSelectedRow();
-            txt_COD_UNI_ORG_ACTIVIDADES.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 1)));
+                txt_COD_UNI_ORG_ACTIVIDADES.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 1)));
                 txt_COD_UNI_ORGANICA_JERAR.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 2)));
                 txt_ACTIVIDAD.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 3)));
-                TXT_AR_ID_ACTI.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 4)));
+//                TXT_AR_ID_ACTI.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 4)));
                 
                 mostrar_ACTIVIDADES();
                 
@@ -3011,6 +3012,48 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     btn_AGREGAR_ACTIVIDADES.setEnabled(true);
                     TB_ACTIVIDADES_LISTA.setEnabled(true);
                     TB_ACTIVIDADES_LISTA.setBackground(Color.white);
+                    
+                    if(TB_ROL_ACTIVIDAD.getRowCount() == 0){
+                        LBL_HORA_FIN_1.setText(TXT_HORA_INICIO.getText());
+                        
+                        ////////cargar combos
+                        try {
+
+                            this.cb_HORA_INICIO.removeAllItems(); 
+                            this.cb_HORA_FIN.removeAllItems(); 
+                            Statement sta=con.createStatement();
+                            String h1=LBL_HORA_FIN_1.getText();
+                            String h2=TXT_HORA_FIN.getText();
+
+                            if(LBL_PASAR_DIA.getText().equalsIgnoreCase("N")){
+                                ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA WHERE hora_completa BETWEEN '"+h1+"' AND '"+h2+"'");
+        //                        this.cb_HORA_INICIO.addItem("Seleccionar...");
+        //                        this.cb_HORA_FIN.addItem("Seleccionar...");
+                                while(rs.next()){
+                                this.cb_HORA_INICIO.addItem(rs.getString("hora_completa"));
+                                this.cb_HORA_FIN.addItem(rs.getString("hora_completa"));
+
+                            }
+                            }else{
+                                if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
+                                    ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA WHERE hora_completa >= '"+h1+"' OR hora_completa <='"+h2+"'");
+        //                            this.cb_HORA_INICIO.addItem("Seleccionar...");
+        //                            this.cb_HORA_FIN.addItem("Seleccionar...");
+                                    while(rs.next()){
+                                    this.cb_HORA_INICIO.addItem(rs.getString("hora_completa"));
+                                    this.cb_HORA_FIN.addItem(rs.getString("hora_completa"));
+
+                            }
+                                }
+                            }
+
+                        } catch (Exception e) {
+                            System.out.println("error cargar horas cbx: " + e.getMessage());
+
+                        }
+                        
+                        
+                    }
                     
                 }
             }else{
@@ -4770,6 +4813,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     }
     
     public void restar_horas(){
+        
         String h = cb_HORA_INICIO.getSelectedItem().toString();
         String h2 = cb_HORA_FIN.getSelectedItem().toString();
         
@@ -4804,7 +4848,53 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             m = 60 - b;
             minuto = m + b1;
         }
-
+        
+        
+        
+        if(a1==00 && b1==00 && a!=00 && b!=00){
+            hora = (24 - a) - 1;
+            minuto = 60 - b;
+        }
+        
+        if(a1==00 && b1==00 && a!=00 && b==00){
+            hora = (24 - a);
+            minuto = 00;
+        }
+        
+        if(a > a1 && b!=00){
+            int q=0,w=0,e=0,r=0;
+            q = (24 - a) - 1;
+            w =  60 - b;
+            
+            e = a1;
+            r = b1;
+            
+            hora = q + e;
+            minuto = w + r;
+            
+            if(minuto >= 60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }            
+        }
+        
+        if(a > a1 && b==00 ){
+            int d=0, f=0, g=0, j=0;
+            d = (24 - a);
+            f = 00;
+            
+            g = a1;
+            j = b1;
+            
+            hora = d + g;
+            minuto = f + j;
+            
+            if(minuto >= 60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }  
+        }
+        
         String horaf = "", minutof ="";
         
         if(hora < 10){
@@ -4818,7 +4908,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         }else{
             minutof = String.valueOf(minuto);
         }
-        
+                
         LBL_TOTAL_HORA.setText(horaf + ":" + minutof + ":" + segundo + "0");
 //        System.out.println("hora: " + hora + " " + minuto + " " + segundo);
     }

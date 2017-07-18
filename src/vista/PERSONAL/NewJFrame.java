@@ -660,92 +660,85 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_TXT_FECHAAAAAACaretUpdate
 
     private void fecha6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fecha6ItemStateChanged
-        String L = fecha5.getSelectedItem().toString();
-        String L2 = fecha6.getSelectedItem().toString();
+        String h = fecha5.getSelectedItem().toString();
+        String h2 = fecha6.getSelectedItem().toString();
         
-        int f = Integer.parseInt(L.substring(0, 2));
-        int g = Integer.parseInt(L.substring(3, 5));
-        int h = Integer.parseInt(L.substring(6, 8));
+        int a = Integer.parseInt(h.substring(0, 2));
+        int b = Integer.parseInt(h.substring(3, 5));
+        int c = Integer.parseInt(h.substring(6, 8));
         
-        int f1 = Integer.parseInt(L2.substring(0, 2));
-        int g1 = Integer.parseInt(L2.substring(3, 5));
-        int h1 = Integer.parseInt(L2.substring(6, 8));
+        int a1 = Integer.parseInt(h2.substring(0, 2));
+        int b1 = Integer.parseInt(h2.substring(3, 5));
+        int c1 = Integer.parseInt(h2.substring(6, 8));
         
         int hora =0, minuto=0, segundo =0;
         
-        if(f < f1 && g < g1){
-            hora = f1 - f;
-            minuto = g1 - g;
+        if(a < a1 && b < b1){
+            hora = a1 - a;
+            minuto = b1 - b;
         }
         
-        if(f == f1 && g < g1){
+        if(a == a1 && b < b1){
             hora = 00;
-            minuto = g1 - g;
+            minuto = b1 - b;
         }
         
-        if(f < f1 && g == g1){
-            hora = f1 - f;
+        if(a < a1 && b == b1){
+            hora = a1 - a;
             minuto = 00;
         }
         
-        if(f < f1 && g > g1){
-            hora = (f1 - f) - 1;
+        if(a < a1 && b > b1){
+            hora = (a1 - a) - 1;
             int m=0;
-            m = 60 - g;
-            minuto = m + g1;
+            m = 60 - b;
+            minuto = m + b1;
         }
         
-        if(f != 00 && g != 00 &f1 == 00 && g1 == 00){
-            hora = (24 - f) - 1;
-            minuto = 60 - g;
+        
+        
+        if(a1==00 && b1==00 && a!=00 && b!=00){
+            hora = (24 - a) - 1;
+            minuto = 60 - b;
         }
         
-        if(f != 00 && g == 00 &f1 == 00 && g1 == 00){
-            hora = (24 - f);
+        if(a1==00 && b1==00 && a!=00 && b==00){
+            hora = (24 - a);
             minuto = 00;
         }
         
-        if(f == 00 && g == 00 &f1 != 00 && g1 != 00){
-            hora = f1;
-            minuto = g1;
-        }
-        
-        
-        
-        if(f > f1 && g ==00 && g1 ==00 || g1 !=00){
-            int a = 0, b=0, a1, b1;
-            a = 24-f;
-            b = 60-g;
+        if(a > a1 && b!=00){
+            int q=0,w=0,e=0,r=0;
+            q = (24 - a) - 1;
+            w =  60 - b;
             
-            a1 = f1;
-            b1 = g1;
+            e = a1;
+            r = b1;
             
-            hora = (a + a1) - 1;
-            minuto = b + b1;
+            hora = q + e;
+            minuto = w + r;
             
-            if(minuto>=60){
+            if(minuto >= 60){
                 hora = hora + 1;
                 minuto = minuto - 60;
-            }
-   
+            }            
         }
-        ////////////////////
-        if(f > f1 && g ==00 && g1 ==00 || g1 !=00 || g !=00){
-            int a = 0, b=0, a1, b1;
-            a = 24-f;
-            b = 60-g;
+        
+        if(a > a1 && b==00 ){
+            int d=0, f=0, g=0, j=0;
+            d = (24 - a);
+            f = 00;
             
-            a1 = f1;
-            b1 = g1;
+            g = a1;
+            j = b1;
             
-            hora = (a + a1) - 1;
-            minuto = b + b1;
+            hora = d + g;
+            minuto = f + j;
             
-            if(minuto>=60){
+            if(minuto >= 60){
                 hora = hora + 1;
                 minuto = minuto - 60;
-            }
-   
+            }  
         }
         
         String horaf = "", minutof ="";
@@ -762,7 +755,123 @@ public class NewJFrame extends javax.swing.JFrame {
             minutof = String.valueOf(minuto);
         }
         
-        System.out.println("hora: " + horaf + ":"+ minutof +":"+segundo+"0");
+//        LBL_TOTAL_HORA.setText(horaf + ":" + minutof + ":" + segundo + "0");
+        System.out.println("hora: " + horaf + " " + minutof + " " + segundo + "0");
+
+
+
+
+
+
+
+
+//        String L = fecha5.getSelectedItem().toString();
+//        String L2 = fecha6.getSelectedItem().toString();
+//        
+//        int f = Integer.parseInt(L.substring(0, 2));
+//        int g = Integer.parseInt(L.substring(3, 5));
+//        int h = Integer.parseInt(L.substring(6, 8));
+//        
+//        int f1 = Integer.parseInt(L2.substring(0, 2));
+//        int g1 = Integer.parseInt(L2.substring(3, 5));
+//        int h1 = Integer.parseInt(L2.substring(6, 8));
+//        
+//        int hora =0, minuto=0, segundo =0;
+//        
+//        if(f < f1 && g < g1){
+//            hora = f1 - f;
+//            minuto = g1 - g;
+//        }
+//        
+//        if(f == f1 && g < g1){
+//            hora = 00;
+//            minuto = g1 - g;
+//        }
+//        
+//        if(f < f1 && g == g1){
+//            hora = f1 - f;
+//            minuto = 00;
+//        }
+//        
+//        if(f < f1 && g > g1){
+//            hora = (f1 - f) - 1;
+//            int m=0;
+//            m = 60 - g;
+//            minuto = m + g1;
+//        }
+//        
+//        if(f != 00 && g != 00 && f1 == 00 && g1 == 00){
+//            hora = (24 - f) - 1;
+//            minuto = 60 - g;
+//        }
+//        
+//        if(f != 00 && g == 00 && f1 == 00 && g1 == 00){
+//            hora = (24 - f);
+//            minuto = 00;
+//        }
+//        
+//        if(f == 00 && g == 00 && (f1 != 00 || f1 == 00) && g1 != 00){
+//            hora = f1;
+//            minuto = g1;
+//        }
+//        
+////        if(f == 00 && g == 00 && f1 == 00 && g1 != 00){
+////            hora = f1;
+////            minuto = g1;
+////        }
+//        
+//        
+//        if(f > f1 && g ==00 && g1 ==00 || g1 !=00){
+//            int a = 0, b=0, a1, b1;
+//            a = 24-f;
+//            b = 60-g;
+//            
+//            a1 = f1;
+//            b1 = g1;
+//            
+//            hora = (a + a1) - 1;
+//            minuto = b + b1;
+//            
+//            if(minuto>=60){
+//                hora = hora + 1;
+//                minuto = minuto - 60;
+//            }
+//   
+//        }
+//        ////////////////////
+//        if(f > f1 && g ==00 && g1 ==00 || g1 !=00 || g !=00){
+//            int a = 0, b=0, a1, b1;
+//            a = 24-f;
+//            b = 60-g;
+//            
+//            a1 = f1;
+//            b1 = g1;
+//            
+//            hora = (a + a1) - 1;
+//            minuto = b + b1;
+//            
+//            if(minuto>=60){
+//                hora = hora + 1;
+//                minuto = minuto - 60;
+//            }
+//   
+//        }
+//        
+//        String horaf = "", minutof ="";
+//        
+//        if(hora < 10){
+//            horaf = ("0" + hora);
+//        }else{
+//            horaf = String.valueOf(hora);
+//        }
+//        
+//        if(minuto < 10){
+//            minutof = ("0" + minuto);
+//        }else{
+//            minutof = String.valueOf(minuto);
+//        }
+//        
+//        System.out.println("hora: " + horaf + ":"+ minutof +":"+segundo+"0");
     }//GEN-LAST:event_fecha6ItemStateChanged
 
     

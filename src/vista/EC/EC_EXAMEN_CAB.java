@@ -1574,6 +1574,11 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 
                 btnPersonalSolicita.requestFocus();
                 
+                tb_examen_det_EC.setEnabled(true);
+                tb_examen_det_EC.setBackground(Color.white);
+                tb_examen_det_EC.getSelectionModel().setSelectionInterval(0, 0);
+                tb_examen_det_EC.requestFocus();
+                
             }else{
                 if(lblPerB.getText().equalsIgnoreCase("B2")){
                     txtPersonalRegistra_EC.setText(String.valueOf(apep + " " + apem + " " + nom));
@@ -1588,6 +1593,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
 
             PERSONAL_ROL.dispose();
             txtBuscarPersonal_EC.setText("");
+            
+            
 
             //            txtNumeroRegla.setEnabled(false);
             //            txtDescripcionRegla.setEnabled(false);
@@ -1654,10 +1661,10 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             PERSONAL_ROL_TODO.dispose();
             txtBuscarPersonal_TODO_EC.setText("");
             
-            tb_examen_det_EC.setEnabled(true);
-            tb_examen_det_EC.setBackground(Color.white);
-            tb_examen_det_EC.getSelectionModel().setSelectionInterval(0, 0);
-            tb_examen_det_EC.requestFocus();
+//            tb_examen_det_EC.setEnabled(true);
+//            tb_examen_det_EC.setBackground(Color.white);
+//            tb_examen_det_EC.getSelectionModel().setSelectionInterval(0, 0);
+//            tb_examen_det_EC.requestFocus();
 
             //            txtNumeroRegla.setEnabled(false);
             //            txtDescripcionRegla.setEnabled(false);

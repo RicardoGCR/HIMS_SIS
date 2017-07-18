@@ -128,7 +128,7 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="64" y="10" width="392" height="20" forecolor="#220000" uuid="f8a69e5d-4571-4c87-b065-5ac292e1e4b4"/>
 				<textElement textAlignment="Center">
-					<font size="13" isBold="true"/>
+					<font size="15" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SERVICIO DE DIAGNÓSTICO POR IMÁGENES EC]]></text>
 			</staticText>
@@ -154,7 +154,7 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="29" y="48" width="74" height="20" uuid="a748d53f-66cb-4319-8394-333336e9f7b6"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Acto Médico:]]></text>
 			</staticText>
@@ -166,14 +166,14 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="166" y="48" width="42" height="20" uuid="4ff62a08-ce9d-41bf-b649-3ca7da5e0e19"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="10" isBold="true"/>
+					<font size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[DNI:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="29" y="68" width="74" height="20" uuid="5bfc4bd2-3917-4861-b1bd-911b0f83f5ad"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Nº HC:]]></text>
 			</staticText>
@@ -185,21 +185,21 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="29" y="88" width="74" height="20" uuid="26e0134a-0e49-47b9-8230-c12f1e1d88e1"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Paciente:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="103" y="88" width="178" height="20" uuid="970686c2-d6e9-42d0-95a5-29282fc7b155"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Paciente}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="29" y="108" width="74" height="20" uuid="e07d555e-e6dd-4b61-b4bc-7acc35305450"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Edad:]]></text>
 			</staticText>
@@ -211,7 +211,7 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="166" y="108" width="42" height="20" uuid="fa6e5061-809c-4b0b-b76f-0b50d9eab5dc"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Sexo:]]></text>
 			</staticText>
@@ -223,21 +223,21 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="29" y="128" width="74" height="20" uuid="1cbd6308-2910-4f4f-849d-b9cb1b18bfdf"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Médico Sol.:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="103" y="128" width="178" height="20" uuid="bc95ab5f-08b7-4412-a142-2de520d9cc14"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOM_PERSONAL_SOLICITA}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="29" y="148" width="74" height="20" uuid="bb652fc2-8d21-4b27-a485-c73ca820fe63"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Nª FUA:]]></text>
 			</staticText>
@@ -249,7 +249,7 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="298" y="48" width="100" height="20" uuid="7dd593f6-d2be-4c96-a214-b9f074154354"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Forma de Pago:]]></text>
 			</staticText>
@@ -261,7 +261,7 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="298" y="68" width="100" height="20" uuid="064b2a3b-e2b7-4c6f-a447-1d27aed03fa0"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Fecha de Orden:]]></text>
 			</staticText>
@@ -278,36 +278,42 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="298" y="88" width="100" height="20" uuid="81e491f3-3d68-4de7-b124-df3d34ee34c3"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Serv. Hospital.:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="398" y="88" width="132" height="20" uuid="3930b828-1ba9-4977-9ae1-68a8ea1cf664"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{HOSP_SERVICIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="298" y="108" width="100" height="20" uuid="bf451775-1832-4601-86de-cc6fed9c0037"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Habitación/Cama:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="398" y="108" width="70" height="20" uuid="9aa823c6-f089-4075-8849-96315f37a68a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{HAB_NOM}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="468" y="108" width="62" height="20" uuid="af3a7f45-430a-441a-9acf-220e08b4e8c9"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CA_DESC}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="298" y="128" width="100" height="20" uuid="f8068517-d1e7-434d-b5a9-43c44417787c"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Fecha de Resultado:]]></text>
 			</staticText>
@@ -319,14 +325,14 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 			<staticText>
 				<reportElement x="298" y="148" width="100" height="20" uuid="8b809ff5-2d00-48be-beb1-56b135511386"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Resp. Resultado:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="398" y="148" width="121" height="20" uuid="64156119-d7da-40ec-9194-cb5faf258f5f"/>
+				<reportElement x="398" y="148" width="144" height="20" uuid="64156119-d7da-40ec-9194-cb5faf258f5f"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBRE_PERSONAL_REALIZA}]]></textFieldExpression>
 			</textField>
@@ -336,14 +342,14 @@ ECD.DIAGNOSTICO_RESULTADO, CNC.descripcion_nomen_tipo, CDC.FUA]]>
 				<textFieldExpression><![CDATA[$F{HORA_RESULTADO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="10" y="0" width="93" height="20" uuid="bc58d986-d8a2-481b-b651-916a38d52bb3"/>
+				<reportElement x="10" y="0" width="72" height="20" uuid="bc58d986-d8a2-481b-b651-916a38d52bb3"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[INDICACION:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="103" y="0" width="439" height="20" uuid="f4f93300-448c-49d9-ad75-2d4468169f78"/>
+				<reportElement x="82" y="0" width="460" height="20" uuid="f4f93300-448c-49d9-ad75-2d4468169f78"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
 			</textField>

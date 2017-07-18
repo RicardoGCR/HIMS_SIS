@@ -1068,6 +1068,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         btnBuscarPersonal_rol1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
                         btnBuscarPersonal_rol1.setContentAreaFilled(false);
                         btnBuscarPersonal_rol1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                        btnBuscarPersonal_rol1.addMouseListener(new java.awt.event.MouseAdapter() {
+                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                btnBuscarPersonal_rol1MouseClicked(evt);
+                            }
+                        });
                         btnBuscarPersonal_rol1.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 btnBuscarPersonal_rol1ActionPerformed(evt);
@@ -2115,6 +2120,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     txtAR_ID.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 7)));
                     LBL_SERVICIO.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 9)));
                     LBL_AREA.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 8)));
+                    TXT_AR_ID_ACTI.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 7)));
                     
                     
                     MEDICOS_UO.dispose();
@@ -2204,19 +2210,19 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             
             P_ROL.setVisible(true);
             formatoPersonal_TURNOS_UO();
-            int filaselec=TB_TURNOS_UO.getSelectedRow();
-            String total = TB_TURNOS_UO.getValueAt(filaselec, 10).toString();
+            int filasel=TB_TURNOS_UO.getSelectedRow();
+            String total = TB_TURNOS_UO.getValueAt(filasel, 10).toString();
            
             String d = total.substring(0, 2);
             
             txtTotal_Horas.setText(d);
-            TXT_HORA_INICIO.setText(TB_TURNOS_UO.getValueAt(filaselec, 7).toString());
-            TXT_HORA_FIN.setText(TB_TURNOS_UO.getValueAt(filaselec, 8).toString());
-            LBL_PASAR_DIA.setText(TB_TURNOS_UO.getValueAt(filaselec, 11).toString());
+            TXT_HORA_INICIO.setText(TB_TURNOS_UO.getValueAt(filasel, 7).toString());
+            TXT_HORA_FIN.setText(TB_TURNOS_UO.getValueAt(filasel, 8).toString());
+            LBL_PASAR_DIA.setText(TB_TURNOS_UO.getValueAt(filasel, 11).toString());
             
             if(lblGM.getText().equalsIgnoreCase("M")){
-                lblCOD_UO_1.setText(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
-                LBL_UNIDAD_ORGANICA_2.setText(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
+                lblCOD_UO_1.setText(TB_TURNOS_UO.getValueAt(filasel, 1).toString());
+                LBL_UNIDAD_ORGANICA_2.setText(TB_TURNOS_UO.getValueAt(filasel, 1).toString());
                 
                 //////segundo I
 //                TXT_UO_TB_TURNOS_UO.setText(String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 1)));
@@ -2353,10 +2359,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
        if(evt.getClickCount()==2){
            if(lblGM.getText().equalsIgnoreCase("G")){
                 
-                int filaselect = TB_TURNOS_PERSONAL_ROL.getSelectedRow();
-                if(!String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselect, 10)).equals("null")){           
-                    TXT_COD_ROL_GUARDAR.setText(String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselect, 10)));
-                    TXT_MOSTRAR_HORA_GUARDAR_UO.setText(String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselect, 0)));
+                int filaseleccionada = TB_TURNOS_PERSONAL_ROL.getSelectedRow();
+                if(!String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaseleccionada, 10)).equals("null")){           
+                    TXT_COD_ROL_GUARDAR.setText(String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaseleccionada, 10)));
+                    TXT_MOSTRAR_HORA_GUARDAR_UO.setText(String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaseleccionada, 0)));
                     ROL_ACTIVIDAD.setVisible(true);
                     mostrar_ROL_ACTIVIDADES_GUARDAR();
                     txt_ACTIVIDAD.setEditable(false);
@@ -2383,33 +2389,85 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     txtHoras_Libres.setText("00:00:00");
                     
                 }else {
-
-                        TXT_COD_ROL_GUARDAR.setText("");
-                     
-                        ROL_ACTIVIDAD.setVisible(true);
-                        txt_ACTIVIDAD.setEditable(true);
-                        txt_ACTIVIDAD.requestFocus();
-                        mostrar_ROL_ACTIVIDADES_GUARDAR();
-                        cb_HORA_INICIO.setEnabled(true);
-                        cb_HORA_FIN.setEnabled(true);
-                        btn_AGREGAR_ACTIVIDADES.setEnabled(true);
-                        btnguardar_ACTIVIDAD_ROL.setEnabled(false);
-                        BTN_QUITAR_ACTIVIDAD.setEnabled(true);
-                        TB_ROL_ACTIVIDAD.setEnabled(true);
-                        TB_ROL_ACTIVIDAD.setBackground(Color.white);
-                        TB_ACTIVIDADES_LISTA.setEnabled(true);
-                        TB_ACTIVIDADES_LISTA.setBackground(Color.white);
+                    
+                    /////pasar dia, TOTAL DE HORAS
+                if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
+                    int filaa = TB_TURNOS_PERSONAL_ROL.getSelectedRow();
+                                        
+                    String horas = String.valueOf(TB_TURNOS_PERSONAL_ROL.getValueAt(filaa, 7));
+                    if(Integer.parseInt(horas) < 10){
+                        txtHoras_Libres.setText("0" + horas + ":00:00");
+                    }else{
+                        if(Integer.parseInt(horas) >= 10){
+                            txtHoras_Libres.setText(horas + ":00:00");
+                        }
                         
-                        int filaselec=TB_TURNOS_PERSONAL_ROL.getSelectedRow();
-                        String COD_TUR_UO = TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 0).toString();
-                        mostrar_HORAS(COD_TUR_UO);
-                        CANTIDAD_HORAS_TOTAL();
+                    }
+                    
+                }
+                /////////
+                    
+                        if(LBL_PASAR_DIA.getText().equalsIgnoreCase("N")){
+                            
+                            TXT_COD_ROL_GUARDAR.setText("");
+                     
+                            ROL_ACTIVIDAD.setVisible(true);
+                            txt_ACTIVIDAD.setEditable(true);
+                            txt_ACTIVIDAD.requestFocus();
+                            mostrar_ROL_ACTIVIDADES_GUARDAR();
+                            cb_HORA_INICIO.setEnabled(true);
+                            cb_HORA_FIN.setEnabled(true);
+                            btn_AGREGAR_ACTIVIDADES.setEnabled(true);
+                            btnguardar_ACTIVIDAD_ROL.setEnabled(false);
+                            BTN_QUITAR_ACTIVIDAD.setEnabled(true);
+                            TB_ROL_ACTIVIDAD.setEnabled(true);
+                            TB_ROL_ACTIVIDAD.setBackground(Color.white);
+                            TB_ACTIVIDADES_LISTA.setEnabled(true);
+                            TB_ACTIVIDADES_LISTA.setBackground(Color.white);
 
-                        txtHoras_Libres.setText(LBL_CANTIDAD_HORAS_TOTAL.getText());
-                        txt_ACTIVIDAD.setText("");
+                            int filaselec=TB_TURNOS_PERSONAL_ROL.getSelectedRow();
+                            String COD_TUR_UO = TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 0).toString();
+                            mostrar_HORAS(COD_TUR_UO);
+                            CANTIDAD_HORAS_TOTAL();
+
+                            txtHoras_Libres.setText(LBL_CANTIDAD_HORAS_TOTAL.getText());
+                            txt_ACTIVIDAD.setText("");
+                            
+                        }else{
+                            if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
+                                TXT_COD_ROL_GUARDAR.setText("");
+                     
+                            ROL_ACTIVIDAD.setVisible(true);
+                            txt_ACTIVIDAD.setEditable(true);
+                            txt_ACTIVIDAD.requestFocus();
+                            mostrar_ROL_ACTIVIDADES_GUARDAR();
+                            cb_HORA_INICIO.setEnabled(true);
+                            cb_HORA_FIN.setEnabled(true);
+                            btn_AGREGAR_ACTIVIDADES.setEnabled(true);
+                            btnguardar_ACTIVIDAD_ROL.setEnabled(false);
+                            BTN_QUITAR_ACTIVIDAD.setEnabled(true);
+                            TB_ROL_ACTIVIDAD.setEnabled(true);
+                            TB_ROL_ACTIVIDAD.setBackground(Color.white);
+                            TB_ACTIVIDADES_LISTA.setEnabled(true);
+                            TB_ACTIVIDADES_LISTA.setBackground(Color.white);
+
+                            int filaselec=TB_TURNOS_PERSONAL_ROL.getSelectedRow();
+                            String COD_TUR_UO = TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 0).toString();
+                            mostrar_HORAS(COD_TUR_UO);
+//                            CANTIDAD_HORAS_TOTAL();
+
+                            LBL_CANTIDAD_HORAS_TOTAL.setText(txtHoras_Libres.getText());
+                            txt_ACTIVIDAD.setText("");
+                            }
+                            
+                        }
+                        
                         
                        
                 }
+                
+                
+                
                 
            }else{
                if(lblGM.getText().equalsIgnoreCase("M")){
@@ -2486,7 +2544,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     }
                     }else{
                         if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
-                            ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA");
+                            ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA WHERE hora_completa >= '"+h1+"' or hora_completa <='"+h2+"'");
 //                            this.cb_HORA_INICIO.addItem("Seleccionar...");
 //                            this.cb_HORA_FIN.addItem("Seleccionar...");
                             while(rs.next()){
@@ -2698,7 +2756,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     }
                     }else{
                         if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
-                            ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA");
+                            ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA WHERE hora_completa >= '"+h1+"' OR hora_completa <='"+h2+"'");
 //                            this.cb_HORA_INICIO.addItem("Seleccionar...");
 //                            this.cb_HORA_FIN.addItem("Seleccionar...");
                             while(rs.next()){
@@ -2922,10 +2980,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = TB_ACTIVIDADES_LISTA.getSelectedRow();
-            txt_COD_UNI_ORG_ACTIVIDADES.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 1)));
+                txt_COD_UNI_ORG_ACTIVIDADES.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 1)));
                 txt_COD_UNI_ORGANICA_JERAR.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 2)));
                 txt_ACTIVIDAD.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 3)));
-                TXT_AR_ID_ACTI.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 4)));
+//                TXT_AR_ID_ACTI.setText(String.valueOf(TB_ACTIVIDADES_LISTA.getValueAt(fila, 4)));
                 
                 mostrar_ACTIVIDADES();
                 
@@ -2954,6 +3012,48 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     btn_AGREGAR_ACTIVIDADES.setEnabled(true);
                     TB_ACTIVIDADES_LISTA.setEnabled(true);
                     TB_ACTIVIDADES_LISTA.setBackground(Color.white);
+                    
+                    if(TB_ROL_ACTIVIDAD.getRowCount() == 0){
+                        LBL_HORA_FIN_1.setText(TXT_HORA_INICIO.getText());
+                        
+                        ////////cargar combos
+                        try {
+
+                            this.cb_HORA_INICIO.removeAllItems(); 
+                            this.cb_HORA_FIN.removeAllItems(); 
+                            Statement sta=con.createStatement();
+                            String h1=LBL_HORA_FIN_1.getText();
+                            String h2=TXT_HORA_FIN.getText();
+
+                            if(LBL_PASAR_DIA.getText().equalsIgnoreCase("N")){
+                                ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA WHERE hora_completa BETWEEN '"+h1+"' AND '"+h2+"'");
+        //                        this.cb_HORA_INICIO.addItem("Seleccionar...");
+        //                        this.cb_HORA_FIN.addItem("Seleccionar...");
+                                while(rs.next()){
+                                this.cb_HORA_INICIO.addItem(rs.getString("hora_completa"));
+                                this.cb_HORA_FIN.addItem(rs.getString("hora_completa"));
+
+                            }
+                            }else{
+                                if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
+                                    ResultSet rs=sta.executeQuery("SELECT hora_completa FROM PERSONAL_HORA WHERE hora_completa >= '"+h1+"' OR hora_completa <='"+h2+"'");
+        //                            this.cb_HORA_INICIO.addItem("Seleccionar...");
+        //                            this.cb_HORA_FIN.addItem("Seleccionar...");
+                                    while(rs.next()){
+                                    this.cb_HORA_INICIO.addItem(rs.getString("hora_completa"));
+                                    this.cb_HORA_FIN.addItem(rs.getString("hora_completa"));
+
+                            }
+                                }
+                            }
+
+                        } catch (Exception e) {
+                            System.out.println("error cargar horas cbx: " + e.getMessage());
+
+                        }
+                        
+                        
+                    }
                     
                 }
             }else{
@@ -3154,6 +3254,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     private void txtLimite_Consultas_PerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLimite_Consultas_PerMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLimite_Consultas_PerMouseClicked
+
+    private void btnBuscarPersonal_rol1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPersonal_rol1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPersonal_rol1MouseClicked
 
     public void CANTIDAD_HORAS_LIBRES_RESTA(){
         String L = LBL_TOTAL_HORA.getText();
@@ -4709,6 +4813,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     }
     
     public void restar_horas(){
+        
         String h = cb_HORA_INICIO.getSelectedItem().toString();
         String h2 = cb_HORA_FIN.getSelectedItem().toString();
         
@@ -4743,7 +4848,53 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             m = 60 - b;
             minuto = m + b1;
         }
-
+        
+        
+        
+        if(a1==00 && b1==00 && a!=00 && b!=00){
+            hora = (24 - a) - 1;
+            minuto = 60 - b;
+        }
+        
+        if(a1==00 && b1==00 && a!=00 && b==00){
+            hora = (24 - a);
+            minuto = 00;
+        }
+        
+        if(a > a1 && b!=00){
+            int q=0,w=0,e=0,r=0;
+            q = (24 - a) - 1;
+            w =  60 - b;
+            
+            e = a1;
+            r = b1;
+            
+            hora = q + e;
+            minuto = w + r;
+            
+            if(minuto >= 60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }            
+        }
+        
+        if(a > a1 && b==00 ){
+            int d=0, f=0, g=0, j=0;
+            d = (24 - a);
+            f = 00;
+            
+            g = a1;
+            j = b1;
+            
+            hora = d + g;
+            minuto = f + j;
+            
+            if(minuto >= 60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }  
+        }
+        
         String horaf = "", minutof ="";
         
         if(hora < 10){
@@ -4757,7 +4908,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         }else{
             minutof = String.valueOf(minuto);
         }
-        
+                
         LBL_TOTAL_HORA.setText(horaf + ":" + minutof + ":" + segundo + "0");
 //        System.out.println("hora: " + hora + " " + minuto + " " + segundo);
     }
@@ -5000,7 +5151,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
           
                 calendar.setTime(fecha);
                               
-                String[] days = new String[] { "SABADO", "DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES","VIERNES"};
+                String[] days = new String[] { "VACIO", "DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES","VIERNES","SABADO"};
 
                 String day = days[calendar.get(Calendar.DAY_OF_WEEK)];
                 
@@ -5056,7 +5207,81 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                   txtTotal_Pago.setText(String.valueOf(bd2));
             }
         }else{
-            
+            if(TXT_NOMBRE_DIA.getText().equalsIgnoreCase("SABADO")){
+                    if((TXT_MES.getText().equalsIgnoreCase("01") && TXT_DIA.getText().equalsIgnoreCase("01")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("04") && TXT_DIA.getText().equalsIgnoreCase("13"))
+                        || (TXT_MES.getText().equalsIgnoreCase("04") && TXT_DIA.getText().equalsIgnoreCase("14")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("05") && TXT_DIA.getText().equalsIgnoreCase("01"))
+                        || (TXT_MES.getText().equalsIgnoreCase("06") && TXT_DIA.getText().equalsIgnoreCase("29")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("07") && TXT_DIA.getText().equalsIgnoreCase("28"))
+                        || (TXT_MES.getText().equalsIgnoreCase("07") && TXT_DIA.getText().equalsIgnoreCase("29"))
+                        || (TXT_MES.getText().equalsIgnoreCase("08") && TXT_DIA.getText().equalsIgnoreCase("30"))
+                        || (TXT_MES.getText().equalsIgnoreCase("10") && TXT_DIA.getText().equalsIgnoreCase("08")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("11") && TXT_DIA.getText().equalsIgnoreCase("01"))
+                        || (TXT_MES.getText().equalsIgnoreCase("12") && TXT_DIA.getText().equalsIgnoreCase("08"))
+                        || (TXT_MES.getText().equalsIgnoreCase("12") && TXT_DIA.getText().equalsIgnoreCase("25")))
+                    {  
+                        ////pasar el pago por feriados
+        //                  String precio_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));      
+                          String precio_R_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));;
+
+                          BigDecimal bd2_f = new BigDecimal(precio_R_feriado);
+
+                          bd2_f = bd2_f.setScale(0, BigDecimal.ROUND_HALF_UP);
+
+                          txtTotal_Pago.setText(String.valueOf(bd2_f));
+                        
+                    }else{
+                        
+//                          String precio_sabado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 12));
+                
+                          String precio_R_sabado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 13));
+
+                          BigDecimal bd2_s = new BigDecimal(precio_R_sabado);
+
+                          bd2_s = bd2_s.setScale(0, BigDecimal.ROUND_HALF_UP);
+
+                          txtTotal_Pago.setText(String.valueOf(bd2_s));
+                        
+                    }
+                
+            }else{
+                if(TXT_NOMBRE_DIA.getText().equalsIgnoreCase("DOMINGO")){
+                    if((TXT_MES.getText().equalsIgnoreCase("01") && TXT_DIA.getText().equalsIgnoreCase("01")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("04") && TXT_DIA.getText().equalsIgnoreCase("13"))
+                        || (TXT_MES.getText().equalsIgnoreCase("04") && TXT_DIA.getText().equalsIgnoreCase("14")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("05") && TXT_DIA.getText().equalsIgnoreCase("01"))
+                        || (TXT_MES.getText().equalsIgnoreCase("06") && TXT_DIA.getText().equalsIgnoreCase("29")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("07") && TXT_DIA.getText().equalsIgnoreCase("28"))
+                        || (TXT_MES.getText().equalsIgnoreCase("07") && TXT_DIA.getText().equalsIgnoreCase("29"))
+                        || (TXT_MES.getText().equalsIgnoreCase("08") && TXT_DIA.getText().equalsIgnoreCase("30"))
+                        || (TXT_MES.getText().equalsIgnoreCase("10") && TXT_DIA.getText().equalsIgnoreCase("08")) 
+                        || (TXT_MES.getText().equalsIgnoreCase("11") && TXT_DIA.getText().equalsIgnoreCase("01"))
+                        || (TXT_MES.getText().equalsIgnoreCase("12") && TXT_DIA.getText().equalsIgnoreCase("08"))
+                        || (TXT_MES.getText().equalsIgnoreCase("12") && TXT_DIA.getText().equalsIgnoreCase("25")))
+                    {
+                        ////pasar el pago por feriados
+        //                  String precio_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));      
+                          String precio_R_feriado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 15));;
+
+                          BigDecimal bd2_f = new BigDecimal(precio_R_feriado);
+
+                          bd2_f = bd2_f.setScale(0, BigDecimal.ROUND_HALF_UP);
+
+                          txtTotal_Pago.setText(String.valueOf(bd2_f));
+                    }else{
+//                          String precio_sabado = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 12));
+                
+                          String precio_R_domingo = String.valueOf(TB_TURNOS_UO.getValueAt(filaselec, 14));
+
+                          BigDecimal bd2_d = new BigDecimal(precio_R_domingo);
+
+                          bd2_d = bd2_d.setScale(0, BigDecimal.ROUND_HALF_UP);
+
+                          txtTotal_Pago.setText(String.valueOf(bd2_d));
+                    }
+                }
+            }           
         }
     }
     

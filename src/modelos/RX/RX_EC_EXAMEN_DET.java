@@ -62,7 +62,7 @@ public class RX_EC_EXAMEN_DET {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error guardar det: " + ex.getMessage());
         }
         return resp;
     }
@@ -85,7 +85,7 @@ public class RX_EC_EXAMEN_DET {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error hospitalizacion: " + ex.getMessage());
         }
         return resultado;
     }
@@ -109,7 +109,7 @@ public class RX_EC_EXAMEN_DET {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error id preventa: " + ex.getMessage());
         }
         return cod;
     }

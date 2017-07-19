@@ -226,7 +226,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         panelEliminarFR.setVisible(false);
         lblCantidad.setText("1");
         ActualizarDNI.setUndecorated(true);
-//        panelDescuentos.setVisible(false);
+        panelDescuentos.setVisible(false);
         cerrar();
 
         
@@ -397,6 +397,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     if(tb_Liquidacion.getRowCount()>0){
                         PaginasVentas.setSelectedIndex(3);
                     }else if(tb_Liquidacion.getRowCount()==0){
+                        lblTipoTicket.setText("A");//A - ALTA
                         TERMINAR_HOSPITALIZACION();
                         System.out.println("Vamo llamando el registro");
                         CCD.CAJA_CANTIDAD_DIAS(lblHc.getText());
@@ -404,7 +405,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         ModificarALTA();
                         suma();
                         panelNumeros.setVisible(true);
-                        lblTipoTicket.setText("A");//A - ALTA
+                        
                     }
                     
                     
@@ -412,10 +413,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     ////////////////////////////////////////////////////////////
                     
                 }else if (!lblNomenclatura.getText().equals("CN00761         ")){
+                    lblTipoTicket.setText("N");//N - NORMAL
                     GuardarDetalle();
                     panelNumeros.setVisible(true);
                     suma();
-                    lblTipoTicket.setText("N");//N - NORMAL
+                    
                 }
                 ////////////////////////////////////////////////////////////////
                 
@@ -425,11 +427,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     System.out.println("VENTA NO VISIBLE EN ADMISION PUEDE SER LA EC Y RX");
                     CONSULTAR_EXISTENCIAS_LA_EC();
                     if(lblDescuentoContadorS.getText().equals(lblTotalItems.getText())){
+                        lblTipoTicket.setText("N");//N - NORMAL
                         System.out.println("HAY INSUMOS");
                         GuardarDetalle();
                         panelNumeros.setVisible(true);
                         suma();
-                        lblTipoTicket.setText("N");//N - NORMAL
+                        
                                 
                     }else if(!lblDescuentoContadorS.getText().equals(lblTotalItems.getText())){
 
@@ -486,6 +489,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         CCEX.setText(String.valueOf(tb_CEX.getRowCount()));
         CTBC.setText(String.valueOf(tbTBC.getRowCount()));
         CFR.setText(String.valueOf(tbFR.getRowCount()));
+        CFR.setVisible(true);
         
         if(!CEME.getText().equals("0")){
             PaginasPreventas.setSelectedIndex(0);
@@ -1965,7 +1969,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                              System.out.println("erorr detalle");
                        }
                     } catch (Exception e) {
-                        System.out.println("No existe precio para ese FR");
+                        System.out.println("No existe precio para ese FR " + e);
         }
  }    
     
@@ -2209,9 +2213,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
      public void ModificarPreventaRetornoFR(){
 
                         Caja_Preventa cnopr = new Caja_Preventa();
-                        cnopr.setId_Cabecera(Integer.parseInt(lblIdPreventas.getText()));
+//                        cnopr.setId_Cabecera(Integer.parseInt(lblIdPreventas.getText()));
 
-                        if(cnopr.modificarPreventaRetornoFR()==true){
+                        if(cnopr.modificarPreventaRetornoFR(lblIdPreventas.getText())==true){
                                    System.out.println("Preventa FR Retorno Modificada ");
                                    panelPreventa.setVisible(false);
                         } else {
@@ -2302,10 +2306,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         lblUsuPorcentaje.setText("Sin Exoneración");
         lblCantidad.setText("1");
         
-        lblcodigo.setText(cnn.id());
+        lblcodigo.setText(cnn.id(lblusu.getText()));
         lblSinAnulacion.setText(cnn.sinanulacion());
-        lblActoMedico.setText(cnn.ActoMedico());
-        cnn.Caja_Correlativo();
+        lblActoMedico.setText(cnn.ActoMedico(lblusu.getText()));
+        cnn.Caja_Correlativo(lblusu.getText());
         tg=1;
     
         btnImprimir.setEnabled(false);
@@ -9497,8 +9501,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                     .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                         .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                             .addGroup(PanelDesastreLayout.createSequentialGroup()
-                                                                                                                                .addComponent(lblServicio)
-                                                                                                                                .addGap(12, 12, 12)
+                                                                                                                                .addGap(20, 20, 20)
                                                                                                                                 .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                                     .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                                         .addComponent(lblPorcentaje)
@@ -9524,9 +9527,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                                 .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                                     .addGroup(PanelDesastreLayout.createSequentialGroup()
-                                                                                                                                        .addGap(34, 34, 34)
                                                                                                                                         .addComponent(lblIdPreventas)
-                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                        .addGap(38, 38, 38)
                                                                                                                                         .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                                                     .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                                         .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -9544,7 +9546,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                                                 .addComponent(lblPreventaFR))
                                                                                                                                             .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                                                 .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                                                    .addComponent(lblVisAdmi)
+                                                                                                                                                    .addGroup(PanelDesastreLayout.createSequentialGroup()
+                                                                                                                                                        .addComponent(lblServicio)
+                                                                                                                                                        .addGap(49, 49, 49)
+                                                                                                                                                        .addComponent(lblVisAdmi))
                                                                                                                                                     .addComponent(lblDetalleId))
                                                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                                                 .addComponent(lblCantidad)
@@ -9627,7 +9632,6 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                                                                                                 .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                                     .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                    .addComponent(lblServicio)
                                                                                                                                     .addComponent(lblIdPreventas))
                                                                                                                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                                     .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -9659,43 +9663,47 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                                     .addComponent(lblTurno))
                                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                                 .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                    .addGroup(PanelDesastreLayout.createSequentialGroup()
-                                                                                                                                        .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                                            .addComponent(lblCajaNomenclaturaPrecio)
-                                                                                                                                            .addComponent(lblIdMedico)
-                                                                                                                                            .addComponent(lblModuloHos)
-                                                                                                                                            .addComponent(lblModulo)
-                                                                                                                                            .addComponent(lblActoMedicoNuevo)
-                                                                                                                                            .addComponent(lblAbonos)
-                                                                                                                                            .addComponent(txtHC)
-                                                                                                                                            .addComponent(lblSinAnulacion)
-                                                                                                                                            .addComponent(lblFP)
-                                                                                                                                            .addComponent(lblFua)
-                                                                                                                                            .addComponent(lblVisAdmi)
-                                                                                                                                            .addComponent(lblIdDetalle)
-                                                                                                                                            .addComponent(lblServicioArea)
-                                                                                                                                            .addComponent(lblCantidad))
-                                                                                                                                        .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                            .addGroup(PanelDesastreLayout.createSequentialGroup()
-                                                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                                                .addComponent(lblDetalleId)
-                                                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                                                                .addComponent(lblArea)
-                                                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                                .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                                                    .addComponent(lblNomenclatura)
-                                                                                                                                                    .addComponent(lblPreventa)))
-                                                                                                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDesastreLayout.createSequentialGroup()
-                                                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                                                                .addComponent(panelAbonos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                .addGap(8, 8, 8))))
                                                                                                                                     .addComponent(lblId_EmpresaFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                                                     .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                                         .addGap(0, 0, Short.MAX_VALUE)
                                                                                                                                         .addComponent(lblIdPreventaAlta))))
                                                                                                                             .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                                                .addComponent(lblPreventaFR)))
+                                                                                                                                .addComponent(lblPreventaFR))
+                                                                                                                            .addGroup(PanelDesastreLayout.createSequentialGroup()
+                                                                                                                                .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                    .addGroup(PanelDesastreLayout.createSequentialGroup()
+                                                                                                                                        .addGap(18, 18, 18)
+                                                                                                                                        .addComponent(lblServicio))
+                                                                                                                                    .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                                        .addComponent(lblCajaNomenclaturaPrecio)
+                                                                                                                                        .addComponent(lblIdMedico)
+                                                                                                                                        .addComponent(lblModuloHos)
+                                                                                                                                        .addComponent(lblModulo)
+                                                                                                                                        .addComponent(lblActoMedicoNuevo)
+                                                                                                                                        .addComponent(lblAbonos)
+                                                                                                                                        .addComponent(txtHC)
+                                                                                                                                        .addComponent(lblSinAnulacion)
+                                                                                                                                        .addComponent(lblFP)
+                                                                                                                                        .addComponent(lblFua)
+                                                                                                                                        .addComponent(lblVisAdmi)
+                                                                                                                                        .addComponent(lblIdDetalle)
+                                                                                                                                        .addComponent(lblServicioArea)
+                                                                                                                                        .addComponent(lblCantidad)))
+                                                                                                                                .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                    .addGroup(PanelDesastreLayout.createSequentialGroup()
+                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                                        .addComponent(lblDetalleId)
+                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                                        .addComponent(lblArea)
+                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                        .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                                            .addComponent(lblNomenclatura)
+                                                                                                                                            .addComponent(lblPreventa)))
+                                                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDesastreLayout.createSequentialGroup()
+                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                                        .addComponent(panelAbonos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                        .addGap(8, 8, 8)))))
                                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                                         .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                             .addComponent(lblPorcentaje)
@@ -10977,7 +10985,7 @@ PaginasVentas.setSelectedIndex(1);
             } else if(lblVisibleImprimir.getText().equals("A")&&lblFpReim.getText().equals("SIS")){
                 nuevaV.reporteALTASIS(lblCodigoImprimir.getText());
                 panelIMprimir.setVisible(true);
-            } else if(lblVisibleImprimir.getText().equals("H")&&!lblFpReim.getText().equals("SIS")){
+            } else if(lblVisibleImprimir.getText().equals("H")&&lblFpReim.getText().equals("SIS")){
                 nuevaV.reporteHOSPITALIZACIONSIS(lblCodigoImprimir.getText());
                 panelIMprimir.setVisible(true);
             }
@@ -11255,7 +11263,7 @@ PaginasVentas.setSelectedIndex(1);
           nuevaV.reporteALTASIS(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
-        } else if(lblTipoTicket.getText().equals("H")&&!txtFormaPago.getText().equals("SIS")){
+        } else if(lblTipoTicket.getText().equals("H")&&txtFormaPago.getText().equals("SIS")){
           nuevaV.reporteHOSPITALIZACIONSIS(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
 //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
@@ -11772,8 +11780,9 @@ PaginasVentas.setSelectedIndex(1);
             txtT5.setText("");
             txtT6.setText("");
             txtT8.setText("");
-            suma();  
             lblTipoTicket.setText("C");//C - CONSULTORIO
+            suma();  
+            
 
     }//GEN-LAST:event_btnReservarActionPerformed
 
@@ -12090,9 +12099,10 @@ PaginasVentas.setSelectedIndex(1);
         GuardarDetalle();
         INICIAR_HOSPITALIZACION();
         panelNumeros.setVisible(true);
+        lblTipoTicket.setText("H");//H - HOSPITALIZACION 
         suma();
         GuardarPapeleta.dispose();  
-        lblTipoTicket.setText("H");//H - HOSPITALIZACION
+        
     }//GEN-LAST:event_btnGuardarDetalleActionPerformed
 
     private void eli6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli6ActionPerformed

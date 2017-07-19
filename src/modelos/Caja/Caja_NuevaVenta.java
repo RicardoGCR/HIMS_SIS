@@ -75,11 +75,12 @@ private int Id_Cod_det;
 ////////////////////////////////////////////////////
 Conexion con = new Conexion();
 
-public void Caja_Correlativo(){
+public void Caja_Correlativo(String usu){
         try {
-            String consulta = "exec CAJA_SERIE_CORRELATIVO";
-            ResultSet r;
-            r=con.Listar(consulta);
+            String consulta = "exec CAJA_SERIE_CORRELATIVO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
         if(r.next()){
                Caja_Pagos.lblSerie.setText(r.getString(1));
                Caja_Pagos.lblNumDoc.setText(r.getString(2));
@@ -612,36 +613,48 @@ public boolean Nuevo(){
         return cod;
     }
  
+  public String ActoMedico(String nombreUsuario)
+    {
+        String cod="";
+        try
+        {
+            String sql = "CAJA_ID_ACTOMEDICO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nombreUsuario);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error Acto Medico: " + ex.getMessage());
+        }
+        return cod;
+    }
  
+ public String id(String nombreUsuario)
+    {
+        String cod="";
+        try
+        {
+            String sql = "Caja_DocumentoCabecera_ID ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nombreUsuario);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error Id Documento: " + ex.getMessage());
+        }
+        return cod;
+    }
 
- public String ActoMedico(){//muestra el codigo
-        String id = "";
-        try {
-            String consulta = "exec CAJA_ID_ACTOMEDICO";
-            ResultSet r;
-            r=con.Listar(consulta);
-        if(r.next()){
-               id = r.getString(1);
-        }
-        }catch(Exception ex){
-            System.out.println("Error " + ex.getMessage());
-        }
-        return id;
-    }
-public String id(){//muestra el codigo
-        String id = "";
-        try {
-            String consulta = "exec Caja_DocumentoCabecera_ID";
-            ResultSet r;
-            r=con.Listar(consulta);
-        if(r.next()){
-               id = r.getString(1);
-        }
-        }catch(Exception ex){
-            System.out.println("Error " + ex.getMessage());
-        }
-        return id;
-    }
 
 
 

@@ -426,13 +426,13 @@ public class Caja_Preventa {
         }
         return resp;
     }
-    public boolean modificarPreventaRetornoFR(){
+    public boolean modificarPreventaRetornoFR(String id){
         boolean resp = false;
         try
         {
             String sql = "Exec Caja_Actualizar_CabPreventaFR ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getId_Cabecera());
+            cmd.setString(1, id);
 
             if(!cmd.execute())
             {

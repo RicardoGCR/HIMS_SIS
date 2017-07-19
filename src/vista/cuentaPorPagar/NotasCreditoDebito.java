@@ -947,7 +947,7 @@ Conexion c=new Conexion();
                             .addContainerGap(25, Short.MAX_VALUE))
                     );
 
-                    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                     getContentPane().setLayout(null);
 
                     jPanel21.setBackground(new java.awt.Color(41, 127, 184));
@@ -6642,7 +6642,7 @@ Conexion c=new Conexion();
     private javax.swing.JPanel panelCPT7;
     private javax.swing.JPanel panelCPT8;
     private javax.swing.JPanel panelCPT9;
-    private javax.swing.JTabbedPane tab;
+    public static javax.swing.JTabbedPane tab;
     private javax.swing.JScrollPane tablaS;
     private javax.swing.JScrollPane tablaS1;
     private javax.swing.JTable tbFacturacion;

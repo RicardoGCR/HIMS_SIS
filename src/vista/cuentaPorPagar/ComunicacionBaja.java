@@ -342,7 +342,7 @@ Conexion c=new Conexion();
                     .addContainerGap(450, Short.MAX_VALUE))
             );
 
-            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
             getContentPane().setLayout(null);
 
             jPanel21.setBackground(new java.awt.Color(41, 127, 184));

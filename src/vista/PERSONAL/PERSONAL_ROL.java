@@ -106,6 +106,14 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         btnguardar_ACTIVIDAD_ROL.setEnabled(false);
         TXT_MOSTRAR_HORA_GUARDAR_UO.setVisible(false);
         BTN_QUITAR.setEnabled(false);
+    
+        TXT_CODIGO_ROL_G.setVisible(false);
+        TXT_NOMBRE_DIA.setVisible(false);
+        TXT_DIA.setVisible(false);
+        TXT_MES.setVisible(false);
+        
+        
+    
     }
     
 

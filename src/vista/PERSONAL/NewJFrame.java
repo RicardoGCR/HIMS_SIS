@@ -5,6 +5,14 @@
  */
 package vista.PERSONAL;
 
+import java.awt.Color;
+import java.awt.KeyEventPostProcessor;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +21,11 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -27,61 +39,36 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() throws ParseException {
         initComponents();
         this.setLocationRelativeTo(null);
+        DIALOGO.setLocationRelativeTo(null);
+        DIALOGO.getContentPane().setBackground(Color.white);
+       //salir presionando escape
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                dispose();
+                
+            }
+        });
+        
+        
+        
+        
+//        //salir presionando escape
+//        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+//        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
 //        
-        
-//        obtenerDiaSemana();
-        
-        
-//        DateFormat hora1 = new SimpleDateFormat("HH:mm:ss"); 
-//        DateFormat hora2 = new SimpleDateFormat("HH:mm:ss"); 
-//        
-//        String s = "08:00:00";
-//        String s1 = "12:30:00";
-//        
-//        String [] ss = s.split(":");
-//        String [] sss = s1.split(":");
-//        
-//        String part1 = ss[0];
-//        String part2 = sss[0];
-////        
-////        long lantes = Long.parseLong(part1);
-////        long lahora = Long.parseLong(part2);
-//        long diferencia = (Long.parseLong(part2) - Long.parseLong(part1)); 
-//        System.out.println(new java.text.SimpleDateFormat( "HH:mm:ss" ).format( new Date(diferencia) ));
-        
-        
-        ///////////////////////////////////////
-        
-        
-//        long tiempoInicial=100000;
-//        long tiempoFinal=123000; 
-//        long resta=tiempoFinal - tiempoInicial;
-//        //el metodo getTime te devuelve en mili segundos para saberlo en mins debes hacer
-//        resta=resta /(1000*60);
-//        System.out.println("diferencia" + resta);
-        
-        ////////////////////////////////
-        
-//        Date hora1 = new SimpleDateFormat().parse("19/05/2006 05:00:00"); 
-//        Date hora2 = new SimpleDateFormat().parse("19/05/2006 22:30:30"); 
-//        long lantes = hora1.getTime(); 
-//        long lahora = hora2.getTime(); 
-//        System.out.println((lahora - lantes)/3600000); 
-        
-        
-        ////////////////////////////////
-        
-//        Date hora1 = new SimpleDateFormat().parse("19/05/2006 05:00:00"); 
-//        Date hora2 = new SimpleDateFormat().parse("19/05/2006 05:00:00"); 
-//        long lantes = hora1.getTime(); 
-//        long lahora = hora2.getTime(); 
-//        long diferencia = (lahora - lantes); 
-//        System.out.println(new java.text.SimpleDateFormat( "HH:mm:ss" ).format( new Date(diferencia) ));
-//        
-//        
-        
-        
-        
+//        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+//            @Override
+//            public void actionPerformed(java.awt.event.ActionEvent e)
+//            {
+//                DIALOGO.dispose();
+//                
+//            }
+//        });
         
     }
 
@@ -94,6 +81,8 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        DIALOGO = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
         fecha1 = new javax.swing.JComboBox();
         fecha2 = new javax.swing.JComboBox();
         fecha3 = new javax.swing.JComboBox();
@@ -104,6 +93,44 @@ public class NewJFrame extends javax.swing.JFrame {
         TXT_FECHAAAAAA = new javax.swing.JTextField();
         fecha5 = new javax.swing.JComboBox();
         fecha6 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+
+        DIALOGO.setMinimumSize(new java.awt.Dimension(400, 300));
+        DIALOGO.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                DIALOGOFocusLost(evt);
+            }
+        });
+        DIALOGO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                DIALOGOKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                DIALOGOKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DIALOGOKeyTyped(evt);
+            }
+        });
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout DIALOGOLayout = new javax.swing.GroupLayout(DIALOGO.getContentPane());
+        DIALOGO.getContentPane().setLayout(DIALOGOLayout);
+        DIALOGOLayout.setHorizontalGroup(
+            DIALOGOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DIALOGOLayout.createSequentialGroup()
+                .addGap(222, 222, 222)
+                .addComponent(jLabel1)
+                .addContainerGap(144, Short.MAX_VALUE))
+        );
+        DIALOGOLayout.setVerticalGroup(
+            DIALOGOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DIALOGOLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(360, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -205,6 +232,13 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -216,7 +250,9 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(fecha1, 0, 112, Short.MAX_VALUE)
                     .addComponent(fecha5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(fecha6, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(D_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,25 +266,31 @@ public class NewJFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(fecha3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(fecha4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(D_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fecha5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fecha6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(fecha3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(fecha4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(D_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fecha5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fecha6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(73, 73, 73)))
                 .addComponent(TXT_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(TXT_FECHAAAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,14 +300,43 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+//     public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+//         ActionListener escAction = new ActionListener() {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//        windowDialog.dispose();
+//        }
+////
+////             @Override
+////             public void actionPerformed(ActionEvent e) {
+////                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+////             }
+//        };
+//        windowDialog.getRootPane().registerKeyboardAction(escAction,
+//        KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+//        JComponent.WHEN_IN_FOCUSED_WINDOW);
+//     }
+    
     private void fecha1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha1PropertyChange
-        
         
     }//GEN-LAST:event_fecha1PropertyChange
 
     private void fecha1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fecha1ItemStateChanged
 
-        
     }//GEN-LAST:event_fecha1ItemStateChanged
 
     private void fecha2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fecha2ItemStateChanged
@@ -317,12 +388,6 @@ public class NewJFrame extends javax.swing.JFrame {
 //            minuto = m - b1;
 //        }
 //        
-        
-        
-        
-        
-        
-        
         
 //        //// PASAR DIA
         
@@ -419,9 +484,6 @@ public class NewJFrame extends javax.swing.JFrame {
 //                ///////////
 //            }
 //        }
-        
-        
-        
         
 //            else{
 //            if(a1==00 && b1 > 0 && a !=00 && b != 00){
@@ -874,6 +936,37 @@ public class NewJFrame extends javax.swing.JFrame {
 //        System.out.println("hora: " + horaf + ":"+ minutof +":"+segundo+"0");
     }//GEN-LAST:event_fecha6ItemStateChanged
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       DIALOGO.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void DIALOGOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DIALOGOKeyTyped
+
+    }//GEN-LAST:event_DIALOGOKeyTyped
+
+    private void DIALOGOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DIALOGOKeyPressed
+        
+    }//GEN-LAST:event_DIALOGOKeyPressed
+
+    private void DIALOGOFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DIALOGOFocusLost
+        
+    }//GEN-LAST:event_DIALOGOFocusLost
+
+    private void DIALOGOKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DIALOGOKeyReleased
+        KeyboardFocusManager kb = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        kb.addKeyEventPostProcessor(new KeyEventPostProcessor(){
+               public boolean postProcessKeyEvent(KeyEvent e){
+               if (e.getKeyCode() == KeyEvent.VK_ESCAPE && DIALOGO != null){
+                    
+                    DIALOGO.dispose();
+                    return false;
+               }
+               return true;
+            }
+        }
+        );
+    }//GEN-LAST:event_DIALOGOKeyReleased
+
     
     public void hora(){
 //        try {
@@ -968,6 +1061,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog DIALOGO;
     private com.toedter.calendar.JDateChooser D_FECHA;
     private javax.swing.JTextField TXT_FECHA;
     private javax.swing.JTextField TXT_FECHAAAAAA;
@@ -977,6 +1071,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox fecha4;
     private javax.swing.JComboBox fecha5;
     private javax.swing.JComboBox fecha6;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -76,7 +76,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         RX_EC_RESULTADO_CAB num=new RX_EC_RESULTADO_CAB();
         txtNumExamen.setText(num.RX_EC_resultado_generarNum());
         if(txtNumExamen.getText().equalsIgnoreCase("")){
-        txtNumExamen.setText("000000000001");
+        txtNumExamen.setText("00000001");
                     } 
         lblNumExamen.setText(txtNumExamen.getText());
         

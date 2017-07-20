@@ -62,7 +62,7 @@ public class Conexion {
        
      public Connection conectar(){
         try{
-            leerTexto("C:\\Program Files\\SOFT\\conexion.txt");
+            leerTexto("C:\\SOFT\\conexion.txt");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String url="jdbc:sqlserver://"+servidor+":"+puerto+";"+"databaseName="+baseDatos
                     +";user="+user+";password="+password;

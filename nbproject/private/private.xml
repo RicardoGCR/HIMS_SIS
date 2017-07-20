@@ -6,6 +6,9 @@
 =======
         <group>
 <<<<<<< HEAD
+            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_Preventa.java</file>
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
             <file>file:/E:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
             <file>file:/E:/pry/SISGESH/src/vista/Caja/Caja_HospitalizacionPreventa.java</file>
@@ -13,10 +16,12 @@
 =======
 <<<<<<< HEAD
             <file>file:/D:/pry/HIMS/src/modelos/LABORATORIO/LAB_Toma_Muestra_Cabecera.java</file>
+>>>>>>> 434c592ba7804cb376f55114255bbd8a0fc3056c
             <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/LABORATORIO/LAB_Resultado_Muestra_Detalle.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_HospitalizacionPreventa.java</file>
+<<<<<<< HEAD
+=======
 =======
 <<<<<<< HEAD
             <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
@@ -32,6 +37,7 @@
             <file>file:/D:/pry/HIMS/src/modelos/RX/RX_EC_EXAMEN_DET.java</file>
             <file>file:/D:/pry/HIMS/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
 >>>>>>> 97f2554c79a729fc865e9b17edcab774f33b4d70
+>>>>>>> 434c592ba7804cb376f55114255bbd8a0fc3056c
         </group>
 >>>>>>> 434c592ba7804cb376f55114255bbd8a0fc3056c
     </open-files>

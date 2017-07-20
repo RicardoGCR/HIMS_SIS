@@ -92,7 +92,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago NOT IN('CONTADO' ,'EXONERACION')  AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as OTROS,
-						 ( select HOST_NAME())as PC, (SELECT NRO_PC FROM SISTEMA_CONFIGURACION_PC_AREA WHERE NOM_PC=HOST_NAME()) AS NRO
+						 ( select HOST_NAME())as PC, (SELECT NRO_PC FROM SISTEMA_CONFIGURACION_PC_AREA WHERE NOM_PC=HOST_NAME()and NOM_USU=$P{USUARIO} and PA_MODULO='CC') AS NRO
 
 
 FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
@@ -257,7 +257,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 				<textElement>
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[DSCTO.]]></text>
+				<text><![CDATA[Dscto.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="427" y="2" width="100" height="20" uuid="17c03f41-37d7-48c7-9043-b230f5330972"/>

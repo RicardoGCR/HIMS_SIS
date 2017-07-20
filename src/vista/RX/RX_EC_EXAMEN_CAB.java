@@ -68,7 +68,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         RX_EC_EXAMEN num=new RX_EC_EXAMEN();
         txtNumExamen.setText(num.RX_EC_EXAMEN_generarNum());
         if(txtNumExamen.getText().equalsIgnoreCase("")){
-        txtNumExamen.setText("000000000001");
+        txtNumExamen.setText("00000001");
                     } 
         lblNumExamen.setText(txtNumExamen.getText());
         
@@ -1535,8 +1535,15 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                RX_EC_EXAMEN_DET dd=new RX_EC_EXAMEN_DET();
                dd.setID_EXAMEN_CAB(id);
                dd.setID_COD_DOC_DET(Integer.parseInt(tb_examen_det.getValueAt(i, 0).toString()));
-               dd.setCOD_PER_SOL(lblCod_Personal_Sol.getText());
-               dd.setNOM_PER_SOL(txtPersonalSolicita.getText());
+               
+               if(lblCod_Personal_Sol.getText().equalsIgnoreCase("") || txtPersonalSolicita.getText().equalsIgnoreCase("")){
+                    dd.setCOD_PER_SOL(String.valueOf("- - -"));
+                    dd.setNOM_PER_SOL(String.valueOf("- - -"));                 
+               }else{
+                    dd.setCOD_PER_SOL(lblCod_Personal_Sol.getText());
+                    dd.setNOM_PER_SOL(txtPersonalSolicita.getText());
+               }
+
                dd.setINCIDENCIA(tb_examen_det.getValueAt(i, 3).toString());
                dd.setID_PREVENTA(lblId_Preventa.getText());
                dd.setHAB_NOM(txtHabitacion.getText());

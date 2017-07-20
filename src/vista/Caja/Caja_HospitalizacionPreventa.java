@@ -275,7 +275,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         boolean retorna = false;
    
             int id_preventa = 0;
-            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png"));
+  
 
 
                 Caja_Preventa cp = new Caja_Preventa();

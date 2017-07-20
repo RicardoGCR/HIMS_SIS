@@ -47,7 +47,7 @@ public class RX_EC_EXAMEN {
             }
         }catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error generar numero: " + ex.getMessage());
         }
         return cod;
     }
@@ -75,7 +75,7 @@ public class RX_EC_EXAMEN {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error guardar cabecera ex: " + ex.getMessage());
         }
         return resp;
     }

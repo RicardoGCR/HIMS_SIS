@@ -380,7 +380,7 @@ Conexion c=new Conexion();
                                 .addContainerGap(450, Short.MAX_VALUE))
                         );
 
-                        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                         getContentPane().setLayout(null);
 
                         jPanel21.setBackground(new java.awt.Color(41, 127, 184));
@@ -919,7 +919,7 @@ Conexion c=new Conexion();
                                                 .addComponent(jLabel70)
                                                 .addGap(65, 65, 65)
                                                 .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 471, Short.MAX_VALUE))
+                                        .addGap(0, 458, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                         .addContainerGap()
                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

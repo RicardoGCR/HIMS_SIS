@@ -5,6 +5,9 @@
  */
 package vista.PERSONAL;
 
+import java.awt.KeyEventPostProcessor;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,6 +30,7 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() throws ParseException {
         initComponents();
         this.setLocationRelativeTo(null);
+        jDialog1.setLocationRelativeTo(null);
 //        
         
 //        obtenerDiaSemana();
@@ -80,10 +84,28 @@ public class NewJFrame extends javax.swing.JFrame {
 //        
 //        
         
-        
-        
-        
+      getRootPane().getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        // BOTON ESCAPE (ESC)
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+              if(lblDiag.getText().equals("A")){
+               
+                   System.out.println("vamo saliendo");
+                    jDialog1.dispose();   
+              }
+//                        
+                   
+           
+            }
+        });  
+       
+       
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,6 +116,11 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        lblDiag = new javax.swing.JLabel();
         fecha1 = new javax.swing.JComboBox();
         fecha2 = new javax.swing.JComboBox();
         fecha3 = new javax.swing.JComboBox();
@@ -104,6 +131,58 @@ public class NewJFrame extends javax.swing.JFrame {
         TXT_FECHAAAAAA = new javax.swing.JTextField();
         fecha5 = new javax.swing.JComboBox();
         fecha6 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+
+        jDialog1.setMinimumSize(new java.awt.Dimension(400, 300));
+        jDialog1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jDialog1KeyPressed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jTextField1.setText("jTextField1");
+
+        lblDiag.setText("jLabel1");
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDiag)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(lblDiag)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -205,6 +284,13 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,11 +312,17 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(fecha3, 0, 112, Short.MAX_VALUE)
                         .addComponent(TXT_FECHA)))
                 .addGap(14, 14, 14))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(19, 19, 19)
+                .addComponent(jButton1)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(fecha3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -874,6 +966,23 @@ public class NewJFrame extends javax.swing.JFrame {
 //        System.out.println("hora: " + horaf + ":"+ minutof +":"+segundo+"0");
     }//GEN-LAST:event_fecha6ItemStateChanged
 
+    private void jDialog1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDialog1KeyPressed
+//   char teclaPresionada = evt.getKeyChar();
+//         if(teclaPresionada==KeyEvent.VK_ESCAPE){
+//            System.out.println("vamo saliendo");
+//                    jDialog1.dispose();   
+//         }
+//        
+        
+       
+
+    }//GEN-LAST:event_jDialog1KeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    jDialog1.setVisible(true);        // TODO add your handling code here:
+    lblDiag.setText("A");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
     public void hora(){
 //        try {
@@ -977,6 +1086,12 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox fecha4;
     private javax.swing.JComboBox fecha5;
     private javax.swing.JComboBox fecha6;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblDiag;
     // End of variables declaration//GEN-END:variables
 }

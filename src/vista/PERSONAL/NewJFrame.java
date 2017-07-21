@@ -5,6 +5,11 @@
  */
 package vista.PERSONAL;
 
+<<<<<<< HEAD
+import java.awt.KeyEventPostProcessor;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
+=======
 import java.awt.Color;
 import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
@@ -13,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+>>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,6 +45,43 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() throws ParseException {
         initComponents();
         this.setLocationRelativeTo(null);
+<<<<<<< HEAD
+        jDialog1.setLocationRelativeTo(null);
+//        
+        
+//        obtenerDiaSemana();
+        
+        
+//        DateFormat hora1 = new SimpleDateFormat("HH:mm:ss"); 
+//        DateFormat hora2 = new SimpleDateFormat("HH:mm:ss"); 
+//        
+//        String s = "08:00:00";
+//        String s1 = "12:30:00";
+//        
+//        String [] ss = s.split(":");
+//        String [] sss = s1.split(":");
+//        
+//        String part1 = ss[0];
+//        String part2 = sss[0];
+////        
+////        long lantes = Long.parseLong(part1);
+////        long lahora = Long.parseLong(part2);
+//        long diferencia = (Long.parseLong(part2) - Long.parseLong(part1)); 
+//        System.out.println(new java.text.SimpleDateFormat( "HH:mm:ss" ).format( new Date(diferencia) ));
+        
+        
+        ///////////////////////////////////////
+        
+        
+//        long tiempoInicial=100000;
+//        long tiempoFinal=123000; 
+//        long resta=tiempoFinal - tiempoInicial;
+//        //el metodo getTime te devuelve en mili segundos para saberlo en mins debes hacer
+//        resta=resta /(1000*60);
+//        System.out.println("diferencia" + resta);
+        
+        ////////////////////////////////
+=======
         DIALOGO.setLocationRelativeTo(null);
         DIALOGO.getContentPane().setBackground(Color.white);
        //salir presionando escape
@@ -53,6 +96,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 
             }
         });
+>>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
         
         
         
@@ -61,6 +105,29 @@ public class NewJFrame extends javax.swing.JFrame {
 //        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
 //        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
 //        
+<<<<<<< HEAD
+//        
+        
+      getRootPane().getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        // BOTON ESCAPE (ESC)
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+              if(lblDiag.getText().equals("A")){
+               
+                   System.out.println("vamo saliendo");
+                    jDialog1.dispose();   
+              }
+//                        
+                   
+           
+            }
+        });  
+       
+       
+=======
 //        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
 //            @Override
 //            public void actionPerformed(java.awt.event.ActionEvent e)
@@ -70,7 +137,10 @@ public class NewJFrame extends javax.swing.JFrame {
 //            }
 //        });
         
+>>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,8 +151,16 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
+        jDialog1 = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        lblDiag = new javax.swing.JLabel();
+=======
         DIALOGO = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
+>>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
         fecha1 = new javax.swing.JComboBox();
         fecha2 = new javax.swing.JComboBox();
         fecha3 = new javax.swing.JComboBox();
@@ -95,6 +173,57 @@ public class NewJFrame extends javax.swing.JFrame {
         fecha6 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
 
+<<<<<<< HEAD
+        jDialog1.setMinimumSize(new java.awt.Dimension(400, 300));
+        jDialog1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jDialog1KeyPressed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jTextField1.setText("jTextField1");
+
+        lblDiag.setText("jLabel1");
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDiag)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(lblDiag)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+=======
         DIALOGO.setMinimumSize(new java.awt.Dimension(400, 300));
         DIALOGO.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -130,6 +259,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addContainerGap(360, Short.MAX_VALUE))
+>>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -262,10 +392,20 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(fecha3, 0, 112, Short.MAX_VALUE)
                         .addComponent(TXT_FECHA)))
                 .addGap(14, 14, 14))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(19, 19, 19)
+                .addComponent(jButton1)
+                .addGap(29, 29, 29)
+=======
+>>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
@@ -936,6 +1076,24 @@ public class NewJFrame extends javax.swing.JFrame {
 //        System.out.println("hora: " + horaf + ":"+ minutof +":"+segundo+"0");
     }//GEN-LAST:event_fecha6ItemStateChanged
 
+<<<<<<< HEAD
+    private void jDialog1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDialog1KeyPressed
+//   char teclaPresionada = evt.getKeyChar();
+//         if(teclaPresionada==KeyEvent.VK_ESCAPE){
+//            System.out.println("vamo saliendo");
+//                    jDialog1.dispose();   
+//         }
+//        
+        
+       
+
+    }//GEN-LAST:event_jDialog1KeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    jDialog1.setVisible(true);        // TODO add your handling code here:
+    lblDiag.setText("A");
+    }//GEN-LAST:event_jButton1ActionPerformed
+=======
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        DIALOGO.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -966,6 +1124,7 @@ public class NewJFrame extends javax.swing.JFrame {
         }
         );
     }//GEN-LAST:event_DIALOGOKeyReleased
+>>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
 
     
     public void hora(){
@@ -1073,6 +1232,14 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox fecha6;
     private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
+<<<<<<< HEAD
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblDiag;
+=======
     private javax.swing.JLabel jLabel1;
+>>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
     // End of variables declaration//GEN-END:variables
 }

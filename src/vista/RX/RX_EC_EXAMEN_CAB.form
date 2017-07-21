@@ -9,6 +9,9 @@
           <Dimension value="[710, 370]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PERSONAL_ROLKeyPressed"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -503,8 +506,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel7" alignment="0" pref="1183" max="32767" attributes="0"/>
           <Component id="jpanel" alignment="0" max="32767" attributes="0"/>
-          <Component id="jPanel7" alignment="0" pref="1175" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -531,7 +534,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="titulo5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="txtCodigoDoc" min="-2" pref="142" max="-2" attributes="0"/>
@@ -547,7 +550,7 @@
                           <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblUsu" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
                       <Component id="lblNomA" alignment="1" min="-2" pref="316" max="-2" attributes="0"/>

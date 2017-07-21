@@ -2,11 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
             <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_Preventa.java</file>
             <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_HospitalizacionPreventa.java</file>
         </group>
+>>>>>>> 434c592ba7804cb376f55114255bbd8a0fc3056c
     </open-files>
 </project-private>

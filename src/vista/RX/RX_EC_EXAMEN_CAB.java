@@ -6,6 +6,8 @@
 package vista.RX;
 
 import java.awt.Color;
+import java.awt.KeyEventPostProcessor;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -69,7 +71,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         txtNumExamen.setText(num.RX_EC_EXAMEN_generarNum());
         if(txtNumExamen.getText().equalsIgnoreCase("")){
         txtNumExamen.setText("00000001");
-                    } 
+        }    
         lblNumExamen.setText(txtNumExamen.getText());
         
         lblA.setVisible(false);
@@ -187,6 +189,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
         PERSONAL_ROL.setAlwaysOnTop(true);
         PERSONAL_ROL.setMinimumSize(new java.awt.Dimension(710, 370));
+        PERSONAL_ROL.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PERSONAL_ROLKeyPressed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(34, 113, 179));
 
@@ -514,7 +521,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             .addGroup(jpanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addComponent(txtCodigoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -527,7 +534,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addComponent(lblCod_Personal_Sol)
                         .addGap(188, 188, 188)))
-                .addGap(137, 137, 137)
+                .addGap(127, 127, 127)
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUsu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNomA, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1192,8 +1199,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1183, Short.MAX_VALUE)
             .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1175, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1527,6 +1534,20 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                     btnGuardarCabeceraEx.doClick();
         }
     }//GEN-LAST:event_btnGuardarCabeceraExKeyPressed
+
+    private void PERSONAL_ROLKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PERSONAL_ROLKeyPressed
+        KeyboardFocusManager kb = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+               kb.addKeyEventPostProcessor(new KeyEventPostProcessor(){
+                public boolean postProcessKeyEvent(KeyEvent e){
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE && this != null){
+                    
+                    PERSONAL_ROL.dispose();
+                    return false;
+                }
+                return true;
+            }
+        });
+    }//GEN-LAST:event_PERSONAL_ROLKeyPressed
 
     public void guardarDetalleExamen(){
         int id = Integer.parseInt(txtId_Documento_G.getText());

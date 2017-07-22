@@ -33,6 +33,7 @@ public class EC_EXAMEN_RESULTADO_DETALLE {
     private String FECHA_RESULTADO;
     private String HORA_RESULTADO;
     private String NOM_USU;
+    private String NUMERO_EXAMEN;
     
     public EC_EXAMEN_RESULTADO_DETALLE()
     {
@@ -44,7 +45,7 @@ public class EC_EXAMEN_RESULTADO_DETALLE {
         boolean resp = false;
         try
         {
-            String sql = "exec RX_EC_INFORME_RESULTADO_DETALLE_INSERTAR ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "exec RX_EC_INFORME_RESULTADO_DETALLE_INSERTAR ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getID_CABECERA_RESULTADO_EC());
             cmd.setInt(2, getID_COD_DOC_DET());
@@ -63,6 +64,7 @@ public class EC_EXAMEN_RESULTADO_DETALLE {
             cmd.setString(15, getFECHA_RESULTADO());
             cmd.setString(16, getHORA_RESULTADO());
             cmd.setString(17, getNOM_USU());
+            cmd.setString(18, getNUMERO_EXAMEN());
                         
             if(!cmd.execute())
             {
@@ -73,7 +75,7 @@ public class EC_EXAMEN_RESULTADO_DETALLE {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error INSERTAR DETALLE EC: " + ex.getMessage());
         }
         return resp;
     }
@@ -116,6 +118,25 @@ public class EC_EXAMEN_RESULTADO_DETALLE {
             System.out.println("Error: " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public String RX_EC_INFORME_generarNum_EC()
+    {
+        Conexion cn=new Conexion();
+        String cod="";
+        try{
+        String consulta="exec RX_EC_INFORME_GENERAR_NUM_EC";
+        ResultSet r;
+        r=cn.Listar(consulta);
+        if(r.next())
+            {
+               cod = r.getString(1);
+            }
+        }catch(Exception ex)
+        {
+            System.out.println("Error generar numero EC: " + ex.getMessage());
+        }
+        return cod;
     }
     
     public Connection getCn() {
@@ -260,6 +281,14 @@ public class EC_EXAMEN_RESULTADO_DETALLE {
 
     public void setNOM_USU(String NOM_USU) {
         this.NOM_USU = NOM_USU;
+    }
+
+    public String getNUMERO_EXAMEN() {
+        return NUMERO_EXAMEN;
+    }
+
+    public void setNUMERO_EXAMEN(String NUMERO_EXAMEN) {
+        this.NUMERO_EXAMEN = NUMERO_EXAMEN;
     }
     
     

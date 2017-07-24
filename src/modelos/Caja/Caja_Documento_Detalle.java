@@ -42,6 +42,8 @@ private int id_cod_det;
 private String cod_produc;
 private int cantidad;
 private String nom_usu;
+private String fecha_consulta;
+private String hora_consulta;
 
 Conexion con = new Conexion();  
 
@@ -233,7 +235,7 @@ public boolean DetalleVenta(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_INSERTAR_DETALLE_VENTA "
-                        + "?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
   
             cmd.setString(1, getId_documento());
@@ -246,7 +248,10 @@ public boolean DetalleVenta(){
             cmd.setString(7, getPersonal_aten());
             cmd.setString(8, getNum_aten());
             cmd.setString(9, getTurno_cita());
-            cmd.setString(10, getCod_usu());
+            
+            cmd.setString(10, getFecha_consulta());
+            cmd.setString(11, getHora_consulta());
+            cmd.setString(12, getCod_usu());
 
 
             if(!cmd.execute())
@@ -718,6 +723,22 @@ public void Detalle(String codigo,JTable tabla){
 
     public void setNom_usu(String nom_usu) {
         this.nom_usu = nom_usu;
+    }
+
+    public String getFecha_consulta() {
+        return fecha_consulta;
+    }
+
+    public void setFecha_consulta(String fecha_consulta) {
+        this.fecha_consulta = fecha_consulta;
+    }
+
+    public String getHora_consulta() {
+        return hora_consulta;
+    }
+
+    public void setHora_consulta(String hora_consulta) {
+        this.hora_consulta = hora_consulta;
     }
     
     

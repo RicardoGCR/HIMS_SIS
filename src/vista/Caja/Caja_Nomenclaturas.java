@@ -1528,6 +1528,7 @@ byte tga;
 
                         jScrollPane3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
+                        tb_Grupo1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                         tb_Grupo1.setModel(new javax.swing.table.DefaultTableModel(
                             new Object [][] {
                                 {null, null, null, null},
@@ -1541,7 +1542,7 @@ byte tga;
                         ));
                         tb_Grupo1.setGridColor(new java.awt.Color(255, 255, 255));
                         tb_Grupo1.setRowHeight(25);
-                        tb_Grupo1.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                        tb_Grupo1.setSelectionBackground(new java.awt.Color(102, 102, 102));
                         tb_Grupo1.getTableHeader().setReorderingAllowed(false);
                         tb_Grupo1.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {

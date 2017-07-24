@@ -25,6 +25,7 @@ public class FormatoTablaReporteDiarioCaja extends DefaultTableCellRenderer{
 
         if(!table.getValueAt(row, 2).equals("CONTADO")){
             componente.setBackground(new Color(0,153,187)); 
+//            [0,153,187]
         }
         
          if(!table.getValueAt(row, 6).equals("SIN ANULACION")){

@@ -699,13 +699,17 @@ public class Facturador extends javax.swing.JFrame {
                 jLabel1.setForeground(new java.awt.Color(41, 127, 184));
                 jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta por Pagar - </span>Factura Electrónica</html>");
 
+                lblMant.setForeground(new java.awt.Color(255, 255, 255));
                 lblMant.setText("I");
 
+                lblId.setForeground(new java.awt.Color(255, 255, 255));
                 lblId.setText("jLabel3");
 
+                lblEmpresa.setForeground(new java.awt.Color(255, 255, 255));
                 lblEmpresa.setText("Empresa");
 
                 btnGuardar.setBackground(new java.awt.Color(102, 0, 102));
+                btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
                 btnGuardar.setText("Guardar");
                 btnGuardar.setBorderPainted(false);
                 btnGuardar.setContentAreaFilled(false);

@@ -7,6 +7,8 @@
 package vista.LABORATORIO;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
@@ -21,8 +23,11 @@ import java.util.Map;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -65,6 +70,8 @@ DefaultTableModel m,n,muestra;
         h1.start();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         
+        addEscapeListenerWindowDialog(buscar_HC);
+        addEscapeListenerWindowDialog(nomenclatura);
         
         //Servicio-Area
         LAB_PC_AREA pa=new LAB_PC_AREA();
@@ -413,6 +420,11 @@ public void calcula() {
                     buscar_HC.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                     buscar_HC.setAlwaysOnTop(true);
                     buscar_HC.setMinimumSize(new java.awt.Dimension(876, 692));
+                    buscar_HC.addWindowListener(new java.awt.event.WindowAdapter() {
+                        public void windowClosing(java.awt.event.WindowEvent evt) {
+                            buscar_HCWindowClosing(evt);
+                        }
+                    });
 
                     btnBuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/view.gif"))); // NOI18N
                     btnBuscar1.setBorder(null);
@@ -1208,6 +1220,10 @@ public void buscar_examenes(){
               
           }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void buscar_HCWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_buscar_HCWindowClosing
+        
+    }//GEN-LAST:event_buscar_HCWindowClosing
     public void enableDatos(){
     tb_Pacientes.setEnabled(true);
     tb_Pacientes.setBackground(Color.white);
@@ -1220,7 +1236,17 @@ public void buscar_examenes(){
                     modelo.removeRow(0);
    }
 }
-   
+   public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+       ActionListener escAction = new ActionListener() {
+@Override
+public void actionPerformed(ActionEvent e) {
+windowDialog.dispose();
+}
+};
+windowDialog.getRootPane().registerKeyboardAction(escAction,
+KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+JComponent.WHEN_IN_FOCUSED_WINDOW);
+   }
   
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       

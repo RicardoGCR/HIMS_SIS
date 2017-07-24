@@ -5,11 +5,10 @@
  */
 package vista.PERSONAL;
 
-<<<<<<< HEAD
 import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
-=======
+
 import java.awt.Color;
 import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
@@ -18,7 +17,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
->>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,7 +43,6 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() throws ParseException {
         initComponents();
         this.setLocationRelativeTo(null);
-<<<<<<< HEAD
         jDialog1.setLocationRelativeTo(null);
 //        
         
@@ -81,7 +78,7 @@ public class NewJFrame extends javax.swing.JFrame {
 //        System.out.println("diferencia" + resta);
         
         ////////////////////////////////
-=======
+
         DIALOGO.setLocationRelativeTo(null);
         DIALOGO.getContentPane().setBackground(Color.white);
        //salir presionando escape
@@ -96,7 +93,6 @@ public class NewJFrame extends javax.swing.JFrame {
                 
             }
         });
->>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
         
         
         
@@ -105,7 +101,6 @@ public class NewJFrame extends javax.swing.JFrame {
 //        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
 //        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
 //        
-<<<<<<< HEAD
 //        
         
       getRootPane().getInputMap(javax.swing.JComponent.WHEN_FOCUSED).put(
@@ -127,7 +122,6 @@ public class NewJFrame extends javax.swing.JFrame {
         });  
        
        
-=======
 //        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
 //            @Override
 //            public void actionPerformed(java.awt.event.ActionEvent e)
@@ -137,7 +131,6 @@ public class NewJFrame extends javax.swing.JFrame {
 //            }
 //        });
         
->>>>>>> dab3153176f58953379587b83aa858d5aee7b22b
     }
     
    
@@ -1089,10 +1082,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jDialog1KeyPressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
     jDialog1.setVisible(true);        // TODO add your handling code here:
     lblDiag.setText("A");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }                                        
 =======
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        DIALOGO.setVisible(true);

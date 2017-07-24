@@ -7,6 +7,7 @@ package modelos.PERSONAL;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import servicios.Conexion;
 
 /**
@@ -48,6 +49,72 @@ public class CLS_PERSONAL_UO_ACTIVIDADES {
         catch(Exception ex)
         {
             System.out.println("Error guardar  UO ACTIVIDADES: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String PERSONAL_ACTIVIDADES_GENERAR_ID()
+    {
+        Conexion cn=new Conexion();
+        String cod="";
+        try{
+        String consulta="exec PERSONAL_UNI_ORG_ACTIVIDAD_GENERARID";
+        ResultSet r;
+        r=cn.Listar(consulta);
+        if(r.next())
+            {
+               cod = r.getString(1);
+            }
+        }catch(Exception ex)
+        {
+            System.out.println("Error generar ID ACTIVIDAD: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public boolean PERSONAL_UO_ACTIVIDADES_ELIMINAR()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec PERSONAL_UNI_ORG_ACTIVIDADES_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getCOD_UNI_ORG_ACTI());
+            if(!cmd.execute()){
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ELIMINAR ACTIVIDAD: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean PERSONAL_UO_ACTIVIDADES_MODIFICAR()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec PERSONAL_UNI_ORG_ACTIVIDADES_MODIFICAR ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getCOD_UNI_ORG_ACTI());
+            cmd.setString(2, getCOD_UNI_ORGANICA_JERAR());
+            cmd.setString(3, getNOMBRE_ACTIVIDAD());
+            cmd.setString(4, getNOM_USU());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error modificar: " + ex.getMessage());
         }
         return resp;
     }

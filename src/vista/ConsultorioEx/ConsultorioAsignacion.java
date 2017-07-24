@@ -472,7 +472,7 @@ Connection conexion=c.conectar();
                     jPanel46Layout.setVerticalGroup(
                         jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel46Layout.createSequentialGroup()
-                            .addContainerGap(13, Short.MAX_VALUE)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel62)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -484,13 +484,15 @@ Connection conexion=c.conectar();
                     Medicos.getContentPane().add(jPanel46);
                     jPanel46.setBounds(0, 0, 910, 110);
 
+                    jTabbedPane7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                     jTabbedPane7.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
 
                     jPanel50.setBackground(new java.awt.Color(255, 255, 255));
 
                     jScrollPane16.setBackground(new java.awt.Color(255, 255, 255));
-                    jScrollPane16.setBorder(null);
+                    jScrollPane16.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
+                    tb_medicos.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                     tb_medicos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     tb_medicos.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
@@ -664,8 +666,9 @@ Connection conexion=c.conectar();
                     jPanel52.setBackground(new java.awt.Color(255, 255, 255));
 
                     jScrollPane17.setBackground(new java.awt.Color(255, 255, 255));
-                    jScrollPane17.setBorder(null);
+                    jScrollPane17.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
+                    tb_consultorios.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                     tb_consultorios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     tb_consultorios.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {

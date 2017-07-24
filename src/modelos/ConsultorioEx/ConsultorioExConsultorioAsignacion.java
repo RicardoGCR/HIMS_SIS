@@ -211,7 +211,7 @@ public class ConsultorioExConsultorioAsignacion {
             columna.setMinWidth(1);
             columna.setPreferredWidth(1);
             tabla.doLayout();
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(45);
     }
        public void listarDetalle(JTable tabla){
         String consulta="";

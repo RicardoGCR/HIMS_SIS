@@ -381,7 +381,7 @@ AND  CDC.id_documento=     $P{doc}]]>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
-				<text><![CDATA[Fecha de Emisión :]]></text>
+				<text><![CDATA[FECHA DE EMISIÓN :]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="88" y="12" width="54" height="10" uuid="044a2abe-43a4-4686-ae82-91bee8b1f13c"/>
@@ -402,21 +402,21 @@ AND  CDC.id_documento=     $P{doc}]]>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
-				<text><![CDATA[Gracias por su visita]]></text>
+				<text><![CDATA[GRACIAS POR SU VISITA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="45" width="200" height="10" uuid="9fa5f130-6bef-4a10-90b4-2f9ba771111c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
-				<text><![CDATA[Servicio de Atención - 056-261232]]></text>
+				<text><![CDATA[SERVICIO DE ATENCIÓN - 056-261232]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="24" width="117" height="10" uuid="b35e77c8-be71-4984-a6b0-6421f9a1a563"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
-				<text><![CDATA[Hora de Emisión :]]></text>
+				<text><![CDATA[HORA DE EMISIÓN :]]></text>
 			</staticText>
 		</band>
 	</summary>

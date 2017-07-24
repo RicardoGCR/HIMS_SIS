@@ -31,18 +31,20 @@ public class ConsultorioExConsultorio {
     private String nom_pc;
     private String estado;
     private String usuario;
+    private int AR_ID;
 
     public boolean mantenimientoConsultorioExConsultorio(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_CONSULTORIO_MANTENIMIENTO ?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_CONSULTORIO_MANTENIMIENTO ?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId());
             cmd.setString(2, getNumero());
             cmd.setString(3, getDescripcion());
             cmd.setString(4, getUsuario());
-            cmd.setString(5, tipo);
+            cmd.setInt(5, getAR_ID());
+            cmd.setString(6, tipo);
             if(!cmd.execute())
             {
                 resp = true;
@@ -77,21 +79,26 @@ public class ConsultorioExConsultorio {
     }
     
     public void formatoTablaConsultorio(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(20);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(30);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(330);
+
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(175);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(175);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
 //        COLUMNAS OCULTAS
 //        TableColumn columna = tabla.getColumnModel().getColumn(0);
 //            columna.setMaxWidth(0);
 //            columna.setMinWidth(0);
 //            columna.setPreferredWidth(0);
 //            tabla.doLayout();
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(45);
     }
     
     public void inicializarTablaConsultorios(JTable tabla){
         tabla.setModel(new DefaultTableModel());
-        String titulos[]={"ID","Nº Consultorio","Descripción"};
+        String titulos[]={"ID","Nº Consultorio","Descripción","Área",""};
         m=new DefaultTableModel(null,titulos);
         tabla.setModel(m);
         TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
@@ -104,10 +111,10 @@ public class ConsultorioExConsultorio {
     String consulta="";
         try {
                 tabla.setModel(new DefaultTableModel());
-                String titulos[]={"ID","Nº Consultorio","Descripción"};
+                String titulos[]={"ID","Nº Consultorio","Descripción","Área",""};
                 m=new DefaultTableModel(null,titulos);
                 JTable p=new JTable(m);
-                String fila[]=new String[3];
+                String fila[]=new String[5];
                 //int index = cbxTipoBusqueda.getSelectedIndex();
                 consulta="EXEC CONSULTORIO_EXT_CONSULTORIO_LISTAR ?";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -118,6 +125,8 @@ public class ConsultorioExConsultorio {
                     fila[0]=r.getString(1); 
                     fila[1]=r.getString(2); 
                     fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
                         m.addRow(fila);
                         c++;
                 }
@@ -383,4 +392,13 @@ public class ConsultorioExConsultorio {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
+    public int getAR_ID() {
+        return AR_ID;
+    }
+
+    public void setAR_ID(int AR_ID) {
+        this.AR_ID = AR_ID;
+    }
+    
 }

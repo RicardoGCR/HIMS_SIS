@@ -60,7 +60,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         CIE10.setLocationRelativeTo(null);
         CIE10.getContentPane().setBackground(Color.white);
         mostrarArea();
-        CargarPersonalRol();
+//        CargarPersonalRol();
         CargarPersonalRol_todo();
         cargarDiagnostico();
         inicializar_tabla_Examenes_detalle();
@@ -2878,6 +2878,7 @@ public void guardar_resultado_detalle(){
     Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
+            CargarPersonalRol();
             
             lblHoraReg.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {

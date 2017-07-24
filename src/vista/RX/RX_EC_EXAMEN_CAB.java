@@ -56,7 +56,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         PERSONAL_ROL_TODO.setLocationRelativeTo(null);
         PERSONAL_ROL_TODO.getContentPane().setBackground(Color.white);
         mostrarArea();
-        CargarPersonalRol();
+//        CargarPersonalRol();
         CargarPersonalRol_todo();
         
         inicializar_tabla_Examenes_detalle();
@@ -2195,6 +2195,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
+            CargarPersonalRol();
+            
             
             lblHoraReg.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {

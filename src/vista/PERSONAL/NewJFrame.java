@@ -5,11 +5,10 @@
  */
 package vista.PERSONAL;
 
-<<<<<<< HEAD
 import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
-=======
+
 import java.awt.Color;
 import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
@@ -1089,10 +1088,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jDialog1KeyPressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
     jDialog1.setVisible(true);        // TODO add your handling code here:
     lblDiag.setText("A");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }                                        
 =======
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        DIALOGO.setVisible(true);

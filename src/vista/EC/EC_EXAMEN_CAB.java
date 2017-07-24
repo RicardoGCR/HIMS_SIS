@@ -58,7 +58,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         CIE10.getContentPane().setBackground(Color.white);
         
         mostrarArea_EC();
-        CargarPersonalRol_EC();
+//        CargarPersonalRol_EC();
         CargarPersonalRol_todo_EC();
         cargarDiagnostico_EC();
         inicializar_tabla_cie10_EC();
@@ -2695,6 +2695,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
+            CargarPersonalRol_EC();
             
             lblHoraReg_EC.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {

@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
 <<<<<<< HEAD
             <file>file:/E:/pry/SISGESH/src/servicios/Conexion.java</file>
@@ -16,5 +17,8 @@
 >>>>>>> 263a7cc4c9d21d372156294436f18a9e65ac0b2b
 >>>>>>> 2c8c1349f7beccb243e28fb648e82fa172ed27b6
         </group>
+=======
+        <group/>
+>>>>>>> 438900b4763361c9907b955fd3c64c45c7c36b87
     </open-files>
 </project-private>

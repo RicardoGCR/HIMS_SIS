@@ -6,6 +6,7 @@
 package vista.PERSONAL;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,7 +35,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m, m1;
+DefaultTableModel m, m1, m2, m3, m4, m5;
     /**
      * Creates new form PERSONAL_TURNOS
      */
@@ -43,14 +44,32 @@ DefaultTableModel m, m1;
         con=conectar.conectar();
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
-        
+        UNIDAD_ORGANICA.setLocationRelativeTo(null);
+        UNIDAD_ORGANICA.getContentPane().setBackground(Color.white);
+        TXT_BUSCAR_ACTIVIDADES.requestFocus();
         
         jTabbedPane1.setEnabledAt(0,false);
         jTabbedPane1.setEnabledAt(1, false);
         
         jTabbedPane1.setSelectedIndex(0);
+        btnguardar_ACTIVIDAD_ROL.setEnabled(false);
+        btneditar.setEnabled(false);
+//        btneliminar.setEnabled(false);
+        
+        //GENERAR ID
+        CLS_PERSONAL_UO_ACTIVIDADES num=new CLS_PERSONAL_UO_ACTIVIDADES();
+        TXT_UNIDAD_ORGANICA.setText(num.PERSONAL_ACTIVIDADES_GENERAR_ID());
+        if(TXT_UNIDAD_ORGANICA.getText().equalsIgnoreCase("")){
+        TXT_UNIDAD_ORGANICA.setText("AC00000001     ");
+        }    
+        
         
         inicializar_TB_UO_ACTIVIDADES();
+        inicializar_TB_UNIDAD_ORGANICA();
+        
+        Mostrar_ACTIVIDADES();
+        LBL_COD_UO_ACTIVIDADES.setVisible(false);
+        LBL_GM.setVisible(false);
     }
 
     /**
@@ -62,6 +81,14 @@ DefaultTableModel m, m1;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        UNIDAD_ORGANICA = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TB_UNIDAD_ORGANICA = new javax.swing.JTable();
+        jPanel25 = new javax.swing.JPanel();
+        TXT_BUSCAR_UNIDAD_ORGANICA = new javax.swing.JTextField();
+        btnBuscarPersonal_rol3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
@@ -70,7 +97,15 @@ DefaultTableModel m, m1;
         btnLista = new javax.swing.JButton();
         lblusu = new javax.swing.JLabel();
         btnguardar_ACTIVIDAD_ROL = new javax.swing.JButton();
+        LBL_COD_UO_ACTIVIDADES = new javax.swing.JLabel();
+        LBL_GM = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel24 = new javax.swing.JPanel();
+        TXT_BUSCAR_ACTIVIDADES = new javax.swing.JTextField();
+        btnBuscarPersonal_rol2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TB_UO_ACTIVIDADES = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         TXT_UNIDAD_ORGANICA = new javax.swing.JTextField();
@@ -78,14 +113,134 @@ DefaultTableModel m, m1;
         TXT_NOMBRE_ACTIVIDAD = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         TXT_UO_JERAR = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel24 = new javax.swing.JPanel();
-        txtBuscarMedico_ROL1 = new javax.swing.JTextField();
-        btnBuscarPersonal_rol2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TB_UO_ACTIVIDADES = new javax.swing.JTable();
+        BTN_BUSCAR_UO = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        TXT_NOMBRE_UNI_ORG = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        UNIDAD_ORGANICA.setMinimumSize(new java.awt.Dimension(500, 430));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("UNIDAD ORGANICA");
+
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        TB_UNIDAD_ORGANICA.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        TB_UNIDAD_ORGANICA.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        TB_UNIDAD_ORGANICA.setRowHeight(35);
+        TB_UNIDAD_ORGANICA.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        TB_UNIDAD_ORGANICA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TB_UNIDAD_ORGANICAKeyPressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(TB_UNIDAD_ORGANICA);
+
+        jPanel25.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jPanel25.setPreferredSize(new java.awt.Dimension(222, 30));
+
+        TXT_BUSCAR_UNIDAD_ORGANICA.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        TXT_BUSCAR_UNIDAD_ORGANICA.setForeground(new java.awt.Color(51, 51, 51));
+        TXT_BUSCAR_UNIDAD_ORGANICA.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TXT_BUSCAR_UNIDAD_ORGANICA.setBorder(null);
+        TXT_BUSCAR_UNIDAD_ORGANICA.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TXT_BUSCAR_UNIDAD_ORGANICACaretUpdate(evt);
+            }
+        });
+        TXT_BUSCAR_UNIDAD_ORGANICA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TXT_BUSCAR_UNIDAD_ORGANICAActionPerformed(evt);
+            }
+        });
+        TXT_BUSCAR_UNIDAD_ORGANICA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TXT_BUSCAR_UNIDAD_ORGANICAKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TXT_BUSCAR_UNIDAD_ORGANICAKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_BUSCAR_UNIDAD_ORGANICAKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addComponent(TXT_BUSCAR_UNIDAD_ORGANICA)
+                .addContainerGap())
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(TXT_BUSCAR_UNIDAD_ORGANICA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnBuscarPersonal_rol3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
+        btnBuscarPersonal_rol3.setContentAreaFilled(false);
+        btnBuscarPersonal_rol3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarPersonal_rol3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarPersonal_rol3MouseClicked(evt);
+            }
+        });
+        btnBuscarPersonal_rol3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPersonal_rol3ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        jLabel3.setText("Cod. Unidad Organica, Nombre Unidad Organica, Cod. Area");
+
+        javax.swing.GroupLayout UNIDAD_ORGANICALayout = new javax.swing.GroupLayout(UNIDAD_ORGANICA.getContentPane());
+        UNIDAD_ORGANICA.getContentPane().setLayout(UNIDAD_ORGANICALayout);
+        UNIDAD_ORGANICALayout.setHorizontalGroup(
+            UNIDAD_ORGANICALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(UNIDAD_ORGANICALayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(UNIDAD_ORGANICALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarPersonal_rol3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        UNIDAD_ORGANICALayout.setVerticalGroup(
+            UNIDAD_ORGANICALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UNIDAD_ORGANICALayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(UNIDAD_ORGANICALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPersonal_rol3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2))
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(122, 77, 135));
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 70));
@@ -144,6 +299,7 @@ DefaultTableModel m, m1;
 
         lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         lblusu.setForeground(new java.awt.Color(255, 255, 255));
+        lblusu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblusu.setText("Usuario");
         lblusu.setFocusable(false);
@@ -161,6 +317,14 @@ DefaultTableModel m, m1;
             }
         });
 
+        LBL_COD_UO_ACTIVIDADES.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LBL_COD_UO_ACTIVIDADES.setForeground(new java.awt.Color(255, 255, 255));
+        LBL_COD_UO_ACTIVIDADES.setText("jLabel4");
+
+        LBL_GM.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LBL_GM.setForeground(new java.awt.Color(255, 255, 255));
+        LBL_GM.setText("G");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -171,6 +335,10 @@ DefaultTableModel m, m1;
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LBL_GM)
+                        .addGap(59, 59, 59)
+                        .addComponent(LBL_COD_UO_ACTIVIDADES, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,11 +356,18 @@ DefaultTableModel m, m1;
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblusu))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(lblusu)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LBL_COD_UO_ACTIVIDADES)
+                            .addComponent(LBL_GM))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnNuevo)
                     .addComponent(btneditar)
@@ -210,83 +385,35 @@ DefaultTableModel m, m1;
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel18.setText("Código de Actividad:");
-
-        TXT_UNIDAD_ORGANICA.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        TXT_UNIDAD_ORGANICA.setEnabled(false);
-
-        jLabel7.setText("Nombre de Actividad:");
-
-        jLabel8.setText("Código Unidad Organica:");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel18))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TXT_UNIDAD_ORGANICA, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TXT_UO_JERAR, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TXT_NOMBRE_ACTIVIDAD, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TXT_UNIDAD_ORGANICA, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(TXT_UO_JERAR, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(TXT_NOMBRE_ACTIVIDAD, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("", jPanel2);
-
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel24.setBackground(new java.awt.Color(255, 255, 255));
         jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         jPanel24.setPreferredSize(new java.awt.Dimension(222, 30));
 
-        txtBuscarMedico_ROL1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtBuscarMedico_ROL1.setForeground(new java.awt.Color(51, 51, 51));
-        txtBuscarMedico_ROL1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtBuscarMedico_ROL1.setBorder(null);
-        txtBuscarMedico_ROL1.addCaretListener(new javax.swing.event.CaretListener() {
+        TXT_BUSCAR_ACTIVIDADES.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        TXT_BUSCAR_ACTIVIDADES.setForeground(new java.awt.Color(51, 51, 51));
+        TXT_BUSCAR_ACTIVIDADES.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TXT_BUSCAR_ACTIVIDADES.setBorder(null);
+        TXT_BUSCAR_ACTIVIDADES.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtBuscarMedico_ROL1CaretUpdate(evt);
+                TXT_BUSCAR_ACTIVIDADESCaretUpdate(evt);
             }
         });
-        txtBuscarMedico_ROL1.addActionListener(new java.awt.event.ActionListener() {
+        TXT_BUSCAR_ACTIVIDADES.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarMedico_ROL1ActionPerformed(evt);
+                TXT_BUSCAR_ACTIVIDADESActionPerformed(evt);
             }
         });
-        txtBuscarMedico_ROL1.addKeyListener(new java.awt.event.KeyAdapter() {
+        TXT_BUSCAR_ACTIVIDADES.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtBuscarMedico_ROL1KeyPressed(evt);
+                TXT_BUSCAR_ACTIVIDADESKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBuscarMedico_ROL1KeyReleased(evt);
+                TXT_BUSCAR_ACTIVIDADESKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBuscarMedico_ROL1KeyTyped(evt);
+                TXT_BUSCAR_ACTIVIDADESKeyTyped(evt);
             }
         });
 
@@ -295,18 +422,18 @@ DefaultTableModel m, m1;
         jPanel24Layout.setHorizontalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel24Layout.createSequentialGroup()
-                .addComponent(txtBuscarMedico_ROL1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                .addComponent(TXT_BUSCAR_ACTIVIDADES, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(txtBuscarMedico_ROL1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TXT_BUSCAR_ACTIVIDADES, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnBuscarPersonal_rol2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+        btnBuscarPersonal_rol2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
         btnBuscarPersonal_rol2.setContentAreaFilled(false);
         btnBuscarPersonal_rol2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscarPersonal_rol2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -339,8 +466,22 @@ DefaultTableModel m, m1;
             }
         ));
         TB_UO_ACTIVIDADES.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        TB_UO_ACTIVIDADES.setRowHeight(30);
+        TB_UO_ACTIVIDADES.setRowHeight(35);
+        TB_UO_ACTIVIDADES.setSelectionBackground(new java.awt.Color(102, 102, 102));
         TB_UO_ACTIVIDADES.getTableHeader().setReorderingAllowed(false);
+        TB_UO_ACTIVIDADES.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TB_UO_ACTIVIDADESMouseClicked(evt);
+            }
+        });
+        TB_UO_ACTIVIDADES.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TB_UO_ACTIVIDADESKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TB_UO_ACTIVIDADESKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(TB_UO_ACTIVIDADES);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -349,30 +490,128 @@ DefaultTableModel m, m1;
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBuscarPersonal_rol2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addContainerGap(417, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarPersonal_rol2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("", jPanel3);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel18.setText("Código de Actividad:");
+
+        TXT_UNIDAD_ORGANICA.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        TXT_UNIDAD_ORGANICA.setEnabled(false);
+
+        jLabel7.setText("Nombre de Actividad:");
+
+        TXT_NOMBRE_ACTIVIDAD.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        TXT_NOMBRE_ACTIVIDAD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TXT_NOMBRE_ACTIVIDADKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TXT_NOMBRE_ACTIVIDADKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TXT_NOMBRE_ACTIVIDADKeyTyped(evt);
+            }
+        });
+
+        jLabel8.setText("Código Unidad Organica:");
+
+        TXT_UO_JERAR.setEditable(false);
+        TXT_UO_JERAR.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+
+        BTN_BUSCAR_UO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
+        BTN_BUSCAR_UO.setContentAreaFilled(false);
+        BTN_BUSCAR_UO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_BUSCAR_UO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_BUSCAR_UOActionPerformed(evt);
+            }
+        });
+        BTN_BUSCAR_UO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                BTN_BUSCAR_UOKeyTyped(evt);
+            }
+        });
+
+        jLabel9.setText("Nombre de Unidad Organica:");
+
+        TXT_NOMBRE_UNI_ORG.setEditable(false);
+        TXT_NOMBRE_UNI_ORG.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        TXT_NOMBRE_UNI_ORG.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TXT_NOMBRE_UNI_ORGKeyReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TXT_UNIDAD_ORGANICA, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(TXT_UO_JERAR, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(BTN_BUSCAR_UO, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TXT_NOMBRE_ACTIVIDAD, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+                    .addComponent(TXT_NOMBRE_UNI_ORG))
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TXT_UNIDAD_ORGANICA, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TXT_UO_JERAR, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN_BUSCAR_UO, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TXT_NOMBRE_UNI_ORG, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TXT_NOMBRE_ACTIVIDAD, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(180, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
@@ -387,52 +626,128 @@ DefaultTableModel m, m1;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        jTabbedPane1.setSelectedIndex(0); 
+        LBL_GM.setText("G");
+        jTabbedPane1.setSelectedIndex(1); 
+        btnguardar_ACTIVIDAD_ROL.setEnabled(true);
+        btneliminar.setEnabled(false);
+        btneditar.setEnabled(false);
+        
+        CLS_PERSONAL_UO_ACTIVIDADES num=new CLS_PERSONAL_UO_ACTIVIDADES();
+        TXT_UNIDAD_ORGANICA.setText(num.PERSONAL_ACTIVIDADES_GENERAR_ID());
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-       
+        LBL_GM.setText("M");
+        habilitar();
+        btneliminar.setEnabled(false);
+        btnNuevo.setEnabled(false);
+        btnguardar_ACTIVIDAD_ROL.setEnabled(true);
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-     
+        ImageIcon ieli=new ImageIcon(this.getClass().getResource("/imagenes/iconos/eliminar16x16.png"));
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR?",
+            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
+        try{
+            if(eliminar == 0 )
+            {
+                CLS_PERSONAL_UO_ACTIVIDADES el=new CLS_PERSONAL_UO_ACTIVIDADES();
+                el.setCOD_UNI_ORG_ACTI(LBL_COD_UO_ACTIVIDADES.getText());
+                if(el.PERSONAL_UO_ACTIVIDADES_ELIMINAR())
+                {
+                    JOptionPane.showMessageDialog(this, "Datos Eliminados");
+                    
+                    btneliminar.setEnabled(false);
+                    btneditar.setEnabled(false);
+                    Mostrar_ACTIVIDADES();
+                    LIMPIAR_GUARDAR();
+                    CLS_PERSONAL_UO_ACTIVIDADES num=new CLS_PERSONAL_UO_ACTIVIDADES();
+                    TXT_UNIDAD_ORGANICA.setText(num.PERSONAL_ACTIVIDADES_GENERAR_ID());
+                }
+            }
+        }catch(Exception e){
+
+        }     
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
-        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setSelectedIndex(0);
         Mostrar_ACTIVIDADES();
+        btnguardar_ACTIVIDAD_ROL.setEnabled(false);
+        btneditar.setEnabled(false);
+        btneliminar.setEnabled(true);
+        btnNuevo.setEnabled(true);
     }//GEN-LAST:event_btnListaActionPerformed
 
     private void btnguardar_ACTIVIDAD_ROLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar_ACTIVIDAD_ROLActionPerformed
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
-           int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
-                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+        if(LBL_GM.getText().equalsIgnoreCase("G")){
+            if(TXT_UO_JERAR.getText().equalsIgnoreCase("") || TXT_NOMBRE_ACTIVIDAD.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(this, "Verifique si ha ingresado todos los campos");
+                
+            }else{
+                    int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                        "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+           
                     if(guardar == 0 ){
-                        GUARDAR_UO_ACTIVIDADES();
+                         GUARDAR_UO_ACTIVIDADES();
+                         JOptionPane.showMessageDialog(this, "Datos Guardados Correctamente");
+                         LIMPIAR_GUARDAR();
+//                         PERSONAL_ROL PR = new PERSONAL_ROL();
+//                         PR.mostrar_ACTIVIDADES();
                     }else{
-                        System.out.println("error guardar");
-                    }
+                         System.out.println("error guardar");
+                     }
+            }
+           
+           }else{
+               if(LBL_GM.getText().equalsIgnoreCase("M")){
+                   if(TXT_UO_JERAR.getText().equalsIgnoreCase("") || TXT_NOMBRE_ACTIVIDAD.getText().equalsIgnoreCase("")){
+                        JOptionPane.showMessageDialog(this, "Verifique si ha ingresado todos los campos");
+                
+                   }else{
+                        int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
+                                         "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                        if(modificar == 0 ){
+                            MODIFICAR_UO_ACTIVIDADES();
+                            JOptionPane.showMessageDialog(this, "Datos Modificados Correctamente");
+                            LIMPIAR_GUARDAR();
+                        }else{
+                            System.out.println("error modificar");
+                        }
+                   }
+                
+               }
+           }
+                    
     }//GEN-LAST:event_btnguardar_ACTIVIDAD_ROLActionPerformed
 
-    private void txtBuscarMedico_ROL1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarMedico_ROL1CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarMedico_ROL1CaretUpdate
+    private void TXT_BUSCAR_ACTIVIDADESCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_ACTIVIDADESCaretUpdate
+        BUSCAR_ACTIVIDADES();
+    }//GEN-LAST:event_TXT_BUSCAR_ACTIVIDADESCaretUpdate
 
-    private void txtBuscarMedico_ROL1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarMedico_ROL1ActionPerformed
+    private void TXT_BUSCAR_ACTIVIDADESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_ACTIVIDADESActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarMedico_ROL1ActionPerformed
+    }//GEN-LAST:event_TXT_BUSCAR_ACTIVIDADESActionPerformed
 
-    private void txtBuscarMedico_ROL1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMedico_ROL1KeyPressed
+    private void TXT_BUSCAR_ACTIVIDADESKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_ACTIVIDADESKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarMedico_ROL1KeyPressed
+    }//GEN-LAST:event_TXT_BUSCAR_ACTIVIDADESKeyPressed
 
-    private void txtBuscarMedico_ROL1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMedico_ROL1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarMedico_ROL1KeyReleased
+    private void TXT_BUSCAR_ACTIVIDADESKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_ACTIVIDADESKeyReleased
+        TXT_BUSCAR_ACTIVIDADES.setText(TXT_BUSCAR_ACTIVIDADES.getText().toUpperCase());
+    }//GEN-LAST:event_TXT_BUSCAR_ACTIVIDADESKeyReleased
 
-    private void txtBuscarMedico_ROL1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMedico_ROL1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarMedico_ROL1KeyTyped
+    private void TXT_BUSCAR_ACTIVIDADESKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_ACTIVIDADESKeyTyped
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            TB_UO_ACTIVIDADES.getSelectionModel().setSelectionInterval(0, 0);
+            TB_UO_ACTIVIDADES.requestFocus();
+            
+            int filaselec=TB_UO_ACTIVIDADES.getSelectedRow();
+            LBL_COD_UO_ACTIVIDADES.setText(String.valueOf(TB_UO_ACTIVIDADES.getValueAt(filaselec, 1)));
+        }
+    }//GEN-LAST:event_TXT_BUSCAR_ACTIVIDADESKeyTyped
 
     private void btnBuscarPersonal_rol2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPersonal_rol2MouseClicked
         // TODO add your handling code here:
@@ -446,14 +761,134 @@ DefaultTableModel m, m1;
         Mostrar_ACTIVIDADES();
     }//GEN-LAST:event_jTabbedPane1KeyPressed
 
+    private void TXT_NOMBRE_ACTIVIDADKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRE_ACTIVIDADKeyReleased
+        TXT_NOMBRE_ACTIVIDAD.setText(TXT_NOMBRE_ACTIVIDAD.getText().toUpperCase());
+    }//GEN-LAST:event_TXT_NOMBRE_ACTIVIDADKeyReleased
+
+    private void TXT_NOMBRE_UNI_ORGKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRE_UNI_ORGKeyReleased
+        TXT_NOMBRE_UNI_ORG.setText(TXT_NOMBRE_UNI_ORG.getText().toUpperCase());
+    }//GEN-LAST:event_TXT_NOMBRE_UNI_ORGKeyReleased
+
+    private void BTN_BUSCAR_UOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BUSCAR_UOActionPerformed
+        UNIDAD_ORGANICA.setVisible(true);
+        Mostrar_UNIDAD_ORGANICA();
+    }//GEN-LAST:event_BTN_BUSCAR_UOActionPerformed
+
+    private void TXT_BUSCAR_UNIDAD_ORGANICACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_UNIDAD_ORGANICACaretUpdate
+        BUSCAR_UNIDAD_ORGANICA();
+    }//GEN-LAST:event_TXT_BUSCAR_UNIDAD_ORGANICACaretUpdate
+
+    private void TXT_BUSCAR_UNIDAD_ORGANICAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_UNIDAD_ORGANICAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_BUSCAR_UNIDAD_ORGANICAActionPerformed
+
+    private void TXT_BUSCAR_UNIDAD_ORGANICAKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_UNIDAD_ORGANICAKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXT_BUSCAR_UNIDAD_ORGANICAKeyPressed
+
+    private void TXT_BUSCAR_UNIDAD_ORGANICAKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_UNIDAD_ORGANICAKeyReleased
+        TXT_BUSCAR_UNIDAD_ORGANICA.setText(TXT_BUSCAR_UNIDAD_ORGANICA.getText().toUpperCase());
+    }//GEN-LAST:event_TXT_BUSCAR_UNIDAD_ORGANICAKeyReleased
+
+    private void TXT_BUSCAR_UNIDAD_ORGANICAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_BUSCAR_UNIDAD_ORGANICAKeyTyped
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            TB_UNIDAD_ORGANICA.getSelectionModel().setSelectionInterval(0, 0);
+            TB_UNIDAD_ORGANICA.requestFocus();
+        }
+    }//GEN-LAST:event_TXT_BUSCAR_UNIDAD_ORGANICAKeyTyped
+
+    private void btnBuscarPersonal_rol3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPersonal_rol3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPersonal_rol3MouseClicked
+
+    private void btnBuscarPersonal_rol3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonal_rol3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPersonal_rol3ActionPerformed
+
+    private void TB_UNIDAD_ORGANICAKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TB_UNIDAD_ORGANICAKeyPressed
+       int filaselec=TB_UNIDAD_ORGANICA.getSelectedRow();
+       char teclaPresionada = evt.getKeyChar();
+       if(teclaPresionada==KeyEvent.VK_ENTER){
+            if(filaselec<0){
+                   JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
+            }else{
+                    TXT_UO_JERAR.setText(String.valueOf(TB_UNIDAD_ORGANICA.getValueAt(filaselec, 1)));
+                    TXT_NOMBRE_UNI_ORG.setText(String.valueOf(TB_UNIDAD_ORGANICA.getValueAt(filaselec, 2)));
+                   
+                    UNIDAD_ORGANICA.dispose();
+                    
+                    TXT_BUSCAR_UNIDAD_ORGANICA.setText("");
+                    TXT_NOMBRE_ACTIVIDAD.requestFocus();
+            }
+        }
+  
+    }//GEN-LAST:event_TB_UNIDAD_ORGANICAKeyPressed
+
+    private void TXT_NOMBRE_ACTIVIDADKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRE_ACTIVIDADKeyPressed
+       
+    }//GEN-LAST:event_TXT_NOMBRE_ACTIVIDADKeyPressed
+
+    private void TXT_NOMBRE_ACTIVIDADKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXT_NOMBRE_ACTIVIDADKeyTyped
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnguardar_ACTIVIDAD_ROL.doClick();
+        }
+    }//GEN-LAST:event_TXT_NOMBRE_ACTIVIDADKeyTyped
+
+    private void BTN_BUSCAR_UOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BTN_BUSCAR_UOKeyTyped
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            BTN_BUSCAR_UO.doClick();
+        }
+    }//GEN-LAST:event_BTN_BUSCAR_UOKeyTyped
+
+    private void TB_UO_ACTIVIDADESMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_UO_ACTIVIDADESMouseClicked
+        if(evt.getClickCount()==1){
+            int filaselec=TB_UO_ACTIVIDADES.getSelectedRow();
+            
+                        LBL_COD_UO_ACTIVIDADES.setText(String.valueOf(TB_UO_ACTIVIDADES.getValueAt(filaselec, 1)));
+       
+        }
+    }//GEN-LAST:event_TB_UO_ACTIVIDADESMouseClicked
+
+    private void TB_UO_ACTIVIDADESKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TB_UO_ACTIVIDADESKeyReleased
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
+            
+                int filaselec=TB_UO_ACTIVIDADES.getSelectedRow();
+                            
+                    LBL_COD_UO_ACTIVIDADES.setText(String.valueOf(TB_UO_ACTIVIDADES.getValueAt(filaselec, 1)));
+        }
+    }//GEN-LAST:event_TB_UO_ACTIVIDADESKeyReleased
+
+    private void TB_UO_ACTIVIDADESKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TB_UO_ACTIVIDADESKeyPressed
+        int filaselec=TB_UO_ACTIVIDADES.getSelectedRow();
+       char teclaPresionada = evt.getKeyChar();
+       if(teclaPresionada==KeyEvent.VK_ENTER){
+            if(filaselec<0){
+                   JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
+            }else{
+                    TXT_UNIDAD_ORGANICA.setText(String.valueOf(TB_UO_ACTIVIDADES.getValueAt(filaselec, 1)));
+                    TXT_UO_JERAR.setText(String.valueOf(TB_UO_ACTIVIDADES.getValueAt(filaselec, 2)));
+                    TXT_NOMBRE_UNI_ORG.setText(String.valueOf(TB_UO_ACTIVIDADES.getValueAt(filaselec, 7)));
+                    TXT_NOMBRE_ACTIVIDAD.setText(String.valueOf(TB_UO_ACTIVIDADES.getValueAt(filaselec, 3)));
+                    
+                    jTabbedPane1.setSelectedIndex(1);
+                    btneliminar.setEnabled(true);
+                    btneditar.setEnabled(true);
+                    deshabilitar();
+            }
+        }
+    }//GEN-LAST:event_TB_UO_ACTIVIDADESKeyPressed
+
     public void inicializar_TB_UO_ACTIVIDADES(){       
         try {
             
             String titulosb[]={"Nº","Cod. UO Actividad","Cod. Uni. Org","Nombre Actividad","Servicio",
-                "Area", "AR_ID"};
+                "Area", "AR_ID","Nom Uni Org Jerar"};
             m=new DefaultTableModel(null,titulosb);
             JTable psb=new JTable(m);
-            String filasb[]=new String[7];
+            String filasb[]=new String[8];
             TB_UO_ACTIVIDADES.setModel(m);
             TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(m);
             TB_UO_ACTIVIDADES.setRowSorter(elQueOrdenasb);
@@ -474,6 +909,7 @@ DefaultTableModel m, m1;
             TB_UO_ACTIVIDADES.getColumnModel().getColumn(4).setPreferredWidth(150);                
             TB_UO_ACTIVIDADES.getColumnModel().getColumn(5).setPreferredWidth(150); 
             TB_UO_ACTIVIDADES.getColumnModel().getColumn(6).setPreferredWidth(50);
+            TB_UO_ACTIVIDADES.getColumnModel().getColumn(7).setPreferredWidth(130);
             
             //Ocultar
 //            TB_UO_ACTIVIDADES.getColumnModel().getColumn(2).setMinWidth(0);
@@ -489,10 +925,10 @@ DefaultTableModel m, m1;
             
             TB_UO_ACTIVIDADES.setModel(new DefaultTableModel());
             String titulos[]={"Nº","Cod. UO Actividad","Cod. Uni. Org","Nombre Actividad","Servicio",
-                "Area", "AR_ID"};
+                "Area", "AR_ID", "Nom Uni Org Jerar"};
             m1=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m1);
-            String fila[]=new String[7];
+            String fila[]=new String[8];
             Usuario obj=new Usuario();
             consulta="exec PERSONAL_UNI_ORG_ACTIVIDADES_LISTAR";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -508,6 +944,7 @@ DefaultTableModel m, m1;
                 fila[4]=r.getString(4);
                 fila[5]=r.getString(5);
                 fila[6]=r.getString(6);
+                fila[7]=r.getString(7);
                 
                 m1.addRow(fila);
                 c++;
@@ -525,6 +962,166 @@ DefaultTableModel m, m1;
         }     
     }
     
+    public void BUSCAR_ACTIVIDADES(){
+           
+            String buscar="";
+            buscar = TXT_BUSCAR_ACTIVIDADES.getText();
+
+        String consulta="";
+        
+        try {
+       
+            TB_UO_ACTIVIDADES.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","Cod. UO Actividad","Cod. Uni. Org","Nombre Actividad","Servicio",
+                "Area", "AR_ID", "Nom Uni Org Jerar"};
+            m5=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m5);
+            String fila[]=new String[8];
+
+            CLS_PERSONAL_UO_ACTIVIDADES obj=new CLS_PERSONAL_UO_ACTIVIDADES();
+            consulta="exec PERSONAL_UNI_ORG_ACTIVIDADES_BUSCAR ?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, buscar);
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){   
+                
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                fila[5]=r.getString(5);
+                fila[6]=r.getString(6);
+                fila[7]=r.getString(7);
+                
+                m5.addRow(fila);
+                c++;
+            }
+            TB_UO_ACTIVIDADES.setModel(m5);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m5);
+            TB_UO_ACTIVIDADES.setRowSorter(elQueOrdena);
+            this.TB_UO_ACTIVIDADES.setModel(m5);
+            
+            formato_TB_UO_ACTIVIDADES();
+            
+        } catch (Exception e) {
+            System.out.println("Error buscar unidad organica actividades: " + e.getMessage());
+        }
+    }
+    
+    
+    public void inicializar_TB_UNIDAD_ORGANICA(){       
+        try {
+            
+            String titulosb[]={"Nº","Cod. UO Jerar","Nombre. UO Jerar", "AR_ID"};
+            m2=new DefaultTableModel(null,titulosb);
+            JTable psb=new JTable(m2);
+            String filasb[]=new String[4];
+            TB_UNIDAD_ORGANICA.setModel(m2);
+            TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(m2);
+            TB_UNIDAD_ORGANICA.setRowSorter(elQueOrdenasb);
+            TB_UNIDAD_ORGANICA.setModel(m2);
+            
+            formato_TB_UNIDAD_ORGANICA();
+            
+        } catch (Exception e) {
+            System.out.println("error inicializar TB UNIDAD ORGANICA: " + e);
+        }      
+    }
+    
+    public void formato_TB_UNIDAD_ORGANICA(){        
+            TB_UNIDAD_ORGANICA.getColumnModel().getColumn(0).setPreferredWidth(40);
+            TB_UNIDAD_ORGANICA.getColumnModel().getColumn(1).setPreferredWidth(100); 
+            TB_UNIDAD_ORGANICA.getColumnModel().getColumn(2).setPreferredWidth(300);
+            TB_UNIDAD_ORGANICA.getColumnModel().getColumn(3).setPreferredWidth(80);
+               
+    }
+    
+    public void Mostrar_UNIDAD_ORGANICA(){
+        try {
+                     
+            String consulta="";
+            
+            TB_UNIDAD_ORGANICA.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","Cod. UO Jerar","Nombre. UO Jerar", "AR_ID"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[4];
+            Usuario obj=new Usuario();
+            consulta="exec PERSONAL_SISTEMA_UNIDAD_ORGANICA_LISTAR";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                                
+                m3.addRow(fila);
+                c++;
+ 
+            }
+            TB_UNIDAD_ORGANICA.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            TB_UNIDAD_ORGANICA.setRowSorter(elQueOrdena);
+            TB_UNIDAD_ORGANICA.setModel(m3);
+                       
+            formato_TB_UNIDAD_ORGANICA();
+            
+        } catch (Exception e) {
+            System.out.println("Error mostrar unidad organica: " + e.getMessage());
+        }     
+    }
+    
+    public void BUSCAR_UNIDAD_ORGANICA(){
+           
+            String buscar="";
+            buscar = TXT_BUSCAR_UNIDAD_ORGANICA.getText();
+
+        String consulta="";
+        
+        try {
+       
+            TB_UNIDAD_ORGANICA.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","Cod. UO Jerar","Nombre. UO Jerar", "AR_ID"};
+            m4=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m4);
+            String fila[]=new String[4];
+
+            CLS_PERSONAL_UO_ACTIVIDADES obj=new CLS_PERSONAL_UO_ACTIVIDADES();
+            consulta="exec PERSONAL_SISTEMA_UNIDAD_ORGANICA_BUSCAR ?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, buscar);
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){   
+                
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                
+                m4.addRow(fila);
+                c++;
+            }
+            TB_UNIDAD_ORGANICA.setModel(m4);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m4);
+            TB_UNIDAD_ORGANICA.setRowSorter(elQueOrdena);
+            this.TB_UNIDAD_ORGANICA.setModel(m4);
+            
+            formato_TB_UNIDAD_ORGANICA();
+            
+        } catch (Exception e) {
+            System.out.println("Error buscar unidad organica: " + e.getMessage());
+        }
+    }
+    
     public void GUARDAR_UO_ACTIVIDADES(){  
         CLS_PERSONAL_UO_ACTIVIDADES UO = new CLS_PERSONAL_UO_ACTIVIDADES();
         UO.setCOD_UNI_ORGANICA_JERAR(TXT_UO_JERAR.getText());             
@@ -533,6 +1130,48 @@ DefaultTableModel m, m1;
                
         UO.PERSONAL_UO_ACTIVIDAD_GUARDAR();
                
+        CLS_PERSONAL_UO_ACTIVIDADES num=new CLS_PERSONAL_UO_ACTIVIDADES();
+        TXT_UNIDAD_ORGANICA.setText(num.PERSONAL_ACTIVIDADES_GENERAR_ID());
+    }
+    
+    public void MODIFICAR_UO_ACTIVIDADES(){
+        CLS_PERSONAL_UO_ACTIVIDADES M = new CLS_PERSONAL_UO_ACTIVIDADES();
+        M.setCOD_UNI_ORG_ACTI(TXT_UNIDAD_ORGANICA.getText());
+        M.setCOD_UNI_ORGANICA_JERAR(TXT_UO_JERAR.getText());
+        M.setNOMBRE_ACTIVIDAD(TXT_NOMBRE_ACTIVIDAD.getText());
+        M.setNOM_USU(lblusu.getText());
+        
+        M.PERSONAL_UO_ACTIVIDADES_MODIFICAR();
+        
+        CLS_PERSONAL_UO_ACTIVIDADES num=new CLS_PERSONAL_UO_ACTIVIDADES();
+        TXT_UNIDAD_ORGANICA.setText(num.PERSONAL_ACTIVIDADES_GENERAR_ID());
+    }
+    
+    public void LIMPIAR_GUARDAR(){
+        TXT_UO_JERAR.setText("");
+        TXT_NOMBRE_UNI_ORG.setText("");
+        TXT_NOMBRE_ACTIVIDAD.setText("");
+        BTN_BUSCAR_UO.requestFocus();
+    }
+    
+    public void LIMPIAR_ELIMINAR(){
+        TXT_UNIDAD_ORGANICA.setText("");
+        TXT_UO_JERAR.setText("");
+        TXT_NOMBRE_UNI_ORG.setText("");
+        TXT_NOMBRE_ACTIVIDAD.setText("");
+        BTN_BUSCAR_UO.requestFocus();
+    }
+    
+    public void deshabilitar(){
+        BTN_BUSCAR_UO.setEnabled(false);
+        TXT_NOMBRE_ACTIVIDAD.setEnabled(false);
+        BTN_BUSCAR_UO.requestFocus();
+    }
+    
+    public void habilitar(){
+        BTN_BUSCAR_UO.setEnabled(true);
+        TXT_NOMBRE_ACTIVIDAD.setEnabled(true);
+        BTN_BUSCAR_UO.requestFocus();
     }
     
     /**
@@ -572,11 +1211,20 @@ DefaultTableModel m, m1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTN_BUSCAR_UO;
+    private javax.swing.JLabel LBL_COD_UO_ACTIVIDADES;
+    private javax.swing.JLabel LBL_GM;
+    private javax.swing.JTable TB_UNIDAD_ORGANICA;
     private javax.swing.JTable TB_UO_ACTIVIDADES;
+    public static javax.swing.JTextField TXT_BUSCAR_ACTIVIDADES;
+    public static javax.swing.JTextField TXT_BUSCAR_UNIDAD_ORGANICA;
     public static javax.swing.JTextField TXT_NOMBRE_ACTIVIDAD;
+    public static javax.swing.JTextField TXT_NOMBRE_UNI_ORG;
     public static javax.swing.JTextField TXT_UNIDAD_ORGANICA;
     public static javax.swing.JTextField TXT_UO_JERAR;
+    private javax.swing.JDialog UNIDAD_ORGANICA;
     private javax.swing.JButton btnBuscarPersonal_rol2;
+    private javax.swing.JButton btnBuscarPersonal_rol3;
     public static javax.swing.JButton btnLista;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btneditar;
@@ -584,15 +1232,19 @@ DefaultTableModel m, m1;
     public static javax.swing.JButton btnguardar_ACTIVIDAD_ROL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     public static javax.swing.JLabel lblusu;
-    public static javax.swing.JTextField txtBuscarMedico_ROL1;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAIET;
 import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDN;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeET;
+//import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeET;
 
 /**
  *
@@ -368,7 +368,7 @@ public class ConsultorioExtRsEstimulacionTemprana implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                lblPorcentajeET.setText(r.getString(1) + " %"); 
+//                lblPorcentajeET.setText(r.getString(1) + " %"); 
                 RSAIET.lblPorcentajeV.setText(r.getString(1) + " %"); 
             }
             //

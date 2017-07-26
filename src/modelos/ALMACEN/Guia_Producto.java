@@ -17,6 +17,7 @@ public class Guia_Producto {
      private Connection cn;
       private String cod_produc;
       private int cantidad;
+      private int precio;
       private String nom_usu;
       private String upss;
       
@@ -32,12 +33,13 @@ public class Guia_Producto {
         boolean resp = false;
         try
         {
-            String sql = "exec sp_Guia_Producto ?,?,?,?";
+            String sql = "exec sp_Guia_Producto ?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCod_produc());
             cmd.setInt(2, getCantidad());
-            cmd.setString(3, getNom_usu());
-            cmd.setString(4, getUpss());
+            cmd.setInt(3, getPrecio());
+            cmd.setString(4, getNom_usu());
+            cmd.setString(5, getUpss());
             
             
             if(!cmd.execute())
@@ -121,5 +123,19 @@ public class Guia_Producto {
      */
     public void setUpss(String upss) {
         this.upss = upss;
+    }
+
+    /**
+     * @return the precio
+     */
+    public int getPrecio() {
+        return precio;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 }

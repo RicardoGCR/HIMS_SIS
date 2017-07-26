@@ -699,13 +699,17 @@ public class Facturador extends javax.swing.JFrame {
                 jLabel1.setForeground(new java.awt.Color(41, 127, 184));
                 jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta por Pagar - </span>Factura Electrónica</html>");
 
+                lblMant.setForeground(new java.awt.Color(255, 255, 255));
                 lblMant.setText("I");
 
+                lblId.setForeground(new java.awt.Color(255, 255, 255));
                 lblId.setText("jLabel3");
 
+                lblEmpresa.setForeground(new java.awt.Color(255, 255, 255));
                 lblEmpresa.setText("Empresa");
 
                 btnGuardar.setBackground(new java.awt.Color(102, 0, 102));
+                btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
                 btnGuardar.setText("Guardar");
                 btnGuardar.setBorderPainted(false);
                 btnGuardar.setContentAreaFilled(false);
@@ -2518,9 +2522,12 @@ public class Facturador extends javax.swing.JFrame {
                                     .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29))
-                            .addComponent(tablaS))
+                                .addGap(29, 29, 29)))
                         .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tablaS)
+                        .addGap(58, 58, 58))
                 );
                 layout.setVerticalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

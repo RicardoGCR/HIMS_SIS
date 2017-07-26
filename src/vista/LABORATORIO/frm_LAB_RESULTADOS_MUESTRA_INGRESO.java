@@ -7,6 +7,8 @@
 package vista.LABORATORIO;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
@@ -22,8 +24,11 @@ import java.util.Map;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -67,6 +72,9 @@ DefaultTableModel m,n,resultado;
         h1.start();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
      
+        addEscapeListenerWindowDialog(personal);
+        addEscapeListenerWindowDialog(buscar_HC);
+        addEscapeListenerWindowDialog(analisis);
         //Servicio-Area
         LAB_PC_AREA pa=new LAB_PC_AREA();
         lblServicio.setText(pa.LAB_PC_AREA_SERVICIO());
@@ -128,6 +136,18 @@ DefaultTableModel m,n,resultado;
                 dispose();
             } });
     }
+    
+    public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+       ActionListener escAction = new ActionListener() {
+@Override
+public void actionPerformed(ActionEvent e) {
+windowDialog.dispose();
+}
+};
+windowDialog.getRootPane().registerKeyboardAction(escAction,
+KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+JComponent.WHEN_IN_FOCUSED_WINDOW);
+   }
     
     public void formato(){
     tb_TomasRealizadas.getColumnModel().getColumn(4).setPreferredWidth(200);

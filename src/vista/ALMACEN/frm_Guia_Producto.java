@@ -52,6 +52,8 @@ String hora, minutos, segundos, ampm;
         //para no intercambiar columnas
         tbProductoAlmacen.getTableHeader().setReorderingAllowed(false);
         tbUpss.getTableHeader().setReorderingAllowed(false);
+        listarGuia();
+        formatoGuia();
     }
 
     
@@ -90,9 +92,9 @@ String hora, minutos, segundos, ampm;
     public void formatoProducto(){
     tbProductoAlmacen.getColumnModel().getColumn(0).setPreferredWidth(35);
     tbProductoAlmacen.getColumnModel().getColumn(1).setPreferredWidth(125);
-    tbProductoAlmacen.getColumnModel().getColumn(2).setPreferredWidth(360);
+    tbProductoAlmacen.getColumnModel().getColumn(2).setPreferredWidth(410);
     tbProductoAlmacen.getColumnModel().getColumn(3).setPreferredWidth(140);
-    tbProductoAlmacen.getColumnModel().getColumn(4).setPreferredWidth(127);
+    tbProductoAlmacen.getColumnModel().getColumn(4).setPreferredWidth(135);
     
     tbProductoAlmacen.getColumnModel().getColumn(3).setMinWidth(0);
     tbProductoAlmacen.getColumnModel().getColumn(3).setMaxWidth(0);
@@ -190,6 +192,8 @@ String hora, minutos, segundos, ampm;
             }};
             jLabel3 = new javax.swing.JLabel();
             txtUpss = new javax.swing.JTextField();
+            jLabel4 = new javax.swing.JLabel();
+            txtPrecio = new javax.swing.JTextField();
             jPanel2 = new javax.swing.JPanel();
             jScrollPane3 = new javax.swing.JScrollPane();
             tbGuia = new javax.swing.JTable(){
@@ -283,9 +287,9 @@ String hora, minutos, segundos, ampm;
                         .addContainerGap())
                 );
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-                setMinimumSize(new java.awt.Dimension(732, 566));
-                setPreferredSize(new java.awt.Dimension(732, 566));
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                setMinimumSize(new java.awt.Dimension(786, 566));
+                setPreferredSize(new java.awt.Dimension(786, 566));
                 getContentPane().setLayout(null);
 
                 jpanel.setBackground(new java.awt.Color(126, 5, 46));
@@ -396,7 +400,7 @@ String hora, minutos, segundos, ampm;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblCodUpss, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
-                                .addComponent(lblCodProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCodProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -432,7 +436,7 @@ String hora, minutos, segundos, ampm;
                 );
 
                 getContentPane().add(jpanel);
-                jpanel.setBounds(0, 0, 732, 94);
+                jpanel.setBounds(0, 0, 790, 94);
 
                 jPanel3.setBackground(new java.awt.Color(255, 255, 255));
                 jPanel3.setLayout(null);
@@ -443,7 +447,7 @@ String hora, minutos, segundos, ampm;
                 jPanel6.setBounds(0, 440, 880, 30);
 
                 getContentPane().add(jPanel3);
-                jPanel3.setBounds(0, 530, 730, 40);
+                jPanel3.setBounds(0, 530, 770, 40);
 
                 tab.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
 
@@ -560,27 +564,54 @@ String hora, minutos, segundos, ampm;
                     }
                 });
 
+                jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+                jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                jLabel4.setText("Precio");
+
+                txtPrecio.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                txtPrecio.setForeground(new java.awt.Color(0, 51, 51));
+                txtPrecio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtPrecio.setSelectionColor(new java.awt.Color(126, 5, 46));
+                txtPrecio.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        txtPrecioActionPerformed(evt);
+                    }
+                });
+                txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                        txtPrecioKeyPressed(evt);
+                    }
+                    public void keyTyped(java.awt.event.KeyEvent evt) {
+                        txtPrecioKeyTyped(evt);
+                    }
+                });
+
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
                 jPanel1Layout.setHorizontalGroup(
                     jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtUpss)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addContainerGap(19, Short.MAX_VALUE))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUpss, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 2, Short.MAX_VALUE)))
+                        .addContainerGap())
                 );
                 jPanel1Layout.setVerticalGroup(
                     jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,11 +626,14 @@ String hora, minutos, segundos, ampm;
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUpss, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel3))
+                                    .addComponent(txtUpss, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(14, Short.MAX_VALUE))
                 );
 
                 tab.addTab("tab1", jPanel1);
@@ -641,7 +675,7 @@ String hora, minutos, segundos, ampm;
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                         .addContainerGap())
                 );
                 jPanel2Layout.setVerticalGroup(
@@ -655,7 +689,7 @@ String hora, minutos, segundos, ampm;
                 tab.addTab("tab2", jPanel2);
 
                 getContentPane().add(tab);
-                tab.setBounds(10, 105, 710, 460);
+                tab.setBounds(10, 105, 750, 460);
 
                 pack();
             }// </editor-fold>//GEN-END:initComponents
@@ -763,6 +797,7 @@ tab.setSelectedIndex(0);
                         Guia_Producto g=new  Guia_Producto();
                         g.setCod_produc(lblCodProducto.getText());
                         g.setCantidad(Integer.parseInt(txtCantidad.getText()));
+                        g.setPrecio(Integer.parseInt(txtPrecio.getText()));
                         g.setNom_usu(lblUsu.getText());
                         g.setUpss(lblCodUpss.getText());
 
@@ -908,6 +943,18 @@ public void listarProducto(){
                     }
                 }
     }//GEN-LAST:event_tbUpssKeyPressed
+
+    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioActionPerformed
+
+    private void txtPrecioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioKeyPressed
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioKeyTyped
  public void enableDatos(boolean op){
     btnNuevo.setVisible(op);
     txtProducto.setVisible(op);
@@ -917,8 +964,63 @@ public void listarProducto(){
     lblCodProducto.setText("");
     txtProducto.setText("");
     txtCantidad.setText("");
+    txtPrecio.setText("");
     lblCodUpss.setText("");
     txtUpss.setText("");
+}
+    
+    public void listarGuia(){
+          String consulta="";
+        try {
+            tbGuia.setModel(new DefaultTableModel());
+
+            String titulos[]={"Nº","Código","Nombre del Producto","Unidad de Medida","Cantidad","Precio","Total","Fecha de Ingreso"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[8];
+            
+            Usuario obj=new Usuario();
+            consulta="exec sp_Guia_Producto_buscar ?,?";
+        
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1,"2");
+            cmd.setString(2,txtBuscar.getText());
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                fila[5]=r.getString(5);
+                fila[6]=r.getString(6);
+                fila[7]=r.getString(7);
+                m3.addRow(fila);
+                c++;
+            }
+            tbGuia.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            tbGuia.setRowSorter(elQueOrdena);
+            this.tbGuia.setModel(m3);
+            formatoProducto();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+}
+    
+    public void formatoGuia(){
+    tbGuia.getColumnModel().getColumn(0).setPreferredWidth(35);
+    tbGuia.getColumnModel().getColumn(1).setPreferredWidth(125);
+    tbGuia.getColumnModel().getColumn(2).setPreferredWidth(150);
+    tbGuia.getColumnModel().getColumn(3).setPreferredWidth(100);
+    tbGuia.getColumnModel().getColumn(4).setPreferredWidth(100);
+    tbGuia.getColumnModel().getColumn(5).setPreferredWidth(80);
+    tbGuia.getColumnModel().getColumn(6).setPreferredWidth(80);
+    tbGuia.getColumnModel().getColumn(7).setPreferredWidth(100);
+    
+    
 }
     /**
      * @param args the command line arguments
@@ -965,6 +1067,7 @@ public void listarProducto(){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -986,6 +1089,7 @@ public void listarProducto(){
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBuscarUpss;
     private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtProducto;
     private javax.swing.JTextField txtUpss;
     private javax.swing.JDialog upss;

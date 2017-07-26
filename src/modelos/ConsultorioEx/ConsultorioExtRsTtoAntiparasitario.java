@@ -15,7 +15,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAITTO;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeTTO;
+//import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeTTO;
 
 public class ConsultorioExtRsTtoAntiparasitario implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -397,7 +397,7 @@ public class ConsultorioExtRsTtoAntiparasitario implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                lblPorcentajeTTO.setText(r.getString(1) + " %"); 
+//                lblPorcentajeTTO.setText(r.getString(1) + " %"); 
                 RSAITTO.lblPorcentajeTto.setText(r.getString(1) + " % Completado"); 
             }
             //

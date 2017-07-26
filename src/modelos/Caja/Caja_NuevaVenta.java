@@ -451,7 +451,7 @@ public boolean ActualizarVentaEx()
 public boolean Nuevo(){
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_documento());
             cmd.setString(2, getCod_tipo_documento());
@@ -467,9 +467,8 @@ public boolean Nuevo(){
             cmd.setInt(12, getCorrelativo());
             cmd.setInt(13, getId_ActoMedico());
             cmd.setInt(14, getId_Cta_Abono());
-            cmd.setString(15, getCod_empre_jerar());
-            cmd.setString(16, getUsu_Exoneracion());
-            cmd.setString(17, getPorcentaje_Exoneracion());
+            cmd.setString(15, getUsu_Exoneracion());
+            cmd.setString(16, getPorcentaje_Exoneracion());
             if(!cmd.execute())
             {
                 resp = true;
@@ -1020,9 +1019,9 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
     }
      public void formatoTablaCPT(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(500);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(600);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(50);
 
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
         tabla.getColumnModel().getColumn(3).setMaxWidth(0);
@@ -1040,22 +1039,22 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
         tabla.getColumnModel().getColumn(10).setMinWidth(0);
         tabla.getColumnModel().getColumn(10).setMaxWidth(0);
-        tabla.setRowHeight(37);
+        tabla.setRowHeight(40);
         
     }
      
-    public void ListarConsultorios(String Texto,JTable tabla){
+    public void ListarConsultorios(int AR_ID,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Adicionales","Futuras","Turno","Médico","","","","","","","","","","","",""};
+            String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Adicionales","Futuras","Turno","Médico","","","","","","","","","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[22];
+            String fila[]=new String[23];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec Caja_ConsultoriosExternosListar ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, Texto);
+            cmd.setInt(1,AR_ID);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -1081,7 +1080,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                     fila[19]=r.getString(20);
                     fila[20]=r.getString(21);
                     fila[21]=r.getString(22);
-
+                    fila[22]=r.getString(23);
                         m.addRow(fila);
                         c++;
                 }
@@ -1094,21 +1093,74 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: listarConsultorios CAJA: " + e.getMessage());
         }
     }
-     public void formatoTablaDetalle(JTable tabla){
+    
+    public void ListarConsultoriosFUTURO(int AR_ID,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Adicionales","Futuras","Turno","Médico","","","","","","","","","","","","",""};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[23];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec Caja_ConsultoriosExternosListar_FUTURA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1,AR_ID);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10);  
+                    fila[10]=r.getString(11); 
+                    fila[11]=r.getString(12); 
+                    fila[12]=r.getString(13); 
+                    fila[13]=r.getString(14); 
+                    fila[14]=r.getString(15);
+                    fila[15]=r.getString(16);
+                    fila[16]=r.getString(17);
+                    fila[17]=r.getString(18); 
+                    fila[18]=r.getString(19);
+                    fila[19]=r.getString(20);
+                    fila[20]=r.getString(21);
+                    fila[21]=r.getString(22);
+                    fila[22]=r.getString(23);
+
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaDetalleFUTURA(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarConsultorios FUTURO CAJA: " + e.getMessage());
+        }
+    }
+    public void formatoTablaDetalleFUTURA(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(1).setMinWidth(0);
-        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(20);
         
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(40);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(40);
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(40);
-       
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(50);
         
-        tabla.getColumnModel().getColumn(7).setMinWidth(0);
-        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(230);
         tabla.getColumnModel().getColumn(8).setMinWidth(0);
         tabla.getColumnModel().getColumn(8).setMaxWidth(0);
         tabla.getColumnModel().getColumn(9).setMinWidth(0);
@@ -1137,6 +1189,68 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(20).setMaxWidth(0);
         tabla.getColumnModel().getColumn(21).setMinWidth(0);
         tabla.getColumnModel().getColumn(21).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(21).setMinWidth(0);
+        tabla.getColumnModel().getColumn(21).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(22).setMinWidth(0);
+        tabla.getColumnModel().getColumn(22).setMaxWidth(0);
+
+   
+
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(45);
+    }
+     public void formatoTablaDetalle(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+//        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(160);
+       
+        
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(11).setMinWidth(0);
+        tabla.getColumnModel().getColumn(11).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(12).setMinWidth(0);
+        tabla.getColumnModel().getColumn(12).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(13).setMinWidth(0);
+        tabla.getColumnModel().getColumn(13).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(14).setMinWidth(0);
+        tabla.getColumnModel().getColumn(14).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(15).setMinWidth(0);
+        tabla.getColumnModel().getColumn(15).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(16).setMinWidth(0);
+        tabla.getColumnModel().getColumn(16).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(17).setMinWidth(0);
+        tabla.getColumnModel().getColumn(17).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(18).setMinWidth(0);
+        tabla.getColumnModel().getColumn(18).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(19).setMinWidth(0);
+        tabla.getColumnModel().getColumn(19).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(20).setMinWidth(0);
+        tabla.getColumnModel().getColumn(20).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(21).setMinWidth(0);
+        tabla.getColumnModel().getColumn(21).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(22).setMinWidth(0);
+        tabla.getColumnModel().getColumn(22).setMaxWidth(0);
 
    
 

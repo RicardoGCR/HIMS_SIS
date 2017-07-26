@@ -533,11 +533,15 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         hC3.setNom_dir("Turista");
                         hC3.setNum("");
                     } else {
-                    hC3.setSe_cod(cbxSector.getSelectedItem().toString());
+                    hC3.setSe_cod("SINSECTOR");
+                    //hC3.setSe_cod(cbxSector.getSelectedItem().toString());
                     //TIPO_DIR_NOM
-                    hC3.setTipo_dir_nom(cbxTipoDireccion.getSelectedItem().toString().toUpperCase());
-                    hC3.setNom_dir(cbxDireccion.getSelectedItem().toString().toUpperCase());
-                    hC3.setNum(txtNumero.getText().toUpperCase());
+//                    hC3.setTipo_dir_nom(cbxTipoDireccion.getSelectedItem().toString().toUpperCase());
+//                    hC3.setNom_dir(cbxDireccion.getSelectedItem().toString().toUpperCase());
+//                    hC3.setNum(txtNumero.getText().toUpperCase());
+                    hC3.setTipo_dir_nom("SINSECTOR");
+                    hC3.setNom_dir("SINSECTOR");
+                    hC3.setNum("");
                     }
                     hC3.setLote(txtLote.getText().toUpperCase());
                     //REGISTRAR HISTORIA CLINICA
@@ -2669,7 +2673,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         */
             try {
             if(btnNuevo.getText().equals("Nuevo")){
-                String[] opciones = {"Automático","Continuador","Reasignado"};
+                String[] opciones = {"Continuador","Automático","Reasignado"};
                 ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Documento-32.png")); 
                 String resp = (String) JOptionPane.showInputDialog(this,"Seleccione una opción:", "Opciones",JOptionPane.DEFAULT_OPTION, i, opciones, opciones[0]);
                 if(resp.equals("Automático")){ // PRIMER ESCENARIO - AUTOMATICO

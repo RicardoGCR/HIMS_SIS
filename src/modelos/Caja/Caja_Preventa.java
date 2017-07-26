@@ -14,6 +14,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
+import vista.Caja.Caja_Pagos;
 import vista.admisionEmergencia.FrmFormatoEmergencia;
 import vista.hospitalizacion.FrmHospitalizacionCajaPreventa;
 
@@ -362,6 +363,26 @@ public class Caja_Preventa {
         }
         return resp;
     }
+    
+    
+        public void CONSULTAR_CAMA_USO(String ap_id){
+        String consulta="";
+        try {
+            consulta="CAJA_CONSULTAR_CAMA_USO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    
+                Caja_Pagos.ca_id.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CAMA  " + e.getMessage());
+        }
+    }
+    
     
     public boolean modificarDetallePreventa(){
         boolean resp = false;

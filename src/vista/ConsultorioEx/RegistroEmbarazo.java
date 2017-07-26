@@ -703,7 +703,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
 
                     jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-                    jPanel1.setBackground(new java.awt.Color(43, 43, 43));
+                    jPanel1.setBackground(new java.awt.Color(0, 153, 102));
 
                     jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                     jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -716,9 +716,9 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     lblUsu.setFocusable(false);
                     lblUsu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-                    btnAlertas.setBackground(new java.awt.Color(232, 76, 61));
+                    btnAlertas.setBackground(new java.awt.Color(255, 255, 255));
                     btnAlertas.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-                    btnAlertas.setForeground(new java.awt.Color(232, 76, 61));
+                    btnAlertas.setForeground(new java.awt.Color(255, 255, 255));
                     btnAlertas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
                     btnAlertas.setText("Alertas");
                     btnAlertas.setBorderPainted(false);
@@ -832,7 +832,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     });
 
                     lblAlertas.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-                    lblAlertas.setForeground(new java.awt.Color(232, 76, 61));
+                    lblAlertas.setForeground(new java.awt.Color(255, 255, 255));
                     lblAlertas.setText("10");
 
                     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1877,9 +1877,9 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(pnlControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGap(0, 0, 0)
                                     .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(83, Short.MAX_VALUE))
+                            .addContainerGap(89, Short.MAX_VALUE))
                     );
                     jPanel2Layout.setVerticalGroup(
                         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="2.143588810000002"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="473"/>
+	<property name="ireport.y" value="545"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -375,7 +375,7 @@ AND  CDC.id_documento=  $P{doc}]]>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
-				<text><![CDATA[Fecha de Emisión :]]></text>
+				<text><![CDATA[FECHA DE EMISIÓN :]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="88" y="54" width="54" height="10" uuid="044a2abe-43a4-4686-ae82-91bee8b1f13c"/>
@@ -396,21 +396,21 @@ AND  CDC.id_documento=  $P{doc}]]>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
-				<text><![CDATA[Gracias por su visita]]></text>
+				<text><![CDATA[GRACIAS POR SU VISITA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="87" width="200" height="10" uuid="9fa5f130-6bef-4a10-90b4-2f9ba771111c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
-				<text><![CDATA[Servicio de Atención - 056-261232]]></text>
+				<text><![CDATA[SERVICIO DE ATENCIÓN - 056-261232]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="66" width="117" height="10" uuid="b35e77c8-be71-4984-a6b0-6421f9a1a563"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
-				<text><![CDATA[Hora de Emisión :]]></text>
+				<text><![CDATA[HORA DE EMISIÓN :]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="30" width="225" height="14" uuid="ad17b6c4-0c1c-4db5-bb89-60a91643ff44"/>

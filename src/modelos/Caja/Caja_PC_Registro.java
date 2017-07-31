@@ -73,8 +73,6 @@ private int AR_ID;
             while(r.next()){
                 Caja_Registro.lblUsu.setText("<html>"+r.getString(2)+"<span style=\"font-size:'14px'\"><br>"+"Usuario, "+r.getString(1)+"<html>");
                 Caja_Registro.lblResumenUsuario.setText("<html>"+"Cajero "+r.getString(2)+"<html>");
-       
-
                 }
             //
         } catch (Exception e) {

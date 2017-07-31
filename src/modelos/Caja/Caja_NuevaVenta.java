@@ -24,6 +24,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
+import vista.Caja.Caja_Cierre;
 import vista.Caja.Caja_Pagos;
 import static vista.Caja.Caja_Pagos.lblTotalDiario;
 import vista.Caja.Caja_Reporte_CCTA6;
@@ -70,6 +71,7 @@ private int IdDetalle;
 private int dni;
 private String EstadoVisibleAdmision;
 private int Id_Cod_det;
+private int ID_SESION;
 
         
 ////////////////////////////////////////////////////
@@ -109,16 +111,17 @@ public void Caja_Correlativo(String usu){
     }
     
 
-public void SumaTotalReporte(String total){
+public void SumaTotalReporte(String total,Integer SESION){
         String consulta="";
         try {
-            consulta="CAJA_RESUMEN_DIARIO_TOTAL ?";
+            consulta="CAJA_RESUMEN_DIARIO_TOTAL ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, total);
+            cmd.setInt(2, SESION);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                Caja_Pagos.lblTotalDiario.setText("S/.  "+r.getString(1));     
+                Caja_Pagos.lblTotalDiario.setText(r.getString(1));     
             }
             //
         } catch (Exception e) {
@@ -126,17 +129,36 @@ public void SumaTotalReporte(String total){
         }
     }
 
-public void SumaCONTADOReporte(String contado){
+public void SumaCONTADOReporte(String contado,Integer SESION){
         String consulta="";
         try {
-            consulta="CAJA_RESUMEN_DIARIO_TOTAL_CONTADO ?";
+            consulta="CAJA_RESUMEN_DIARIO_TOTAL_CONTADO ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, contado);
+            cmd.setInt(2, SESION);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
                     
-                Caja_Pagos.lblTotalContado.setText("S/.  "+r.getString(1));    
+                Caja_Pagos.lblTotalContado.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: SUMA CONTADO  " + e.getMessage());
+        }
+    }
+public void SumaCONTADOReporteCIERRE(String contado,Integer SESION){
+        String consulta="";
+        try {
+            consulta="CAJA_RESUMEN_DIARIO_TOTAL_CONTADO ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, contado);
+            cmd.setInt(2, SESION);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    
+                Caja_Cierre.lblVC.setText(r.getString(1));    
             }
             //
         } catch (Exception e) {
@@ -144,44 +166,83 @@ public void SumaCONTADOReporte(String contado){
         }
     }
 
-public void SumaPENDIENTEReporte(String pendiente){
+public void SumaPENDIENTEReporte(String pendiente, Integer SESION){
         String consulta="";
         try {
-            consulta="CAJA_RESUMEN_DIARIO_TOTAL_PENDIENTE ?";
+            consulta="CAJA_RESUMEN_DIARIO_TOTAL_PENDIENTE ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, pendiente);
+            cmd.setInt(2, SESION);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
                     
-                Caja_Pagos.lblTotalPendiente.setText("S/.  "+r.getString(1));    
+                Caja_Pagos.lblTotalPendiente.setText(r.getString(1));    
             }
             //
         } catch (Exception e) {
             System.out.println("Error: SUMA PENDIENTE  " + e.getMessage());
         }
     }
-public void SumaANULADOReporte(String anulado){
+public void SumaPENDIENTEReporteCIERRE(String pendiente,Integer SESION){
         String consulta="";
         try {
-            consulta="CAJA_RESUMEN_DIARIO_TOTAL_ANULADO ?";
+            consulta="CAJA_RESUMEN_DIARIO_TOTAL_PENDIENTE ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, anulado);
+            cmd.setString(1, pendiente);
+            cmd.setInt(2, SESION);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
                     
-                Caja_Pagos.lblTotalAnulado.setText("S/.  "+r.getString(1));    
+                Caja_Cierre.lblVO.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: SUMA PENDIENTE  " + e.getMessage());
+        }
+    }
+public void SumaANULADOReporte(String anulado, Integer SESION){
+        String consulta="";
+        try {
+            consulta="CAJA_RESUMEN_DIARIO_TOTAL_ANULADO ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, anulado);
+            cmd.setInt(2, SESION);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    
+                Caja_Pagos.lblTotalAnulado.setText(r.getString(1));    
             }
             //
         } catch (Exception e) {
             System.out.println("Error: SUMA ANULADO  " + e.getMessage());
         }
     }
-public void ReporteDiario(String USUARIO) {
+public void SumaANULADOReporteCIERRE(String anulado, Integer SESION){
+        String consulta="";
+        try {
+            consulta="CAJA_RESUMEN_DIARIO_TOTAL_ANULADO ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, anulado);
+            cmd.setInt(2, SESION);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    
+                Caja_Cierre.lblVA.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: SUMA ANULADO  " + e.getMessage());
+        }
+    }
+public void ReporteDiario(String USUARIO,Integer SESION) {
         try {
             Map parametros = new HashMap();
             parametros.put("USUARIO", USUARIO);
+            parametros.put("SESION", SESION);
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteDiario.jasper"), parametros, con.conectar()); 
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("Reporte Diario");
@@ -448,10 +509,10 @@ public boolean ActualizarVentaEx()
         return resp;
     }
 
-public boolean Nuevo(){
+public boolean NuevaVenta(){
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_documento());
             cmd.setString(2, getCod_tipo_documento());
@@ -469,6 +530,7 @@ public boolean Nuevo(){
             cmd.setInt(14, getId_Cta_Abono());
             cmd.setString(15, getUsu_Exoneracion());
             cmd.setString(16, getPorcentaje_Exoneracion());
+            cmd.setInt(17, getID_SESION());
             if(!cmd.execute())
             {
                 resp = true;
@@ -1534,7 +1596,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.setRowHeight(40);
     }
       
-      public void ReporteDiariocajaCabecera(String Usuario,JTable tabla){
+    public void ReporteDiariocajaCabecera(String Usuario,Integer SESION,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -1543,9 +1605,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             JTable p=new JTable(m);
             String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_CONSULTAR_REPORTE_DIA_PC ?";
+            consulta="EXEC CAJA_CONSULTAR_REPORTE_DIA_PC ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, Usuario);
+            cmd.setInt(2, SESION);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -2362,12 +2425,14 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     public void setId_Cod_det(int Id_Cod_det) {
         this.Id_Cod_det = Id_Cod_det;
     }
-    
-    
-    
-    
-    
-    
-    
+
+    public int getID_SESION() {
+        return ID_SESION;
+    }
+
+    public void setID_SESION(int ID_SESION) {
+        this.ID_SESION = ID_SESION;
+    }
+
 
 }

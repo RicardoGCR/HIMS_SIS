@@ -7,6 +7,7 @@ package vista.admisionEmergencia;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -28,7 +29,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
     public FrmFormaDeLlegada() {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);//fondo blanco
-        setLocationRelativeTo(null);//en el centro
+        this.setExtendedState(MAXIMIZED_BOTH);
         txtaDescripcion.setWrapStyleWord(true);
         txtaDescripcion.setLineWrap(true); 
         btnModificar4.setEnabled(false);
@@ -40,7 +41,13 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
                 dispose();
             }
         });
+        
+
         cerrar();
+        txtIDFormaLlegada.setVisible(false);
+        adEmerFL.cargarFormatEmer(tbBuscar);
+        tbBuscar.getTableHeader().setVisible(false);
+        tbBuscar.setTableHeader(null);
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     }
@@ -65,6 +72,11 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         txtNombre.setEnabled(opcion);
         txtaDescripcion.setEnabled(opcion);
     }
+    public void limpiarDatosM(boolean opcion){
+
+        txtNombre.setEnabled(opcion);
+        txtaDescripcion.setEnabled(opcion);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,32 +87,284 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
     private void initComponents() {
 
         dlgBuscar = new javax.swing.JDialog();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbBuscar = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
-        titulo9 = new javax.swing.JLabel();
-        lblHora4 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        lblFecha4 = new javax.swing.JLabel();
-        lblUsuario = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
         btnNuevo4 = new javax.swing.JButton();
         btnGuardar4 = new javax.swing.JButton();
         btnModificar4 = new javax.swing.JButton();
         btnEliminar4 = new javax.swing.JButton();
-        btnBuscar4 = new javax.swing.JButton();
+        lblUsuario = new javax.swing.JLabel();
+        lblOp = new javax.swing.JLabel();
+        jLabel84 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         txtIDFormaLlegada = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtaDescripcion = new javax.swing.JTextArea();
-        lblOp = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lblDescripcion = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbBuscar = new javax.swing.JTable();
+        jPanel35 = new javax.swing.JPanel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
 
         dlgBuscar.setMinimumSize(new java.awt.Dimension(400, 300));
+
+        javax.swing.GroupLayout dlgBuscarLayout = new javax.swing.GroupLayout(dlgBuscar.getContentPane());
+        dlgBuscar.getContentPane().setLayout(dlgBuscarLayout);
+        dlgBuscarLayout.setHorizontalGroup(
+            dlgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        dlgBuscarLayout.setVerticalGroup(
+            dlgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Admisión Emergencia .::. Forma de Llegada");
+        setMinimumSize(new java.awt.Dimension(465, 370));
+
+        jPanel12.setBackground(new java.awt.Color(23, 160, 134));
+        jPanel12.setMinimumSize(new java.awt.Dimension(285, 415));
+        jPanel12.setPreferredSize(new java.awt.Dimension(285, 415));
+
+        btnNuevo4.setBackground(new java.awt.Color(204, 204, 204));
+        btnNuevo4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnNuevo4.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Documento-32.png"))); // NOI18N
+        btnNuevo4.setText("Nuevo");
+        btnNuevo4.setToolTipText("");
+        btnNuevo4.setContentAreaFilled(false);
+        btnNuevo4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNuevo4.setFocusable(false);
+        btnNuevo4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNuevo4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnNuevo4.setIconTextGap(30);
+        btnNuevo4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevo4ActionPerformed(evt);
+            }
+        });
+
+        btnGuardar4.setBackground(new java.awt.Color(204, 204, 204));
+        btnGuardar4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnGuardar4.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
+        btnGuardar4.setText("Guardar");
+        btnGuardar4.setToolTipText("");
+        btnGuardar4.setContentAreaFilled(false);
+        btnGuardar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar4.setEnabled(false);
+        btnGuardar4.setFocusable(false);
+        btnGuardar4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGuardar4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnGuardar4.setIconTextGap(30);
+        btnGuardar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar4ActionPerformed(evt);
+            }
+        });
+
+        btnModificar4.setBackground(new java.awt.Color(204, 204, 204));
+        btnModificar4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnModificar4.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Editar-32.png"))); // NOI18N
+        btnModificar4.setText("Editar");
+        btnModificar4.setToolTipText("");
+        btnModificar4.setContentAreaFilled(false);
+        btnModificar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModificar4.setFocusable(false);
+        btnModificar4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnModificar4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnModificar4.setIconTextGap(30);
+        btnModificar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificar4ActionPerformed(evt);
+            }
+        });
+
+        btnEliminar4.setBackground(new java.awt.Color(204, 204, 204));
+        btnEliminar4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnEliminar4.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Basura-32.png"))); // NOI18N
+        btnEliminar4.setText("Eliminar");
+        btnEliminar4.setToolTipText("");
+        btnEliminar4.setContentAreaFilled(false);
+        btnEliminar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar4.setEnabled(false);
+        btnEliminar4.setFocusable(false);
+        btnEliminar4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEliminar4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnEliminar4.setIconTextGap(30);
+        btnEliminar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminar4ActionPerformed(evt);
+            }
+        });
+
+        lblUsuario.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+        lblUsuario.setText("Silvana");
+        lblUsuario.setFocusable(false);
+        lblUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        lblOp.setForeground(new java.awt.Color(23, 160, 134));
+        lblOp.setText("jLabel4");
+
+        jLabel84.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
+        jLabel84.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel84.setText("<html>Forma de Llegada<span style=\"font-size:'14px'\"><br>Emergencia</br></span></html>");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnNuevo4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnGuardar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnModificar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEliminar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblOp)))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(btnNuevo4)
+                .addGap(18, 18, 18)
+                .addComponent(btnGuardar4)
+                .addGap(18, 18, 18)
+                .addComponent(btnModificar4)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminar4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblOp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+
+        txtIDFormaLlegada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtIDFormaLlegada.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtIDFormaLlegada.setEnabled(false);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Nombre");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Descripción");
+
+        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtNombre.setEnabled(false);
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
+        });
+
+        txtaDescripcion.setColumns(20);
+        txtaDescripcion.setRows(5);
+        txtaDescripcion.setEnabled(false);
+        txtaDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtaDescripcionKeyReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(txtaDescripcion);
+
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel51.setText("Edición");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombre)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)))
+                    .addComponent(txtIDFormaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel51))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel51)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtIDFormaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
+
+        lblDescripcion.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        lblDescripcion.setText("Listado y Registro");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
+
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         tbBuscar = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -119,8 +383,13 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tbBuscar.setSelectionBackground(new java.awt.Color(0, 118, 168));
+        tbBuscar.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tbBuscar.getTableHeader().setReorderingAllowed(false);
+        tbBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbBuscarMouseClicked(evt);
+            }
+        });
         tbBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbBuscarKeyPressed(evt);
@@ -128,243 +397,84 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbBuscar);
 
-        javax.swing.GroupLayout dlgBuscarLayout = new javax.swing.GroupLayout(dlgBuscar.getContentPane());
-        dlgBuscar.getContentPane().setLayout(dlgBuscarLayout);
-        dlgBuscarLayout.setHorizontalGroup(
-            dlgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgBuscarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+        jPanel35.setBackground(new java.awt.Color(23, 160, 134));
+        jPanel35.setPreferredSize(new java.awt.Dimension(0, 2));
+
+        javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
+        jPanel35.setLayout(jPanel35Layout);
+        jPanel35Layout.setHorizontalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
-        dlgBuscarLayout.setVerticalGroup(
-            dlgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgBuscarLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        jPanel35Layout.setVerticalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Admisión Emergencia .::. Forma de Llegada");
-        setMinimumSize(new java.awt.Dimension(465, 370));
-        setResizable(false);
-        getContentPane().setLayout(null);
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel47.setText(" Nombre");
 
-        jPanel12.setBackground(new java.awt.Color(0, 118, 168));
-        jPanel12.setPreferredSize(new java.awt.Dimension(500, 65));
-        jPanel12.setLayout(null);
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel40.setText("Descripción");
 
-        titulo9.setBackground(new java.awt.Color(153, 0, 51));
-        titulo9.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        titulo9.setForeground(new java.awt.Color(255, 255, 255));
-        titulo9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo9.setText("Admision Emergencia");
-        titulo9.setToolTipText("");
-        titulo9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel12.add(titulo9);
-        titulo9.setBounds(0, 11, 275, 41);
+        jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel52.setText(" Formas de llegada Registradas");
 
-        lblHora4.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
-        lblHora4.setForeground(new java.awt.Color(255, 255, 255));
-        lblHora4.setText("00:00:00");
-        jPanel12.add(lblHora4);
-        lblHora4.setBounds(380, 20, 42, 17);
-
-        jLabel26.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Hora:");
-        jPanel12.add(jLabel26);
-        jLabel26.setBounds(337, 20, 31, 17);
-
-        jLabel27.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel27.setText("Fecha:");
-        jPanel12.add(jLabel27);
-        jLabel27.setBounds(337, 43, 34, 17);
-
-        lblFecha4.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
-        lblFecha4.setForeground(new java.awt.Color(255, 255, 255));
-        lblFecha4.setText("00/00/00");
-        jPanel12.add(lblFecha4);
-        lblFecha4.setBounds(380, 40, 44, 20);
-
-        lblUsuario.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsuario.setText("Nombre");
-        jPanel12.add(lblUsuario);
-        lblUsuario.setBounds(375, 75, 85, 20);
-
-        jLabel28.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
-        jPanel12.add(jLabel28);
-        jLabel28.setBounds(337, 71, 32, 24);
-
-        btnNuevo4.setBackground(new java.awt.Color(204, 204, 204));
-        btnNuevo4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnNuevo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Documento-32.png"))); // NOI18N
-        btnNuevo4.setMnemonic('N');
-        btnNuevo4.setToolTipText("Nuevo (Alt + N)");
-        btnNuevo4.setContentAreaFilled(false);
-        btnNuevo4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNuevo4.setFocusable(false);
-        btnNuevo4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnNuevo4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnNuevo4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevo4ActionPerformed(evt);
-            }
-        });
-        jPanel12.add(btnNuevo4);
-        btnNuevo4.setBounds(20, 60, 24, 30);
-
-        btnGuardar4.setBackground(new java.awt.Color(204, 204, 204));
-        btnGuardar4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnGuardar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
-        btnGuardar4.setMnemonic('G');
-        btnGuardar4.setToolTipText("Guardar (Alt + G)");
-        btnGuardar4.setContentAreaFilled(false);
-        btnGuardar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGuardar4.setEnabled(false);
-        btnGuardar4.setFocusable(false);
-        btnGuardar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnGuardar4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnGuardar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar4ActionPerformed(evt);
-            }
-        });
-        jPanel12.add(btnGuardar4);
-        btnGuardar4.setBounds(50, 60, 28, 30);
-
-        btnModificar4.setBackground(new java.awt.Color(204, 204, 204));
-        btnModificar4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnModificar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Editar-32.png"))); // NOI18N
-        btnModificar4.setMnemonic('M');
-        btnModificar4.setToolTipText("Modificar (Alt + M)");
-        btnModificar4.setContentAreaFilled(false);
-        btnModificar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnModificar4.setFocusable(false);
-        btnModificar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnModificar4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnModificar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificar4ActionPerformed(evt);
-            }
-        });
-        jPanel12.add(btnModificar4);
-        btnModificar4.setBounds(90, 60, 28, 30);
-
-        btnEliminar4.setBackground(new java.awt.Color(204, 204, 204));
-        btnEliminar4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnEliminar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Basura-32.png"))); // NOI18N
-        btnEliminar4.setMnemonic('E');
-        btnEliminar4.setToolTipText("Eliminar (Alt + E)");
-        btnEliminar4.setContentAreaFilled(false);
-        btnEliminar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEliminar4.setEnabled(false);
-        btnEliminar4.setFocusable(false);
-        btnEliminar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnEliminar4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnEliminar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminar4ActionPerformed(evt);
-            }
-        });
-        jPanel12.add(btnEliminar4);
-        btnEliminar4.setBounds(120, 60, 28, 30);
-
-        btnBuscar4.setBackground(new java.awt.Color(204, 204, 204));
-        btnBuscar4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnBuscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscararchivo-32.png"))); // NOI18N
-        btnBuscar4.setMnemonic('B');
-        btnBuscar4.setToolTipText("Buscar (Alt + B)");
-        btnBuscar4.setContentAreaFilled(false);
-        btnBuscar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscar4.setFocusable(false);
-        btnBuscar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBuscar4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnBuscar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscar4ActionPerformed(evt);
-            }
-        });
-        jPanel12.add(btnBuscar4);
-        btnBuscar4.setBounds(150, 60, 44, 32);
-
-        getContentPane().add(jPanel12);
-        jPanel12.setBounds(0, 0, 470, 110);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-
-        txtIDFormaLlegada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtIDFormaLlegada.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtIDFormaLlegada.setEnabled(false);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("ID Forma de Llegada:");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Nombre:");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Descripción:");
-
-        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtNombre.setEnabled(false);
-
-        txtaDescripcion.setColumns(20);
-        txtaDescripcion.setRows(5);
-        txtaDescripcion.setEnabled(false);
-        jScrollPane2.setViewportView(txtaDescripcion);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel52))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtIDFormaLlegada, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                    .addComponent(txtNombre)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(67, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtIDFormaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(40, 130, 380, 200);
-
-        lblOp.setForeground(new java.awt.Color(255, 255, 255));
-        lblOp.setText("jLabel4");
-        getContentPane().add(lblOp);
-        lblOp.setBounds(0, 120, 34, 14);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -377,7 +487,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevo4ActionPerformed
 
     private void btnModificar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar4ActionPerformed
-        limpiarDatos(true);
+        limpiarDatosM(true);
         lblOp.setText("M");
         btnGuardar4.setEnabled(true);
     }//GEN-LAST:event_btnModificar4ActionPerformed
@@ -395,6 +505,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
                 else{
                     if(f2.admisionFormaDeLlegadaMantenimiento("I")){
                         JOptionPane.showMessageDialog(this, "Registro guardado");
+                        adEmerFL.cargarFormatEmer(tbBuscar);
                         btnGuardar4.setEnabled(false);
                         limpiarDatos(false);
                         txtIDFormaLlegada.setText("");
@@ -414,6 +525,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
                 else{
                     if(f2.admisionFormaDeLlegadaMantenimiento("A")){
                         JOptionPane.showMessageDialog(this, "Registro modificado");
+                        adEmerFL.cargarFormatEmer(tbBuscar);
                         limpiarDatos(false);
                         txtIDFormaLlegada.setText("");
                         btnGuardar4.setEnabled(false);
@@ -449,21 +561,9 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminar4ActionPerformed
 
-    private void btnBuscar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar4ActionPerformed
-        dlgBuscar.setVisible(true);
-        dlgBuscar.setLocationRelativeTo(null);//en el centro
-        dlgBuscar.setResizable(false);
-        dlgBuscar.getContentPane().setBackground(Color.WHITE);
-        adEmerFL.cargarFormatEmer(tbBuscar);
-        tbBuscar.requestFocus();
-        tbBuscar.getSelectionModel().setSelectionInterval(0,0);
-        tbBuscar.setRowHeight(25);
-        btnGuardar4.setEnabled(false);
-    }//GEN-LAST:event_btnBuscar4ActionPerformed
-
     private void tbBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbBuscarKeyPressed
         int fila = tbBuscar.getSelectedRow();
-        dlgBuscar.dispose();
+
         FrmFormaDeLlegada.txtIDFormaLlegada.setText(String.valueOf(tbBuscar.getValueAt(fila, 0)));
         FrmFormaDeLlegada.txtNombre.setText(String.valueOf(tbBuscar.getValueAt(fila, 1)));
         FrmFormaDeLlegada.txtaDescripcion.setText(String.valueOf(tbBuscar.getValueAt(fila, 2)));
@@ -472,6 +572,27 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         txtaDescripcion.setEnabled(false);
         btnEliminar4.setEnabled(true);
     }//GEN-LAST:event_tbBuscarKeyPressed
+
+    private void tbBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbBuscarMouseClicked
+        int fila=tbBuscar.getSelectedRow();
+        if(evt.getClickCount()==1){
+            FrmFormaDeLlegada.txtIDFormaLlegada.setText(String.valueOf(tbBuscar.getValueAt(fila, 0)));
+            FrmFormaDeLlegada.txtNombre.setText(String.valueOf(tbBuscar.getValueAt(fila, 1)));
+            FrmFormaDeLlegada.txtaDescripcion.setText(String.valueOf(tbBuscar.getValueAt(fila, 2)));
+            btnModificar4.setEnabled(true);
+            txtNombre.setEnabled(false);
+            txtaDescripcion.setEnabled(false);
+            btnEliminar4.setEnabled(true);
+        }
+    }//GEN-LAST:event_tbBuscarMouseClicked
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+         txtNombre.setText(txtNombre.getText().toUpperCase());
+    }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void txtaDescripcionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtaDescripcionKeyReleased
+        txtaDescripcion.setText(txtaDescripcion.getText().toUpperCase());
+    }//GEN-LAST:event_txtaDescripcionKeyReleased
 
     /**
      * @param args the command line arguments
@@ -509,28 +630,29 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar4;
     private javax.swing.JButton btnEliminar4;
     private javax.swing.JButton btnGuardar4;
     private javax.swing.JButton btnModificar4;
     private javax.swing.JButton btnNuevo4;
     private javax.swing.JDialog dlgBuscar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel35;
+    public static javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblFecha4;
-    private javax.swing.JLabel lblHora4;
+    private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblOp;
     public static javax.swing.JLabel lblUsuario;
     private javax.swing.JTable tbBuscar;
-    private javax.swing.JLabel titulo9;
     public static javax.swing.JTextField txtIDFormaLlegada;
     public static javax.swing.JTextField txtNombre;
     public static javax.swing.JTextArea txtaDescripcion;

@@ -907,7 +907,7 @@ byte tge;
                     }
                 });
 
-                jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel28.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel28.setText("FR");
 
@@ -918,11 +918,11 @@ byte tge;
                     }
                 });
 
-                jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel26.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel26.setText("PA");
 
-                jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel27.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel27.setText("FC");
 
@@ -933,7 +933,7 @@ byte tge;
                     }
                 });
 
-                jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel29.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel29.setText("Tº");
 
@@ -944,7 +944,7 @@ byte tge;
                     }
                 });
 
-                jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel30.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel30.setText("Peso");
 
@@ -955,7 +955,7 @@ byte tge;
                     }
                 });
 
-                jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel3.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel3.setText("Talla");
 
@@ -972,7 +972,7 @@ byte tge;
                 id.setForeground(new java.awt.Color(255, 255, 255));
                 id.setText("jLabel2");
 
-                jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel4.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel4.setText("IDM");
 

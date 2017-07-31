@@ -16,6 +16,7 @@ import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
 import vista.Caja.Caja_Pagos;
 import vista.admisionEmergencia.FrmFormatoEmergencia;
+import vista.admisionEmergencia.FrmFormatoEmergenciaCabecera;
 import vista.hospitalizacion.FrmHospitalizacionCajaPreventa;
 
 /**
@@ -70,6 +71,8 @@ public class Caja_Preventa {
     private int Id_DetalleFR;
     private int Id_Cabecera;
     private String id_documento;
+    private int Id_Preventa;
+    private String Triaje_Id;
 
     private String procedencia;
     
@@ -79,8 +82,7 @@ public class Caja_Preventa {
         {
         boolean resp = false;
         try{
-            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_EMERGENCIA "
-                        + "?,?,?,?,?,?,?,?,?";
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_EMERGENCIA ?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId_preventa());
             cmd.setString(2, getId_hc());
@@ -89,8 +91,9 @@ public class Caja_Preventa {
             cmd.setString(5, getEMER_OBSERVACION());
             cmd.setString(6, getEMER_FORMA_LLEGADA_ID());
             cmd.setString(7, getCod_usu());
-            cmd.setString(8, tipo);
-            cmd.setString(9, getCod_nomen());
+            cmd.setString(8, getCod_jerar_forma_pago());
+            cmd.setString(9, tipo);
+            cmd.setString(10, getCod_nomen());
             if(!cmd.execute())
             {
                 resp = true;
@@ -626,22 +629,32 @@ public class Caja_Preventa {
 
     
     public void formatoTablaCargarFormatEmer(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(60);//id
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//acto medico
         tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//nhc
         tabla.getColumnModel().getColumn(3).setPreferredWidth(80);//dni
         tabla.getColumnModel().getColumn(4).setPreferredWidth(200);//PACIENTE
         tabla.getColumnModel().getColumn(5).setPreferredWidth(200);//TRAIDO POR
         tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//PARENTESCO
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(150);//SERVICIO
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(150);//AREA
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
         tabla.getColumnModel().getColumn(9).setPreferredWidth(200);//MEDICO
-        tabla.getColumnModel().getColumn(10).setPreferredWidth(80);//ID FL
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0);
         tabla.getColumnModel().getColumn(11).setPreferredWidth(120);//NOMBRE FL 
         tabla.getColumnModel().getColumn(12).setPreferredWidth(160);//OBSERVACION
         tabla.getColumnModel().getColumn(13).setPreferredWidth(100);//FECHA DE INGRESO
         tabla.getColumnModel().getColumn(14).setPreferredWidth(100);//HORA DE INGRESO
-        tabla.setRowHeight(25);
+        tabla.getColumnModel().getColumn(15).setPreferredWidth(100);//HORA DE INGRESO
+        tabla.getColumnModel().getColumn(16).setMinWidth(0);
+        tabla.getColumnModel().getColumn(16).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(17).setMinWidth(0);
+        tabla.getColumnModel().getColumn(17).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(18).setPreferredWidth(100);//HORA DE INGRESO
+        tabla.setRowHeight(38);
     }
     
     public void listarDatosEmergencia(String paciente,String fechai, String fechaf,JTable tabla){
@@ -650,10 +663,10 @@ public class Caja_Preventa {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"ID Prev","Acto Médico","Nº H.C","DNI","Paciente",
                 "Traído por","Parentesco","Servicio","Area","Médico"," ID FL",
-                "Forma de llegada", "Observación","Fecha de ingreso","Hora de ingreso"};
+                "Forma de llegada", "Observación","Fecha de ingreso","Hora de ingreso","Forma de Pago","Cod_FP","Cod_Nom","Prioridad"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[15];
+            String fila[]=new String[19];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_PREVENTA_LISTAR_EMERGENCIA ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -678,6 +691,60 @@ public class Caja_Preventa {
                 fila[12]=r.getString(13);
                 fila[13]=r.getString(14); // dni
                 fila[14]=r.getString(15); // dni
+                fila[15]=r.getString(16); // dni
+                fila[16]=r.getString(17); // dni
+                fila[17]=r.getString(18); // dni
+                fila[18]=r.getString(19); // dni
+                //fila[4]=r.getString(1); // codigo de hc
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCargarFormatEmer(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarDatosEmergencia: " + e.getMessage());
+        }
+    }
+    
+    public void listarDatosEmergenciaP(String paciente,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID Prev","Acto Médico","Nº H.C","DNI","Paciente",
+                "Traído por","Parentesco","Servicio","Area","Médico"," ID FL",
+                "Forma de llegada", "Observación","Fecha de ingreso","Hora de ingreso","Forma de Pago","Cod_FP","Cod_Nom","Prioridad"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[19];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_PREVENTA_LISTAR_EMERGENCIA_PENDIENTES ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, paciente);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // nhc
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); // dni
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7); // dni
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+                fila[10]=r.getString(11); // dni
+                fila[11]=r.getString(12);
+                fila[12]=r.getString(13);
+                fila[13]=r.getString(14); // dni
+                fila[14]=r.getString(15); // dni
+                fila[15]=r.getString(16); // dni
+                fila[16]=r.getString(17); // dni
+                fila[17]=r.getString(18); // dni
+                fila[18]=r.getString(19); // dni
                 //fila[4]=r.getString(1); // codigo de hc
                     m.addRow(fila);
                     c++;
@@ -721,6 +788,71 @@ public class Caja_Preventa {
             System.out.println("Error: CajaPreventaID: " + ex.getMessage());
         }
         return id;
+    }
+    public String PreventaID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 Id_Preventa FROM CAJA_PREVENTA WHERE Pc_Registro = HOST_NAME() ORDER BY Id_Preventa DESC";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               FrmFormatoEmergenciaCabecera.lblId_Preventa.setText(rs.getString(1));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: PreventaID: " + ex.getMessage());
+        }
+        return cod;
+    }
+    public boolean ACTUALIZAR_TRIAJE_ID_PREVENTA()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTUALIZAR_ID_PREVENTA_TRIAJE ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_Preventa());
+            cmd.setString(2, getTriaje_Id());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ACTUALIZAR ID_PREVENTA EN TRIAJE : " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean ACTUALIZAR_ESTADO_TRIAJE()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTUALIZAR_ESTADO_TRIAJE_CABECERA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getTriaje_Id());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ACTUALIZAR ESTADO TRIAJE : " + ex.getMessage());
+        }
+        return resp;
     }
     
     ///////////////////////////ANULAR VENTA,PREVENTA CAMA Y ASIGNACION CAMA
@@ -1669,6 +1801,22 @@ public class Caja_Preventa {
 
     public void setId_documento(String id_documento) {
         this.id_documento = id_documento;
+    }
+
+    public int getId_Preventa() {
+        return Id_Preventa;
+    }
+
+    public void setId_Preventa(int Id_Preventa) {
+        this.Id_Preventa = Id_Preventa;
+    }
+
+    public String getTriaje_Id() {
+        return Triaje_Id;
+    }
+
+    public void setTriaje_Id(String Triaje_Id) {
+        this.Triaje_Id = Triaje_Id;
     }
     
     

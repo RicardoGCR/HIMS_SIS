@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista.Caja;
+package vista.admisionEmergencia;
+import vista.Caja.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
@@ -34,22 +35,23 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.Caja.Caja_Nomenclatura;
 import modelos.Caja.Caja_PC_Registro;
+import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import vista.PrincipalMDI;
 
 /**
  *
  * @author MYS1
  */
-public class Caja_Registro extends javax.swing.JFrame {
+public class AdmEmer_Registro extends javax.swing.JFrame {
 DefaultTableModel m;
     /**
      * Creates new form Caja_Registro
      */
-    public Caja_Registro() {
+    public AdmEmer_Registro() {
         initComponents();
         Caja_PC_Registro pc = new Caja_PC_Registro();
-        pc.CajaPC_Listar();
-        pc.PERFIL_USUARIO(PrincipalMDI.lblUsu.getText());
+        pc.CajaPC_ListarEME();
+        pc.PERFIL_USUARIOEME(PrincipalMDI.lblUsu.getText());
         this.getContentPane().setBackground(new Color(41,127,184)); 
         panelMenu.setVisible(false);
      
@@ -69,44 +71,7 @@ DefaultTableModel m;
   
        
     }
-        public static void printAvailable() {
- 
-        // busca los servicios de impresion...
-        PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
- 
-        // -- ver los atributos de las impresoras...
-        for (PrintService printService : services) {
-            String IM;
-            IM=(printService.getName());
-            JComboBox jComboBox1 = new JComboBox();
 
-            jComboBox1.addItem(IM);
-            cbxImpresoras.addItem(IM);
-   
- 
-            PrintServiceAttributeSet printServiceAttributeSet = printService.getAttributes();
- 
-            System.out.println("--- atributos");
- 
-            // todos los atributos de la impresora
-            Attribute[] a = printServiceAttributeSet.toArray();
-            for (Attribute unAtribute : a) {
-                System.out.println("atributo: " + unAtribute.getName());
-            }
- 
-            System.out.println("--- viendo valores especificos de los atributos ");
- 
-            // valor especifico de un determinado atributo de la impresora
-            System.out.println("PrinterLocation: " + printServiceAttributeSet.get(PrinterLocation.class));
-            System.out.println("PrinterInfo: " + printServiceAttributeSet.get(PrinterInfo.class));
-            System.out.println("PrinterState: " + printServiceAttributeSet.get(PrinterState.class));
-            System.out.println("Destination: " + printServiceAttributeSet.get(Destination.class));
-            System.out.println("PrinterMakeAndModel: " + printServiceAttributeSet.get(PrinterMakeAndModel.class));
-            System.out.println("PrinterIsAcceptingJobs: " + printServiceAttributeSet.get(PrinterIsAcceptingJobs.class));
- 
-        }
- 
-    }
     public void BuscarUnidad(){
                    // TODO add your handling code here:
         String consulta="";
@@ -118,7 +83,7 @@ DefaultTableModel m;
             String fila[]=new String[3];
 
             Caja_Nomenclatura obj=new Caja_Nomenclatura();
-                    consulta="exec buscarunidad ?";
+                    consulta="exec ADMISION_EMERGENCIA_SERVIIOS ?";
                     
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtBuscar1.getText());
@@ -144,7 +109,8 @@ DefaultTableModel m;
         }
       }
     public void formatoventanas1(){
-    tb_Grupos1.getColumnModel().getColumn(0).setPreferredWidth(200);
+    tb_Grupos1.getColumnModel().getColumn(0).setMinWidth(0);
+    tb_Grupos1.getColumnModel().getColumn(0).setMaxWidth(0);
     tb_Grupos1.getColumnModel().getColumn(1).setMinWidth(0);
     tb_Grupos1.getColumnModel().getColumn(1).setMaxWidth(0);
     tb_Grupos1.getColumnModel().getColumn(2).setPreferredWidth(200);
@@ -153,10 +119,9 @@ DefaultTableModel m;
     
     public void Guardar(){
         
-                Caja_PC_Registro cno1 = new Caja_PC_Registro();
-                cno1.setAR_ID(Integer.parseInt(lblARID.getText()) );//
-                cno1.setNOM_USU(lblUsuario.getText());//
-                cno1.setNRO_PC(Integer.parseInt(txtNRO.getText()));//
+                AdmisionEmergenciaCabecera cno1 = new AdmisionEmergenciaCabecera();
+                cno1.setAr_id(Integer.parseInt(lblARID.getText()) );//
+                cno1.setNom_usu(lblUsuario.getText());//
                     if(cno1.NuevoTerminal()==true){
                         System.out.println("GUARDADO ");
                         lblMensaje.setText("Todo Correcto");
@@ -202,13 +167,10 @@ DefaultTableModel m;
             jPanel3 = new javax.swing.JPanel();
             jLabel58 = new javax.swing.JLabel();
             jLabel4 = new javax.swing.JLabel();
-            jLabel5 = new javax.swing.JLabel();
             jLabel6 = new javax.swing.JLabel();
             panelCPT3 = new javax.swing.JPanel();
             txtCPT3 = new javax.swing.JTextField();
             btnBuscarCPT1 = new javax.swing.JButton();
-            panelCPT4 = new javax.swing.JPanel();
-            txtNRO = new javax.swing.JTextField();
             panelCPT5 = new javax.swing.JPanel();
             txtPC = new javax.swing.JTextField();
             jPanel67 = new javax.swing.JPanel();
@@ -216,19 +178,14 @@ DefaultTableModel m;
             jPanel68 = new javax.swing.JPanel();
             btnAlertConsulta3 = new javax.swing.JButton();
             lblARID = new javax.swing.JLabel();
-            jLabel1 = new javax.swing.JLabel();
             jPanel4 = new javax.swing.JPanel();
             jLabel59 = new javax.swing.JLabel();
             jLabel7 = new javax.swing.JLabel();
-            jLabel8 = new javax.swing.JLabel();
-            panelCPT7 = new javax.swing.JPanel();
-            txtCPT6 = new javax.swing.JTextField();
             jPanel69 = new javax.swing.JPanel();
             btnAlertConsulta4 = new javax.swing.JButton();
             jPanel70 = new javax.swing.JPanel();
             btnAlertConsulta5 = new javax.swing.JButton();
             btnImprimir = new javax.swing.JButton();
-            cbxImpresoras = new javax.swing.JComboBox();
             jPanel5 = new javax.swing.JPanel();
             jLabel60 = new javax.swing.JLabel();
             jPanel71 = new javax.swing.JPanel();
@@ -250,7 +207,7 @@ DefaultTableModel m;
             Unidad.setMinimumSize(new java.awt.Dimension(591, 419));
             Unidad.setResizable(false);
 
-            jPanel7.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel7.setBackground(new java.awt.Color(23, 160, 134));
 
             jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
             jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -375,14 +332,13 @@ DefaultTableModel m;
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
             setMinimumSize(new java.awt.Dimension(820, 525));
-            setPreferredSize(new java.awt.Dimension(820, 525));
             setResizable(false);
             getContentPane().setLayout(null);
 
             jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
             jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
 
-            jPanel1.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel1.setBackground(new java.awt.Color(23, 160, 134));
 
             jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
             jLabel57.setForeground(new java.awt.Color(255, 255, 255));
@@ -422,7 +378,7 @@ DefaultTableModel m;
                     .addComponent(btnAlertConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            lblUsuario.setForeground(new java.awt.Color(41, 127, 184));
+            lblUsuario.setForeground(new java.awt.Color(23, 160, 134));
             lblUsuario.setText("jLabel1");
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -463,7 +419,7 @@ DefaultTableModel m;
 
             jTabbedPane1.addTab("tab1", jPanel1);
 
-            jPanel3.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel3.setBackground(new java.awt.Color(23, 160, 134));
 
             jLabel58.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
             jLabel58.setForeground(new java.awt.Color(255, 255, 255));
@@ -473,13 +429,9 @@ DefaultTableModel m;
             jLabel4.setForeground(new java.awt.Color(255, 255, 255));
             jLabel4.setText("Nombre de Terminal");
 
-            jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-            jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel5.setText("Numero de Terminal");
-
             jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
             jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel6.setText("Area");
+            jLabel6.setText("Servicio");
 
             panelCPT3.setBackground(new java.awt.Color(255, 255, 255));
             panelCPT3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -522,40 +474,6 @@ DefaultTableModel m;
                     .addGroup(panelCPT3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtCPT3, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                         .addComponent(btnBuscarCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            );
-
-            panelCPT4.setBackground(new java.awt.Color(255, 255, 255));
-            panelCPT4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-
-            txtNRO.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-            txtNRO.setForeground(new java.awt.Color(51, 51, 51));
-            txtNRO.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-            txtNRO.setBorder(null);
-            txtNRO.addCaretListener(new javax.swing.event.CaretListener() {
-                public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                    txtNROCaretUpdate(evt);
-                }
-            });
-            txtNRO.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyTyped(java.awt.event.KeyEvent evt) {
-                    txtNROKeyTyped(evt);
-                }
-            });
-
-            javax.swing.GroupLayout panelCPT4Layout = new javax.swing.GroupLayout(panelCPT4);
-            panelCPT4.setLayout(panelCPT4Layout);
-            panelCPT4Layout.setHorizontalGroup(
-                panelCPT4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelCPT4Layout.createSequentialGroup()
-                    .addGap(5, 5, 5)
-                    .addComponent(txtNRO, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
-            );
-            panelCPT4Layout.setVerticalGroup(
-                panelCPT4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelCPT4Layout.createSequentialGroup()
-                    .addGap(0, 0, 0)
-                    .addComponent(txtNRO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
@@ -618,7 +536,7 @@ DefaultTableModel m;
                     .addComponent(btnAlertConsulta2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            jPanel68.setBackground(new java.awt.Color(0, 98, 155));
+            jPanel68.setBackground(new java.awt.Color(17, 106, 89));
 
             btnAlertConsulta3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             btnAlertConsulta3.setForeground(new java.awt.Color(240, 240, 240));
@@ -638,7 +556,7 @@ DefaultTableModel m;
             jPanel68.setLayout(jPanel68Layout);
             jPanel68Layout.setHorizontalGroup(
                 jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(btnAlertConsulta3, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                .addComponent(btnAlertConsulta3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
             );
             jPanel68Layout.setVerticalGroup(
                 jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,12 +565,8 @@ DefaultTableModel m;
                     .addComponent(btnAlertConsulta3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            lblARID.setForeground(new java.awt.Color(41, 127, 184));
+            lblARID.setForeground(new java.awt.Color(23, 160, 134));
             lblARID.setText("jLabel1");
-
-            jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-            jLabel1.setForeground(new java.awt.Color(41, 127, 184));
-            jLabel1.setText("Este Nº de terminal ya se encuentra consignado.");
 
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
             jPanel3.setLayout(jPanel3Layout);
@@ -660,33 +574,27 @@ DefaultTableModel m;
                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel6))
-                                    .addGap(23, 23, 23)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(panelCPT5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(panelCPT3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblARID))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addComponent(panelCPT4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(0, 228, Short.MAX_VALUE))
-                                .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(25, 25, 25)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addComponent(jLabel4)
+                                            .addGap(23, 23, 23)
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(panelCPT5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(panelCPT3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblARID)
+                                    .addGap(0, 267, Short.MAX_VALUE)))))
                     .addGap(13, 13, 13))
             );
             jPanel3Layout.setVerticalGroup(
@@ -698,17 +606,13 @@ DefaultTableModel m;
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel4)
                         .addComponent(panelCPT5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(21, 21, 21)
+                    .addGap(18, 18, 18)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel5)
-                        .addComponent(panelCPT4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGap(21, 21, 21)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelCPT3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblARID, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(panelCPT3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblARID))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel67, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanel68, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -717,49 +621,15 @@ DefaultTableModel m;
 
             jTabbedPane1.addTab("tab1", jPanel3);
 
-            jPanel4.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel4.setBackground(new java.awt.Color(23, 160, 134));
 
             jLabel59.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
             jLabel59.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel59.setText("Configuración de la Impresora");
+            jLabel59.setText("Prueba de Impresión");
 
-            jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+            jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel7.setText("Nombre de la impresora");
-
-            jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-            jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel8.setText("Puerto");
-
-            panelCPT7.setBackground(new java.awt.Color(255, 255, 255));
-            panelCPT7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-
-            txtCPT6.setEditable(false);
-            txtCPT6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-            txtCPT6.setForeground(new java.awt.Color(51, 51, 51));
-            txtCPT6.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-            txtCPT6.setBorder(null);
-            txtCPT6.addCaretListener(new javax.swing.event.CaretListener() {
-                public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                    txtCPT6CaretUpdate(evt);
-                }
-            });
-
-            javax.swing.GroupLayout panelCPT7Layout = new javax.swing.GroupLayout(panelCPT7);
-            panelCPT7.setLayout(panelCPT7Layout);
-            panelCPT7Layout.setHorizontalGroup(
-                panelCPT7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelCPT7Layout.createSequentialGroup()
-                    .addGap(5, 5, 5)
-                    .addComponent(txtCPT6, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
-            );
-            panelCPT7Layout.setVerticalGroup(
-                panelCPT7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelCPT7Layout.createSequentialGroup()
-                    .addGap(0, 0, 0)
-                    .addComponent(txtCPT6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            );
+            jLabel7.setText("<HTML>Imprimiremos un reporte del formato de emergencia como ejemplo,<BR>\nPara averiguar si la impresora es completamente funcional</HTML>\n");
 
             jPanel69.setBackground(new java.awt.Color(43, 43, 43));
 
@@ -790,7 +660,7 @@ DefaultTableModel m;
                     .addComponent(btnAlertConsulta4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            jPanel70.setBackground(new java.awt.Color(0, 98, 155));
+            jPanel70.setBackground(new java.awt.Color(17, 106, 89));
 
             btnAlertConsulta5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             btnAlertConsulta5.setForeground(new java.awt.Color(240, 240, 240));
@@ -822,10 +692,9 @@ DefaultTableModel m;
             btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btnImprimir.setForeground(new java.awt.Color(240, 240, 240));
             btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imprimir-32.png"))); // NOI18N
-            btnImprimir.setText("Prueba de Impresión");
+            btnImprimir.setText("Imprimir");
             btnImprimir.setContentAreaFilled(false);
             btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnImprimir.setEnabled(false);
             btnImprimir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnImprimir.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
             btnImprimir.setIconTextGap(30);
@@ -836,10 +705,6 @@ DefaultTableModel m;
                 }
             });
 
-            cbxImpresoras.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            cbxImpresoras.setForeground(new java.awt.Color(51, 51, 51));
-            cbxImpresoras.setEnabled(false);
-
             javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
             jPanel4.setLayout(jPanel4Layout);
             jPanel4Layout.setHorizontalGroup(
@@ -849,15 +714,9 @@ DefaultTableModel m;
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addGap(25, 25, 25)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+                                .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel8))
-                                    .addGap(23, 23, 23)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(panelCPT7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbxImpresoras, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -877,17 +736,11 @@ DefaultTableModel m;
                     .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGap(61, 61, 61)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel7)
-                                .addComponent(cbxImpresoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(19, 19, 19)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel8)
-                                .addComponent(panelCPT7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(50, 50, 50)
+                            .addGap(63, 63, 63)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(99, 99, 99)
                             .addComponent(btnImprimir)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                             .addComponent(jPanel69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -897,7 +750,7 @@ DefaultTableModel m;
 
             jTabbedPane1.addTab("tab1", jPanel4);
 
-            jPanel5.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel5.setBackground(new java.awt.Color(23, 160, 134));
 
             jLabel60.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
             jLabel60.setForeground(new java.awt.Color(255, 255, 255));
@@ -932,7 +785,7 @@ DefaultTableModel m;
                     .addComponent(btnAlertConsulta6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            jPanel72.setBackground(new java.awt.Color(0, 98, 155));
+            jPanel72.setBackground(new java.awt.Color(17, 106, 89));
 
             btnAlertConsulta7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             btnAlertConsulta7.setForeground(new java.awt.Color(240, 240, 240));
@@ -1020,7 +873,7 @@ DefaultTableModel m;
 
             jTabbedPane1.addTab("tab1", jPanel5);
 
-            jPanel2.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel2.setBackground(new java.awt.Color(23, 160, 134));
 
             lblMensaje.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
             lblMensaje.setForeground(new java.awt.Color(255, 255, 255));
@@ -1032,7 +885,7 @@ DefaultTableModel m;
             lblDes.setText("La configuración del terminal se guardó de forma correcta.");
             lblDes.setToolTipText("");
 
-            panelMenu.setBackground(new java.awt.Color(0, 98, 155));
+            panelMenu.setBackground(new java.awt.Color(17, 106, 89));
 
             lblUsu1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             lblUsu1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1063,7 +916,7 @@ DefaultTableModel m;
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
-            jPanel73.setBackground(new java.awt.Color(0, 98, 155));
+            jPanel73.setBackground(new java.awt.Color(17, 106, 89));
 
             btnAlertConsulta8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             btnAlertConsulta8.setForeground(new java.awt.Color(240, 240, 240));
@@ -1109,7 +962,7 @@ DefaultTableModel m;
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel73, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGap(13, 13, 13))
-                .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
             jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1133,61 +986,9 @@ DefaultTableModel m;
             pack();
         }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCPT3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCPT3CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCPT3CaretUpdate
-
-    private void btnBuscarCPT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCPT1ActionPerformed
-        Unidad.setVisible(true);
-    }//GEN-LAST:event_btnBuscarCPT1ActionPerformed
-
-    private void txtNROCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNROCaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNROCaretUpdate
-
-    private void txtPCCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPCCaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPCCaretUpdate
-
     private void btnAlertConsulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta1ActionPerformed
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btnAlertConsulta1ActionPerformed
-
-    private void btnAlertConsulta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta2ActionPerformed
-       Caja_PC_Registro cn = new Caja_PC_Registro();
-        if(cn.VerificarNumero(txtNRO.getText())>0){
-                jLabel1.setForeground(new Color(255,255,255));
-               
-            }else{
-            jLabel1.setForeground(new Color(41,127,184));
-            jTabbedPane1.setSelectedIndex(2);
-        }
-        
-    }//GEN-LAST:event_btnAlertConsulta2ActionPerformed
-
-    private void btnAlertConsulta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta3ActionPerformed
-        jTabbedPane1.setSelectedIndex(0);
-    }//GEN-LAST:event_btnAlertConsulta3ActionPerformed
-
-    private void txtCPT6CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCPT6CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCPT6CaretUpdate
-
-    private void btnAlertConsulta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta4ActionPerformed
-
-       
-        lblResumenPC.setText("<HTML>"+"Terminal "+txtPC.getText()+"<br>"+"Nº "+txtNRO.getText()+"<BR>"+"Área "+txtCPT3.getText());
-        
-        jTabbedPane1.setSelectedIndex(3);
-    }//GEN-LAST:event_btnAlertConsulta4ActionPerformed
-
-    private void btnAlertConsulta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta5ActionPerformed
-        jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_btnAlertConsulta5ActionPerformed
-
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-   
-    }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnAlertConsulta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta6ActionPerformed
         Guardar();
@@ -1243,7 +1044,7 @@ DefaultTableModel m;
 
     private void lblUsu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUsu1MouseClicked
         Caja_PC_Registro CPC = new Caja_PC_Registro();
-        CPC.VerificarExistencia(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbPC);
+        CPC.VerificarExistenciaEME(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbEME);
         dispose();
     }//GEN-LAST:event_lblUsu1MouseClicked
 
@@ -1251,18 +1052,42 @@ DefaultTableModel m;
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btnAlertConsulta8ActionPerformed
 
-    private void txtNROKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNROKeyTyped
-        if (txtNRO.getText().length()==1){
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
-        char tecla;
-        tecla = evt.getKeyChar();
-        if(!Character.isDigit(tecla)){
-            evt.consume();
-            getToolkit().beep();            
-        }    
-    }//GEN-LAST:event_txtNROKeyTyped
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnAlertConsulta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta5ActionPerformed
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_btnAlertConsulta5ActionPerformed
+
+    private void btnAlertConsulta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta4ActionPerformed
+
+        lblResumenPC.setText("<HTML>"+"Terminal "+txtPC.getText()+"<BR>"+"Servicio "+txtCPT3.getText());
+
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_btnAlertConsulta4ActionPerformed
+
+    private void btnAlertConsulta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta3ActionPerformed
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_btnAlertConsulta3ActionPerformed
+
+    private void btnAlertConsulta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta2ActionPerformed
+
+            jTabbedPane1.setSelectedIndex(2);
+
+    }//GEN-LAST:event_btnAlertConsulta2ActionPerformed
+
+    private void txtPCCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPCCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPCCaretUpdate
+
+    private void btnBuscarCPT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCPT1ActionPerformed
+        Unidad.setVisible(true);
+    }//GEN-LAST:event_btnBuscarCPT1ActionPerformed
+
+    private void txtCPT3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCPT3CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCPT3CaretUpdate
 
     /**
      * @param args the command line arguments
@@ -1281,20 +1106,21 @@ DefaultTableModel m;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Caja_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmEmer_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Caja_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmEmer_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Caja_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmEmer_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Caja_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmEmer_Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Caja_Registro().setVisible(true);
+                new AdmEmer_Registro().setVisible(true);
             }
         });
     }
@@ -1312,19 +1138,15 @@ DefaultTableModel m;
     private javax.swing.JButton btnBuscarCPT1;
     private javax.swing.JButton btnBuscarPaciente4;
     public static javax.swing.JButton btnImprimir;
-    public static javax.swing.JComboBox cbxImpresoras;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel29;
@@ -1351,15 +1173,11 @@ DefaultTableModel m;
     private javax.swing.JLabel lblUsu1;
     public static javax.swing.JLabel lblUsuario;
     private javax.swing.JPanel panelCPT3;
-    private javax.swing.JPanel panelCPT4;
     private javax.swing.JPanel panelCPT5;
-    private javax.swing.JPanel panelCPT7;
     private javax.swing.JPanel panelMenu;
     private javax.swing.JTable tb_Grupos1;
     private javax.swing.JTextField txtBuscar1;
     public static javax.swing.JTextField txtCPT3;
-    public static javax.swing.JTextField txtCPT6;
-    public static javax.swing.JTextField txtNRO;
     public static javax.swing.JTextField txtPC;
     // End of variables declaration//GEN-END:variables
 }

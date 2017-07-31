@@ -1369,7 +1369,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         try {
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
-            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorio - copia.jasper"), parametros, con.conectar());   
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorioSIS - copia.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 Caja_Pagos.ErrorPrint.setUndecorated(true);

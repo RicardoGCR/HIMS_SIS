@@ -1719,6 +1719,7 @@ DefaultTableModel m, m1, m2, m3, m4, msb, m5, m6;
 
             TXT_HORA_COMPLETA.setText(hora_completa);
              
+            restar_horas();
         }
     }//GEN-LAST:event_CBX_HORA_FINKeyPressed
     
@@ -2247,6 +2248,107 @@ DefaultTableModel m, m1, m2, m3, m4, msb, m5, m6;
                     System.out.println("error cargar horas cbx: " + e.getMessage());
                     
                 }
+    }
+    
+    public void restar_horas(){
+        
+        String h = CBX_HORA_INICIO.getSelectedItem().toString();
+        String h2 = CBX_HORA_FIN.getSelectedItem().toString();
+        
+        int a = Integer.parseInt(h.substring(0, 2));
+        int b = Integer.parseInt(h.substring(3, 5));
+        int c = Integer.parseInt(h.substring(6, 8));
+        
+        int a1 = Integer.parseInt(h2.substring(0, 2));
+        int b1 = Integer.parseInt(h2.substring(3, 5));
+        int c1 = Integer.parseInt(h2.substring(6, 8));
+        
+        int hora =0, minuto=0, segundo =0;
+        
+        if(a < a1 && b < b1){
+            hora = a1 - a;
+            minuto = b1 - b;
+        }
+        
+        if(a == a1 && b < b1){
+            hora = 00;
+            minuto = b1 - b;
+        }
+        
+        if(a < a1 && b == b1){
+            hora = a1 - a;
+            minuto = 00;
+        }
+        
+        if(a < a1 && b > b1){
+            hora = (a1 - a) - 1;
+            int m=0;
+            m = 60 - b;
+            minuto = m + b1;
+        }
+        
+        
+        
+        if(a1==00 && b1==00 && a!=00 && b!=00){
+            hora = (24 - a) - 1;
+            minuto = 60 - b;
+        }
+        
+        if(a1==00 && b1==00 && a!=00 && b==00){
+            hora = (24 - a);
+            minuto = 00;
+        }
+        
+        if(a > a1 && b!=00){
+            int q=0,w=0,e=0,r=0;
+            q = (24 - a) - 1;
+            w =  60 - b;
+            
+            e = a1;
+            r = b1;
+            
+            hora = q + e;
+            minuto = w + r;
+            
+            if(minuto >= 60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }            
+        }
+        
+        if(a > a1 && b==00 ){
+            int d=0, f=0, g=0, j=0;
+            d = (24 - a);
+            f = 00;
+            
+            g = a1;
+            j = b1;
+            
+            hora = d + g;
+            minuto = f + j;
+            
+            if(minuto >= 60){
+                hora = hora + 1;
+                minuto = minuto - 60;
+            }  
+        }
+        
+        String horaf = "", minutof ="";
+        
+        if(hora < 10){
+            horaf = ("0" + hora);
+        }else{
+            horaf = String.valueOf(hora);
+        }
+        
+        if(minuto < 10){
+            minutof = ("0" + minuto);
+        }else{
+            minutof = String.valueOf(minuto);
+        }
+                
+        TXT_TOTAL_HORA.setText(horaf + ":" + minutof + ":" + segundo + "0");
+//        System.out.println("hora: " + hora + " " + minuto + " " + segundo);
     }
     
     /**

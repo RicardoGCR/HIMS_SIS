@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/D:/pry/HIMS/src/vista/PERSONAL/PERSONAL_TURNOS.java</file>
 =======
 <<<<<<< HEAD
@@ -15,6 +16,13 @@
             <file>file:/D:/pry/HIMS/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
 >>>>>>> ba336f10f0ba649639e3bfda3ab959e0d41fb62a
 >>>>>>> 1e892aa00d372619fe22d94ae56c38ff1fc0fb85
+=======
+            <file>file:/D:/pry/HIMS/src/modelos/admisionEmergencia/AdmisionEmergenciaTriaje.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/admisionEmergencia/FrmFormatoEmergenciaCabecera.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
+            <file>file:/D:/pry/HIMS/src/modelos/admisionEmergencia/AdmisionEmergenciaCabecera.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/admisionEmergencia/FrmFormatoEmergenciaTriaje.java</file>
+>>>>>>> 8bb55984f1ae610cde94504f8ccdca68ac8bfaae
         </group>
     </open-files>
 </project-private>

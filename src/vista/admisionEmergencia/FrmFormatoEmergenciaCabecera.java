@@ -455,14 +455,14 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
     
     public void enviarDatosTbPaciente(){
         int fila = tbPacientes.getSelectedRow();
-        txtBuscarPaciente.setText("");
+//        txtBuscarPaciente.setText("");
         BHC.dispose();
-        if(lblPestana.getText().equals("C")){
+
             txtNHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
             lblTriajeId.setText(String.valueOf(tbPacientes.getValueAt(fila, 8)));
             txtTraidopor.requestFocus();
              btnGuardar.setEnabled(true);
-        }
+
     }
     public void Actualizar_ESTADO_PREVENTA(){
                 Caja_Preventa AME = new Caja_Preventa();

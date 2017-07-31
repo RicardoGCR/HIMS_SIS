@@ -300,6 +300,9 @@
 			</staticText>
 			<staticText>
 				<reportElement x="119" y="54" width="100" height="20" uuid="c45542a3-8274-4962-9394-f9d931125e36"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[Static text]]></text>
 			</staticText>
 			<staticText>
@@ -325,6 +328,9 @@
 			</staticText>
 			<textField>
 				<reportElement x="119" y="26" width="81" height="14" uuid="108a1533-fa14-479e-a6b2-82fbb9f68c87"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{BASE}]]></textFieldExpression>
 			</textField>
 			<staticText>

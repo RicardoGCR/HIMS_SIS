@@ -36,6 +36,8 @@ import static vista.admisionEmergencia.FrmFormatoEmergencia.lblFechaNac;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.lblGenero;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.lblProvincia;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.lblSector;
+import vista.admisionEmergencia.FrmFormatoEmergenciaTopico;
+import vista.admisionEmergencia.FrmFormatoEmergenciaTriaje;
 
 /**
  *
@@ -59,6 +61,8 @@ public class AdmisionEmergenciaCabecera {
     private String cod_usu;
     private String emer_nom_pc;
     private String emer_estado;
+    private String nom_usu;
+    private int ar_id;
     Conexion con = new Conexion();
 
     public boolean insertarAdmisionemergenciaCabecera()
@@ -86,6 +90,29 @@ public class AdmisionEmergenciaCabecera {
         catch(Exception ex)
         {
             System.out.println("Error_insertarAdmisionemergenciaCabecera: " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean NuevoTerminal(){
+        boolean resp = false;
+        try{
+            String sql = "exec ADMISION_EMERGENCIA_CONFIGURAR_TERMINAL "
+                        + "?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            //cmd.setString(1, getCod_nomen_caja());
+            cmd.setInt(1, getAr_id());
+            cmd.setString(2, getNom_usu());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error  " + ex.getMessage());
         }
         return resp;
     }
@@ -141,15 +168,20 @@ public class AdmisionEmergenciaCabecera {
     }
     
     public void formatoTablaCargarFormatEmer(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//cod emergencia
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(1).setPreferredWidth(160);//apellidos
         tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//nombres
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(80);//dni
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(4).setPreferredWidth(90);//cod emergencia
         tabla.getColumnModel().getColumn(5).setPreferredWidth(160);//apellidos
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//nombres
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(7).setPreferredWidth(100);//dni
-        tabla.setRowHeight(25);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0); 
+        tabla.setRowHeight(38);
     }
     
     public void cargarFormatEmer(String id_hc,String fecha,JTable tabla){
@@ -157,10 +189,10 @@ public class AdmisionEmergenciaCabecera {
         try {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"ID","Traído por","Parentesco","ID FL","Forma de Llegada",
-                "Observación","Fecha de ing","Hora de ing"};
+                "Observación","Fecha de ing","Hora de ing","HC"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[8];
+            String fila[]=new String[9];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_PREVENTA_LISTAR_MOSTRAR_MODIF ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -177,6 +209,7 @@ public class AdmisionEmergenciaCabecera {
                 fila[5]=r.getString(6);
                 fila[6]=r.getString(7); // dni
                 fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
                 //fila[4]=r.getString(1); // codigo de hc
                     m.addRow(fila);
                     c++;
@@ -268,10 +301,13 @@ public class AdmisionEmergenciaCabecera {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                FrmFormatoEmergencia.lblPaciente.setText(r.getString(2) + " " + r.getString(3) + " " + 
+                FrmFormatoEmergenciaTriaje.lblPaciente.setText(r.getString(2) + " " + r.getString(3) + " " + 
                                  r.getString(4) + " " + r.getString(5) + " " +
                                  r.getString(6)); 
-                FrmFormatoEmergencia.lblIDHCTr.setText(r.getString(18));
+
+                FrmFormatoEmergenciaTriaje.lblTraidoporTriaje.setText(r.getString(19));
+                FrmFormatoEmergenciaTriaje.lblParentesco.setText(r.getString(8));
+                FrmFormatoEmergenciaTriaje.lblIDHCTr.setText(r.getString(18));
             }
             //
         } catch (Exception e) {
@@ -288,14 +324,41 @@ public class AdmisionEmergenciaCabecera {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                FrmFormatoEmergencia.lblPacienteTo.setText(r.getString(2) + " " + r.getString(3) + " " + 
+                FrmFormatoEmergenciaTopico.lblPacienteTo.setText(r.getString(2) + " " + r.getString(3) + " " + 
                                  r.getString(4) + " " + r.getString(5) + " " +
                                  r.getString(6)); 
-                FrmFormatoEmergencia.lblIDHCTo.setText(r.getString(18));
+                FrmFormatoEmergenciaTopico.lblIDHCTo.setText(r.getString(18));
             }
             //
         } catch (Exception e) {
             System.out.println("Error_mostrar_MovHC: " + e.getMessage());
+        }
+    }
+    
+    public void mostrarHCTopicoT(String nhc){
+        String consulta="";
+        try {
+            consulta="EXEC ADMISION_EMERGENCIA_MOSTRAR_DATOS_TRIAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, nhc);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                FrmFormatoEmergenciaTopico.lblPacienteTo.setText(r.getString(3));
+                
+                FrmFormatoEmergenciaTopico.lblTriaje.setText("TRIAJE |    P.A. "+r.getString(10)+
+                    "      F.C. "+(r.getString(11))+
+                    "      F.R. "+(r.getString(12))+
+                    "      Tº. "+(r.getString( 13))+
+                    "      PESO "+(r.getString(14))+
+                    "      TALLA "+(r.getString(15))+
+                    "      IDM "+(r.getString(16)));
+                FrmFormatoEmergenciaTopico.lblFP.setText(r.getString(17));
+                FrmFormatoEmergenciaTopico.lblIdFP.setText(r.getString(18));
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error_mostrar_MovHC TRIAJE: " + e.getMessage());
         }
     }
     
@@ -631,6 +694,24 @@ public class AdmisionEmergenciaCabecera {
     public void setEmer_estado(String emer_estado) {
         this.emer_estado = emer_estado;
     }
+
+    public String getNom_usu() {
+        return nom_usu;
+    }
+
+    public void setNom_usu(String nom_usu) {
+        this.nom_usu = nom_usu;
+    }
+
+    public int getAr_id() {
+        return ar_id;
+    }
+
+    public void setAr_id(int ar_id) {
+        this.ar_id = ar_id;
+    }
+    
+    
 
     
 }

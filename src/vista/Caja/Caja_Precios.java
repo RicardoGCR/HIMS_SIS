@@ -1239,7 +1239,9 @@ Ticket ticket=new Ticket();
 
                     jScrollPane3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
+                    tb_Grupo1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                     tb_Grupo1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                    tb_Grupo1.setForeground(new java.awt.Color(51, 51, 51));
                     tb_Grupo1.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
                             {null, null, null, null},

@@ -13,6 +13,7 @@ import static modelos.admisionEmergencia.AdmisionEmergenciaCabecera.m;
 import servicios.Conexion;
 import vista.ConsultorioEx.HistoriaClinica;
 import vista.admisionEmergencia.FrmFormatoEmergencia;
+import vista.admisionEmergencia.FrmFormatoEmergenciaTriaje;
 
 /**
  *
@@ -36,24 +37,28 @@ public class AdmisionEmergenciaTriaje {
     private String triaje_estado;
     private String triaje_talla;
     private String modulo;
+    private String id_hc;
+    private String IDM;
+
     
     public boolean mantenimientoAdmisionemergenciaTriaje(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "EXEC ADMISION_EMERGENCIA_TRIAJE_MANTANIMIENTO ?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "EXEC ADMISION_EMERGENCIA_TRIAJE_MANTANIMIENTO ?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getTriaje_id());
-            cmd.setInt(2, getPreventa_id());
-            cmd.setString(3, getTriaje_fv_pa());
-            cmd.setString(4, getTriaje_fv_fc());
-            cmd.setString(5, getTriaje_fv_fr());
-            cmd.setString(6, getTriaje_fv_t());
-            cmd.setString(7, getTriaje_fv_peso());
-            cmd.setString(8, getCod_usu());
-            cmd.setString(9, getTriaje_talla());
-            cmd.setString(10, getModulo());
-            cmd.setString(11, tipo);
+            cmd.setString(2, getTriaje_fv_pa());
+            cmd.setString(3, getTriaje_fv_fc());
+            cmd.setString(4, getTriaje_fv_fr());
+            cmd.setString(5, getTriaje_fv_t());
+            cmd.setString(6, getTriaje_fv_peso());
+            cmd.setString(7, getCod_usu());
+            cmd.setString(8, getTriaje_talla());
+            cmd.setString(9, getModulo());
+            cmd.setString(10, getId_hc());
+            cmd.setString(11, getIDM());
+            cmd.setString(12, tipo);
             if(!cmd.execute())
             {
                 resp = true;
@@ -303,36 +308,37 @@ public class AdmisionEmergenciaTriaje {
         tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//id triaje
         tabla.getColumnModel().getColumn(1).setPreferredWidth(70);//nhc
         tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//nhc
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(90);//dni
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(240);//paciente
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(80);//fecha de ingreso
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(80);//hora de ingreso 
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(240);//traido por
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(100);//parentesco
-        tabla.getColumnModel().getColumn(9).setPreferredWidth(60);//fc
-        tabla.getColumnModel().getColumn(10).setPreferredWidth(60);//fr  
-        tabla.getColumnModel().getColumn(11).setPreferredWidth(60);//pa
-        tabla.getColumnModel().getColumn(12).setPreferredWidth(60);//peso
-        tabla.getColumnModel().getColumn(13).setPreferredWidth(60);//Tº
-        tabla.getColumnModel().getColumn(14).setPreferredWidth(60);//Talla
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(240);//dni
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);//paciente
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(60);//fecha de ingreso
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(50);//hora de ingreso 
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(50);//traido por
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);//parentesco
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(50);//fc
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(50);//fr  
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(50);//pa
+        tabla.getColumnModel().getColumn(12).setMinWidth(0);
+        tabla.getColumnModel().getColumn(12).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(50);//pa
+
         TableColumn columna = tabla.getColumnModel().getColumn(0);//
             columna.setMaxWidth(1);
             columna.setMinWidth(1);
             columna.setPreferredWidth(1);
             tabla.doLayout();
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(38);
     }
     
     public void admisionEmergenciaTriajeListarReporte(String nhc,JTable tabla, String fechai,String fechaf){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","Acto Médico","N° H.C.","DNI","Paciente",
-                "Fecha de ingreso","Hora de ingreso","Traído por",
-                "Parenteso","FC","FR","PA","Peso","T°","Talla"};
+            String titulos[]={"ID","N° H.C.","DNI","Paciente",
+                "Fecha de ingreso","Hora de ingreso",
+                "FC","FR","PA","Peso","T°","Talla","id","IDM"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[15];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec ADMISION_EMERGENCIA_TRIAJE_LISTAR ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -356,7 +362,6 @@ public class AdmisionEmergenciaTriaje {
                 fila[11]=r.getString(12); // 
                 fila[12]=r.getString(13); // 
                 fila[13]=r.getString(14); // 
-                fila[14]=r.getString(15); // 
                     m.addRow(fila);
                     c++;
             }
@@ -403,7 +408,7 @@ public class AdmisionEmergenciaTriaje {
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {
-               FrmFormatoEmergencia.txtIDTriaje.setText(rs.getString(1));
+               FrmFormatoEmergenciaTriaje.txtIDTriaje.setText(rs.getString(1));
             }
         }
         catch(Exception ex)
@@ -628,4 +633,22 @@ public class AdmisionEmergenciaTriaje {
     public void setModulo(String modulo) {
         this.modulo = modulo;
     }
+
+    public String getId_hc() {
+        return id_hc;
+    }
+
+    public void setId_hc(String id_hc) {
+        this.id_hc = id_hc;
+    }
+
+    public String getIDM() {
+        return IDM;
+    }
+
+    public void setIDM(String IDM) {
+        this.IDM = IDM;
+    }
+    
+    
 }

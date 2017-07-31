@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDiario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="116460bc-b7e4-4692-82f2-1112038e3efc">
-	<property name="ireport.zoom" value="1.331000000000003"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="202"/>
+	<property name="ireport.zoom" value="2.3579476910000063"/>
+	<property name="ireport.x" value="14"/>
+	<property name="ireport.y" value="218"/>
 	<parameter name="USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SESION" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -32,7 +35,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
                          CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
                          CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
                          CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
-						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 WHERE CAJA_DOCUMENTO_CABECERA.ID_SESION = $P{SESION} AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as suma,(SELECT
 						count (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
@@ -46,7 +49,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
                          CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
                          CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
                          CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
-						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 WHERE CAJA_DOCUMENTO_CABECERA.ID_SESION = $P{SESION} AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO)
 	as cantidad,(SELECT
@@ -61,7 +64,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
                          CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
                          CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
                          CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
-						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 WHERE CAJA_DOCUMENTO_CABECERA.ID_SESION = $P{SESION} AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu!='MA001')as sumaAnulado,(SELECT
 						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (10,2)),2)AS 'TOTAL'
@@ -75,7 +78,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
                          CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
                          CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
                          CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
-						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 WHERE CAJA_DOCUMENTO_CABECERA.ID_SESION = $P{SESION} AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago IN('CONTADO' ,'EXONERACION') AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as CONTADO,
 						 (SELECT ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (10,2)),2)AS 'TOTAL'
@@ -89,7 +92,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
                          CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
                          CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
                          CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
-						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 WHERE CAJA_DOCUMENTO_CABECERA.ID_SESION = $P{SESION} AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago NOT IN('CONTADO' ,'EXONERACION')  AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as OTROS,
 						 ( select HOST_NAME())as PC, (SELECT NRO_PC FROM SISTEMA_CONFIGURACION_PC_AREA WHERE NOM_PC=HOST_NAME()and NOM_USU=$P{USUARIO} and PA_MODULO='CC') AS NRO
@@ -102,7 +105,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
                          CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
                          CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
                          CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
-						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 WHERE CAJA_DOCUMENTO_CABECERA.ID_SESION = $P{SESION} AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO
 						 ORDER BY CAJA_DOCUMENTO_CABECERA.hora_actu]]>
@@ -232,42 +235,42 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 	<columnHeader>
 		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="2" width="100" height="20" uuid="978fa1ae-5170-4f13-b470-1154e0395f51"/>
+				<reportElement x="0" y="0" width="100" height="22" uuid="978fa1ae-5170-4f13-b470-1154e0395f51"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Serie - Correlativo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="122" y="2" width="100" height="20" uuid="a725cfce-fb83-431f-91c2-4f27eb1540b7"/>
+				<reportElement x="122" y="0" width="100" height="22" uuid="a725cfce-fb83-431f-91c2-4f27eb1540b7"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Forma de Pago]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="274" y="2" width="100" height="20" uuid="7851196a-90db-4bb0-bfc1-3b5d9a27e3e1"/>
+				<reportElement x="274" y="0" width="100" height="22" uuid="7851196a-90db-4bb0-bfc1-3b5d9a27e3e1"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Estado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="382" y="2" width="100" height="20" uuid="180304c4-7683-4354-a781-3f7f9efbb7b6"/>
+				<reportElement x="382" y="0" width="100" height="22" uuid="180304c4-7683-4354-a781-3f7f9efbb7b6"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Dscto.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="427" y="2" width="100" height="20" uuid="17c03f41-37d7-48c7-9043-b230f5330972"/>
+				<reportElement x="427" y="0" width="100" height="22" uuid="17c03f41-37d7-48c7-9043-b230f5330972"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Total]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="485" y="2" width="100" height="20" uuid="8066c948-4cc1-4319-8499-ecdaffac1b36"/>
+				<reportElement x="485" y="0" width="100" height="22" uuid="8066c948-4cc1-4319-8499-ecdaffac1b36"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>

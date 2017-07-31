@@ -14,6 +14,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 import vista.Caja.Caja_Registro;
+import vista.admisionEmergencia.AdmEmer_Registro;
 
 /**
  *
@@ -43,6 +44,24 @@ private int AR_ID;
             System.out.println("Error: PC: " + e.getMessage());
         }
     }
+    
+    public void CajaPC_ListarEME(){
+        String consulta="";
+        try {
+            consulta="[CAJA_PC_NOMBRE] ";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                AdmEmer_Registro.txtPC.setText(r.getString(1)); 
+
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: PC: " + e.getMessage());
+        }
+    }
     public void PERFIL_USUARIO(String cp_id){
         String consulta="";
         try {
@@ -62,6 +81,26 @@ private int AR_ID;
             System.out.println("Error: PC: " + e.getMessage());
         }
     }
+    
+    public void PERFIL_USUARIOEME(String cp_id){
+        String consulta="";
+        try {
+            consulta="[CAJA_PERSONAL_USUARIO] ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                AdmEmer_Registro.lblUsu.setText("<html>"+r.getString(2)+"<span style=\"font-size:'14px'\"><br>"+"Usuario, "+r.getString(1)+"<html>");
+                AdmEmer_Registro.lblResumenUsuario.setText("<html>"+r.getString(2)+"<span style=\"font-size:'14px'\"><br>"+"Usuario, "+r.getString(1)+"<html>");
+       
+
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: PC: " + e.getMessage());
+        }
+    }
         public void VerificarExistencia(String Usuario,JTable tabla){
         String consulta="";
         try {
@@ -72,6 +111,33 @@ private int AR_ID;
             String fila[]=new String[1];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec CAJA_VERIFICAR_EXISTENCIA_PC_CONFIGURACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Usuario); ///bus1 esto se busca
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR PC EXISTENTE " + e.getMessage());
+        }
+    }
+        public void VerificarExistenciaEME(String Usuario,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"PC"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[1];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_VERIFICAR_EXISTENCIA_PC_CONFIGURACION_EME ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, Usuario); ///bus1 esto se busca
             ResultSet r= cmd.executeQuery();

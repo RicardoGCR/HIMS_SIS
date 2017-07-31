@@ -231,7 +231,7 @@ Conexion con = new Conexion();
     }
     
     
-public boolean DetalleVenta(){
+public boolean AGREGAR_DETALLE_VENTA(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_INSERTAR_DETALLE_VENTA "
@@ -248,7 +248,6 @@ public boolean DetalleVenta(){
             cmd.setString(7, getPersonal_aten());
             cmd.setString(8, getNum_aten());
             cmd.setString(9, getTurno_cita());
-            
             cmd.setString(10, getFecha_consulta());
             cmd.setString(11, getHora_consulta());
             cmd.setString(12, getCod_usu());

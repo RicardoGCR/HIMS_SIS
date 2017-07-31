@@ -134,10 +134,12 @@ public boolean nuevaNomenclatura(){
     }
     
     public void formatoNomenclaturaEmer(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(90);//cpt
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(555);//descripcion
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(100);//id
-        tabla.setRowHeight(25);
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+        tabla.setRowHeight(38);
     }
     
     public void cajaNomenclaturaListarEmergencia(String descripcion,JTable tabla){

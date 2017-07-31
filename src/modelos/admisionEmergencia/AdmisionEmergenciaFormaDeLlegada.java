@@ -73,9 +73,13 @@ public class AdmisionEmergenciaFormaDeLlegada {
     }
     
      public void formatoCargarFormaLlegada(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(60);//cod emergencia
+
         tabla.getColumnModel().getColumn(1).setPreferredWidth(100);//apellidos
         tabla.getColumnModel().getColumn(2).setPreferredWidth(100);//nombres
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+    
+        tabla.setRowHeight(45);
     }
     
     public void cargarFormatEmer(JTable tabla){

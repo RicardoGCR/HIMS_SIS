@@ -21,6 +21,7 @@ import servicios.Conexion;
 import vista.ConsultorioEx.HistoriaClinica;
 import vista.admisionEmergencia.FrmFormatoEmergencia;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.lbl2;
+import vista.admisionEmergencia.FrmFormatoEmergenciaTopico;
 import static vista.admisionEmergencia.FrmListFormatoEmergencia.tbTriaje;
 
 /**
@@ -101,8 +102,38 @@ public class AdmisionEmergenciaTopico {
         return resp;
     }
     
+    
+      public boolean ACTUALIZAR_ESTADO_PREVENTA()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTUALIZAR_ESTADO_TRIAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getTriaje_id());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ACTUALIZAR ESTADO TRIAJE : " + ex.getMessage());
+        }
+        return resp;
+    }
+
+
+    
     public void formatoTablaCargarLaboratorio(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(60);//CODIGO
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(100);//CODIGO
         TableColumn columna = tabla.getColumnModel().getColumn(3);
             columna.setMaxWidth(0);
             columna.setMinWidth(0);
@@ -145,8 +176,10 @@ public class AdmisionEmergenciaTopico {
     }
     
     public void formatoTablaCargarCie10(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
         tabla.setRowHeight(30);
     }
@@ -323,9 +356,11 @@ public class AdmisionEmergenciaTopico {
     
     public void formatoAdmisionEmergenciaTopicoDetalles(JTable tabla,int tipo){
         if(tipo==1){
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(1);//codigo
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(250);//fecha d ing
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(100);//fecha ingreso
+            tabla.getColumnModel().getColumn(2).setMinWidth(0);
+            tabla.getColumnModel().getColumn(2).setMaxWidth(0);
 //            TableColumn columna = tabla.getColumnModel().getColumn(0);
 //            columna.setMaxWidth(0);
 //            columna.setMinWidth(0);
@@ -333,8 +368,10 @@ public class AdmisionEmergenciaTopico {
 //            tabla.setRowHeight(0);
 //            tabla.doLayout();
         } else {
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(40);//codigo
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(60);//fecha d ing
+            tabla.getColumnModel().getColumn(0).setMinWidth(0);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(600);//fecha ingreso
         }
         tabla.setRowHeight(25);
@@ -420,7 +457,7 @@ public class AdmisionEmergenciaTopico {
     
     public void formatoTablaTopicoReporteFinal(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//id topico
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(70);//nhc
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(70);//AM
         tabla.getColumnModel().getColumn(2).setPreferredWidth(70);//nhc
         tabla.getColumnModel().getColumn(3).setPreferredWidth(80);//dni
         tabla.getColumnModel().getColumn(4).setPreferredWidth(200);//paciente
@@ -446,12 +483,16 @@ public class AdmisionEmergenciaTopico {
         tabla.getColumnModel().getColumn(24).setPreferredWidth(100);//hora de registro
         tabla.getColumnModel().getColumn(25).setPreferredWidth(200);//fecha de registro
         tabla.getColumnModel().getColumn(26).setPreferredWidth(50);//hora de registro
+        tabla.getColumnModel().getColumn(27).setMinWidth(0);
+        tabla.getColumnModel().getColumn(27).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(28).setMinWidth(0);
+        tabla.getColumnModel().getColumn(28).setMaxWidth(0);
         TableColumn columna = tabla.getColumnModel().getColumn(0);
             columna.setMaxWidth(1);
             columna.setMinWidth(1);
             columna.setPreferredWidth(1);
             tabla.doLayout();
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(38);
     }
     
     public void admisionEmergenciaTopicoReporteFinal(String nhc,JTable tabla, String fechai,String fechaf){
@@ -465,10 +506,10 @@ public class AdmisionEmergenciaTopico {
                 "Plan de trabajo","Anotaciones Médicas",
                 "Anotaciones de enfermería","Evaluación del paciente",
                 "Ubicación al egreso","Fecha de ingreso",
-                "Hora de ingreso","Fecha de registro","Hora de registro","Traido por","Prioridad"};
+                "Hora de ingreso","Fecha de registro","Hora de registro","Traido por","Prioridad","ID_T","ID_PV"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[27];
+            String fila[]=new String[29];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec ADMISION_EMERGENCIA_TOPICO_REPORTE_FINAL ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -505,6 +546,8 @@ public class AdmisionEmergenciaTopico {
                 fila[24]=r.getString(25); // 
                 fila[25]=r.getString(26); // 
                 fila[26]=r.getString(27); // 
+                fila[27]=r.getString(28); //
+                fila[28]=r.getString(29); //
                     m.addRow(fila);
                     c++;
             }
@@ -613,7 +656,7 @@ public class AdmisionEmergenciaTopico {
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {
-               FrmFormatoEmergencia.lbl2.setText(rs.getString(1));
+               FrmFormatoEmergenciaTopico.lbl2.setText(rs.getString(1));
             }
         }
         catch(Exception ex)

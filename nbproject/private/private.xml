@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_Documento_Detalle.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
+=======
+            <file>file:/D:/pry/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/PERSONAL/PERSONAL_TURNOS.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
+>>>>>>> ba336f10f0ba649639e3bfda3ab959e0d41fb62a
         </group>
     </open-files>
 </project-private>

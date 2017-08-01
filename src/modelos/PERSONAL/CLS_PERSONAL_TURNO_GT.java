@@ -16,14 +16,21 @@ import servicios.Conexion;
  */
 public class CLS_PERSONAL_TURNO_GT {
     private Connection cn;
-    private String COD_TUR;
+    
     private String COD_HORARIO;
     private String COD_TIPO_TURNO;
     private String NOMENCLATURA;
     private String DESCRIPCION;
     private String HORA_TOTAL;
+    private String COD_TUR;
+    private double PRECIO_NORMAL;
+    private double PRECIO_SABADO;
+    private double PRECIO_DOMINGO;
+    private double PRECIO_FERIADO;
     private String COD_USU;
+    private String NOM_USU;
     
+
     public CLS_PERSONAL_TURNO_GT()
     {
         Conexion con = new Conexion();
@@ -77,7 +84,7 @@ public class CLS_PERSONAL_TURNO_GT {
         boolean resp = false;
         try
         {
-            String sql = "exec PERSONAL_TURNOS_GT_INSERTAR ?,?,?,?,?,?";
+            String sql = "exec PERSONAL_TURNOS_GT_INSERTAR ?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
 //            cmd.setString(1, getCOD_UNI_ORG_ACTI());
             cmd.setString(1, getCOD_HORARIO());
@@ -85,7 +92,13 @@ public class CLS_PERSONAL_TURNO_GT {
             cmd.setString(3, getNOMENCLATURA());
             cmd.setString(4, getDESCRIPCION());
             cmd.setString(5, getHORA_TOTAL());
-            cmd.setString(6, getCOD_USU());
+            cmd.setString(6, getCOD_TUR());
+            cmd.setDouble(7, getPRECIO_NORMAL());
+            cmd.setDouble(8, getPRECIO_SABADO());
+            cmd.setDouble(9, getPRECIO_DOMINGO());
+            cmd.setDouble(10, getPRECIO_FERIADO());
+            cmd.setString(11, getCOD_USU());
+            cmd.setString(12, getNOM_USU());
             
             if(!cmd.execute())
             {
@@ -96,7 +109,7 @@ public class CLS_PERSONAL_TURNO_GT {
         }
         catch(Exception ex)
         {
-            System.out.println("Error guardar TURNOS GT: " + ex.getMessage());
+            System.out.println("Error guardar TURNOS PRECIO GT: " + ex.getMessage());
         }
         return resp;
     }
@@ -188,6 +201,47 @@ public class CLS_PERSONAL_TURNO_GT {
     public void setCOD_USU(String COD_USU) {
         this.COD_USU = COD_USU;
     }
+
+    public double getPRECIO_NORMAL() {
+        return PRECIO_NORMAL;
+    }
+
+    public void setPRECIO_NORMAL(double PRECIO_NORMAL) {
+        this.PRECIO_NORMAL = PRECIO_NORMAL;
+    }
+
+    public double getPRECIO_SABADO() {
+        return PRECIO_SABADO;
+    }
+
+    public void setPRECIO_SABADO(double PRECIO_SABADO) {
+        this.PRECIO_SABADO = PRECIO_SABADO;
+    }
+
+    public double getPRECIO_DOMINGO() {
+        return PRECIO_DOMINGO;
+    }
+
+    public void setPRECIO_DOMINGO(double PRECIO_DOMINGO) {
+        this.PRECIO_DOMINGO = PRECIO_DOMINGO;
+    }
+
+    public double getPRECIO_FERIADO() {
+        return PRECIO_FERIADO;
+    }
+
+    public void setPRECIO_FERIADO(double PRECIO_FERIADO) {
+        this.PRECIO_FERIADO = PRECIO_FERIADO;
+    }
+
+    public String getNOM_USU() {
+        return NOM_USU;
+    }
+
+    public void setNOM_USU(String NOM_USU) {
+        this.NOM_USU = NOM_USU;
+    }
+    
     
     
 }

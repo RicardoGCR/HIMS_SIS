@@ -511,11 +511,13 @@ DefaultTableModel m, m1, m2, m3, m4, m5;
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel18.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel18.setText("Código de Actividad:");
 
         TXT_UNIDAD_ORGANICA.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         TXT_UNIDAD_ORGANICA.setEnabled(false);
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel7.setText("Nombre de Actividad:");
 
         TXT_NOMBRE_ACTIVIDAD.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
@@ -531,6 +533,7 @@ DefaultTableModel m, m1, m2, m3, m4, m5;
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel8.setText("Código Unidad Organica:");
 
         TXT_UO_JERAR.setEditable(false);
@@ -550,6 +553,7 @@ DefaultTableModel m, m1, m2, m3, m4, m5;
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel9.setText("Nombre de Unidad Organica:");
 
         TXT_NOMBRE_UNI_ORG.setEditable(false);
@@ -580,7 +584,7 @@ DefaultTableModel m, m1, m2, m3, m4, m5;
                         .addComponent(BTN_BUSCAR_UO, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(TXT_NOMBRE_ACTIVIDAD, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
                     .addComponent(TXT_NOMBRE_UNI_ORG))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

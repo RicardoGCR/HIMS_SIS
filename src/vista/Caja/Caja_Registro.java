@@ -34,6 +34,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.Caja.Caja_Nomenclatura;
 import modelos.Caja.Caja_PC_Registro;
+import modelos.RegistroPC;
 import vista.PrincipalMDI;
 
 /**

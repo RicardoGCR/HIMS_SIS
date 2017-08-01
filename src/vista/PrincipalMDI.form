@@ -4662,11 +4662,11 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel15" alignment="0" pref="1029" max="32767" attributes="0"/>
-                      <Component id="jPanel50" alignment="0" pref="1029" max="32767" attributes="0"/>
-                      <Component id="jPanel51" alignment="0" pref="1029" max="32767" attributes="0"/>
-                      <Component id="jPanel52" alignment="0" pref="1029" max="32767" attributes="0"/>
-                      <Component id="jPanel53" alignment="0" pref="1029" max="32767" attributes="0"/>
+                      <Component id="jPanel15" alignment="0" pref="1019" max="32767" attributes="0"/>
+                      <Component id="jPanel50" alignment="0" pref="1019" max="32767" attributes="0"/>
+                      <Component id="jPanel51" alignment="0" pref="1019" max="32767" attributes="0"/>
+                      <Component id="jPanel52" alignment="0" pref="1019" max="32767" attributes="0"/>
+                      <Component id="jPanel53" alignment="0" pref="1019" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">

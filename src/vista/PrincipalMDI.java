@@ -6760,6 +6760,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private void jLabel110MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel110MouseClicked
         ConfRegistroPC pc=new ConfRegistroPC();
         pc.setVisible(true);
+        ConfRegistroPC.lblUsuario.setText(lblUsu.getText());
     }//GEN-LAST:event_jLabel110MouseClicked
 
     private void jLabel110KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel110KeyPressed

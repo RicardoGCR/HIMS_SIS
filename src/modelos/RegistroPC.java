@@ -17,9 +17,13 @@ import vista.ConfRegistroPC;
  */
 public class RegistroPC {
     private Connection cn;
+    private int PA_ID;
+    private String NOM_PC;  
 private String NOM_USU;  
 private int NRO_PC;
 private int AR_ID; 
+private int SE_ID; 
+private String modulo;
 
  public RegistroPC(){
         Conexion con = new Conexion();
@@ -37,6 +41,7 @@ private int AR_ID;
             int c=1;
             while(r.next()){
                 ConfRegistroPC.txtPC.setText(r.getString(1)); 
+//                ConfRegistroPC.txtResumen.setText(r.getString(1)); 
 
                 }
             //
@@ -45,37 +50,20 @@ private int AR_ID;
         }
     }
      
-      public void PERFIL_USUARIO(String cp_id){
-        String consulta="";
-        try {
-            consulta="[CAJA_PERSONAL_USUARIO] ?";
-            PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, cp_id);
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                ConfRegistroPC.lblUsu.setText("<html>"+r.getString(2)+"<span style=\"font-size:'14px'\"><br>"+"Usuario, "+r.getString(1)+"<html>");
-//                ConfRegistroPC.lblResumenUsuario.setText("<html>"+"Cajero "+r.getString(2)+"<html>");
-       
-
-                }
-            //
-        } catch (Exception e) {
-            System.out.println("Error: PC: " + e.getMessage());
-        }
-    }
       
 
        public boolean NuevoTerminal(){
         boolean resp = false;
         try{
-            String sql = "exec CAJA_CONFIGURAR_TERMINAL "
-                        + "?,?,?";
+            String sql = "exec CONFIGURACION_PC_AREA_insertar ?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             //cmd.setString(1, getCod_nomen_caja());
-            cmd.setInt(1, getAR_ID());
-            cmd.setString(2, getNOM_USU());
-            cmd.setInt(3, getNRO_PC());
+            cmd.setString(1, getModulo());
+            cmd.setInt(2, getSE_ID());
+            cmd.setInt(3, getAR_ID());
+            cmd.setString(4,getNOM_PC());
+            cmd.setString(5, getNOM_USU());
+            cmd.setInt(6, getNRO_PC());
 
             if(!cmd.execute())
             {
@@ -87,6 +75,76 @@ private int AR_ID;
         catch(Exception ex)
         {
             System.out.println("Error  " + ex.getMessage());
+        }
+        return resp;
+    }
+       public boolean ModificarTerminal(){
+        boolean resp = false;
+        try{
+            String sql = "exec CONFIGURACION_PC_AREA_modificar ?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            //cmd.setString(1, getCod_nomen_caja());
+            cmd.setString(1, getModulo());
+            cmd.setInt(2, getSE_ID());
+            cmd.setInt(3, getAR_ID());
+            cmd.setString(4,getNOM_PC());
+            cmd.setString(5, getNOM_USU());
+            cmd.setInt(6, getNRO_PC());
+            cmd.setInt(7, getPA_ID());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error  " + ex.getMessage());
+        }
+        return resp;
+    }
+       
+       public int VerificarNumero(String modulo,String nombre){
+        int resultado=0;
+        try
+        {
+            String sql = "select * from SISTEMA_CONFIGURACION_PC_AREA where PA_MODULO =? AND NRO_PC=?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, modulo);
+            cmd.setString(2, nombre);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            //getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error verificacion repetidos: " + ex.getMessage());
+        }
+        return resultado;
+    }
+       public boolean PC_eliminar(){
+           
+        boolean resp = false;
+        try{
+            String sql = "exec CONFIGURACION_PC_AREA_eliminar ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getPA_ID());
+            if(!cmd.execute()){
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();  
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
         }
         return resp;
     }
@@ -144,5 +202,61 @@ private int AR_ID;
      */
     public void setAR_ID(int AR_ID) {
         this.AR_ID = AR_ID;
+    }
+
+    /**
+     * @return the SE_ID
+     */
+    public int getSE_ID() {
+        return SE_ID;
+    }
+
+    /**
+     * @param SE_ID the SE_ID to set
+     */
+    public void setSE_ID(int SE_ID) {
+        this.SE_ID = SE_ID;
+    }
+
+    /**
+     * @return the modulo
+     */
+    public String getModulo() {
+        return modulo;
+    }
+
+    /**
+     * @param modulo the modulo to set
+     */
+    public void setModulo(String modulo) {
+        this.modulo = modulo;
+    }
+
+    /**
+     * @return the NOM_PC
+     */
+    public String getNOM_PC() {
+        return NOM_PC;
+    }
+
+    /**
+     * @param NOM_PC the NOM_PC to set
+     */
+    public void setNOM_PC(String NOM_PC) {
+        this.NOM_PC = NOM_PC;
+    }
+
+    /**
+     * @return the PA_ID
+     */
+    public int getPA_ID() {
+        return PA_ID;
+    }
+
+    /**
+     * @param PA_ID the PA_ID to set
+     */
+    public void setPA_ID(int PA_ID) {
+        this.PA_ID = PA_ID;
     }
 }

@@ -2313,7 +2313,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
 
                                 jLabel15.setFont(new java.awt.Font("Segoe UI Light", 0, 34)); // NOI18N
                                 jLabel15.setForeground(new java.awt.Color(102, 102, 102));
-                                jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Find User Male-80.png"))); // NOI18N
+                                jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Encuentra Hombre Usuario-80.png"))); // NOI18N
                                 jLabel15.setText("Busqueda de Pacientes ");
 
                                 javax.swing.GroupLayout panelBuscarHCLayout = new javax.swing.GroupLayout(panelBuscarHC);

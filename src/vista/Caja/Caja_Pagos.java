@@ -94,6 +94,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
         addEscapeListenerWindowDialog(ActualizarDNI);
+        addEscapeListenerWindowDialog(CitaFutura);
+        addEscapeListenerWindowDialog(MedicosConsultorios);
+        addEscapeListenerWindowDialog(nomenclaturas);
          PaginasVentas.setSelectedIndex(1);
          BHC.setLocationRelativeTo(null);//en el centro
          BHC.getContentPane().setBackground(Color.WHITE);
@@ -5378,6 +5381,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                                                                             eli2.setForeground(new java.awt.Color(240, 240, 240));
                                                                                                             eli2.setText("Si");
+                                                                                                            eli2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
                                                                                                             eli2.setContentAreaFilled(false);
                                                                                                             eli2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                                                                             eli2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -5390,6 +5394,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                                                                                                             noeli2.setForeground(new java.awt.Color(240, 240, 240));
                                                                                                             noeli2.setText("No");
+                                                                                                            noeli2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
                                                                                                             noeli2.setContentAreaFilled(false);
                                                                                                             noeli2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                                                                                             noeli2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -11794,6 +11799,7 @@ PaginasVentas.setSelectedIndex(1);
             lblFpReim.setText(String.valueOf(tb_ReporteDiario.getValueAt(fila, 2)));
             btnImprimir.setEnabled(true);
             panelIMprimir.setVisible(false);
+            btneliminar.setEnabled(true);
         }
     }//GEN-LAST:event_tb_ReporteDiarioMouseClicked
 

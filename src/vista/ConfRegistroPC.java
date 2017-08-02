@@ -459,7 +459,7 @@ byte est;
                 }
             });
 
-            jPanel3.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel3.setBackground(new java.awt.Color(223, 0, 78));
             jPanel3.setPreferredSize(new java.awt.Dimension(292, 437));
 
             btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

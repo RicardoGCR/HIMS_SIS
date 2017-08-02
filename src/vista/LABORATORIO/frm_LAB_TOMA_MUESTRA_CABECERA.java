@@ -1489,11 +1489,16 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
     private void txtPersonalTomaMuestraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraKeyPressed
        char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
-                    personal.setVisible(true);
+                    if(lblCodPerToma.getText().equalsIgnoreCase("")){
+                        personal.setVisible(true);
                     Personal_cargar();
                     Personal_formato();
                     lbltipo.setText("1");
                     txtBuscar.setText("");
+                    }else{
+                        txtPersonalRegistraToma.requestFocus();
+                    }
+                    
                 }
     }//GEN-LAST:event_txtPersonalTomaMuestraKeyPressed
 
@@ -1615,11 +1620,15 @@ public void Muestras_cargar(String nomen,String area){
     private void txtPersonalRegistraTomaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalRegistraTomaKeyPressed
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
+                     if(lblCodPerRegistra.getText().equalsIgnoreCase("")){
                     personal.setVisible(true);
                     Personal_cargar();
                     Personal_formato();
                     lbltipo.setText("2");
                     txtBuscar.setText("");
+                     }else{
+                         btnAgregar.doClick();
+                     }
                 }
     }//GEN-LAST:event_txtPersonalRegistraTomaKeyPressed
 
@@ -1916,7 +1925,7 @@ public void Muestras_cargar(String nomen,String area){
     private javax.swing.JTextField txtNum;
     public static javax.swing.JTextField txtPacientes;
     private javax.swing.JTextField txtPersonalRegistraToma;
-    private javax.swing.JTextField txtPersonalTomaMuestra;
+    public static javax.swing.JTextField txtPersonalTomaMuestra;
     public static javax.swing.JTextField txtSexo;
     private javax.swing.JLabel txthc;
     // End of variables declaration//GEN-END:variables

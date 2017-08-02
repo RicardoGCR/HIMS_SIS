@@ -46,11 +46,11 @@ Conexion cn=new Conexion();
         formatoTipoUsuario();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
         //para limpiar el txt al darle click
- txtBuscar.addFocusListener(new FocusListener() {
-    @Override
-    public void focusGained(FocusEvent e) {
-  txtBuscar.setText("");
-    }
+        txtBuscar.addFocusListener(new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+        txtBuscar.setText("");
+        }
 
     @Override
     public void focusLost(FocusEvent e) {
@@ -136,10 +136,11 @@ public void cargarTipoUsuario(){
             jScrollPane1.setViewportView(tb_TipoUsuario);
 
             jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-            jLabel1.setText("Búsqueda de Tipo de Usuario");
+            jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            jLabel1.setText("MÓDULOS");
 
             txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
-            txtBuscar.setText("Ingresar Tipo de Usuario");
+            txtBuscar.setText("Ingresar Módulo");
             txtBuscar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtBuscarActionPerformed(evt);
@@ -166,21 +167,18 @@ public void cargarTipoUsuario(){
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(14, Short.MAX_VALUE))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(187, 187, 187))
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(175, 175, 175)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(14, Short.MAX_VALUE))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

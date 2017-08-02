@@ -7,6 +7,8 @@
 package vista.LABORATORIO;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
@@ -21,8 +23,11 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -81,6 +86,8 @@ DefaultTableModel m,n,muestra;
         lblCodPerToma.setVisible(false);
         lblCodPerRegistra.setVisible(false);
         panelSubdetalle.setVisible(false);
+        addEscapeListenerWindowDialog(personal);
+        addEscapeListenerWindowDialog(nomenclatura);
    
         //fecha
         Calendar cal=Calendar.getInstance(); 
@@ -138,6 +145,18 @@ DefaultTableModel m,n,muestra;
     tb_Detalle.getSelectionModel().setSelectionInterval(0, 0);
             tb_Detalle.requestFocus();
 }
+    
+public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+       ActionListener escAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        windowDialog.dispose();
+        }
+        };
+        windowDialog.getRootPane().registerKeyboardAction(escAction,
+        KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_IN_FOCUSED_WINDOW);
+   }
 
     public void Nomenclatura_cargar(String cod){
     try {
@@ -1489,11 +1508,16 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
     private void txtPersonalTomaMuestraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraKeyPressed
        char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
-                    personal.setVisible(true);
+                    if(lblCodPerToma.getText().equalsIgnoreCase("")){
+                        personal.setVisible(true);
                     Personal_cargar();
                     Personal_formato();
                     lbltipo.setText("1");
                     txtBuscar.setText("");
+                    }else{
+                        txtPersonalRegistraToma.requestFocus();
+                    }
+                    
                 }
     }//GEN-LAST:event_txtPersonalTomaMuestraKeyPressed
 
@@ -1563,6 +1587,8 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                 
                 String u=lblUsu.getText();
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
+                
+                frm_LAB_TOMA_MUESTRA_DETALLE.spHora.requestFocus();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(this, e.getMessage());
             }}
@@ -1615,11 +1641,15 @@ public void Muestras_cargar(String nomen,String area){
     private void txtPersonalRegistraTomaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalRegistraTomaKeyPressed
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
+                     if(lblCodPerRegistra.getText().equalsIgnoreCase("")){
                     personal.setVisible(true);
                     Personal_cargar();
                     Personal_formato();
                     lbltipo.setText("2");
                     txtBuscar.setText("");
+                     }else{
+                         btnAgregar.doClick();
+                     }
                 }
     }//GEN-LAST:event_txtPersonalRegistraTomaKeyPressed
 
@@ -1916,7 +1946,7 @@ public void Muestras_cargar(String nomen,String area){
     private javax.swing.JTextField txtNum;
     public static javax.swing.JTextField txtPacientes;
     private javax.swing.JTextField txtPersonalRegistraToma;
-    private javax.swing.JTextField txtPersonalTomaMuestra;
+    public static javax.swing.JTextField txtPersonalTomaMuestra;
     public static javax.swing.JTextField txtSexo;
     private javax.swing.JLabel txthc;
     // End of variables declaration//GEN-END:variables

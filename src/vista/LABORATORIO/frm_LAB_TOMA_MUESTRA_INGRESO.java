@@ -102,7 +102,7 @@ DefaultTableModel m,n,muestra;
              txtPacientes.setText("");
 
    formato();
-    dateDesde.requestFocus();
+    tb_Pacientes.requestFocus();
   
  
     
@@ -1129,6 +1129,7 @@ public void buscar_examenes(){
                     
                         String u=lblUsu.getText();
                              frm_LAB_TOMA_MUESTRA_CABECERA.lblUsu.setText(u);
+                             frm_LAB_TOMA_MUESTRA_CABECERA.txtPersonalTomaMuestra.requestFocus();
                         }
             }catch(Exception e){
             JOptionPane.showMessageDialog(this, "ingreso"+e.getMessage());

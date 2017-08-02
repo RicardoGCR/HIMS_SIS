@@ -50,6 +50,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 import javax.swing.table.JTableHeader;
+import modelos.Caja.Caja_AperturaCierre;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -57,11 +58,13 @@ import net.sf.jasperreports.engine.JasperPrintManager;
 import tablas.FormatoTablaCajaConsultorio;
 import tablas.FormatoTablaReporteDiarioCaja;
 import static vista.Caja.Caja_HospitalizacionPreventa.lblIDHC;
+import vista.PrincipalMDI;
 /**
  *
  * @author MYS1
  */
-public class Caja_Pagos extends javax.swing.JFrame {
+public class Caja_Pagos extends javax.swing.JFrame implements Runnable {
+    
 DefaultTableModel m;
 double totales;
 byte tg;
@@ -70,7 +73,7 @@ byte tgm;
 byte tgp;
 byte tga;
 byte tgg;
-
+Thread h1;
 byte tgH;
 byte tgDetalle;
 byte tgnuevoEliminar;
@@ -93,10 +96,15 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
+        h1 = new Thread(this);
+        h1.start();
         addEscapeListenerWindowDialog(ActualizarDNI);
         addEscapeListenerWindowDialog(CitaFutura);
         addEscapeListenerWindowDialog(MedicosConsultorios);
         addEscapeListenerWindowDialog(nomenclaturas);
+        addEscapeListenerWindowDialog(Anular);
+        addEscapeListenerWindowDialog(AsistenciaSocial);
+        
          PaginasVentas.setSelectedIndex(1);
          BHC.setLocationRelativeTo(null);//en el centro
          BHC.getContentPane().setBackground(Color.WHITE);
@@ -233,7 +241,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         panelEliminarFR.setVisible(false);
         lblCantidad.setText("1");
         ActualizarDNI.setUndecorated(true);
-        panelDescuentos.setVisible(false);
+        panelDescuentos.setVisible(true);
         btnReservar.setVisible(false);
         cerrar();
 
@@ -464,7 +472,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                     }else if(!lblDescuentoContadorS.getText().equals(lblTotalItems.getText())){
 
                             tgDetalle=0;
-                            panelMensaje.setBackground(new Color(255,91,70));
+                            panelMensaje.setBackground(new Color(255,51,51));
                             panelMensaje.setVisible(true);
                             btnCorrectoNo.setVisible(false);
                             btnCorrectoSi.setText("OK");
@@ -1624,7 +1632,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                        } else {
                                 panelMensaje.setVisible(true);
-                                panelMensaje.setBackground(new Color(255,91,70)); 
+                                panelMensaje.setBackground(new Color(255,51,51)); 
                                 Mensaje4.setText("Ocurrió un error verifique");
                                 btnCorrectoSi.setVisible(false);
                                 btnCorrectoNo.setVisible(false);
@@ -1717,7 +1725,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                        } else {
                                 panelMensaje.setVisible(true);
-                                panelMensaje.setBackground(new Color(255,91,70)); 
+                                panelMensaje.setBackground(new Color(255,51,51)); 
                                 Mensaje4.setText("Ocurrió un error verifique");
                                 btnCorrectoSi.setVisible(false);
                                 btnCorrectoNo.setVisible(false);
@@ -1794,7 +1802,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                        } else {
                                 panelMensaje.setVisible(true);
-                                panelMensaje.setBackground(new Color(255,91,70)); 
+                                panelMensaje.setBackground(new Color(255,51,51)); 
                                 Mensaje4.setText("Ocurrió un error verifique");
                                 btnCorrectoSi.setVisible(false);
                                 btnCorrectoNo.setVisible(false);
@@ -1976,7 +1984,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                        } else {
                                 panelMensaje.setVisible(true);
-                                panelMensaje.setBackground(new Color(255,91,70)); 
+                                panelMensaje.setBackground(new Color(255,51,51)); 
                                 Mensaje4.setText("Ocurrió un error verifique");
                                 btnCorrectoSi.setVisible(false);
                                 btnCorrectoNo.setVisible(false);
@@ -2066,7 +2074,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
                        } else {
                                 panelMensaje.setVisible(true);
-                                panelMensaje.setBackground(new Color(255,91,70)); 
+                                panelMensaje.setBackground(new Color(255,51,51)); 
                                 Mensaje4.setText("Ocurrió un error verifique");
                                 btnCorrectoSi.setVisible(false);
                                 btnCorrectoNo.setVisible(false);
@@ -2185,7 +2193,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         } else {
                            
                                 panelEliminarEME.setVisible(true);
-                                panelEliminarEME.setBackground(new Color(255,91,70)); 
+                                panelEliminarEME.setBackground(new Color(255,51,51)); 
                                 Mensaje.setText("Ocurrió un error, Verifique");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
@@ -2209,7 +2217,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         } else {
                            
                                 panelEliminarEME.setVisible(true);
-                                panelEliminarEME.setBackground(new Color(255,91,70)); 
+                                panelEliminarEME.setBackground(new Color(255,51,51)); 
                                 Mensaje.setText("Ocurrió un error, Verifique  ");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
@@ -2233,7 +2241,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         } else {
                            
                                 panelEliminarEME.setVisible(true);
-                                panelEliminarEME.setBackground(new Color(255,91,70)); 
+                                panelEliminarEME.setBackground(new Color(255,51,51)); 
                                 Mensaje.setText("Ocurrió un error, Verifique  ");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
@@ -2251,7 +2259,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         } else {
                            
                                 panelEliminarEME.setVisible(true);
-                                panelEliminarEME.setBackground(new Color(255,91,70)); 
+                                panelEliminarEME.setBackground(new Color(255,51,51)); 
                                 Mensaje.setText("Ocurrió un error, Verifique  ");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
@@ -2271,7 +2279,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         } else {
                            
                                 panelEliminarEME.setVisible(true);
-                                panelEliminarEME.setBackground(new Color(255,91,70)); 
+                                panelEliminarEME.setBackground(new Color(255,51,51)); 
                                 Mensaje.setText("Ocurrió un error, Verifique  ");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
@@ -2289,7 +2297,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         } else {
                            
                                 panelEliminarEME.setVisible(true);
-                                panelEliminarEME.setBackground(new Color(255,91,70)); 
+                                panelEliminarEME.setBackground(new Color(255,51,51)); 
                                 Mensaje.setText("Ocurrió un error, Verifique  ");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
@@ -2307,7 +2315,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         } else {
                            
                                 panelEliminarEME.setVisible(true);
-                                panelEliminarEME.setBackground(new Color(255,91,70)); 
+                                panelEliminarEME.setBackground(new Color(255,51,51)); 
                                 Mensaje.setText("Ocurrió un error, Verifique  ");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
@@ -2325,7 +2333,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                         } else {
                            
                                 panelEliminarEME.setVisible(true);
-                                panelEliminarEME.setBackground(new Color(255,91,70)); 
+                                panelEliminarEME.setBackground(new Color(255,51,51)); 
                                 Mensaje.setText("Ocurrió un error, Verifique  ");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
@@ -2733,7 +2741,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                         txtT1 = new javax.swing.JTextField();
                                                                         MedicosConsultorios = new javax.swing.JDialog();
                                                                         jPanelCabecera = new javax.swing.JPanel();
-                                                                        jLabel63 = new javax.swing.JLabel();
+                                                                        lblNomConsultoorio = new javax.swing.JLabel();
                                                                         jPanel49 = new javax.swing.JPanel();
                                                                         txtBuscarMedicos = new javax.swing.JTextField();
                                                                         jLabel58 = new javax.swing.JLabel();
@@ -2836,7 +2844,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                     btnAlertConsulta1 = new javax.swing.JButton();
                                                                                     CitaFutura = new javax.swing.JDialog();
                                                                                     jPanelCabecera1 = new javax.swing.JPanel();
-                                                                                    jLabel107 = new javax.swing.JLabel();
+                                                                                    lblNomConsultorioFutura = new javax.swing.JLabel();
                                                                                     jScrollPane26 = new javax.swing.JScrollPane();
                                                                                     tbTurnos = new javax.swing.JTable(){
                                                                                         public boolean isCellEditable(int rowIndex, int colIndex){
@@ -6035,9 +6043,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                             jPanelCabecera.setBackground(new java.awt.Color(0, 153, 102));
                                                                                                             jPanelCabecera.setMinimumSize(new java.awt.Dimension(310, 441));
 
-                                                                                                            jLabel63.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                                                                            jLabel63.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                                            jLabel63.setText("Consultorios Externos");
+                                                                                                            lblNomConsultoorio.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+                                                                                                            lblNomConsultoorio.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                            lblNomConsultoorio.setText("Consultorios Externos");
 
                                                                                                             jPanel49.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -6102,7 +6110,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addComponent(jLabel58)
                                                                                                                             .addGap(116, 116, 116)
                                                                                                                             .addComponent(lblMedicoApeNom))
-                                                                                                                        .addComponent(jLabel63)
+                                                                                                                        .addComponent(lblNomConsultoorio)
                                                                                                                         .addGroup(jPanelCabeceraLayout.createSequentialGroup()
                                                                                                                             .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                             .addGap(3, 3, 3)
@@ -6113,7 +6121,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 jPanelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCabeceraLayout.createSequentialGroup()
                                                                                                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                                    .addComponent(jLabel63)
+                                                                                                                    .addComponent(lblNomConsultoorio)
                                                                                                                     .addGap(12, 12, 12)
                                                                                                                     .addGroup(jPanelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                                                                                         .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6259,7 +6267,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                             chkADIC.setEditable(false);
                                                                                                             chkADIC.setBackground(new java.awt.Color(255, 204, 51));
                                                                                                             chkADIC.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-                                                                                                            chkADIC.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                            chkADIC.setForeground(new java.awt.Color(102, 102, 102));
                                                                                                             chkADIC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                                                                                                             chkADIC.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                                                                                                             chkADIC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -7363,9 +7371,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                             jPanelCabecera1.setBackground(new java.awt.Color(0, 153, 102));
                                                                                                             jPanelCabecera1.setMinimumSize(new java.awt.Dimension(310, 441));
 
-                                                                                                            jLabel107.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
-                                                                                                            jLabel107.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                                            jLabel107.setText("<html>Cita Futura<span style=\"font-size:'14px'\"><br>Consultorios Externos</br></span></html>");
+                                                                                                            lblNomConsultorioFutura.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
+                                                                                                            lblNomConsultorioFutura.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                            lblNomConsultorioFutura.setText("<html>Cita Futura<span style=\"font-size:'14px'\"><br>Consultorios Externos</br></span></html>");
 
                                                                                                             javax.swing.GroupLayout jPanelCabecera1Layout = new javax.swing.GroupLayout(jPanelCabecera1);
                                                                                                             jPanelCabecera1.setLayout(jPanelCabecera1Layout);
@@ -7373,13 +7381,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 jPanelCabecera1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(jPanelCabecera1Layout.createSequentialGroup()
                                                                                                                     .addContainerGap()
-                                                                                                                    .addComponent(jLabel107, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                    .addComponent(lblNomConsultorioFutura, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                             );
                                                                                                             jPanelCabecera1Layout.setVerticalGroup(
                                                                                                                 jPanelCabecera1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(jPanelCabecera1Layout.createSequentialGroup()
-                                                                                                                    .addComponent(jLabel107, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                    .addComponent(lblNomConsultorioFutura, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                     .addGap(0, 0, Short.MAX_VALUE))
                                                                                                             );
 
@@ -8133,7 +8141,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                     .addContainerGap())
                                                                                                             );
 
-                                                                                                            panelMensaje.setBackground(new java.awt.Color(255, 91, 70));
+                                                                                                            panelMensaje.setBackground(new java.awt.Color(255, 51, 51));
 
                                                                                                             Mensaje4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                                                                                                             Mensaje4.setForeground(new java.awt.Color(255, 255, 255));
@@ -8341,7 +8349,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                             );
 
-                                                                                                            panelEliminacion.setBackground(new java.awt.Color(255, 91, 70));
+                                                                                                            panelEliminacion.setBackground(new java.awt.Color(255, 51, 51));
 
                                                                                                             btnEliminarDetalle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                                                                             btnEliminarDetalle.setForeground(new java.awt.Color(240, 240, 240));
@@ -8452,7 +8460,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 }
                                                                                                             });
 
-                                                                                                            jPanel17.setBackground(new java.awt.Color(255, 91, 70));
+                                                                                                            jPanel17.setBackground(new java.awt.Color(255, 51, 51));
                                                                                                             jPanel17.setPreferredSize(new java.awt.Dimension(125, 25));
 
                                                                                                             btnAnularVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -8529,7 +8537,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                             );
 
-                                                                                                            panelEliminar.setBackground(new java.awt.Color(255, 91, 70));
+                                                                                                            panelEliminar.setBackground(new java.awt.Color(255, 51, 51));
 
                                                                                                             Mensaje5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                                                                                                             Mensaje5.setForeground(new java.awt.Color(255, 255, 255));
@@ -8564,7 +8572,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                             });
 
                                                                                                             txtEnterEscapeEnter1.setEditable(false);
-                                                                                                            txtEnterEscapeEnter1.setBackground(new java.awt.Color(255, 91, 70));
+                                                                                                            txtEnterEscapeEnter1.setBackground(new java.awt.Color(255, 51, 51));
                                                                                                             txtEnterEscapeEnter1.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
                                                                                                             txtEnterEscapeEnter1.setForeground(new java.awt.Color(255, 91, 70));
                                                                                                             txtEnterEscapeEnter1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -8906,10 +8914,11 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                         .addComponent(lblTotalContado1)
                                                                                                                         .addComponent(lblTotalContado))
                                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                    .addGroup(resumen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                        .addComponent(jLabel73)
+                                                                                                                    .addGroup(resumen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                         .addComponent(lblTotalPendiente)
-                                                                                                                        .addComponent(lblTotalContado2))
+                                                                                                                        .addGroup(resumen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                            .addComponent(jLabel73)
+                                                                                                                            .addComponent(lblTotalContado2)))
                                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                     .addGroup(resumen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                         .addComponent(jLabel84)
@@ -10417,7 +10426,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
 
     private void btnEliminarEMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEMEActionPerformed
  
-        panelEliminarEME.setBackground(new Color(255,91,70)); 
+        panelEliminarEME.setBackground(new Color(255,51,51)); 
                     Mensaje.setText("Desea Eliminar el Registro ?");
                     eli.setVisible(true);
                     noeli.setVisible(true);
@@ -10654,7 +10663,7 @@ if(tgp==1){
 
     private void elimma1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elimma1ActionPerformed
                       tge=2;
-        cargareliminarma.setBackground(new Color(255,91,70)); 
+        cargareliminarma.setBackground(new Color(255,51,51)); 
                         Mensaje2.setText("Desea Eliminar el Registro ?");
                         cargareliminarma.setVisible(true);
                         eli2.setVisible(true);
@@ -10880,7 +10889,14 @@ if(tgp==1){
     }//GEN-LAST:event_btnbuscar2ActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-PaginasVentas.setSelectedIndex(1);
+//        Caja_AperturaCierre CA =new Caja_AperturaCierre();
+//        CA.Caja_Verificar_Apertura(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbAPERTURA);
+//            if(PrincipalMDI.tbAPERTURA.getRowCount()==0){
+//                PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
+//                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
+//            }
+        
+        PaginasVentas.setSelectedIndex(1);
 
         panelMensaje.setVisible(false);
         if(lblOk.getText()=="okk" && this.tb_CPT.getRowCount()==0){ 
@@ -11594,6 +11610,7 @@ PaginasVentas.setSelectedIndex(1);
               lblContador.setText(String.valueOf(tb_consultorios.getValueAt(fila, 12)));
               lblNumero.setText(String.valueOf(tb_consultorios.getValueAt(fila, 15)));  
               lblNumeroTotal.setText(String.valueOf(tb_consultorios.getValueAt(fila, 18))); 
+              lblNomConsultoorio.setText(String.valueOf(tb_consultorios.getValueAt(fila, 3))); 
            
 //              lblContadorF.setText(String.valueOf(tb_consultorios.getValueAt(fila, 14)));
 //              lblNumeroFuturo.setText(String.valueOf(tb_consultorios.getValueAt(fila, 16))); 
@@ -12046,7 +12063,14 @@ PaginasVentas.setSelectedIndex(1);
     }//GEN-LAST:event_tb_medicosPapeletaMouseClicked
 
     private void tb_medicosPapeletaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_medicosPapeletaKeyPressed
-        // TODO add your handling code here:
+          char teclaPresionada = evt.getKeyChar();
+       if(teclaPresionada==KeyEvent.VK_ENTER){
+           int fila=tb_medicosPapeleta.getSelectedRow();
+           MedicosPepeleta.dispose();
+            Caja_HospitalizacionPreventa.lblIdMedic.setText(String.valueOf(tb_medicosPapeleta.getValueAt(fila, 0)));
+            Caja_HospitalizacionPreventa.txtMedico.setText(String.valueOf(tb_medicosPapeleta.getValueAt(fila, 1))); 
+           
+       }
     }//GEN-LAST:event_tb_medicosPapeletaKeyPressed
 
     private void btnGuardarDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDetalleActionPerformed
@@ -12142,7 +12166,7 @@ PaginasVentas.setSelectedIndex(1);
                     }else if(!lblDescuentoContadorS.getText().equals(lblTotalItems.getText())){
                             System.out.println("NO HAY INSUMOS");
                             tgDetalle=0;
-                            panelMensaje.setBackground(new Color(255,91,70));
+                            panelMensaje.setBackground(new Color(255,51,51));
                             panelMensaje.setVisible(true);
                             btnCorrectoNo.setVisible(false);
                             btnCorrectoSi.setText("OK");
@@ -12340,6 +12364,8 @@ PaginasVentas.setSelectedIndex(1);
             lblNumeroFuturo.setText(String.valueOf(tbTurnos.getValueAt(fila, 16))); 
             lblNumeroFT.setText(String.valueOf(tbTurnos.getValueAt(fila, 20))); 
             lblTurno.setText(String.valueOf(tbTurnos.getValueAt(fila, 21)));
+            lblNomConsultorioFutura.setText("<html>"+"Cita Futura"+"<span style=\"font-size:'14px'\"><br>"+"Usuario, "+"Consultorios Externos"+String.valueOf(tbTurnos.getValueAt(fila, 3))+"<html>");
+            
             
             lblMedicoApeNom.setText(String.valueOf(tbTurnos.getValueAt(fila, 7)));
             lblIdMedico.setText(String.valueOf(tbTurnos.getValueAt(fila, 7)));
@@ -12559,7 +12585,6 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
     private javax.swing.JLabel jLabel106;
-    private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
@@ -12617,7 +12642,6 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
@@ -12802,6 +12826,8 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel lblMedicoTurno;
     private javax.swing.JLabel lblModulo;
     private javax.swing.JLabel lblModuloHos;
+    private javax.swing.JLabel lblNomConsultoorio;
+    private javax.swing.JLabel lblNomConsultorioFutura;
     private javax.swing.JLabel lblNomenclatura;
     public static javax.swing.JLabel lblNumDoc;
     private javax.swing.JLabel lblNumero;
@@ -12942,4 +12968,24 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel txtape;
     private javax.swing.JTextField txtedad;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Thread ct = Thread.currentThread();
+        while (ct == h1) {
+           
+            Caja_AperturaCierre CA =new Caja_AperturaCierre();
+            CA.Caja_Verificar_Apertura(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbAPERTURA);
+            if(PrincipalMDI.tbAPERTURA.getRowCount()==0){
+                PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
+                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
+            }
+            
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+        }
+    }
 }

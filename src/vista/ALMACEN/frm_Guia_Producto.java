@@ -94,7 +94,7 @@ String hora, minutos, segundos, ampm;
     tbProductoAlmacen.getColumnModel().getColumn(1).setPreferredWidth(125);
     tbProductoAlmacen.getColumnModel().getColumn(2).setPreferredWidth(410);
     tbProductoAlmacen.getColumnModel().getColumn(3).setPreferredWidth(140);
-    tbProductoAlmacen.getColumnModel().getColumn(4).setPreferredWidth(135);
+    tbProductoAlmacen.getColumnModel().getColumn(4).setPreferredWidth(145);
     
     tbProductoAlmacen.getColumnModel().getColumn(3).setMinWidth(0);
     tbProductoAlmacen.getColumnModel().getColumn(3).setMaxWidth(0);

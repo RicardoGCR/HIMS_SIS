@@ -57,6 +57,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
         lblHora.setText(hora);
         lblFecha.setText(fechaActual());
+        btnNuevo.setText("Aperturar");
   
     }
     public static String fechaActual(){
@@ -75,6 +76,8 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 cno1.setBASE(txtNRO.getText());//
                 cno1.setId_Apertura(0);//
                     if(cno1.NUEVO()==true){
+                        btnNuevo.setEnabled(false);
+                        btnNuevo.setText("Estamos aperturando esta caja, Espere...");
 //                        int id=0;
 //                        id=cno1.getId_Apertura();
 //                        jLabel5.setText(String.valueOf(id)) ;

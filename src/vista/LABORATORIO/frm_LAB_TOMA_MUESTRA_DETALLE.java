@@ -379,7 +379,7 @@ public void calcula() {
                         panelbotones = new javax.swing.JPanel();
                         btnAgregar = new javax.swing.JButton();
                         btnQuitar = new javax.swing.JButton();
-                        jButton2 = new javax.swing.JButton();
+                        btnAceptar = new javax.swing.JButton();
                         lblDni = new javax.swing.JLabel();
                         lblid_preventa = new javax.swing.JLabel();
                         jButton3 = new javax.swing.JButton();
@@ -1217,12 +1217,6 @@ public void calcula() {
                         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         jLabel9.setText("Muestra");
 
-                        lblCodMuestra.setText("Mues");
-
-                        lblCodContenedor.setText("Conte");
-
-                        lblArId.setText("Area");
-
                         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         jLabel16.setText("Cantidad");
 
@@ -1372,14 +1366,14 @@ public void calcula() {
                                 .addGap(3, 3, 3))
                         );
 
-                        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/aceptar16x16.png"))); // NOI18N
-                        jButton2.setMnemonic('A');
-                        jButton2.setText("Aceptar");
-                        jButton2.setToolTipText("Aceptar(Alt+A)");
-                        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                        jButton2.addActionListener(new java.awt.event.ActionListener() {
+                        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/aceptar16x16.png"))); // NOI18N
+                        btnAceptar.setMnemonic('A');
+                        btnAceptar.setText("Aceptar");
+                        btnAceptar.setToolTipText("Aceptar(Alt+A)");
+                        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jButton2ActionPerformed(evt);
+                                btnAceptarActionPerformed(evt);
                             }
                         });
 
@@ -1428,7 +1422,7 @@ public void calcula() {
                                         .addGap(16, 16, 16))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(326, 326, 326)
-                                .addComponent(jButton2)
+                                .addComponent(btnAceptar)
                                 .addGap(81, 81, 81)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1461,7 +1455,7 @@ public void calcula() {
                                 .addGap(4, 4, 4)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1637,6 +1631,11 @@ public void calcula() {
                 JOptionPane.showMessageDialog(this, "Ingrese una Cantidad mayor a 0");
             }else{
                 mostrarMuestra();
+                if(Integer.parseInt(lblCantidadMues.getText())==tb_MuestrasRegis.getRowCount()){
+                    txtPersonalSolicita.requestFocus();
+                }else{
+                    tb_Muestras.requestFocus();
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this,e.getMessage()); 
@@ -1752,7 +1751,14 @@ public void calcula() {
     }//GEN-LAST:event_btnQuitarActionPerformed
 
     private void tb_MuestrasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_MuestrasKeyPressed
-   
+ char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+                  int filaselec=tb_Muestras.getSelectedRow();
+        
+        lblCodMuestra.setText(tb_Muestras.getValueAt(filaselec, 1).toString());
+        lblMuestra.setText(tb_Muestras.getValueAt(filaselec, 2).toString());  
+        txtContenedor.requestFocus();
+                }   
     }//GEN-LAST:event_tb_MuestrasKeyPressed
 
     private void tb_ContenedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_ContenedorMouseClicked
@@ -1836,10 +1842,15 @@ public void calcula() {
     private void txtContenedorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContenedorKeyPressed
 char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
-                    txtBuscar1.setText("");
-        contenedor.setVisible(true);
-      LAB_Contenedor_cargar();
-                    LAB_Contenedor_formato();
+                    if(lblCodContenedor.getText().equalsIgnoreCase("")){
+                        txtBuscar1.setText("");
+                        contenedor.setVisible(true);
+                        LAB_Contenedor_cargar();
+                        LAB_Contenedor_formato();
+                    }else{
+                        txtCantidadRegis.requestFocus();
+                        
+                    }
               }
     }//GEN-LAST:event_txtContenedorKeyPressed
 
@@ -1923,10 +1934,14 @@ char tecla= evt.getKeyChar();
     private void txtAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaKeyPressed
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
+                    if(lblArId.getText().equalsIgnoreCase("")){
                     txtBuscarUni.setText("");
-            Unidad_Organica.setVisible(true);
-             LAB_Unidad_Organica_cargar();
+                    Unidad_Organica.setVisible(true);
+                    LAB_Unidad_Organica_cargar();
                     LAB_Unidad_Organica_formato();
+                    }else{
+                        btnAgregar.doClick();
+                    }
               }
     }//GEN-LAST:event_txtAreaKeyPressed
 
@@ -1943,7 +1958,14 @@ char tecla= evt.getKeyChar();
     }//GEN-LAST:event_txtCamaActionPerformed
 
     private void txtCantidadRegisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadRegisKeyPressed
-        // TODO add your handling code here:
+        char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+                    if(txtCantidadRegis.getText().equalsIgnoreCase("")){
+                        txtCantidadRegis.requestFocus();
+                    }else{
+                    txtArea.requestFocus();
+                    }
+                }
     }//GEN-LAST:event_txtCantidadRegisKeyPressed
 
     private void txtCantidadRegisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadRegisKeyTyped
@@ -1955,7 +1977,7 @@ char tecla= evt.getKeyChar();
         }
     }//GEN-LAST:event_txtCantidadRegisKeyTyped
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         if(date.getDate()==null){
         JOptionPane.showMessageDialog(rootPane, "Seleccione la Fecha de Entrega del Examen");
     }else if(spHora.getValue().equals(0) && spMin.getValue().equals(0)){
@@ -1981,7 +2003,7 @@ char tecla= evt.getKeyChar();
 
          dispose();
     }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         dispose();
@@ -2422,6 +2444,7 @@ char tecla= evt.getKeyChar();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Unidad_Organica;
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscar1;
@@ -2430,7 +2453,6 @@ char tecla= evt.getKeyChar();
     private javax.swing.JComboBox cbxBuscar2;
     private javax.swing.JDialog contenedor;
     public static com.toedter.calendar.JDateChooser date;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -115,7 +115,6 @@ DefaultTableModel m,n,resultado;
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
 //        lblFecha.setText(fechaActual());
        
-    dateDesde.requestFocus();
   
  
     //inicio
@@ -126,6 +125,7 @@ DefaultTableModel m,n,resultado;
             txtPersonal.setEnabled(false);
             btnPersonal.setEnabled(false);
             txtActoM.setEnabled(false);
+            tb_TomasRealizadas.requestFocus();
     
    //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
@@ -1654,6 +1654,8 @@ public void buscar_examenes(){
                             Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 28).toString()));
                             String u=lblUsu.getText();
                              frm_LAB_RESULTADO_MUESTRA.lblUsu.setText(u);
+                             
+                             frm_LAB_RESULTADO_MUESTRA.txtPersonalResponR.requestFocus();
                        }        
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "ingreso "+e.getMessage());

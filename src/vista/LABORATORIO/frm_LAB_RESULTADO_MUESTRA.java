@@ -883,19 +883,12 @@ public void calcula() {
             lblArea.setText("area");
 
             lblcod_cab_toma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            lblcod_cab_toma.setText("cod_cab_toma");
-
-            lblCodPerResponsaR.setText("respons");
-
-            lblCodPerRegistraR.setText("registra");
 
             lblcod_det_toma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             lblcod_det_toma.setText("cod_det_toma");
 
             lblcod_exa_ana.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             lblcod_exa_ana.setText("cod_exa_ana");
-
-            lblHc.setText("lblHc");
 
             lblid_cod_doc_det.setText("lblid_cod_doc");
 
@@ -1487,7 +1480,7 @@ public void calcula() {
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 1254, Short.MAX_VALUE)
+                .addComponent(panelOcultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(13, 13, 13)
@@ -2002,12 +1995,17 @@ public void Muestras_cargar(String nomen,String area){
     private void txtPersonalResponRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalResponRKeyPressed
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
-                    personal.setVisible(true);
+                    if(lblCodPerResponsaR.getText().equalsIgnoreCase("")){
+                        personal.setVisible(true);
                     Personal_cargar();
                     Personal_formato();
                     lbltipo.setText("1");
                     txtBuscar.setText("");
                     cbxBuscar2.setSelectedIndex(0);
+                    }else{
+                        txtPersonalRegistraR.requestFocus();
+                    }
+                    
                 }
     }//GEN-LAST:event_txtPersonalResponRKeyPressed
 
@@ -2090,12 +2088,17 @@ public void Muestras_cargar(String nomen,String area){
     private void txtPersonalRegistraRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalRegistraRKeyPressed
        char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
-                    personal.setVisible(true);
-                    Personal_cargar();
-                    Personal_formato();
-                    lbltipo.setText("2");
-                    txtBuscar.setText("");
-                    cbxBuscar2.setSelectedIndex(0);
+                    if(lblCodPerRegistraR.getText().equalsIgnoreCase("")){
+                        personal.setVisible(true);
+                        Personal_cargar();
+                        Personal_formato();
+                        lbltipo.setText("2");
+                        txtBuscar.setText("");
+                        cbxBuscar2.setSelectedIndex(0);
+                    }else{
+                        txtResult_PN.requestFocus();
+                    }
+                    
                 }
     }//GEN-LAST:event_txtPersonalRegistraRKeyPressed
 
@@ -2108,7 +2111,11 @@ public void Muestras_cargar(String nomen,String area){
     }//GEN-LAST:event_txtResult_PNActionPerformed
 
     private void txtResult_PNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResult_PNKeyPressed
-        // TODO add your handling code here:
+        char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+                    tb_Detalle.getSelectionModel().setSelectionInterval(0, 0);
+                    tb_Detalle.requestFocus();
+                }
     }//GEN-LAST:event_txtResult_PNKeyPressed
 
     private void txtResult_PNKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResult_PNKeyReleased
@@ -2724,7 +2731,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
     private javax.swing.JTextField txtNum;
     public static javax.swing.JTextField txtPacientes;
     private javax.swing.JTextField txtPersonalRegistraR;
-    private javax.swing.JTextField txtPersonalResponR;
+    public static javax.swing.JTextField txtPersonalResponR;
     public static javax.swing.JTextField txtPersonalSolicita;
     public static javax.swing.JTextField txtPersonalTomaMuestra;
     public static javax.swing.JTextField txtPiso;

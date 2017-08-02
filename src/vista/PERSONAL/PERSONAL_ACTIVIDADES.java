@@ -27,6 +27,8 @@ import javax.swing.table.TableRowSorter;
 import modelos.PERSONAL.CLS_PERSONAL_UO_ACTIVIDADES;
 import modelos.Usuario;
 import servicios.Conexion;
+import static vista.PERSONAL.PERSONAL_ROL.TB_ACTIVIDADES_LISTA;
+import static vista.PERSONAL.PERSONAL_ROL.txtAR_ID;
 
 /**
  *
@@ -40,7 +42,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m, m1, m2, m3, m4, m5;
+DefaultTableModel m, m1, m2, m3, m4, m5, m6, m7;
     /**
      * Creates new form PERSONAL_TURNOS
      */
@@ -732,6 +734,7 @@ DefaultTableModel m, m1, m2, m3, m4, m5;
                          GUARDAR_UO_ACTIVIDADES();
                          JOptionPane.showMessageDialog(this, "Datos Guardados Correctamente");
                          LIMPIAR_GUARDAR();
+                         mostrar_ACTIVIDADES_ACT();
 //                         PERSONAL_ROL PR = new PERSONAL_ROL();
 //                         PR.mostrar_ACTIVIDADES();
                     }else{
@@ -1219,11 +1222,63 @@ DefaultTableModel m, m1, m2, m3, m4, m5;
         JOptionPane.QUESTION_MESSAGE);
         if (eleccion == JOptionPane.YES_OPTION)
         {
-            dispose();   
+            dispose(); 
+            PERSONAL_ROL.ROL_ACTIVIDAD.setVisible(true);
+            
 //            PrincipalMDI MDI= new PrincipalMDI();
 //            MDI.setVisible(true);  
-        }else{
         }
+    }
+    
+    public void mostrar_ACTIVIDADES_ACT(){
+        try {                   
+                        //detalle
+                        String consulta="";
+                        TB_ACTIVIDADES_LISTA.setModel(new DefaultTableModel());
+                        String titulos[]={"Nº","Cod_uni_org_acti","cod_uni_organica_jerar","Nombre de la Actividad","AR_ID"};
+                        m6=new DefaultTableModel(null,titulos);
+                        JTable p=new JTable(m6);
+                        String fila[]=new String[5];
+                        Usuario obj=new Usuario();
+                        consulta="exec PERSONAL_PERSONAL_ACTIVIDADES_LISTAR ?";
+                        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+                        cmd.setString(1, txtAR_ID.getText());
+                        ResultSet r= cmd.executeQuery();
+                        int i=0, c=1;
+                        while(r.next()){
+                            fila[0]=String.valueOf(c)+"º";
+                            fila[1]=r.getString(1);
+                            fila[2]=r.getString(2);
+                            fila[3]=r.getString(3);
+                            fila[4]=r.getString(4);
+                            
+                            
+                            m6.addRow(fila);
+                            c++;
+                        }
+                            TB_ACTIVIDADES_LISTA.setModel(m6);
+                            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m6);
+                            TB_ACTIVIDADES_LISTA.setRowSorter(elQueOrdena);
+                            TB_ACTIVIDADES_LISTA.setModel(m6);
+
+                            formato_ACTIVIDADES();
+                      
+        } catch (Exception e) {
+            System.out.println("Error MOSTRAR ACTIVIDADES: " + e.getMessage());
+        }  
+    }
+    
+    public void formato_ACTIVIDADES(){        
+            TB_ACTIVIDADES_LISTA.getColumnModel().getColumn(0).setPreferredWidth(50);
+            TB_ACTIVIDADES_LISTA.getColumnModel().getColumn(1).setPreferredWidth(160); 
+            TB_ACTIVIDADES_LISTA.getColumnModel().getColumn(2).setPreferredWidth(160);
+            TB_ACTIVIDADES_LISTA.getColumnModel().getColumn(3).setPreferredWidth(505);
+            TB_ACTIVIDADES_LISTA.getColumnModel().getColumn(4).setPreferredWidth(94);                
+
+            //Ocultar
+            TB_ACTIVIDADES_LISTA.getColumnModel().getColumn(1).setMinWidth(0);
+            TB_ACTIVIDADES_LISTA.getColumnModel().getColumn(1).setMaxWidth(0);    
+    
     }
     
     /**

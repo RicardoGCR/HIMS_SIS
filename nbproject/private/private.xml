@@ -2,38 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_PC_Registro.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Registro.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Apertura.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/PrincipalMDI.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_AperturaCierre.java</file>
-=======
-<<<<<<< HEAD
-        <group/>
-=======
-        <group>
-            <file>file:/D:/pry/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/PERSONAL/PERSONAL_TURNOS.java</file>
-<<<<<<< HEAD
             <file>file:/D:/pry/HIMS/src/vista/PERSONAL/PERSONAL_ACTIVIDADES.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/PrincipalMDI.java</file>
-=======
-            <file>file:/D:/pry/HIMS/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
->>>>>>> ba336f10f0ba649639e3bfda3ab959e0d41fb62a
->>>>>>> 1e892aa00d372619fe22d94ae56c38ff1fc0fb85
-=======
-            <file>file:/D:/pry/HIMS/src/modelos/admisionEmergencia/AdmisionEmergenciaTriaje.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/admisionEmergencia/FrmFormatoEmergenciaTriaje.java</file>
->>>>>>> 8bb55984f1ae610cde94504f8ccdca68ac8bfaae
->>>>>>> 57d25545fc03a7f1c40a2a3c679ed7e6bdaeb2bc
->>>>>>> f753d6990a6ada4f6b4b8423acf7f774a52d4ad8
->>>>>>> 2df0e10f5407567838f7f93ea496ba4743ef6c64
+            <file>file:/D:/pry/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
         </group>
->>>>>>> 50f1f26c8e23668571f679f2df95c33a404eb897
     </open-files>
 </project-private>

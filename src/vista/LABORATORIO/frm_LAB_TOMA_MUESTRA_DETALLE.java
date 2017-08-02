@@ -1582,6 +1582,7 @@ public void calcula() {
     private void txtPersonalSolicitaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalSolicitaKeyPressed
       char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
+                    
                     personal.setVisible(true);
                     txtBuscar.setText("");
                     Personal_cargar();
@@ -2428,7 +2429,7 @@ char tecla= evt.getKeyChar();
     private javax.swing.JButton btnQuitar;
     private javax.swing.JComboBox cbxBuscar2;
     private javax.swing.JDialog contenedor;
-    private com.toedter.calendar.JDateChooser date;
+    public static com.toedter.calendar.JDateChooser date;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;

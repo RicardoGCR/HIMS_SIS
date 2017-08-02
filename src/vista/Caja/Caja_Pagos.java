@@ -50,6 +50,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 import javax.swing.table.JTableHeader;
+import modelos.Caja.Caja_AperturaCierre;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -57,11 +58,13 @@ import net.sf.jasperreports.engine.JasperPrintManager;
 import tablas.FormatoTablaCajaConsultorio;
 import tablas.FormatoTablaReporteDiarioCaja;
 import static vista.Caja.Caja_HospitalizacionPreventa.lblIDHC;
+import vista.PrincipalMDI;
 /**
  *
  * @author MYS1
  */
-public class Caja_Pagos extends javax.swing.JFrame {
+public class Caja_Pagos extends javax.swing.JFrame implements Runnable {
+    
 DefaultTableModel m;
 double totales;
 byte tg;
@@ -70,7 +73,7 @@ byte tgm;
 byte tgp;
 byte tga;
 byte tgg;
-
+Thread h1;
 byte tgH;
 byte tgDetalle;
 byte tgnuevoEliminar;
@@ -93,6 +96,8 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
+        h1 = new Thread(this);
+        h1.start();
         addEscapeListenerWindowDialog(ActualizarDNI);
         addEscapeListenerWindowDialog(CitaFutura);
         addEscapeListenerWindowDialog(MedicosConsultorios);
@@ -10884,7 +10889,14 @@ if(tgp==1){
     }//GEN-LAST:event_btnbuscar2ActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-PaginasVentas.setSelectedIndex(1);
+//        Caja_AperturaCierre CA =new Caja_AperturaCierre();
+//        CA.Caja_Verificar_Apertura(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbAPERTURA);
+//            if(PrincipalMDI.tbAPERTURA.getRowCount()==0){
+//                PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
+//                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
+//            }
+        
+        PaginasVentas.setSelectedIndex(1);
 
         panelMensaje.setVisible(false);
         if(lblOk.getText()=="okk" && this.tb_CPT.getRowCount()==0){ 
@@ -12956,4 +12968,24 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel txtape;
     private javax.swing.JTextField txtedad;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Thread ct = Thread.currentThread();
+        while (ct == h1) {
+           
+            Caja_AperturaCierre CA =new Caja_AperturaCierre();
+            CA.Caja_Verificar_Apertura(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbAPERTURA);
+            if(PrincipalMDI.tbAPERTURA.getRowCount()==0){
+                PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
+                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
+            }
+            
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+        }
+    }
 }

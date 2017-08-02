@@ -362,6 +362,7 @@ public void Caja_Verificar_SESIONES(String usu,JTable tabla){
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tabla.setRowSorter(elQueOrdena);
             tabla.setModel(m);
+            formatoTablaAperturasP(tabla);
         } catch (Exception e) {
             System.out.println("Error: CONSULTAR SESIONES: " + e.getMessage());
         }
@@ -382,6 +383,26 @@ public void Caja_Verificar_SESIONES(String usu,JTable tabla){
         tabla.getColumnModel().getColumn(8).setMaxWidth(0);
         tabla.getColumnModel().getColumn(9).setMinWidth(0);
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+
+        TableColumn columna = tabla.getColumnModel().getColumn(0);//
+            columna.setMaxWidth(1);
+            columna.setMinWidth(1);
+            columna.setPreferredWidth(1);
+            tabla.doLayout();
+        tabla.setRowHeight(38);
+    }
+    public void formatoTablaAperturasP(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(50);//dni
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(100);//paciente
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(80);//fecha de ingreso
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(80);//hora de ingreso 
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(50);//traido por
+
 
         TableColumn columna = tabla.getColumnModel().getColumn(0);//
             columna.setMaxWidth(1);

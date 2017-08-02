@@ -331,6 +331,42 @@ public void Caja_Verificar_SESIONES(String usu,JTable tabla){
         }
     }
 
+    public void Caja_Verificar_SESIONES_OTRA_PC(String usu,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"id","cajero","conta","Serie",
+                "Fecha Apertura","Hora Apertura","Terminal","Base"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[8];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_CERRAR_SESION_DISTINTA_PC ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); // 
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7); // 
+                fila[7]=r.getString(8); // 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR SESIONES: " + e.getMessage());
+        }
+    }
+
     public void formatoTablaAperturasS(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(1).setMinWidth(0);

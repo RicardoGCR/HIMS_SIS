@@ -97,6 +97,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         addEscapeListenerWindowDialog(CitaFutura);
         addEscapeListenerWindowDialog(MedicosConsultorios);
         addEscapeListenerWindowDialog(nomenclaturas);
+        addEscapeListenerWindowDialog(Anular);
+        addEscapeListenerWindowDialog(AsistenciaSocial);
+        
          PaginasVentas.setSelectedIndex(1);
          BHC.setLocationRelativeTo(null);//en el centro
          BHC.getContentPane().setBackground(Color.WHITE);
@@ -2733,7 +2736,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                         txtT1 = new javax.swing.JTextField();
                                                                         MedicosConsultorios = new javax.swing.JDialog();
                                                                         jPanelCabecera = new javax.swing.JPanel();
-                                                                        jLabel63 = new javax.swing.JLabel();
+                                                                        lblNomConsultoorio = new javax.swing.JLabel();
                                                                         jPanel49 = new javax.swing.JPanel();
                                                                         txtBuscarMedicos = new javax.swing.JTextField();
                                                                         jLabel58 = new javax.swing.JLabel();
@@ -2836,7 +2839,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                     btnAlertConsulta1 = new javax.swing.JButton();
                                                                                     CitaFutura = new javax.swing.JDialog();
                                                                                     jPanelCabecera1 = new javax.swing.JPanel();
-                                                                                    jLabel107 = new javax.swing.JLabel();
+                                                                                    lblNomConsultorioFutura = new javax.swing.JLabel();
                                                                                     jScrollPane26 = new javax.swing.JScrollPane();
                                                                                     tbTurnos = new javax.swing.JTable(){
                                                                                         public boolean isCellEditable(int rowIndex, int colIndex){
@@ -6035,9 +6038,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                             jPanelCabecera.setBackground(new java.awt.Color(0, 153, 102));
                                                                                                             jPanelCabecera.setMinimumSize(new java.awt.Dimension(310, 441));
 
-                                                                                                            jLabel63.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                                                                                            jLabel63.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                                            jLabel63.setText("Consultorios Externos");
+                                                                                                            lblNomConsultoorio.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+                                                                                                            lblNomConsultoorio.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                            lblNomConsultoorio.setText("Consultorios Externos");
 
                                                                                                             jPanel49.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -6102,7 +6105,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addComponent(jLabel58)
                                                                                                                             .addGap(116, 116, 116)
                                                                                                                             .addComponent(lblMedicoApeNom))
-                                                                                                                        .addComponent(jLabel63)
+                                                                                                                        .addComponent(lblNomConsultoorio)
                                                                                                                         .addGroup(jPanelCabeceraLayout.createSequentialGroup()
                                                                                                                             .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                             .addGap(3, 3, 3)
@@ -6113,7 +6116,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 jPanelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCabeceraLayout.createSequentialGroup()
                                                                                                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                                    .addComponent(jLabel63)
+                                                                                                                    .addComponent(lblNomConsultoorio)
                                                                                                                     .addGap(12, 12, 12)
                                                                                                                     .addGroup(jPanelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                                                                                         .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6259,7 +6262,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                             chkADIC.setEditable(false);
                                                                                                             chkADIC.setBackground(new java.awt.Color(255, 204, 51));
                                                                                                             chkADIC.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-                                                                                                            chkADIC.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                            chkADIC.setForeground(new java.awt.Color(102, 102, 102));
                                                                                                             chkADIC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                                                                                                             chkADIC.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                                                                                                             chkADIC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -7363,9 +7366,9 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                             jPanelCabecera1.setBackground(new java.awt.Color(0, 153, 102));
                                                                                                             jPanelCabecera1.setMinimumSize(new java.awt.Dimension(310, 441));
 
-                                                                                                            jLabel107.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
-                                                                                                            jLabel107.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                                            jLabel107.setText("<html>Cita Futura<span style=\"font-size:'14px'\"><br>Consultorios Externos</br></span></html>");
+                                                                                                            lblNomConsultorioFutura.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
+                                                                                                            lblNomConsultorioFutura.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                            lblNomConsultorioFutura.setText("<html>Cita Futura<span style=\"font-size:'14px'\"><br>Consultorios Externos</br></span></html>");
 
                                                                                                             javax.swing.GroupLayout jPanelCabecera1Layout = new javax.swing.GroupLayout(jPanelCabecera1);
                                                                                                             jPanelCabecera1.setLayout(jPanelCabecera1Layout);
@@ -7373,13 +7376,13 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                 jPanelCabecera1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(jPanelCabecera1Layout.createSequentialGroup()
                                                                                                                     .addContainerGap()
-                                                                                                                    .addComponent(jLabel107, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                    .addComponent(lblNomConsultorioFutura, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                             );
                                                                                                             jPanelCabecera1Layout.setVerticalGroup(
                                                                                                                 jPanelCabecera1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(jPanelCabecera1Layout.createSequentialGroup()
-                                                                                                                    .addComponent(jLabel107, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                    .addComponent(lblNomConsultorioFutura, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                     .addGap(0, 0, Short.MAX_VALUE))
                                                                                                             );
 
@@ -11594,6 +11597,7 @@ PaginasVentas.setSelectedIndex(1);
               lblContador.setText(String.valueOf(tb_consultorios.getValueAt(fila, 12)));
               lblNumero.setText(String.valueOf(tb_consultorios.getValueAt(fila, 15)));  
               lblNumeroTotal.setText(String.valueOf(tb_consultorios.getValueAt(fila, 18))); 
+              lblNomConsultoorio.setText(String.valueOf(tb_consultorios.getValueAt(fila, 3))); 
            
 //              lblContadorF.setText(String.valueOf(tb_consultorios.getValueAt(fila, 14)));
 //              lblNumeroFuturo.setText(String.valueOf(tb_consultorios.getValueAt(fila, 16))); 
@@ -12340,6 +12344,8 @@ PaginasVentas.setSelectedIndex(1);
             lblNumeroFuturo.setText(String.valueOf(tbTurnos.getValueAt(fila, 16))); 
             lblNumeroFT.setText(String.valueOf(tbTurnos.getValueAt(fila, 20))); 
             lblTurno.setText(String.valueOf(tbTurnos.getValueAt(fila, 21)));
+            lblNomConsultorioFutura.setText("<html>"+"Cita Futura"+"<span style=\"font-size:'14px'\"><br>"+"Usuario, "+"Consultorios Externos"+String.valueOf(tbTurnos.getValueAt(fila, 3))+"<html>");
+            
             
             lblMedicoApeNom.setText(String.valueOf(tbTurnos.getValueAt(fila, 7)));
             lblIdMedico.setText(String.valueOf(tbTurnos.getValueAt(fila, 7)));
@@ -12559,7 +12565,6 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
     private javax.swing.JLabel jLabel106;
-    private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
@@ -12617,7 +12622,6 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
@@ -12802,6 +12806,8 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel lblMedicoTurno;
     private javax.swing.JLabel lblModulo;
     private javax.swing.JLabel lblModuloHos;
+    private javax.swing.JLabel lblNomConsultoorio;
+    private javax.swing.JLabel lblNomConsultorioFutura;
     private javax.swing.JLabel lblNomenclatura;
     public static javax.swing.JLabel lblNumDoc;
     private javax.swing.JLabel lblNumero;

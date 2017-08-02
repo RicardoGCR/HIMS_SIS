@@ -96,6 +96,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          
          ErrorExistente.setLocationRelativeTo(null);//en el centro
          AperturaOraPC.setLocationRelativeTo(null);//en el centro
+         ErrorCajaCerrada.setLocationRelativeTo(null);//en el centro
          tbAPERTURA_OTRAPC1.getTableHeader().setVisible(false);
          tbAPERTURA_OTRAPC1.setTableHeader(null);
          jPanel138.setVisible(false);
@@ -183,6 +184,12 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnAnularVenta = new javax.swing.JButton();
         jPanel142 = new javax.swing.JPanel();
         btnAlertConsulta8 = new javax.swing.JButton();
+        ErrorCajaCerrada = new javax.swing.JDialog();
+        jPanel143 = new javax.swing.JPanel();
+        lblAd3 = new javax.swing.JLabel();
+        jLabel121 = new javax.swing.JLabel();
+        jPanel144 = new javax.swing.JPanel();
+        btnAlertConsulta9 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -605,7 +612,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         AperturaOraPC.setMinimumSize(new java.awt.Dimension(522, 294));
         AperturaOraPC.setResizable(false);
 
-        jPanel104.setBackground(new java.awt.Color(168, 177, 176));
+        jPanel104.setBackground(new java.awt.Color(204, 204, 204));
 
         jScrollPane7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -791,6 +798,91 @@ public class PrincipalMDI extends javax.swing.JFrame {
         AperturaOraPCLayout.setVerticalGroup(
             AperturaOraPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel104, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        ErrorCajaCerrada.setAlwaysOnTop(true);
+        ErrorCajaCerrada.setMinimumSize(new java.awt.Dimension(446, 240));
+        ErrorCajaCerrada.setResizable(false);
+
+        jPanel143.setBackground(new java.awt.Color(241, 197, 14));
+        jPanel143.setMinimumSize(new java.awt.Dimension(310, 441));
+
+        lblAd3.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        lblAd3.setForeground(new java.awt.Color(51, 51, 51));
+        lblAd3.setText("Error");
+
+        jLabel121.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel121.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel121.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Error-80.png"))); // NOI18N
+        jLabel121.setText("<html>Esta caja fue cerrada <br>desde otro equipo.</html> ");
+
+        jPanel144.setBackground(new java.awt.Color(43, 43, 43));
+
+        btnAlertConsulta9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAlertConsulta9.setForeground(new java.awt.Color(240, 240, 240));
+        btnAlertConsulta9.setText("OK");
+        btnAlertConsulta9.setContentAreaFilled(false);
+        btnAlertConsulta9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAlertConsulta9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAlertConsulta9.setIconTextGap(30);
+        btnAlertConsulta9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlertConsulta9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel144Layout = new javax.swing.GroupLayout(jPanel144);
+        jPanel144.setLayout(jPanel144Layout);
+        jPanel144Layout.setHorizontalGroup(
+            jPanel144Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel144Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAlertConsulta9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel144Layout.setVerticalGroup(
+            jPanel144Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel144Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAlertConsulta9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout jPanel143Layout = new javax.swing.GroupLayout(jPanel143);
+        jPanel143.setLayout(jPanel143Layout);
+        jPanel143Layout.setHorizontalGroup(
+            jPanel143Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel143Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel143Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAd3))
+                .addContainerGap(167, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel143Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel144, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel143Layout.setVerticalGroup(
+            jPanel143Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel143Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblAd3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel144, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ErrorCajaCerradaLayout = new javax.swing.GroupLayout(ErrorCajaCerrada.getContentPane());
+        ErrorCajaCerrada.getContentPane().setLayout(ErrorCajaCerradaLayout);
+        ErrorCajaCerradaLayout.setHorizontalGroup(
+            ErrorCajaCerradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel143, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        ErrorCajaCerradaLayout.setVerticalGroup(
+            ErrorCajaCerradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel143, javax.swing.GroupLayout.PREFERRED_SIZE, 206, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -6451,15 +6543,23 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel101KeyPressed
 
     private void jLabel101MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel101MouseClicked
-
-        Caja_Pagos CP = new Caja_Pagos();
-        CP.setVisible(true);
-        String IDS=PrincipalMDI.lblIDSESION.getText();
-        CP.lblID_SESION.setText(IDS);
-        String u=PrincipalMDI.lblUsu.getText();
-        CP.lblusu.setText(u);
-        String ID=PrincipalMDI.ibiIDAPERTURA.getText();
-        CP.lblID_APERTURA.setText(ID);
+        Caja_AperturaCierre CA =new Caja_AperturaCierre();
+        CA.Caja_Verificar_Apertura(PrincipalMDI.lblUsu.getText(),tbAPERTURA);
+            if(tbAPERTURA.getRowCount()==0){
+                jTabbedPane1.setSelectedIndex(0);
+                ErrorCajaCerrada.setVisible(true);
+            }else if(tbAPERTURA.getRowCount()>0){
+                    Caja_Pagos CP = new Caja_Pagos();
+                    CP.setVisible(true);
+                    String IDS=PrincipalMDI.lblIDSESION.getText();
+                    CP.lblID_SESION.setText(IDS);
+                    String u=PrincipalMDI.lblUsu.getText();
+                    CP.lblusu.setText(u);
+                    String ID=PrincipalMDI.ibiIDAPERTURA.getText();
+                    CP.lblID_APERTURA.setText(ID);
+            }
+        
+        
         
     }//GEN-LAST:event_jLabel101MouseClicked
 
@@ -6940,6 +7040,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
         i.setVisible(true);
     }//GEN-LAST:event_jLabel36MouseClicked
 
+    private void btnAlertConsulta9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta9ActionPerformed
+        ErrorCajaCerrada.dispose();
+    }//GEN-LAST:event_btnAlertConsulta9ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -6981,6 +7085,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog AperturaOraPC;
+    private javax.swing.JDialog ErrorCajaCerrada;
     private javax.swing.JDialog ErrorExistente;
     public static javax.swing.JButton btnAdmCentral;
     public static javax.swing.JButton btnAdmEme;
@@ -6988,6 +7093,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     public static javax.swing.JButton btnAdmEme2;
     private javax.swing.JButton btnAlertConsulta7;
     private javax.swing.JButton btnAlertConsulta8;
+    private javax.swing.JButton btnAlertConsulta9;
     public static javax.swing.JButton btnAlmacen;
     private javax.swing.JButton btnAnalisis;
     private javax.swing.JButton btnAnularVenta;
@@ -7093,6 +7199,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -7218,6 +7325,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel140;
     private javax.swing.JPanel jPanel141;
     private javax.swing.JPanel jPanel142;
+    private javax.swing.JPanel jPanel143;
+    private javax.swing.JPanel jPanel144;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
@@ -7321,6 +7430,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     public static javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblAd1;
     private javax.swing.JLabel lblAd2;
+    private javax.swing.JLabel lblAd3;
     public static javax.swing.JLabel lblIDSESION;
     public static javax.swing.JLabel lblSe_ID;
     public static javax.swing.JLabel lblServicio;

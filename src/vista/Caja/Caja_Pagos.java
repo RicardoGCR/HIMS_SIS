@@ -241,11 +241,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         panelEliminarFR.setVisible(false);
         lblCantidad.setText("1");
         ActualizarDNI.setUndecorated(true);
-        panelDescuentos.setVisible(true);
+        panelDescuentos.setVisible(false);
         btnReservar.setVisible(false);
         cerrar();
 
-        
         
 //        panelTurnos.setVisible(false);
         
@@ -7579,7 +7578,6 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addContainerGap(130, Short.MAX_VALUE))))
                                                                                                             );
 
-                                                                                                            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                                                                                                             setTitle("Caja");
                                                                                                             setIconImage(getIconImage());
 
@@ -9985,6 +9983,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         System.out.println(""+c);
     
         if(lblDNI.getText().equals("        ")||(c<8)) {
+                ActualizarDNI.setUndecorated(true);
                 ActualizarDNI.setVisible(true);
                 txtDNIActu.requestFocus();
             } 
@@ -12978,8 +12977,9 @@ if(tgp==1){
             Caja_AperturaCierre CA =new Caja_AperturaCierre();
             CA.Caja_Verificar_Apertura(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbAPERTURA);
             if(PrincipalMDI.tbAPERTURA.getRowCount()==0){
+                dispose();
                 PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
-                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
+//                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
             }
             
             try {

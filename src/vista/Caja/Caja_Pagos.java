@@ -12983,7 +12983,7 @@ if(tgp==1){
             }
             
             try {
-                Thread.sleep(10000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
             }
         }

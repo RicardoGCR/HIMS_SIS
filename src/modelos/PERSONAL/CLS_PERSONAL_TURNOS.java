@@ -97,6 +97,28 @@ public class CLS_PERSONAL_TURNOS {
         return cod;
     }
     
+    public boolean PERSONAL_TURNOS_UNIDAD_ORGANICA_ELIMINAR()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec PERSONAL_TURNOS_UNIDAD_ORGANICA_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getCOD_TUR_UO());
+            if(!cmd.execute()){
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ELIMINAR TURNOS UNIDAD ORGANICA: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public Connection getCn() {
         return cn;
     }

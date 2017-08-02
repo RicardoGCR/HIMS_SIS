@@ -75,6 +75,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 cno1.setBASE(txtNRO.getText());//
                 cno1.setId_Apertura(0);//
                     if(cno1.NUEVO()==true){
+                        btnNuevo.setEnabled(false);
 //                        int id=0;
 //                        id=cno1.getId_Apertura();
 //                        jLabel5.setText(String.valueOf(id)) ;

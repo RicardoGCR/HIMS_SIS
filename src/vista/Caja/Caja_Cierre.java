@@ -233,7 +233,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jLabel57.setForeground(new java.awt.Color(255, 255, 255));
         jLabel57.setText("<html>Cierre<span style=\"font-size:'14px'\"><br>Caja Central</br></span></html>");
 
-        lblID_APERTURA.setForeground(new java.awt.Color(255, 51, 51));
+        lblID_APERTURA.setForeground(new java.awt.Color(255, 255, 255));
         lblID_APERTURA.setText("jLabel1");
 
         btnNuevo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

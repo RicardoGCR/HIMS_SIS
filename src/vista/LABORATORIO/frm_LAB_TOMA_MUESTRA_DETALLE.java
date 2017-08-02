@@ -2510,7 +2510,7 @@ char tecla= evt.getKeyChar();
     private javax.swing.JTextField txtContenedor;
     public static javax.swing.JTextField txtHabitacion;
     public static javax.swing.JTextField txtNomenclatura;
-    private javax.swing.JTextField txtPersonalSolicita;
+    public static javax.swing.JTextField txtPersonalSolicita;
     public static javax.swing.JTextField txtServicio;
     public static javax.swing.JTextField txtidDocumen;
     // End of variables declaration//GEN-END:variables

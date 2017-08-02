@@ -903,7 +903,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
 
         NivelSuperior.setAlwaysOnTop(true);
         NivelSuperior.setMinimumSize(new java.awt.Dimension(430, 366));
-        NivelSuperior.setPreferredSize(new java.awt.Dimension(430, 366));
         NivelSuperior.setResizable(false);
 
         jPanel145.setBackground(new java.awt.Color(204, 204, 204));
@@ -1076,7 +1075,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addComponent(jPanel146, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel67, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                .addComponent(jLabel67, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1742,7 +1741,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnLaboratorio1.setBackground(new java.awt.Color(102, 102, 102));
         btnLaboratorio1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnLaboratorio1.setForeground(new java.awt.Color(255, 255, 255));
-        btnLaboratorio1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Scissors-80.png"))); // NOI18N
+        btnLaboratorio1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Doctor en medicina-80.png"))); // NOI18N
         btnLaboratorio1.setContentAreaFilled(false);
         btnLaboratorio1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLaboratorio1.setFocusPainted(false);
@@ -3313,7 +3312,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel80Layout.createSequentialGroup()
                 .addComponent(jPanel81, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel82, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addComponent(jPanel82, javax.swing.GroupLayout.PREFERRED_SIZE, 112, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel83, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel95, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4870,7 +4869,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel66Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel66Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel106, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1317, Short.MAX_VALUE)
+                    .addComponent(jPanel106, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1317, Short.MAX_VALUE)
                     .addGroup(jPanel66Layout.createSequentialGroup()
                         .addComponent(jPanel107, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -6252,7 +6251,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel138, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 48, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

@@ -12979,7 +12979,7 @@ if(tgp==1){
             if(PrincipalMDI.tbAPERTURA.getRowCount()==0){
                 dispose();
                 PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
-                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
+//                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
             }
             
             try {

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="3.1384283767210035"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="643"/>
+	<property name="ireport.y" value="355"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -136,84 +136,84 @@ WHERE idApertura=$P{id}]]>
 			<staticText>
 				<reportElement x="-5" y="87" width="50" height="16" uuid="7dbf4ebd-527d-402e-a18d-8d279bffcf7f"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<text><![CDATA[Serie]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="-5" y="35" width="100" height="20" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<text><![CDATA[Cajero]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="-5" y="3" width="117" height="16" uuid="f5a908b2-5e4e-4bfa-b0cd-4de825960634"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha de Apertura]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="-5" y="19" width="117" height="12" uuid="b35e77c8-be71-4984-a6b0-6421f9a1a563"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<text><![CDATA[Hora de Apertura]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="83" y="35" width="118" height="18" uuid="1b55a3c1-ab0c-44f5-8291-8a16a161bfe1"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cajeroooo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="83" y="87" width="100" height="16" uuid="1027b96d-a313-4f9a-9a3f-76bf9e7ef4b8"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Caja}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="83" y="3" width="100" height="20" uuid="459a3bbf-4de6-4864-896a-c15e1a8399a7"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha_apertura}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="83" y="19" width="100" height="12" uuid="04a8bdbf-298f-4c4e-a77a-49d8dabbd918"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Hora_apertura}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="-5" y="69" width="50" height="20" uuid="fb703e45-108b-4a10-a814-ce02f3af20bf"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<text><![CDATA[Terminal]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="83" y="69" width="100" height="20" uuid="8b9ce8b9-1f19-42de-861c-f4fdbd14d109"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TERMINAL}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="-5" y="51" width="100" height="20" uuid="727d10ec-2b02-4070-acc8-c34e0878d107"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<text><![CDATA[Usuario]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="83" y="51" width="100" height="22" uuid="64e2a290-2195-4118-8d4b-6c857b7d33a7"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Cajero}]]></textFieldExpression>
 			</textField>
@@ -233,14 +233,14 @@ WHERE idApertura=$P{id}]]>
 			<textField>
 				<reportElement x="110" y="31" width="71" height="20" uuid="52d6a382-0727-46b0-8fdb-3a229f254cd6"/>
 				<textElement>
-					<font fontName="Lucida Sans Typewriter" size="8"/>
+					<font fontName="Lucida Sans Typewriter" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{BASE}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="-5" y="31" width="88" height="20" uuid="447976d3-841c-4662-a524-b1aed51cbd6e"/>
 				<textElement>
-					<font fontName="SansSerif" size="8"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<text><![CDATA[Saldo de Inicio]]></text>
 			</staticText>
@@ -257,7 +257,7 @@ WHERE idApertura=$P{id}]]>
 			<staticText>
 				<reportElement x="95" y="31" width="15" height="14" uuid="3bdb6e37-aab6-4aef-9671-9b2c803a7741"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<text><![CDATA[S/.]]></text>
 			</staticText>

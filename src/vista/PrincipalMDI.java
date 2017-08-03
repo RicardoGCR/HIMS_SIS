@@ -5688,6 +5688,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(45, 45, 45)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel132, javax.swing.GroupLayout.PREFERRED_SIZE, 1256, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5696,6 +5697,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel148, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap(44, Short.MAX_VALUE))
+=======
+                .addGap(30, 30, 30)
+                .addComponent(jPanel132, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(610, Short.MAX_VALUE))
+>>>>>>> 0a5f536c113629bd0711109ee29caec40b2bd1ab
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5851,7 +5857,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel121.setBackground(new java.awt.Color(41, 127, 184));
+        jPanel121.setBackground(new java.awt.Color(25, 88, 130));
         jPanel121.setForeground(new java.awt.Color(255, 153, 0));
 
         jLabel103.setBackground(new java.awt.Color(255, 255, 255));
@@ -5900,7 +5906,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addComponent(jPanel122, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel127.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel127.setBackground(new java.awt.Color(95, 106, 112));
         jPanel127.setForeground(new java.awt.Color(255, 153, 0));
 
         btneditar21.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -5934,7 +5940,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addComponent(btneditar21, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
         );
 
-        jPanel128.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel128.setBackground(new java.awt.Color(95, 106, 112));
         jPanel128.setForeground(new java.awt.Color(255, 153, 0));
 
         btneditar22.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -5963,7 +5969,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addComponent(btneditar22, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
         );
 
-        jPanel129.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel129.setBackground(new java.awt.Color(95, 106, 112));
         jPanel129.setForeground(new java.awt.Color(255, 153, 0));
 
         btneditar23.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -5992,7 +5998,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addComponent(btneditar23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel130.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel130.setBackground(new java.awt.Color(95, 106, 112));
         jPanel130.setForeground(new java.awt.Color(255, 102, 0));
 
         jLabel62.setBackground(new java.awt.Color(255, 255, 255));
@@ -6031,10 +6037,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel130Layout.createSequentialGroup()
                 .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btneditar24, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                .addComponent(btneditar24, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
         );
 
-        jPanel131.setBackground(new java.awt.Color(41, 127, 184));
+        jPanel131.setBackground(new java.awt.Color(25, 88, 130));
         jPanel131.setForeground(new java.awt.Color(255, 102, 0));
 
         jLabel63.setBackground(new java.awt.Color(255, 255, 255));
@@ -6076,7 +6082,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(btneditar25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel123.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel123.setBackground(new java.awt.Color(95, 106, 112));
         jPanel123.setForeground(new java.awt.Color(255, 153, 0));
 
         jLabel108.setBackground(new java.awt.Color(255, 255, 255));
@@ -6097,7 +6103,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             }
         });
 
-        jPanel124.setBackground(new java.awt.Color(58, 57, 57));
+        jPanel124.setBackground(new java.awt.Color(25, 88, 130));
 
         javax.swing.GroupLayout jPanel124Layout = new javax.swing.GroupLayout(jPanel124);
         jPanel124.setLayout(jPanel124Layout);
@@ -6151,7 +6157,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(21, 21, 21)
                 .addComponent(jPanel121, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

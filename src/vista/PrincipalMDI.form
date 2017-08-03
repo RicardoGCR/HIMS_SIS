@@ -8282,6 +8282,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jPanel132" alignment="0" min="-2" pref="1256" max="-2" attributes="0"/>
@@ -8292,6 +8293,11 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="44" max="32767" attributes="0"/>
+=======
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jPanel132" min="-2" pref="705" max="-2" attributes="0"/>
+                      <EmptySpace pref="610" max="32767" attributes="0"/>
+>>>>>>> 0a5f536c113629bd0711109ee29caec40b2bd1ab
                   </Group>
               </Group>
             </DimensionLayout>
@@ -8794,7 +8800,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="jPanel121" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -8820,7 +8826,7 @@
             <Container class="javax.swing.JPanel" name="jPanel121">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b8" green="7f" red="29" type="rgb"/>
+                  <Color blue="82" green="58" red="19" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="ff" type="rgb"/>
@@ -8895,7 +8901,7 @@
             <Container class="javax.swing.JPanel" name="jPanel127">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="2b" green="2b" red="2b" type="rgb"/>
+                  <Color blue="70" green="6a" red="5f" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="ff" type="rgb"/>
@@ -8945,7 +8951,7 @@
             <Container class="javax.swing.JPanel" name="jPanel128">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="2b" green="2b" red="2b" type="rgb"/>
+                  <Color blue="70" green="6a" red="5f" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="ff" type="rgb"/>
@@ -8994,7 +9000,7 @@
             <Container class="javax.swing.JPanel" name="jPanel129">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="2b" green="2b" red="2b" type="rgb"/>
+                  <Color blue="70" green="6a" red="5f" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="ff" type="rgb"/>
@@ -9043,7 +9049,7 @@
             <Container class="javax.swing.JPanel" name="jPanel130">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="2b" green="2b" red="2b" type="rgb"/>
+                  <Color blue="70" green="6a" red="5f" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -9062,7 +9068,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel62" min="-2" pref="113" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btneditar24" pref="141" max="32767" attributes="0"/>
+                          <Component id="btneditar24" pref="148" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -9111,7 +9117,7 @@
             <Container class="javax.swing.JPanel" name="jPanel131">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b8" green="7f" red="29" type="rgb"/>
+                  <Color blue="82" green="58" red="19" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -9179,7 +9185,7 @@
             <Container class="javax.swing.JPanel" name="jPanel123">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="2b" green="2b" red="2b" type="rgb"/>
+                  <Color blue="70" green="6a" red="5f" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="ff" type="rgb"/>
@@ -9232,7 +9238,7 @@
                 <Container class="javax.swing.JPanel" name="jPanel124">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="39" green="39" red="3a" type="rgb"/>
+                      <Color blue="82" green="58" red="19" type="rgb"/>
                     </Property>
                   </Properties>
 

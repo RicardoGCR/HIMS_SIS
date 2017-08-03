@@ -1001,6 +1001,11 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JLabel" name="lblARID">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -1118,6 +1123,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblSEID">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="cbxArea">
               <Properties>
@@ -1142,6 +1152,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblID">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

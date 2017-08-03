@@ -630,6 +630,7 @@ Conexion c=new Conexion();
             getContentPane().add(jPanel10);
             jPanel10.setBounds(650, 530, 200, 68);
 
+            lblUsu.setForeground(new java.awt.Color(240, 240, 240));
             lblUsu.setText("Silvana");
             getContentPane().add(lblUsu);
             lblUsu.setBounds(1160, 570, 60, 10);

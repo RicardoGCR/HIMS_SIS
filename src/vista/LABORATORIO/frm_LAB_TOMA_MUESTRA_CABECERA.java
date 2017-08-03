@@ -1588,7 +1588,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                 String u=lblUsu.getText();
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
                 
-                frm_LAB_TOMA_MUESTRA_DETALLE.spHora.requestFocus();
+                frm_LAB_TOMA_MUESTRA_DETALLE.tb_Muestras.requestFocus();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(this, e.getMessage());
             }}

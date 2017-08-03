@@ -815,6 +815,8 @@ byte est;
                     .addComponent(btnAlertConsulta3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            lblARID.setForeground(new java.awt.Color(255, 255, 255));
+
             jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
             jLabel1.setForeground(new java.awt.Color(255, 255, 255));
             jLabel1.setText("Este Nº de terminal ya se encuentra consignado.");
@@ -874,9 +876,13 @@ byte est;
 
             cbxServicio.setText("SI");
 
+            lblSEID.setForeground(new java.awt.Color(255, 255, 255));
+
             cbxArea.setText("SI");
 
             cbxModulo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADM", "CC", "CPP", "EME", "CEX", "LAB", "RX", "EC", "HOS" }));
+
+            lblID.setForeground(new java.awt.Color(255, 255, 255));
 
             javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
             jPanel8.setLayout(jPanel8Layout);
@@ -1496,7 +1502,8 @@ char teclaPresionada = evt.getKeyChar();
     {
     lblID.setText("");
     txtNRO.setText("");
-    txtPC.setText("");
+    RegistroPC pc = new RegistroPC();
+        pc.CajaPC_Listar();
     cbxModulo.setSelectedIndex(0);
     txtArea.setText("");
     txtServicio.setText("");

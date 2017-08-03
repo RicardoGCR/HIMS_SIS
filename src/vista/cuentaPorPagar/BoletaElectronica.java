@@ -35,7 +35,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
     CuentasPorPagarBoletaElectronica boleta = new CuentasPorPagarBoletaElectronica();
     String barra = File.separator;
     // SE DEFINE LA CARPETA DATA, DONDE SE ENVIAN LOS REGISTROS DE SUNAT
-    String ubicacion = "W:\\sfs\\DATA\\";
+    String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
     int cantidad = 0;
     //DECLARAR VARIABLES DE BOLETAS GENERADAS Y NO GENERADAS
     int cantidadAceptas = 0,cantidadRechazadas=0;

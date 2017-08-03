@@ -79,6 +79,7 @@ import vista.admisionEmergencia.FrmFormatoEmergenciaTopico;
 import vista.admisionEmergencia.FrmFormatoEmergenciaTriaje;
 import vista.cuentaPorPagar.BoletaElectronica;
 import vista.cuentaPorPagar.ComunicacionBaja;
+import vista.cuentaPorPagar.FacturadorPagos;
 import vista.cuentaPorPagar.NotasCreditoDebito;
 import vista.cuentaPorPagar.ReporteNCND;
 import vista.cuentaPorPagar.VentasConsolidado;
@@ -5688,7 +5689,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGap(45, 45, 45)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel132, javax.swing.GroupLayout.PREFERRED_SIZE, 1256, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5697,11 +5697,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel148, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap(44, Short.MAX_VALUE))
-=======
-                .addGap(30, 30, 30)
-                .addComponent(jPanel132, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(610, Short.MAX_VALUE))
->>>>>>> 0a5f536c113629bd0711109ee29caec40b2bd1ab
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -7283,7 +7278,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel62MouseClicked
 
     private void btneditar24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar24ActionPerformed
-        // TODO add your handling code here:
+        FacturadorPagos FP=new FacturadorPagos();
+        FP.setVisible(true);
+        String u=PrincipalMDI.lblUsu.getText();
+        NotasCreditoDebito.lblUsu.setText(u);
     }//GEN-LAST:event_btneditar24ActionPerformed
 
     private void jLabel63MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel63MouseClicked
@@ -7293,7 +7291,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel63MouseClicked
 
     private void btneditar25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar25ActionPerformed
-        // TODO add your handling code here:
+        ReporteNCND NCND=new ReporteNCND();
+        NCND.setVisible(true);
+        String u=PrincipalMDI.lblUsu.getText();
+        NotasCreditoDebito.lblUsu.setText(u);
     }//GEN-LAST:event_btneditar25ActionPerformed
 
     private void jLabel108MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel108MouseClicked

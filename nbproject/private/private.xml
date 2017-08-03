@@ -3,22 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/vista/PrincipalMDI.java</file>
-=======
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Apertura.java</file>
->>>>>>> 0a5f536c113629bd0711109ee29caec40b2bd1ab
-=======
-<<<<<<< HEAD
-            <file>file:/E:/pry/SISGESH/src/vista/cuentaPorPagar/ComunicacionBaja.java</file>
-=======
->>>>>>> 44fb616524d5c83db9355d22c1299220b68ba4ac
-            <file>file:/D:/pry/HIMS/src/vista/inicioSesion.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/PrincipalMDI.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_AperturaCierre.java</file>
->>>>>>> 4728fa771b819bf58644cce1d8850f78e28959fe
->>>>>>> 44fb616524d5c83db9355d22c1299220b68ba4ac
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/Facturador.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/VentasConsolidado.java</file>
         </group>
     </open-files>
 </project-private>

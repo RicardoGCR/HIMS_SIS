@@ -8282,7 +8282,6 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jPanel132" alignment="0" min="-2" pref="1256" max="-2" attributes="0"/>
@@ -8293,11 +8292,6 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="44" max="32767" attributes="0"/>
-=======
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jPanel132" min="-2" pref="705" max="-2" attributes="0"/>
-                      <EmptySpace pref="610" max="32767" attributes="0"/>
->>>>>>> 0a5f536c113629bd0711109ee29caec40b2bd1ab
                   </Group>
               </Group>
             </DimensionLayout>

@@ -82,6 +82,7 @@ Conexion c=new Conexion();
         
          agregarFacturas();
         
+        jScrollPane1.setVisible(false);
         
         //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(

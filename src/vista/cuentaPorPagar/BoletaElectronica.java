@@ -35,7 +35,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
     CuentasPorPagarBoletaElectronica boleta = new CuentasPorPagarBoletaElectronica();
     String barra = File.separator;
     // SE DEFINE LA CARPETA DATA, DONDE SE ENVIAN LOS REGISTROS DE SUNAT
-    String ubicacion = "W:\\sfs\\DATA\\";
+    String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
     int cantidad = 0;
     //DECLARAR VARIABLES DE BOLETAS GENERADAS Y NO GENERADAS
     int cantidadAceptas = 0,cantidadRechazadas=0;
@@ -55,6 +55,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
             }
         });
         cerrar();
+        jPanel3.setVisible(false);
         //MUESTRA LA FECHA ACTUA
         lblFechaEmision.setText(fechaActual());
         //LISTA LAS PRIMERAS 500 BOLETAS DE VENTAS POR CONTADO
@@ -515,6 +516,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
                     .addComponent(txtTotalVentas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 );
 
+                lblCantidad.setForeground(new java.awt.Color(41, 127, 184));
                 lblCantidad.setText("jLabel2");
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

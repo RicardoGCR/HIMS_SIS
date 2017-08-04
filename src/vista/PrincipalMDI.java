@@ -5482,7 +5482,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             }
         });
 
-        jPanel139.setBackground(new java.awt.Color(50, 151, 219));
+        jPanel139.setBackground(new java.awt.Color(223, 0, 78));
 
         javax.swing.GroupLayout jPanel139Layout = new javax.swing.GroupLayout(jPanel139);
         jPanel139.setLayout(jPanel139Layout);

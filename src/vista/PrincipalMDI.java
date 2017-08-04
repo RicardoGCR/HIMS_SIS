@@ -5494,7 +5494,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             }
         });
 
-        jPanel139.setBackground(new java.awt.Color(50, 151, 219));
+        jPanel139.setBackground(new java.awt.Color(223, 0, 78));
 
         javax.swing.GroupLayout jPanel139Layout = new javax.swing.GroupLayout(jPanel139);
         jPanel139.setLayout(jPanel139Layout);
@@ -7158,6 +7158,9 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCajaMouseEntered
 
     private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
+        ImageIcon aperturar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Meter en caja fuerte-80.png")); 
+        ImageIcon cerrada=new ImageIcon(this.getClass().getResource("/imagenes/iconos/icons8-Caja fuerte-90.png"));
+        
         Caja_PC_Registro CPC = new Caja_PC_Registro();
         Caja_AperturaCierre CA =new Caja_AperturaCierre();
         Caja_AperturaCierre CAID =new Caja_AperturaCierre();
@@ -7182,21 +7185,26 @@ public class PrincipalMDI extends javax.swing.JFrame {
                         if(tbULTIMA_SESION.getRowCount()==0){
                             if(tbAPERTURA_OTRAPC.getRowCount()==0){
                                 if(tbAPERTURA.getRowCount()==0){
+                                    btnCaja.setPressedIcon(cerrada);
                                     Caja_Apertura frmPCAPERTURA = new Caja_Apertura();
                                     frmPCAPERTURA.setVisible(true);
                                     frmPCAPERTURA.lblusu.setText(PrincipalMDI.lblUsu.getText());
                                 }else if(tbAPERTURA.getRowCount()>0){
+                                        btnCaja.setPressedIcon(aperturar);
                                         jTabbedPane1.setSelectedIndex(4);
                                 }
                                 System.out.println("Bienvenido");
                             }else if(tbAPERTURA_OTRAPC.getRowCount()>0){
+                                        btnCaja.setPressedIcon(cerrada);
                                         AperturaOraPC.setVisible(true);
                             }
                         }if(tbULTIMA_SESION.getRowCount()>0){
+                            btnCaja.setPressedIcon(cerrada);
                             NivelSuperior.setUndecorated(true);
                             NivelSuperior.setVisible(true);
                         }
                     }else if(tbSESIONES.getRowCount()>0){
+                            btnCaja.setPressedIcon(cerrada);
                             ErrorExistente.setVisible(true);
                     }
                 }

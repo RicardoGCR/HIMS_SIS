@@ -11830,7 +11830,7 @@ if(tgp==1){
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
         JTableHeader th; 
         th = tb_ReporteDiario.getTableHeader(); 
-        Font fuente = new Font("Segoe UI", Font.CENTER_BASELINE, 14); 
+        Font fuente = new Font("Segoe UI", Font.PLAIN, 14); 
         th.setFont(fuente); 
         th.setForeground(new java.awt.Color(102,102,102));
         th.setBackground(new java.awt.Color(255,255,255));

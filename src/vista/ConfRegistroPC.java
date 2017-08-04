@@ -786,7 +786,7 @@ byte est;
                     .addComponent(btnAlertConsulta2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            jPanel68.setBackground(new java.awt.Color(0, 98, 155));
+            jPanel68.setBackground(new java.awt.Color(223, 0, 78));
 
             btnAlertConsulta3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             btnAlertConsulta3.setForeground(new java.awt.Color(240, 240, 240));
@@ -985,7 +985,7 @@ byte est;
 
             jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-            jPanel72.setBackground(new java.awt.Color(0, 98, 155));
+            jPanel72.setBackground(new java.awt.Color(223, 0, 78));
 
             btnAlertConsulta7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             btnAlertConsulta7.setForeground(new java.awt.Color(240, 240, 240));
@@ -1075,6 +1075,8 @@ byte est;
 
             jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
+            jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
             TbPC.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
                     {},
@@ -1087,6 +1089,7 @@ byte est;
                 }
             ));
             TbPC.setRowHeight(35);
+            TbPC.setSelectionBackground(new java.awt.Color(102, 102, 102));
             TbPC.getTableHeader().setReorderingAllowed(false);
             TbPC.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1115,6 +1118,7 @@ byte est;
             jLabel33.setForeground(new java.awt.Color(255, 255, 255));
             jLabel33.setText("Listado");
 
+            lblUsuario.setForeground(new java.awt.Color(43, 43, 43));
             lblUsuario.setText("Silvana");
 
             javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);

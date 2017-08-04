@@ -300,8 +300,10 @@ public class Facturador extends javax.swing.JFrame {
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                         "0.00"+ "|" + //ISC
-                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                        String.valueOf("") +
+                        String.valueOf("") + "|" +
                         "0.00" + "|" + //PRECIO DE VENTA
                         "0.00" //VALOR DE VENTA
                         );
@@ -319,8 +321,10 @@ public class Facturador extends javax.swing.JFrame {
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                         "0.00"+ "|" + //ISC
-                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                        String.valueOf("") +
+                        String.valueOf("") + "|" +
                         "0.00" + "|" + //PRECIO DE VENTA
                         "0.00" //VALOR DE VENTA
                         );
@@ -356,8 +360,10 @@ public class Facturador extends javax.swing.JFrame {
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                         "0.00"+ "|" + //ISC
-                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                        String.valueOf("") +
+                        String.valueOf("") + "|" +
                         "0.00" + "|" + //PRECIO DE VENTA
                         "0.00" //VALOR DE VENTA
                             + "\r\n";
@@ -375,8 +381,10 @@ public class Facturador extends javax.swing.JFrame {
                          String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                         "0.00"+ "|" + //ISC
-                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+//                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                        String.valueOf("") +
+                        String.valueOf("") + "|" +
                         "0.00" + "|" + //PRECIO DE VENTA
                         "0.00" //VALOR DE VENTA
                             + "\r\n";
@@ -2281,7 +2289,6 @@ public class Facturador extends javax.swing.JFrame {
                 panelCPT22.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtMtoISC.setEditable(false);
                 txtMtoISC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
                 txtMtoISC.setForeground(new java.awt.Color(51, 51, 51));
                 txtMtoISC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -2804,7 +2811,8 @@ public class Facturador extends javax.swing.JFrame {
                         facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
                         facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
                         facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble("0.00")));
-                        facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
+//                        facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
+                        facturaDetalle.setCpdAfecIsc(""); 
                         facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())));
                         facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
                         facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));

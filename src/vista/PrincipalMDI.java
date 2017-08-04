@@ -1172,6 +1172,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnCaja.setFocusPainted(false);
         btnCaja.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnCaja.setIconTextGap(30);
+        btnCaja.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Caja fuerte-90.png"))); // NOI18N
         btnCaja.setVerifyInputWhenFocusTarget(false);
         btnCaja.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -1295,12 +1296,14 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnPersonal.setBackground(new java.awt.Color(102, 102, 102));
         btnPersonal.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         btnPersonal.setForeground(new java.awt.Color(255, 255, 255));
-        btnPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-People-100.png"))); // NOI18N
+        btnPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-People-90.png"))); // NOI18N
         btnPersonal.setContentAreaFilled(false);
         btnPersonal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPersonal.setFocusPainted(false);
         btnPersonal.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnPersonal.setIconTextGap(30);
+        btnPersonal.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-People-100.png"))); // NOI18N
+        btnPersonal.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-People-100.png"))); // NOI18N
         btnPersonal.setVerifyInputWhenFocusTarget(false);
         btnPersonal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3760,11 +3763,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel49.setLayout(jPanel49Layout);
         jPanel49Layout.setHorizontalGroup(
             jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
-            .addComponent(jPanel50, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
-            .addComponent(jPanel51, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
-            .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
-            .addComponent(jPanel53, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
+            .addComponent(jPanel50, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
+            .addComponent(jPanel51, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
+            .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
+            .addComponent(jPanel53, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
             .addGroup(jPanel49Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -6352,7 +6355,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel138, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 48, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

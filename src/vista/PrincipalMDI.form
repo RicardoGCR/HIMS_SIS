@@ -1270,6 +1270,9 @@
                     <Property name="focusPainted" type="boolean" value="false"/>
                     <Property name="horizontalTextPosition" type="int" value="4"/>
                     <Property name="iconTextGap" type="int" value="30"/>
+                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/iconos/icons8-Caja fuerte-90.png"/>
+                    </Property>
                     <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
                   </Properties>
                   <Events>
@@ -1480,7 +1483,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/icons8-People-100.png"/>
+                      <Image iconType="3" name="/imagenes/iconos/icons8-People-90.png"/>
                     </Property>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1489,6 +1492,12 @@
                     <Property name="focusPainted" type="boolean" value="false"/>
                     <Property name="horizontalTextPosition" type="int" value="4"/>
                     <Property name="iconTextGap" type="int" value="30"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/iconos/icons8-People-100.png"/>
+                    </Property>
+                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/iconos/icons8-People-100.png"/>
+                    </Property>
                     <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
                   </Properties>
                   <Events>
@@ -5291,11 +5300,11 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel15" alignment="0" pref="1029" max="32767" attributes="0"/>
-                      <Component id="jPanel50" alignment="0" pref="1029" max="32767" attributes="0"/>
-                      <Component id="jPanel51" alignment="0" pref="1029" max="32767" attributes="0"/>
-                      <Component id="jPanel52" alignment="0" pref="1029" max="32767" attributes="0"/>
-                      <Component id="jPanel53" alignment="0" pref="1029" max="32767" attributes="0"/>
+                      <Component id="jPanel15" alignment="0" pref="1019" max="32767" attributes="0"/>
+                      <Component id="jPanel50" alignment="0" pref="1019" max="32767" attributes="0"/>
+                      <Component id="jPanel51" alignment="0" pref="1019" max="32767" attributes="0"/>
+                      <Component id="jPanel52" alignment="0" pref="1019" max="32767" attributes="0"/>
+                      <Component id="jPanel53" alignment="0" pref="1019" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">

@@ -59,6 +59,7 @@ import tablas.FormatoTablaCajaConsultorio;
 import tablas.FormatoTablaReporteDiarioCaja;
 import static vista.Caja.Caja_HospitalizacionPreventa.lblIDHC;
 import vista.PrincipalMDI;
+import vista.inicioSesion;
 /**
  *
  * @author MYS1
@@ -12971,6 +12972,8 @@ if(tgp==1){
 
     public void Stop(){
         System.exit(0);
+        inicioSesion CP = new inicioSesion();
+        CP.setVisible(true);
     }
     
     @Override

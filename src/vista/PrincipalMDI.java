@@ -632,7 +632,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
         );
 
         AperturaOraPC.setAlwaysOnTop(true);
-        AperturaOraPC.setMinimumSize(new java.awt.Dimension(522, 294));
+        AperturaOraPC.setMinimumSize(new java.awt.Dimension(522, 300));
+        AperturaOraPC.setPreferredSize(new java.awt.Dimension(589, 300));
         AperturaOraPC.setResizable(false);
 
         jPanel104.setBackground(new java.awt.Color(241, 197, 14));
@@ -642,7 +643,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         tbAPERTURA_OTRAPC1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tbAPERTURA_OTRAPC1.setForeground(new java.awt.Color(51, 51, 51));
+        tbAPERTURA_OTRAPC1.setForeground(new java.awt.Color(102, 102, 102));
         tbAPERTURA_OTRAPC1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -703,7 +704,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel141.setBackground(new java.awt.Color(43, 43, 43));
         jPanel141.setPreferredSize(new java.awt.Dimension(125, 25));
 
-        btnAnularVenta.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnAnularVenta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnAnularVenta.setForeground(new java.awt.Color(240, 240, 240));
         btnAnularVenta.setText("Cerrar Caja Aperturada en otro Equipo");
         btnAnularVenta.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -725,7 +726,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         );
         jPanel141Layout.setVerticalGroup(
             jPanel141Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnAnularVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+            .addComponent(btnAnularVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel104Layout = new javax.swing.GroupLayout(jPanel104);
@@ -770,8 +771,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(jPanel105, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel141, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel141, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout AperturaOraPCLayout = new javax.swing.GroupLayout(AperturaOraPC.getContentPane());
@@ -3723,11 +3724,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel49.setLayout(jPanel49Layout);
         jPanel49Layout.setHorizontalGroup(
             jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
-            .addComponent(jPanel50, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
-            .addComponent(jPanel51, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
-            .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
-            .addComponent(jPanel53, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
+            .addComponent(jPanel50, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
+            .addComponent(jPanel51, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
+            .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
+            .addComponent(jPanel53, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
             .addGroup(jPanel49Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

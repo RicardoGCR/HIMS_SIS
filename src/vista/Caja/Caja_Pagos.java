@@ -12973,7 +12973,7 @@ if(tgp==1){
     public void Stop(){
         System.exit(0);
         inicioSesion CP = new inicioSesion();
-        CP.setVisible(true);
+        CP.run();
     }
     
     @Override

@@ -636,7 +636,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         AperturaOraPC.setPreferredSize(new java.awt.Dimension(589, 300));
         AperturaOraPC.setResizable(false);
 
-        jPanel104.setBackground(new java.awt.Color(241, 197, 14));
+        jPanel104.setBackground(new java.awt.Color(204, 204, 204));
 
         jScrollPane7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);

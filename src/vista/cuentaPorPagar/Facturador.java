@@ -362,8 +362,9 @@ public class Facturador extends javax.swing.JFrame {
                         "0.00"+ "|" + //ISC
 //                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
 //                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
-                        String.valueOf("") +
-                        String.valueOf("") + "|" +
+//                        String.valueOf("") +
+//                        String.valueOf("") + 
+                            "|" +
                         "0.00" + "|" + //PRECIO DE VENTA
                         "0.00" //VALOR DE VENTA
                             + "\r\n";
@@ -383,8 +384,9 @@ public class Facturador extends javax.swing.JFrame {
                         "0.00"+ "|" + //ISC
 //                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
 //                        String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
-                        String.valueOf("") +
-                        String.valueOf("") + "|" +
+//                        String.valueOf("") +
+//                        String.valueOf("") +
+                            "|" +
                         "0.00" + "|" + //PRECIO DE VENTA
                         "0.00" //VALOR DE VENTA
                             + "\r\n";

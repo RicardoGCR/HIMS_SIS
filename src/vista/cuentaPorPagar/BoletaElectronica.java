@@ -181,7 +181,7 @@ public class BoletaElectronica extends javax.swing.JFrame {
                         "0.00" + "|" +  //IGV
                         "10" + "|" + //AFECTACION IGV
                         "0.00"+ "|" + //ISC
-                        "01" + "|" + //AFECTACION ISC
+                        "" + "|" + //AFECTACION ISC
                         String.valueOf(tbBoletaDetalles.getValueAt(c, 6)) + "|" + //PRECIO DE VENTA
                         String.valueOf(tbBoletaDetalles.getValueAt(c, 8))  + "\r\n" /*VALOR DE VENTA*/;
                 }

@@ -7578,6 +7578,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addContainerGap(130, Short.MAX_VALUE))))
                                                                                                             );
 
+                                                                                                            setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                                                                                                             setTitle("Caja");
                                                                                                             setIconImage(getIconImage());
 
@@ -12968,6 +12969,10 @@ if(tgp==1){
     private javax.swing.JTextField txtedad;
     // End of variables declaration//GEN-END:variables
 
+    public void Stop(){
+        System.exit(0);
+    }
+    
     @Override
     public void run() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -12977,9 +12982,13 @@ if(tgp==1){
             Caja_AperturaCierre CA =new Caja_AperturaCierre();
             CA.Caja_Verificar_Apertura(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbAPERTURA);
             if(PrincipalMDI.tbAPERTURA.getRowCount()==0){
-                System.exit(0);
-                PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
+                BHC.dispose();
+                Jerarquias.dispose();
+                nomenclaturas.dispose();
+                Stop();
                 PrincipalMDI.ErrorCajaCerrada.setVisible(true);
+                PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
+                
             }
             
             try {

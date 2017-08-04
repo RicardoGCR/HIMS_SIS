@@ -186,8 +186,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel59 = new javax.swing.JLabel();
         jPanel141 = new javax.swing.JPanel();
         btnAnularVenta = new javax.swing.JButton();
-        jPanel142 = new javax.swing.JPanel();
-        btnAlertConsulta8 = new javax.swing.JButton();
         ErrorCajaCerrada = new javax.swing.JDialog();
         jPanel143 = new javax.swing.JPanel();
         lblAd3 = new javax.swing.JLabel();
@@ -656,7 +654,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
 
             }
         ));
-        tbAPERTURA_OTRAPC1.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        tbAPERTURA_OTRAPC1.setSelectionBackground(new java.awt.Color(43, 43, 43));
         jScrollPane7.setViewportView(tbAPERTURA_OTRAPC1);
 
         lblAd2.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
@@ -702,10 +700,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel59.setForeground(new java.awt.Color(51, 51, 51));
         jLabel59.setText(" Serie");
 
-        jPanel141.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel141.setBackground(new java.awt.Color(43, 43, 43));
         jPanel141.setPreferredSize(new java.awt.Dimension(125, 25));
 
-        btnAnularVenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnAnularVenta.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnAnularVenta.setForeground(new java.awt.Color(240, 240, 240));
         btnAnularVenta.setText("Cerrar Caja Aperturada en otro Equipo");
         btnAnularVenta.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -723,42 +721,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel141.setLayout(jPanel141Layout);
         jPanel141Layout.setHorizontalGroup(
             jPanel141Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnAnularVenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+            .addComponent(btnAnularVenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel141Layout.setVerticalGroup(
             jPanel141Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnAnularVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jPanel142.setBackground(new java.awt.Color(43, 43, 43));
-
-        btnAlertConsulta8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnAlertConsulta8.setForeground(new java.awt.Color(240, 240, 240));
-        btnAlertConsulta8.setText("Cancelar");
-        btnAlertConsulta8.setContentAreaFilled(false);
-        btnAlertConsulta8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAlertConsulta8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAlertConsulta8.setIconTextGap(30);
-        btnAlertConsulta8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlertConsulta8ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel142Layout = new javax.swing.GroupLayout(jPanel142);
-        jPanel142.setLayout(jPanel142Layout);
-        jPanel142Layout.setHorizontalGroup(
-            jPanel142Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel142Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAlertConsulta8, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel142Layout.setVerticalGroup(
-            jPanel142Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel142Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAlertConsulta8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(btnAnularVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel104Layout = new javax.swing.GroupLayout(jPanel104);
@@ -781,13 +748,9 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel104Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAd2)
-                    .addComponent(jLabel120, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel104Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jPanel142, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel141, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel120, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(190, Short.MAX_VALUE))
+            .addComponent(jPanel141, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
         );
         jPanel104Layout.setVerticalGroup(
             jPanel104Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -808,10 +771,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel104Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel142, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel141, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26))
+                .addComponent(jPanel141, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout AperturaOraPCLayout = new javax.swing.GroupLayout(AperturaOraPC.getContentPane());
@@ -7355,10 +7315,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
             AperturaOraPC.dispose();
     }//GEN-LAST:event_btnAnularVentaActionPerformed
 
-    private void btnAlertConsulta8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta8ActionPerformed
-        AperturaOraPC.dispose();
-    }//GEN-LAST:event_btnAlertConsulta8ActionPerformed
-
     private void jLabel36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel36MouseClicked
         dispose();
         inicioSesion i=new inicioSesion();
@@ -7492,7 +7448,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
     public static javax.swing.JButton btnAdmEme2;
     private javax.swing.JButton btnAlertConsulta10;
     private javax.swing.JButton btnAlertConsulta7;
-    private javax.swing.JButton btnAlertConsulta8;
     private javax.swing.JButton btnAlertConsulta9;
     public static javax.swing.JButton btnAlmacen;
     private javax.swing.JButton btnAnalisis;
@@ -7733,7 +7688,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel140;
     private javax.swing.JPanel jPanel141;
-    private javax.swing.JPanel jPanel142;
     private javax.swing.JPanel jPanel143;
     private javax.swing.JPanel jPanel144;
     private javax.swing.JPanel jPanel145;

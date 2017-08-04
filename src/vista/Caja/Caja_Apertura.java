@@ -57,7 +57,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
         lblHora.setText(hora);
         lblFecha.setText(fechaActual());
-        APERTURANDO.setLocationRelativeTo(null);//en el centro
+        APERTURA.setLocationRelativeTo(null);//en el centro
   
     }
     public static String fechaActual(){
@@ -73,7 +73,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         PrincipalMDI.ibiIDAPERTURA.setText(lblID.getText());
         PrincipalMDI.jTabbedPane1.setSelectedIndex(4);
         nuevaV.reporteAperura(Integer.parseInt(lblID.getText()),lblusu.getText());
-        APERTURANDO.dispose();
+        APERTURA.dispose();
     }
 
     
@@ -87,7 +87,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 cno1.setId_Apertura(0);//
                     if(cno1.NUEVO()==true){
                         dispose();
-                        APERTURANDO.setVisible(true);
+                        APERTURA.setVisible(true);
                         APERTURANDO();
 //                        int id=0;
 //                        id=cno1.getId_Apertura();
@@ -108,11 +108,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        APERTURANDO = new javax.swing.JDialog();
+        APERTURA = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -136,37 +132,12 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         txtNRO = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        APERTURA.setAlwaysOnTop(true);
+        APERTURA.setMinimumSize(new java.awt.Dimension(496, 237));
+        APERTURA.setPreferredSize(new java.awt.Dimension(496, 237));
+        APERTURA.setResizable(false);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        APERTURANDO.setAlwaysOnTop(true);
-        APERTURANDO.setMinimumSize(new java.awt.Dimension(496, 237));
-        APERTURANDO.setPreferredSize(new java.awt.Dimension(496, 237));
-        APERTURANDO.setResizable(false);
-
+        jLabel6.setBackground(new java.awt.Color(41, 127, 184));
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -174,14 +145,14 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jLabel6.setText("Estamos aperturando esta caja, Espere...");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout APERTURANDOLayout = new javax.swing.GroupLayout(APERTURANDO.getContentPane());
-        APERTURANDO.getContentPane().setLayout(APERTURANDOLayout);
-        APERTURANDOLayout.setHorizontalGroup(
-            APERTURANDOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout APERTURALayout = new javax.swing.GroupLayout(APERTURA.getContentPane());
+        APERTURA.getContentPane().setLayout(APERTURALayout);
+        APERTURALayout.setHorizontalGroup(
+            APERTURALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 499, Short.MAX_VALUE)
         );
-        APERTURANDOLayout.setVerticalGroup(
-            APERTURANDOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        APERTURALayout.setVerticalGroup(
+            APERTURALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 237, Short.MAX_VALUE)
         );
 
@@ -476,7 +447,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog APERTURANDO;
+    private javax.swing.JDialog APERTURA;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
@@ -490,10 +461,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     public static javax.swing.JLabel lblCorrelativo;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;

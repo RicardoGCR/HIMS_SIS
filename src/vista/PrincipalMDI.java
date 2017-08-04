@@ -637,7 +637,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         AperturaOraPC.setMinimumSize(new java.awt.Dimension(522, 294));
         AperturaOraPC.setResizable(false);
 
-        jPanel104.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel104.setBackground(new java.awt.Color(241, 197, 14));
 
         jScrollPane7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -666,7 +666,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel120.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel120.setForeground(new java.awt.Color(51, 51, 51));
         jLabel120.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Error-80.png"))); // NOI18N
-        jLabel120.setText("<html>Actualmente existe una apertura <br>en otro equipo.</html> ");
+        jLabel120.setText("<html>Actualmente tienes una apertura activa<br>en otro equipo.</html> ");
 
         jPanel105.setBackground(new java.awt.Color(102, 102, 102));
         jPanel105.setPreferredSize(new java.awt.Dimension(0, 2));
@@ -3324,7 +3324,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel80Layout.createSequentialGroup()
                 .addComponent(jPanel81, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel82, javax.swing.GroupLayout.PREFERRED_SIZE, 112, Short.MAX_VALUE)
+                .addComponent(jPanel82, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel83, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel95, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4881,7 +4881,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel66Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel66Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel106, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1317, Short.MAX_VALUE)
+                    .addComponent(jPanel106, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1317, Short.MAX_VALUE)
                     .addGroup(jPanel66Layout.createSequentialGroup()
                         .addComponent(jPanel107, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5698,7 +5698,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jPanel147, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel148, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(jPanel148, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -6355,7 +6355,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel138, javax.swing.GroupLayout.PREFERRED_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(jPanel138, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -7197,6 +7197,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                             }else if(tbAPERTURA_OTRAPC.getRowCount()>0){
                                         btnCaja.setPressedIcon(cerrada);
                                         AperturaOraPC.setVisible(true);
+                                        tbAPERTURA_OTRAPC1.getSelectionModel().setSelectionInterval (0,0) ;
                             }
                         }if(tbULTIMA_SESION.getRowCount()>0){
                             btnCaja.setPressedIcon(cerrada);

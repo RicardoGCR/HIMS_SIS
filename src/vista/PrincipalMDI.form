@@ -174,7 +174,7 @@
         <Container class="javax.swing.JPanel" name="jPanel104">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="e" green="c5" red="f1" type="rgb"/>
             </Property>
           </Properties>
 
@@ -306,7 +306,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/icons8-Error-80.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;Actualmente existe una apertura &lt;br&gt;en otro equipo.&lt;/html&gt; "/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;Actualmente tienes una apertura activa&lt;br&gt;en otro equipo.&lt;/html&gt; "/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel105">
@@ -5300,11 +5300,11 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel15" alignment="0" pref="1019" max="32767" attributes="0"/>
-                      <Component id="jPanel50" alignment="0" pref="1019" max="32767" attributes="0"/>
-                      <Component id="jPanel51" alignment="0" pref="1019" max="32767" attributes="0"/>
-                      <Component id="jPanel52" alignment="0" pref="1019" max="32767" attributes="0"/>
-                      <Component id="jPanel53" alignment="0" pref="1019" max="32767" attributes="0"/>
+                      <Component id="jPanel15" alignment="0" pref="1029" max="32767" attributes="0"/>
+                      <Component id="jPanel50" alignment="0" pref="1029" max="32767" attributes="0"/>
+                      <Component id="jPanel51" alignment="0" pref="1029" max="32767" attributes="0"/>
+                      <Component id="jPanel52" alignment="0" pref="1029" max="32767" attributes="0"/>
+                      <Component id="jPanel53" alignment="0" pref="1029" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">

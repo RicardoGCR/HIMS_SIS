@@ -12977,9 +12977,9 @@ if(tgp==1){
             Caja_AperturaCierre CA =new Caja_AperturaCierre();
             CA.Caja_Verificar_Apertura(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbAPERTURA);
             if(PrincipalMDI.tbAPERTURA.getRowCount()==0){
-                dispose();
+                System.exit(0);
                 PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
-//                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
+                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
             }
             
             try {

@@ -130,7 +130,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         setTitle("Admisión Emergencia .::. Forma de Llegada");
         setMinimumSize(new java.awt.Dimension(465, 370));
 
-        jPanel12.setBackground(new java.awt.Color(23, 160, 134));
+        jPanel12.setBackground(new java.awt.Color(232, 76, 61));
         jPanel12.setMinimumSize(new java.awt.Dimension(285, 415));
         jPanel12.setPreferredSize(new java.awt.Dimension(285, 415));
 
@@ -215,7 +215,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         lblUsuario.setFocusable(false);
         lblUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        lblOp.setForeground(new java.awt.Color(23, 160, 134));
+        lblOp.setForeground(new java.awt.Color(255, 51, 51));
         lblOp.setText("jLabel4");
 
         jLabel84.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
@@ -328,9 +328,9 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel51)
                 .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)

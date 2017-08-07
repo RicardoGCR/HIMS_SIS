@@ -116,6 +116,29 @@ public void reporteCierre(int SESION) {
             }
     } 
 
+public void reporteCierreANULADAS(int SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("SESION",SESION);
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteCierreAnulados.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+                
+            }
+    } 
+public void reporteCierreV(int SESION) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("SESION",SESION);
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteCierreVacio.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                System.out.println("ERROR AL IMPRIMIR");
+                
+            }
+    } 
+
 
 public boolean CIERRE(){
         boolean resp = false;
@@ -215,6 +238,34 @@ public void CajaID_SESION(String usu){
             //
         } catch (Exception e) {
             System.out.println("Error: ID_SESION: " + e.getMessage());
+        }
+    }
+
+public void Caja_Cantidad_Ventas(int ID,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"id"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[1];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_VERIFICAR_VENTAS_SESION ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, ID);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+        } catch (Exception e) {
+            System.out.println("Error: CANTIDAD DE VENTAS: " + e.getMessage());
         }
     }
 

@@ -1750,7 +1750,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             );
 
             lblPorcentajeV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            lblPorcentajeV.setForeground(new java.awt.Color(12, 30, 47));
+            lblPorcentajeV.setForeground(new java.awt.Color(255, 255, 255));
             lblPorcentajeV.setText("100 %  Completado");
             lblPorcentajeV.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -1769,14 +1769,14 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             );
 
             lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-            lblNina.setForeground(new java.awt.Color(12, 30, 47));
+            lblNina.setForeground(new java.awt.Color(255, 255, 255));
             lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-50.png"))); // NOI18N
             lblNina.setText("NIÑOS");
             lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
             lblNino.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-            lblNino.setForeground(new java.awt.Color(12, 30, 47));
+            lblNino.setForeground(new java.awt.Color(255, 255, 255));
             lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
             lblNino.setText("NIÑOS");
             lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2392,7 +2392,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
     }//GEN-LAST:event_DXET23MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(2);
         this.dispose();
     }//GEN-LAST:event_jLabel13MouseClicked
 

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report7" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="19dc6b9b-2058-452d-bbc5-d5c4ceb97344">
+	<property name="ireport.zoom" value="1.7715610000000048"/>
+	<property name="ireport.x" value="718"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="F1" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="F2" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[CAJA_REPORTE_MENSUAL_CAJEROS $P{F1},$P{F2}]]>
+	</queryString>
+	<field name="CANTIDAD" class="java.lang.Integer"/>
+	<field name="TOTALK" class="java.math.BigDecimal"/>
+	<field name="cod_usu" class="java.lang.String"/>
+	<field name="DIA" class="java.lang.String"/>
+	<field name="DIAMES" class="java.lang.String"/>
+	<field name="DESCRIP" class="java.lang.String"/>
+	<field name="IMAGEN" class="java.io.InputStream"/>
+	<field name="PERSONAL" class="java.lang.String"/>
+	<field name="Usu_Usuario" class="java.lang.String"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="hoy" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{DIAMES}]]></groupExpression>
+		<groupHeader>
+			<band height="16">
+				<frame>
+					<reportElement mode="Opaque" x="31" y="1" width="771" height="14" forecolor="#B89F7D" backcolor="#E3E1E1" uuid="f141c247-5532-45a5-8a07-e1955420e84b"/>
+					<textField>
+						<reportElement x="1" y="0" width="168" height="14" forecolor="#333333" uuid="440a5be4-fc33-4e3f-8889-6e0019f66b61"/>
+						<textElement verticalAlignment="Middle">
+							<font size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{DIAMES}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{DIAMES}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="31" y="0" width="491" height="34" uuid="dc4b82a5-1d16-44dc-9a2f-3ee381543474"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Light" size="24" isBold="false" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Comportamiento mensual por cajero]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="31" y="34" width="365" height="23" uuid="e1f35723-3020-49ca-8e7e-c19152fa6491"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="749" y="0" width="53" height="50" uuid="f2eb19af-986b-4fa8-8a48-1856d7281a30"/>
+				<imageExpression><![CDATA[$F{IMAGEN}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="32" y="60" width="100" height="20" uuid="cec992c7-6dd0-4e0d-88ef-2e1905b8198f"/>
+				<textFieldExpression><![CDATA[$F{mes}+"  (*)"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="31" y="0" width="63" height="20" forecolor="#333333" uuid="8396cab8-1743-48f2-ae4d-6c8461ac45b1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="0" width="100" height="20" forecolor="#333333" uuid="31b56321-ecbf-434f-a145-3542e62ab5c5"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[USUARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="0" width="100" height="20" forecolor="#333333" uuid="b3bfa4cb-08a5-4a8b-aee0-472281c21513"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[CAJERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="0" width="100" height="20" uuid="eff4aec3-b3fb-472d-a209-9047608f1323"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[TOTAL S/.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement x="21" y="0" width="73" height="13" forecolor="#333333" uuid="d1990db1-dbc9-4429-93fc-7ed147de0fcf"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="0" width="151" height="13" forecolor="#333333" uuid="be66fa3c-d1a3-43c2-a478-72b7ed5c6db2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="-1" width="100" height="14" forecolor="#333333" uuid="9cf837f8-fbac-4a67-9db4-26863123b5fa"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Usu_Usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="0" width="100" height="13" uuid="17ad9d29-270b-4c16-b6ff-2f2ad3b14718"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTALK}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="32" y="1" width="770" height="24" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="d59bdd4d-9894-4076-aa28-d28d5bd5c93f"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="730" y="1" width="40" height="20" forecolor="#333333" uuid="e3c7cb61-6abc-4001-bd4f-13522b6aed32"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="436" y="1" width="292" height="20" forecolor="#333333" uuid="a2ff6696-6f72-4b1b-a9bc-904bcb9259b3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="241" splitType="Stretch">
+			<barChart>
+				<chart isShowLegend="true" renderType="draw" theme="default">
+					<reportElement x="31" y="0" width="791" height="205" forecolor="#333333" uuid="d5ff0ad8-beb2-4272-987a-ef4c718c33a3"/>
+					<chartTitle/>
+					<chartSubtitle color="#333333"/>
+					<chartLegend textColor="#333333" position="Bottom"/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{Usu_Usuario}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{DIA}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{TOTALK}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot>
+						<seriesColor seriesOrder="0" color="#F39C11"/>
+						<seriesColor seriesOrder="1" color="#009966"/>
+						<seriesColor seriesOrder="2" color="#297FB8"/>
+						<seriesColor seriesOrder="3" color="#009999"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat tickLabelMask=""/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat tickLabelMask="S/  " verticalTickLabels="false"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<staticText>
+				<reportElement x="0" y="221" width="491" height="20" uuid="3e65ed92-fe0b-4b54-91d8-b680a0bb280e"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(*) Este documento refleja los datos contenidos hasta el último cierre de caja registrado en este mes.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="216" width="195" height="20" uuid="858b01ec-cef3-4e7a-b730-e33841c785d4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha de Impresión "+$F{hoy}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

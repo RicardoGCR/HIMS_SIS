@@ -20,6 +20,7 @@ import java.util.Formatter;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.Usuario;
@@ -27,6 +28,7 @@ import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.cuentaPorPagar.CuentasPorPagarComunicacionDeBaja;
 import modelos.cuentaPorPagar.CuentasPorPagarFacturasDetalle;
 import modelos.cuentaPorPagar.CuentasPorPagarNotaDeCreditoCabecera;
+import modelos.cuentaPorPagar.CuentasPorPagarSfsRpta;
 import servicios.Conexion;
 import static vista.Principal.fechaActual;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
@@ -51,9 +53,9 @@ Conexion c=new Conexion();
         
         cbxDocumento.setBackground(Color.WHITE);
        
-        
+        agregarFacturas();
        
-        
+        tbFacturasRpta.setVisible(false);
 //        tbFacturacion.getTableHeader().setVisible(false);
 //        tbFacturacion.setTableHeader(null);
      
@@ -83,6 +85,29 @@ Conexion c=new Conexion();
         });
     }
 
+    public void agregarFacturas(){
+         tbFacturasRpta.setModel(new DefaultTableModel());
+         
+//        TableColumnModel modCol = tbFacturasRpta.getColumnModel();
+//        int cl=modCol.getColumnCount();
+//        for(int i=0;i<cl;i++){
+//            modCol.removeColumn(modCol.getColumn(0));
+//            }
+        DefaultTableModel m;
+        
+        File ruta = new File("C:\\sunat_archivos\\sfs\\RPTA");
+        //        System.out.println(ruta.getAbsolutePath());
+        String[] nombres_archivos = ruta.list();
+        m = (DefaultTableModel) tbFacturasRpta.getModel();
+        m.addColumn("Tipo",nombres_archivos);
+        CuentasPorPagarSfsRpta rpta = new CuentasPorPagarSfsRpta();
+        rpta.mantenimientoCuentasPorPagarSfsRptaNotas("E");
+        rpta.mantenimientoCuentasPorPagarSfsRptaNotas("R");
+        for (int i = 0; i < tbFacturasRpta.getRowCount(); i++){
+            rpta.setNombre(String.valueOf(tbFacturasRpta.getValueAt(i, 0)));
+            rpta.mantenimientoCuentasPorPagarSfsRptaNotas("I");
+        }
+    }
     public void limpiar(){
        
         CuentasPorPagarComunicacionDeBaja serie=new CuentasPorPagarComunicacionDeBaja();
@@ -250,6 +275,8 @@ Conexion c=new Conexion();
             txtSerie = new javax.swing.JLabel();
             txtSerie1 = new javax.swing.JLabel();
             lblNroCorrelativo = new javax.swing.JLabel();
+            jScrollPane1 = new javax.swing.JScrollPane();
+            tbFacturasRpta = new javax.swing.JTable();
 
             jPanel22.setBackground(new java.awt.Color(41, 127, 184));
 
@@ -900,6 +927,22 @@ Conexion c=new Conexion();
             getContentPane().add(jPanel9);
             jPanel9.setBounds(860, 530, 210, 70);
 
+            tbFacturasRpta.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {},
+                    {},
+                    {},
+                    {}
+                },
+                new String [] {
+
+                }
+            ));
+            jScrollPane1.setViewportView(tbFacturasRpta);
+
+            getContentPane().add(jScrollPane1);
+            jScrollPane1.setBounds(520, 102, 390, 20);
+
             pack();
         }// </editor-fold>//GEN-END:initComponents
 
@@ -1002,6 +1045,9 @@ Conexion c=new Conexion();
     }//GEN-LAST:event_cbxBuscarDocumentoActionPerformed
 
     private void txtBuscarDocumentoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarDocumentoCaretUpdate
+        if(txtBuscarDocumento.getText().equalsIgnoreCase("")){
+        agregarFacturas();
+        }
         if(cbxBuscarDocumento.getSelectedIndex()==0){
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar(txtBuscarDocumento.getText(), "2");
         }else if(cbxBuscarDocumento.getSelectedIndex()==1){
@@ -1009,7 +1055,9 @@ Conexion c=new Conexion();
         }if(cbxBuscarDocumento.getSelectedIndex()==2){
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_listar(txtBuscarDocumento.getText(), "4");
         }
+        
         CUENTAS_POR_PAGAR_FACTURA_BOLETA_formato();
+        
     }//GEN-LAST:event_txtBuscarDocumentoCaretUpdate
 
     private void txtBuscarDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarDocumentoActionPerformed
@@ -1186,6 +1234,7 @@ Conexion c=new Conexion();
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblEstado;
@@ -1197,6 +1246,7 @@ Conexion c=new Conexion();
     private javax.swing.JLabel lblUsu;
     private javax.swing.JPanel panelCPT13;
     private javax.swing.JPanel panelCPT50;
+    private javax.swing.JTable tbFacturasRpta;
     private javax.swing.JTable tb_Factura_Boleta;
     private javax.swing.JLabel titulo5;
     public static javax.swing.JTextField txtBuscarDocumento;

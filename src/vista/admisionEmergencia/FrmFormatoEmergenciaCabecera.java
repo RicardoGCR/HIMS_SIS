@@ -2683,7 +2683,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                     }
                                 });
 
-                                jPanel8.setBackground(new java.awt.Color(23, 160, 134));
+                                jPanel8.setBackground(new java.awt.Color(232, 76, 61));
                                 jPanel8.setPreferredSize(new java.awt.Dimension(285, 415));
 
                                 btnNuevo.setBackground(new java.awt.Color(204, 204, 204));
@@ -2795,10 +2795,10 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 jLabel84.setForeground(new java.awt.Color(255, 255, 255));
                                 jLabel84.setText("<html>Admisión<span style=\"font-size:'14px'\"><br>Emergencia</br></span></html>");
 
-                                lblId_Preventa.setForeground(new java.awt.Color(23, 160, 134));
+                                lblId_Preventa.setForeground(new java.awt.Color(232, 76, 61));
                                 lblId_Preventa.setText("jLabel1");
 
-                                lblTriajeId.setForeground(new java.awt.Color(23, 160, 134));
+                                lblTriajeId.setForeground(new java.awt.Color(232, 76, 61));
                                 lblTriajeId.setText("jLabel1");
 
                                 javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);

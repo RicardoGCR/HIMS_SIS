@@ -47,20 +47,20 @@ public boolean nuevoSIS(){
         }
         return resp;
     }
-//   public String idSIS(){//muestra el codigo
-//        String id = "";
-//        try {
-//            String consulta = "exec SIS_FUA_GENERAR_ID";
-//            ResultSet r;
-//            r=con.Listar(consulta);
-//        if(r.next()){
-//               id = r.getString(1);
-//        }
-//        }catch(Exception ex){
-//            System.out.println("Error_SIS: " + ex.getMessage());
-//        }
-//        return id;
-//    }
+   public String idSIS(){//muestra el codigo
+        String id = "";
+        try {
+            String consulta = "exec SIS_FUA_GENERAR_ID";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               id = r.getString(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error_SIS: " + ex.getMessage());
+        }
+        return id;
+    }
 
 
 public Caja_SIS_Cabecera(){

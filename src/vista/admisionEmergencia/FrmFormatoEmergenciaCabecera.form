@@ -2836,7 +2836,7 @@
     <Container class="javax.swing.JPanel" name="jPanel8">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="86" green="a0" red="17" type="rgb"/>
+          <Color blue="3d" green="4c" red="e8" type="rgb"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[285, 415]"/>
@@ -3129,7 +3129,7 @@
         <Component class="javax.swing.JLabel" name="lblId_Preventa">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="86" green="a0" red="17" type="rgb"/>
+              <Color blue="3d" green="4c" red="e8" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
@@ -3140,7 +3140,7 @@
         <Component class="javax.swing.JLabel" name="lblTriajeId">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="86" green="a0" red="17" type="rgb"/>
+              <Color blue="3d" green="4c" red="e8" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>

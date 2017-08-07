@@ -2325,7 +2325,7 @@ public class FrmFormatoEmergenciaTriaje extends javax.swing.JFrame implements Ru
                                 }
                             });
 
-                            jPanel8.setBackground(new java.awt.Color(23, 160, 134));
+                            jPanel8.setBackground(new java.awt.Color(232, 76, 61));
                             jPanel8.setPreferredSize(new java.awt.Dimension(285, 415));
 
                             btnNuevo.setBackground(new java.awt.Color(204, 204, 204));

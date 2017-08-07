@@ -396,13 +396,13 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         setMinimumSize(new java.awt.Dimension(900, 600));
         setResizable(false);
 
-        jpanel.setBackground(new java.awt.Color(34, 113, 179));
+        jpanel.setBackground(new java.awt.Color(102, 102, 102));
 
         titulo5.setBackground(new java.awt.Color(0, 102, 102));
         titulo5.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
         titulo5.setForeground(new java.awt.Color(255, 255, 255));
         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo5.setText("Examenes EC");
+        titulo5.setText("Exámenes EC");
         titulo5.setToolTipText("");
         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -426,13 +426,13 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("FECHA INICIO");
+        jLabel1.setText("Inicio :");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("FECHA TERMINO");
+        jLabel2.setText("Termino :");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("AM, DNI , HC, APELLIDOS Y NOMBRES");
 
@@ -511,18 +511,16 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jpanelLayout.createSequentialGroup()
-                                        .addComponent(cbFecha_EC)
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(cbFecha_EC, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelLayout.createSequentialGroup()
                                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel2)
                                             .addComponent(jLabel1))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(fecha_inicio_EC, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(fecha_inicio_EC, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                                             .addComponent(fecha_fin_EC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(EC_BUSCAR_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpanelLayout.createSequentialGroup()
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -538,8 +536,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jpanelLayout.setVerticalGroup(
             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelLayout.createSequentialGroup()
-                .addComponent(titulo5)
-                .addGap(107, 107, 107)
+                .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88)
                 .addComponent(cbFecha_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -557,9 +555,9 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                         .addComponent(EC_BUSCAR_FECHAS)
                         .addGap(52, 52, 52)))
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
                 .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -585,6 +583,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         tb_Examen_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Examen_EC.setComponentPopupMenu(jPopupMenu1);
         tb_Examen_EC.setRowHeight(35);
+        tb_Examen_EC.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_Examen_EC.getTableHeader().setReorderingAllowed(false);
         tb_Examen_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -597,7 +596,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Light", 0, 23)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("EXAMENES DEL DIA");
+        jLabel15.setText("Exámenes del Día");
 
         lblfecha_F2.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         lblfecha_F2.setForeground(new java.awt.Color(255, 255, 255));
@@ -631,8 +630,9 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         lblHora_EC.setForeground(new java.awt.Color(255, 255, 255));
         lblHora_EC.setText("jLabel3");
 
+        lblNomArea_EC.setBackground(new java.awt.Color(43, 43, 43));
         lblNomArea_EC.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        lblNomArea_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblNomArea_EC.setForeground(new java.awt.Color(43, 43, 43));
         lblNomArea_EC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNomArea_EC.setText("jLabel3");
 
@@ -644,7 +644,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                         .addGap(108, 108, 108)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()

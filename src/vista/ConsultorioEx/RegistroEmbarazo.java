@@ -222,11 +222,10 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         jLabel45 = new javax.swing.JLabel();
         jPanel29 = new javax.swing.JPanel();
         txtBuscar = new javax.swing.JTextField();
-        T7 = new javax.swing.JLabel();
-        jPanel30 = new javax.swing.JPanel();
         btnNuevoEmbarazo = new javax.swing.JButton();
         btnRegistrosExistentes = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        btnBuscarPaciente = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel22 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -347,13 +346,12 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             BuscarMadres.setAlwaysOnTop(true);
             BuscarMadres.setMinimumSize(new java.awt.Dimension(855, 422));
             BuscarMadres.setResizable(false);
-            BuscarMadres.getContentPane().setLayout(null);
 
-            jPanel28.setBackground(new java.awt.Color(102, 102, 102));
+            jPanel28.setBackground(new java.awt.Color(39, 174, 97));
 
             jLabel45.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
             jLabel45.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel45.setText("<html>Madre<span style=\"font-size:'15px'\"><br>del menor</br></span></html>");
+            jLabel45.setText("Madre del menor");
 
             jPanel29.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -380,49 +378,23 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 }
             });
 
-            T7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
-            T7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            T7.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    T7MouseClicked(evt);
-                }
-            });
-
             javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
             jPanel29.setLayout(jPanel29Layout);
             jPanel29Layout.setHorizontalGroup(
                 jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
-                    .addGap(0, 0, 0)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(T7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel29Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addContainerGap())
             );
             jPanel29Layout.setVerticalGroup(
                 jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
                     .addGap(2, 2, 2)
-                    .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(T7)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            jPanel30.setBackground(new java.awt.Color(0, 153, 102));
-            jPanel30.setPreferredSize(new java.awt.Dimension(46, 5));
-
-            javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
-            jPanel30.setLayout(jPanel30Layout);
-            jPanel30Layout.setHorizontalGroup(
-                jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 46, Short.MAX_VALUE)
-            );
-            jPanel30Layout.setVerticalGroup(
-                jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 5, Short.MAX_VALUE)
-            );
-
-            btnNuevoEmbarazo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            btnNuevoEmbarazo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btnNuevoEmbarazo.setForeground(new java.awt.Color(240, 240, 240));
             btnNuevoEmbarazo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Document-32.png"))); // NOI18N
             btnNuevoEmbarazo.setText("Nuevo");
@@ -431,14 +403,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             btnNuevoEmbarazo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnNuevoEmbarazo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
             btnNuevoEmbarazo.setIconTextGap(10);
-            btnNuevoEmbarazo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
             btnNuevoEmbarazo.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     btnNuevoEmbarazoActionPerformed(evt);
                 }
             });
 
-            btnRegistrosExistentes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            btnRegistrosExistentes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btnRegistrosExistentes.setForeground(new java.awt.Color(240, 240, 240));
             btnRegistrosExistentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Bebé-32.png"))); // NOI18N
             btnRegistrosExistentes.setText("Registros Existente");
@@ -447,16 +418,15 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             btnRegistrosExistentes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnRegistrosExistentes.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
             btnRegistrosExistentes.setIconTextGap(10);
-            btnRegistrosExistentes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
             btnRegistrosExistentes.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     btnRegistrosExistentesActionPerformed(evt);
                 }
             });
 
-            btnAtras.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            btnAtras.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             btnAtras.setForeground(new java.awt.Color(240, 240, 240));
-            btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Bebé-32.png"))); // NOI18N
+            btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
             btnAtras.setText("Atrás");
             btnAtras.setBorder(null);
             btnAtras.setContentAreaFilled(false);
@@ -464,10 +434,18 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             btnAtras.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnAtras.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
             btnAtras.setIconTextGap(10);
-            btnAtras.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
             btnAtras.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     btnAtrasActionPerformed(evt);
+                }
+            });
+
+            btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+            btnBuscarPaciente.setContentAreaFilled(false);
+            btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnBuscarPacienteActionPerformed(evt);
                 }
             });
 
@@ -476,50 +454,43 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             jPanel28Layout.setHorizontalGroup(
                 jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel28Layout.createSequentialGroup()
-                    .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnNuevoEmbarazo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE))
-                .addGroup(jPanel28Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel28Layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(btnAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel28Layout.createSequentialGroup()
-                            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRegistrosExistentes))
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addContainerGap())
+                            .addComponent(btnNuevoEmbarazo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(34, 34, 34)
+                            .addComponent(btnRegistrosExistentes)
+                            .addGap(50, 50, 50)
+                            .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             jPanel28Layout.setVerticalGroup(
                 jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel28Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(8, 8, 8)
+                    .addComponent(jLabel45)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(btnNuevoEmbarazo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(btnRegistrosExistentes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnNuevoEmbarazo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRegistrosExistentes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
-            BuscarMadres.getContentPane().add(jPanel28);
-            jPanel28.setBounds(0, 0, 0, 370);
-
-            jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+            jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
 
             jPanel22.setBackground(new java.awt.Color(255, 255, 255));
 
-            jScrollPane4.setBorder(null);
+            jScrollPane4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
             jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
             jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
@@ -534,7 +505,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             tbMadres.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
             tbMadres.setGridColor(new java.awt.Color(255, 255, 255));
             tbMadres.setRowHeight(25);
-            tbMadres.setSelectionBackground(new java.awt.Color(39, 174, 97));
+            tbMadres.setSelectionBackground(new java.awt.Color(102, 102, 102));
+            tbMadres.getTableHeader().setReorderingAllowed(false);
             tbMadres.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                     tbMadresMouseClicked(evt);
@@ -559,18 +531,18 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
                     .addGap(0, 0, 0)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE))
             );
             jPanel22Layout.setVerticalGroup(
                 jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
             );
 
             jTabbedPane2.addTab("tab1", jPanel22);
 
             jPanel23.setBackground(new java.awt.Color(255, 255, 255));
 
-            jScrollPane2.setBorder(null);
+            jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
             tbEmbarazoAntiguos = new javax.swing.JTable(){
                 public boolean isCellEditable(int rowIndex, int colIndex){
@@ -592,6 +564,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                         return canEdit [columnIndex];
                     }
                 });
+                tbEmbarazoAntiguos.setGridColor(new java.awt.Color(102, 102, 102));
+                tbEmbarazoAntiguos.setSelectionBackground(new java.awt.Color(102, 102, 102));
                 tbEmbarazoAntiguos.getTableHeader().setReorderingAllowed(false);
                 jScrollPane2.setViewportView(tbEmbarazoAntiguos);
 
@@ -603,7 +577,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 jLabel13.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel13.setText("Embarazos Anteriores");
 
-                jScrollPane1.setBorder(null);
+                jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
                 jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
@@ -611,7 +585,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     public boolean isCellEditable(int rowIndex, int colIndex){
                         return false; //Disallow the editing of any cell
                     }};
-                    tbEmbarazoActual.setBackground(new java.awt.Color(232, 76, 61));
+                    tbEmbarazoActual.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                     tbEmbarazoActual.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
                     tbEmbarazoActual.setForeground(new java.awt.Color(255, 255, 255));
                     tbEmbarazoActual.setModel(new javax.swing.table.DefaultTableModel(
@@ -630,7 +604,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             return canEdit [columnIndex];
                         }
                     });
-                    tbEmbarazoActual.setSelectionBackground(new java.awt.Color(232, 76, 61));
+                    tbEmbarazoActual.setGridColor(new java.awt.Color(102, 102, 102));
+                    tbEmbarazoActual.setSelectionBackground(new java.awt.Color(102, 102, 102));
                     tbEmbarazoActual.getTableHeader().setReorderingAllowed(false);
                     tbEmbarazoActual.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -656,9 +631,9 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel12)
                                 .addComponent(jLabel13))
-                            .addContainerGap(525, Short.MAX_VALUE))
-                        .addComponent(jScrollPane1)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
+                            .addContainerGap(563, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                     );
                     jPanel23Layout.setVerticalGroup(
                         jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -667,7 +642,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel13)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -676,8 +651,23 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
 
                     jTabbedPane2.addTab("tab2", jPanel23);
 
-                    BuscarMadres.getContentPane().add(jTabbedPane2);
-                    jTabbedPane2.setBounds(132, 0, 730, 370);
+                    javax.swing.GroupLayout BuscarMadresLayout = new javax.swing.GroupLayout(BuscarMadres.getContentPane());
+                    BuscarMadres.getContentPane().setLayout(BuscarMadresLayout);
+                    BuscarMadresLayout.setHorizontalGroup(
+                        BuscarMadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(BuscarMadresLayout.createSequentialGroup()
+                            .addComponent(jTabbedPane2)
+                            .addContainerGap())
+                        .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    );
+                    BuscarMadresLayout.setVerticalGroup(
+                        BuscarMadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(BuscarMadresLayout.createSequentialGroup()
+                            .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, Short.MAX_VALUE)
+                            .addContainerGap())
+                    );
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                     setMinimumSize(new java.awt.Dimension(1282, 707));
@@ -703,7 +693,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
 
                     jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-                    jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+                    jPanel1.setBackground(new java.awt.Color(39, 174, 97));
 
                     jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                     jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -717,7 +707,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     lblUsu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
                     btnAlertas.setBackground(new java.awt.Color(255, 255, 255));
-                    btnAlertas.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+                    btnAlertas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                     btnAlertas.setForeground(new java.awt.Color(255, 255, 255));
                     btnAlertas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
                     btnAlertas.setText("Alertas");
@@ -831,7 +821,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                         }
                     });
 
-                    lblAlertas.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+                    lblAlertas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                     lblAlertas.setForeground(new java.awt.Color(255, 255, 255));
                     lblAlertas.setText("10");
 
@@ -1876,9 +1866,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(pnlControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(0, 0, 0)
-                                    .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addContainerGap(89, Short.MAX_VALUE))
                     );
                     jPanel2Layout.setVerticalGroup(
@@ -1891,7 +1879,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                             .addContainerGap())
                     );
 
@@ -2249,10 +2237,6 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtBuscarKeyPressed
 
-    private void T7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T7MouseClicked
-
     private void tbMadresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMadresMouseClicked
         if(evt.getClickCount()==1){
 //            enviarDatosMadres();
@@ -2426,6 +2410,10 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tbEmbarazoActualKeyReleased
 
+    private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
+
+    }//GEN-LAST:event_btnBuscarPacienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2474,9 +2462,9 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     public static javax.swing.JTextField Chkprim;
     public static javax.swing.JDesktopPane Contenedor;
     public static javax.swing.JDesktopPane ContenedorTablas;
-    private javax.swing.JLabel T7;
     private javax.swing.JButton btnAlertas;
     private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnBuscarPaciente;
     public static javax.swing.JButton btnGuardar;
     public static javax.swing.JButton btnInicio;
     private javax.swing.JButton btnNo;
@@ -2542,7 +2530,6 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
-    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

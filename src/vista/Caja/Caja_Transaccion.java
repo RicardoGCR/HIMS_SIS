@@ -2538,7 +2538,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addComponent(lbldetalle)
                                                             .addGap(21, 21, 21)
                                                             .addComponent(btnNuevo)
-                                                            .addGap(28, 28, 28)
+                                                            .addGap(18, 18, 18)
                                                             .addComponent(btnguardar)
                                                             .addGap(18, 18, 18)
                                                             .addComponent(btneditar)
@@ -2830,7 +2830,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(9, 9, 9)
                                                             .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C1", jPanel4);
@@ -3268,7 +3268,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(11, 11, 11)
                                                             .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C2", jPanel12);
@@ -3477,7 +3477,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(11, 11, 11)
                                                             .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C2", jPanel13);
@@ -3685,7 +3685,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(11, 11, 11)
                                                             .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C2", jPanel14);
@@ -3895,7 +3895,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                             .addGap(11, 11, 11)
                                                             .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(0, 0, 0)
-                                                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
+                                                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
                                                     );
 
                                                     PaginasCuentas.addTab("C2", jPanel16);
@@ -3925,7 +3925,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                     );
                                                     jPanel6Layout.setVerticalGroup(
                                                         jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGap(0, 518, Short.MAX_VALUE)
+                                                        .addGap(0, 508, Short.MAX_VALUE)
                                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(jPanel6Layout.createSequentialGroup()
                                                                 .addGap(216, 216, 216)
@@ -3934,7 +3934,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                                                         .addGap(55, 55, 55)
                                                                         .addComponent(jLabel20)))
-                                                                .addContainerGap(168, Short.MAX_VALUE)))
+                                                                .addContainerGap(158, Short.MAX_VALUE)))
                                                     );
 
                                                     PaginasCuentas.addTab("B", jPanel6);

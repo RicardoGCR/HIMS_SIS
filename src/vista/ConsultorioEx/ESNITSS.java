@@ -541,7 +541,7 @@ public class ESNITSS extends javax.swing.JFrame {
 
                 jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                 jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel1.setText("ESNITSS");
+                jLabel1.setText("ESNITSS - PROCETS");
 
                 btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
                 btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Documento-32.png"))); // NOI18N
@@ -635,12 +635,16 @@ public class ESNITSS extends javax.swing.JFrame {
                     }
                 });
 
+                lblMant.setForeground(new java.awt.Color(0, 153, 102));
                 lblMant.setText("Mantenimiento");
 
+                lblIdHc.setForeground(new java.awt.Color(0, 153, 102));
                 lblIdHc.setText("jLabel6");
 
+                lblId.setForeground(new java.awt.Color(0, 153, 102));
                 lblId.setText("jLabel6");
 
+                lblTriaje.setForeground(new java.awt.Color(0, 153, 102));
                 lblTriaje.setText("jLabel6");
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

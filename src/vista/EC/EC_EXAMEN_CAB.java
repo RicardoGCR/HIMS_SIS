@@ -588,13 +588,13 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1369, 775));
 
-        jpanel.setBackground(new java.awt.Color(34, 113, 179));
+        jpanel.setBackground(new java.awt.Color(102, 102, 102));
 
         titulo5.setBackground(new java.awt.Color(0, 102, 102));
-        titulo5.setFont(new java.awt.Font("Trebuchet MS", 1, 28)); // NOI18N
+        titulo5.setFont(new java.awt.Font("Segoe UI Light", 1, 28)); // NOI18N
         titulo5.setForeground(new java.awt.Color(255, 255, 255));
         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo5.setText("Examenes EC");
+        titulo5.setText("Exámenes EC");
         titulo5.setToolTipText("");
         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -756,7 +756,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(34, 113, 179)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(60, 60, 60)));
         jPanel1.setPreferredSize(new java.awt.Dimension(880, 85));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
@@ -893,7 +893,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(60, 60, 60)));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1019,7 +1019,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179)));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(60, 60, 60)));
 
         lblHospiServ_EC.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         lblHospiServ_EC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1149,7 +1149,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         );
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179)));
+        jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(60, 60, 60)));
 
         tb_examen_det_EC = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
@@ -1169,6 +1169,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tb_examen_det_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_examen_det_EC.setRowHeight(25);
+        tb_examen_det_EC.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_examen_det_EC.getTableHeader().setReorderingAllowed(false);
         tb_examen_det_EC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1206,7 +1207,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         jScrollPane1.setViewportView(tb_examen_det_EC);
 
         jLabel14.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(34, 113, 179));
+        jLabel14.setForeground(new java.awt.Color(43, 43, 43));
         jLabel14.setText("SE OBSERVA:");
 
         tbCIE10_EC = new javax.swing.JTable(){
@@ -1225,11 +1226,12 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tbCIE10_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbCIE10_EC.setRowHeight(25);
+        tbCIE10_EC.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tbCIE10_EC.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(tbCIE10_EC);
 
         jLabel15.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(34, 113, 179));
+        jLabel15.setForeground(new java.awt.Color(43, 43, 43));
         jLabel15.setText("DX CIE10:");
 
         btnBuscarCIE10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
@@ -1241,13 +1243,13 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         });
 
         jLabel21.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(34, 113, 179));
+        jLabel21.setForeground(new java.awt.Color(43, 43, 43));
         jLabel21.setText("EXAMENES REALIZADOS");
 
         jScrollPane9.setViewportView(EP_CONCLUSION_EC);
 
         jLabel16.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(34, 113, 179));
+        jLabel16.setForeground(new java.awt.Color(43, 43, 43));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("DIAGNOSTICO:");
 
@@ -1330,12 +1332,12 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
 
         txtCod_doc_det_EC.setText("COD_DOC");
 
-        jLabel9.setBackground(new java.awt.Color(34, 113, 179));
+        jLabel9.setBackground(new java.awt.Color(43, 43, 43));
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(34, 113, 179));
+        jLabel9.setForeground(new java.awt.Color(43, 43, 43));
         jLabel9.setText("DATOS DEL PERSONAL");
 
-        jPanel8.setBackground(new java.awt.Color(34, 113, 179));
+        jPanel8.setBackground(new java.awt.Color(102, 102, 102));
         jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(34, 113, 179), 1, true));
 
         btnRegresarRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salida 24 white.png"))); // NOI18N
@@ -1359,7 +1361,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 .addComponent(btnRegresarRes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(34, 113, 179));
+        jPanel5.setBackground(new java.awt.Color(102, 102, 102));
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(34, 113, 179), 1, true));
 
         btnGuardarDetalleRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N

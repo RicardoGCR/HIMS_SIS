@@ -702,7 +702,8 @@ private Dimension DimensionBarra = null;
             //                +df.format(diah)+"/"+df.format(mesh)+"/"+anioh);
         int desde=Integer.parseInt(anio+df.format(mes)+df.format(dia));
         int hasta=Integer.parseInt(anioh+df.format(mesh)+df.format(diah));
-
+        System.out.println("desdeee"+desde);
+        System.out.println("hastaaa"+hasta);
         Caja_NuevaVenta CNVRCCF = new  Caja_NuevaVenta();
            CNVRCCF.ReporteFechasCajaCabecera(lblusu.getText(),desde,hasta,txtCPT1.getText(),tb_ReporteFechas);
 

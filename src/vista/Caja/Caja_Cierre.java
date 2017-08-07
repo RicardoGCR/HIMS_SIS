@@ -70,9 +70,11 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         tbApertura.setTableHeader(null);
         
         Caja_NuevaVenta CNVRCC = new  Caja_NuevaVenta(); 
+        Caja_AperturaCierre CC = new  Caja_AperturaCierre(); 
         CNVRCC.SumaCONTADOReporteCIERRE(PrincipalMDI.lblUsu.getText(),Integer.parseInt(lblID_APERTURA.getText()));
         CNVRCC.SumaPENDIENTEReporteCIERRE(PrincipalMDI.lblUsu.getText(),Integer.parseInt(lblID_APERTURA.getText()));
         CNVRCC.SumaANULADOReporteCIERRE(PrincipalMDI.lblUsu.getText(),Integer.parseInt(lblID_APERTURA.getText()));
+        CC.Caja_Cantidad_Ventas(Integer.parseInt(lblID_APERTURA.getText()),tbCANTIDAD);
         ImprimirCierre.setLocationRelativeTo(null);//en el centro
         
     }
@@ -93,6 +95,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                         cno1.setMONTO_CIERRE_A(lblVA.getText());//
                         
                         if(cno1.CIERRE()==true){
+                                
                              ImprimirCierre.setVisible(true);
                              PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
                              dispose();
@@ -143,6 +146,10 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         lblVC = new javax.swing.JLabel();
         lblVO = new javax.swing.JLabel();
         lblVA = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbCANTIDAD = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         lblusu = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -190,11 +197,11 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(btnImprimir)
                 .addContainerGap(148, Short.MAX_VALUE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +210,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addComponent(jLabel1)
                 .addGap(50, 50, 50)
                 .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(25, 25, 25))
         );
@@ -288,9 +295,9 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addContainerGap()
                 .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
-                .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnNuevo1, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addComponent(btnNuevo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(47, 47, 47)
                 .addComponent(lblID_APERTURA)
                 .addGap(116, 116, 116))
@@ -300,7 +307,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setText("Ventas por Contado");
+        jLabel7.setText("Ventas por Contado (*)");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
@@ -446,6 +453,42 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         lblVA.setForeground(new java.awt.Color(51, 51, 51));
         lblVA.setText("0.00");
 
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel13.setText("<HTML>(*) En la suma de documentos por contado están consideradas las ventas por: ESSALUD, NO SOAT, <BR>PARTICULAR y  la diferencia de las EXONERACIONES.</HTML>");
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        tbCANTIDAD.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbCANTIDAD.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(tbCANTIDAD);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -455,27 +498,34 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addGap(95, 95, 95)
-                                    .addComponent(jLabel8))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel11)
-                                    .addGap(117, 117, 117)
-                                    .addComponent(jLabel12)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblVC)
-                            .addComponent(lblVO)
-                            .addComponent(lblVA)))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel13)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(95, 95, 95)
+                                        .addComponent(jLabel8))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel12))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel10)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblVA)
+                                    .addComponent(lblVC)
+                                    .addComponent(lblVO))
+                                .addGap(0, 268, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(130, 130, 130))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -483,8 +533,10 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                 .addGap(0, 0, 0)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addGap(18, 24, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -499,7 +551,9 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblVA, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4))
         );
 
         jPanel5.setBackground(new java.awt.Color(43, 43, 43));
@@ -614,8 +668,14 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     }//GEN-LAST:event_btnNuevo1ActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        nuevaV.reporteCierre(Integer.parseInt(lblID_APERTURA.getText()));
         jLabel2.setText("Estamos Imprimiendo el reporte, Espere...");
+        if(tbCANTIDAD.getRowCount()==0){
+            nuevaV.reporteCierreV(Integer.parseInt(lblID_APERTURA.getText()));
+        }else if(tbCANTIDAD.getRowCount()>0){
+            nuevaV.reporteCierre(Integer.parseInt(lblID_APERTURA.getText()));
+            nuevaV.reporteCierreANULADAS(Integer.parseInt(lblID_APERTURA.getText()));
+        }
+        
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     /**
@@ -663,6 +723,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -684,7 +745,9 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel4;
     public static javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     public static javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JLabel lblCorrelativo;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
@@ -695,5 +758,6 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     public static javax.swing.JLabel lblVO;
     public static javax.swing.JLabel lblusu;
     public static javax.swing.JTable tbApertura;
+    public static javax.swing.JTable tbCANTIDAD;
     // End of variables declaration//GEN-END:variables
 }

@@ -1747,7 +1747,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             setBorder(javax.swing.BorderFactory.createCompoundBorder());
             setVisible(true);
 
+            jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
             jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+            jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
 
             CCD.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2963,7 +2965,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             );
             jPanel38Layout.setVerticalGroup(
                 jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel107, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                .addComponent(jLabel107, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
             );
 
             javax.swing.GroupLayout CCDLayout = new javax.swing.GroupLayout(CCD);
@@ -3002,7 +3004,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(lblId)
-                    .addContainerGap(26, Short.MAX_VALUE))
+                    .addContainerGap(32, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("Menores de 1 año", CCD);
@@ -4302,12 +4304,12 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCD1A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CCDR2A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDR3A, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CCDR3A1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(61, Short.MAX_VALUE))
+                    .addContainerGap(67, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("1 a 4 años", CCD1);
@@ -4970,7 +4972,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             );
 
             lblPorcentajeV2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            lblPorcentajeV2.setForeground(new java.awt.Color(18, 127, 65));
+            lblPorcentajeV2.setForeground(new java.awt.Color(255, 255, 255));
             lblPorcentajeV2.setText("100 %  Completado");
             lblPorcentajeV2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -4989,14 +4991,14 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             );
 
             lblNina3.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-            lblNina3.setForeground(new java.awt.Color(18, 127, 65));
+            lblNina3.setForeground(new java.awt.Color(255, 255, 255));
             lblNina3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-50.png"))); // NOI18N
             lblNina3.setText("NIÑOS");
             lblNina3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             lblNina3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
             lblNino3.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-            lblNino3.setForeground(new java.awt.Color(18, 127, 65));
+            lblNino3.setForeground(new java.awt.Color(255, 255, 255));
             lblNino3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
             lblNino3.setText("NIÑOS");
             lblNino3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -5078,7 +5080,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(CCDR10A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CCDR11A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(61, Short.MAX_VALUE))
+                    .addContainerGap(73, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("5 a 11 años", CCD2);
@@ -6359,17 +6361,17 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_DXCCD24MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
-        this.dispose();
+        jTabbedPane1.setSelectedIndex(0);
+  
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(2);
         this.dispose();
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jLabel19MouseClicked
 
 

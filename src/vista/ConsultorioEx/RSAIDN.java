@@ -1958,7 +1958,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
     }//GEN-LAST:event_rbt7ActionPerformed
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(2);
         this.dispose();
     }//GEN-LAST:event_jLabel13MouseClicked
 

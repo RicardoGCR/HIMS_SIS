@@ -46,7 +46,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b3" green="71" red="22" type="rgb"/>
+              <Color blue="57" green="40" red="f0" type="rgb"/>
             </Property>
           </Properties>
 
@@ -117,7 +117,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder thickness="3">
-                      <Color PropertyName="color" blue="b3" green="71" red="22" type="rgb"/>
+                      <Color PropertyName="color" blue="57" green="40" red="f0" type="rgb"/>
                     </LineBorder>
                   </Border>
                 </Property>
@@ -166,6 +166,13 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                <CompoundBorder/>
+              </Border>
+            </Property>
+          </Properties>
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
@@ -524,7 +531,7 @@
     <Container class="javax.swing.JPanel" name="jpanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b3" green="71" red="22" type="rgb"/>
+          <Color blue="57" green="40" red="f0" type="rgb"/>
         </Property>
       </Properties>
 
@@ -603,7 +610,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Examenes RX"/>
+            <Property name="text" type="java.lang.String" value="Ex&#xe1;menes RX"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor Por defecto"/>
@@ -715,21 +722,7 @@
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jPanel12" alignment="0" pref="1151" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jPanel4" max="32767" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jPanel14" pref="1151" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -739,14 +732,26 @@
                                   <EmptySpace min="-2" pref="765" max="-2" attributes="0"/>
                                   <Component id="lblId_Preventa" min="-2" pref="57" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jScrollPane1" min="-2" pref="558" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jPanel18" pref="581" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jScrollPane1" alignment="0" min="-2" pref="558" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jPanel18" alignment="1" min="-2" pref="583" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jPanel12" alignment="0" pref="1151" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jPanel4" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jPanel14" pref="1151" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -769,7 +774,7 @@
                   <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jPanel14" min="-2" pref="81" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -779,14 +784,14 @@
                               <Component id="jLabel21" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPanel18" pref="281" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                              <Component id="jPanel18" pref="290" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="txtNumExamen" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -798,7 +803,7 @@
               <Font name="Trebuchet MS" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="bf" green="6a" red="22" type="rgb"/>
+              <Color blue="2b" green="2b" red="2b" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="DATOS DEL PERSONAL"/>
           </Properties>
@@ -809,7 +814,7 @@
               <Font name="Trebuchet MS" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c2" green="69" red="22" type="rgb"/>
+              <Color blue="2b" green="2b" red="2b" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="DATOS DEL PACIENTE"/>
           </Properties>
@@ -834,7 +839,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder>
-                  <Color PropertyName="color" blue="b3" green="71" red="22" type="rgb"/>
+                  <Color PropertyName="color" blue="3c" green="3c" red="3c" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -1065,7 +1070,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
-                  <Color PropertyName="color" blue="b3" green="71" red="22" type="rgb"/>
+                  <Color PropertyName="color" blue="3c" green="3c" red="3c" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -1236,7 +1241,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
-                  <Color PropertyName="color" blue="b3" green="71" red="22" type="rgb"/>
+                  <Color PropertyName="color" blue="3c" green="3c" red="3c" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -1275,7 +1280,7 @@
                               <Component id="btnPersonalSolicita" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="21" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1302,7 +1307,7 @@
                           <Component id="txtCama" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="67" max="32767" attributes="0"/>
+                      <EmptySpace pref="76" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1475,6 +1480,9 @@
                   <ComponentRef name="jPopupMenu2"/>
                 </Property>
                 <Property name="rowHeight" type="int" value="35"/>
+                <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
@@ -1496,7 +1504,7 @@
               <Font name="Trebuchet MS" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b3" green="71" red="22" type="rgb"/>
+              <Color blue="2b" green="2b" red="2b" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="EXAMENES A REALIZAR"/>
           </Properties>
@@ -1509,7 +1517,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
-                  <Color PropertyName="color" blue="b3" green="71" red="22" type="rgb"/>
+                  <Color PropertyName="color" blue="3c" green="3c" red="3c" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -1574,7 +1582,7 @@
                   <Font name="Trebuchet MS" size="13" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b3" green="71" red="22" type="rgb"/>
+                  <Color blue="2b" green="2b" red="2b" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="N&#xb0; de Examen:"/>
@@ -1595,7 +1603,7 @@
                   <Font name="Trebuchet MS" size="13" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d9" green="70" red="22" type="rgb"/>
+                  <Color blue="2b" green="2b" red="2b" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Forma de Pago:"/>
               </Properties>
@@ -1615,7 +1623,7 @@
                   <Font name="Trebuchet MS" size="13" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d9" green="70" red="22" type="rgb"/>
+                  <Color blue="2b" green="2b" red="2b" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="N&#xb0; FUA:"/>
               </Properties>
@@ -1635,7 +1643,7 @@
                   <Font name="Trebuchet MS" size="13" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d9" green="70" red="22" type="rgb"/>
+                  <Color blue="2b" green="2b" red="2b" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fecha de Examen:"/>
               </Properties>
@@ -1663,7 +1671,7 @@
         <Container class="javax.swing.JPanel" name="jPanel9">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b3" green="71" red="22" type="rgb"/>
+              <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1706,7 +1714,7 @@
         <Container class="javax.swing.JPanel" name="jPanel11">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b3" green="71" red="22" type="rgb"/>
+              <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">

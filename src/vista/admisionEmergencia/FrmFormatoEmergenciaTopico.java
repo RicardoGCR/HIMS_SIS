@@ -2718,7 +2718,7 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                             }
                         });
 
-                        jPanel8.setBackground(new java.awt.Color(23, 160, 134));
+                        jPanel8.setBackground(new java.awt.Color(232, 76, 61));
                         jPanel8.setPreferredSize(new java.awt.Dimension(285, 415));
 
                         btnNuevo.setBackground(new java.awt.Color(204, 204, 204));
@@ -2840,10 +2840,10 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                         jLabel84.setForeground(new java.awt.Color(255, 255, 255));
                         jLabel84.setText("<html>Tópicos<span style=\"font-size:'14px'\"><br>Emergencia</br></span></html>");
 
-                        lblID_PREVENTA.setForeground(new java.awt.Color(23, 160, 134));
+                        lblID_PREVENTA.setForeground(new java.awt.Color(232, 76, 61));
                         lblID_PREVENTA.setText("jLabel1");
 
-                        lbl_ID_TRIAJE.setForeground(new java.awt.Color(23, 160, 134));
+                        lbl_ID_TRIAJE.setForeground(new java.awt.Color(232, 76, 61));
                         lbl_ID_TRIAJE.setText("jLabel2");
 
                         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);

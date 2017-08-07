@@ -3,7 +3,7 @@
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.9487171000000019"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="581"/>
+	<property name="ireport.y" value="824"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -299,13 +299,13 @@
 		<band height="2" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="219" splitType="Stretch">
+		<band height="245" splitType="Stretch">
 			<staticText>
 				<reportElement x="-6" y="54" width="100" height="14" uuid="65fd36fb-4f1d-4b32-ac5b-a654b59fcc2b"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Total de Ventas]]></text>
+				<text><![CDATA[Total de Ventas (*)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="-6" y="40" width="100" height="14" uuid="97c9f00e-c459-4299-9c47-f38cc06033ac"/>
@@ -400,6 +400,13 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOATAL_TOTAL_TOTAL}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="-6" y="225" width="177" height="20" uuid="fdcc8a10-8ec6-4344-98cd-093bf871cc79"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[(*) En este documento no se contemplan las ventas que fueron anuladas.]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>

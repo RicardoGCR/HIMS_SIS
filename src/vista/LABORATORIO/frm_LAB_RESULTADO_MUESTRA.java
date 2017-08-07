@@ -1564,8 +1564,8 @@ int filtro=0;
               filtro=1;
           }
           else if(tb_InsumosFinal.getRowCount()==0){
-//              JOptionPane.showMessageDialog(this, "Antes de Guardar el Resultado debe realizar\nla Sustentación de los Insumos",null, 1, alerta);
-//                filtro=1;
+              JOptionPane.showMessageDialog(this, "Antes de Guardar el Resultado debe realizar\nla Sustentación de los Insumos",null, 1, alerta);
+                filtro=1;
           }
            else {
               filtro=0;
@@ -1609,7 +1609,7 @@ int filtro=0;
   
                   if(meGuardar.LAB_Resultado_Muestra_Cab_guardar()){
                       Lab_guardar_detalleySub();
-//                   Lab_guardar_Insumos();
+                   Lab_guardar_Insumos();
                       JOptionPane.showMessageDialog(null, "Espere un momento, documento exportandose!", "Importante!", JOptionPane.INFORMATION_MESSAGE);
 
                       LAB_Resultado_Muestra_Cabecera mc=new LAB_Resultado_Muestra_Cabecera();

@@ -795,7 +795,7 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                 );
 
                                                 Costos_Sustentacion.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                                                Costos_Sustentacion.setTitle("SISGESH.::. Búsqueda por Nomenclatura");
+                                                Costos_Sustentacion.setTitle("HIMS .::. Búsqueda por Nomenclatura");
                                                 Costos_Sustentacion.setAlwaysOnTop(true);
                                                 Costos_Sustentacion.setAutoRequestFocus(false);
                                                 Costos_Sustentacion.setMinimumSize(new java.awt.Dimension(726, 570));
@@ -1156,14 +1156,6 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                                 .addGap(0, 0, Short.MAX_VALUE))
                                                             .addGroup(pnlCPTLayout.createSequentialGroup()
                                                                 .addGroup(pnlCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCPTLayout.createSequentialGroup()
-                                                                        .addGap(0, 0, Short.MAX_VALUE)
-                                                                        .addComponent(txtCodigoSustento, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addGap(18, 18, 18)
-                                                                        .addGroup(pnlCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                            .addComponent(txtGuarModif, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                                                            .addComponent(txtCodigoPrecio)))
-                                                                    .addComponent(txtSubServicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                     .addGroup(pnlCPTLayout.createSequentialGroup()
                                                                         .addGroup(pnlCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1178,7 +1170,17 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                                             .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                             .addComponent(txtServicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                                                        .addGap(0, 0, Short.MAX_VALUE))
+                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCPTLayout.createSequentialGroup()
+                                                                        .addGap(0, 0, Short.MAX_VALUE)
+                                                                        .addGroup(pnlCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCPTLayout.createSequentialGroup()
+                                                                                .addComponent(txtCodigoSustento, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGap(18, 18, 18)
+                                                                                .addGroup(pnlCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                    .addComponent(txtGuarModif, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                                                                                    .addComponent(txtCodigoPrecio)))
+                                                                            .addComponent(txtSubServicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                                                 .addContainerGap())))
                                                 );
                                                 pnlCPTLayout.setVerticalGroup(

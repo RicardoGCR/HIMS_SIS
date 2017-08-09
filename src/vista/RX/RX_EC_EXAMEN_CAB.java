@@ -85,6 +85,19 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 //        btnPersonalSolicita.setEnabled(false);
 //        btnGuardarDetalle.setEnabled(false);
                 
+        //CERRAR CON ESCAPE
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                
+                cerrar();
+                                
+            }
+        });
         
     }
 
@@ -341,14 +354,14 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         PERSONAL_ROL_TODO.setAlwaysOnTop(true);
         PERSONAL_ROL_TODO.setMinimumSize(new java.awt.Dimension(692, 360));
 
-        jPanel10.setBackground(new java.awt.Color(34, 113, 179));
+        jPanel10.setBackground(new java.awt.Color(240, 64, 87));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("PERSONAL RX");
 
         txtBuscarPersonal_TODO.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        txtBuscarPersonal_TODO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179), 3));
+        txtBuscarPersonal_TODO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 64, 87), 3));
         txtBuscarPersonal_TODO.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtBuscarPersonal_TODOCaretUpdate(evt);
@@ -1682,8 +1695,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             tb_Personal_rol.setRowSorter(elQueOrdena);
             this.tb_Personal_rol.setModel(m1);
             formato_Personal_Rol();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Error en la tabla p");
+        }catch (Exception e){
+            
         }
     }
     
@@ -2061,6 +2074,19 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         }
         minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+    }
+    
+    public void cerrar(){
+        int eleccion = JOptionPane.showConfirmDialog(rootPane,"¿Desea realmente salir del formulario?","Mensaje de Confirmación",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE);
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+            dispose();   
+//            PrincipalMDI MDI= new PrincipalMDI();
+//            MDI.setVisible(true);  
+        }else{
+        }
     }
     
     /**

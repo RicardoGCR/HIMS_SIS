@@ -306,7 +306,7 @@
         <Container class="javax.swing.JPanel" name="jPanel10">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b3" green="71" red="22" type="rgb"/>
+              <Color blue="57" green="40" red="f0" type="rgb"/>
             </Property>
           </Properties>
 
@@ -365,7 +365,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder thickness="3">
-                      <Color PropertyName="color" blue="b3" green="71" red="22" type="rgb"/>
+                      <Color PropertyName="color" blue="57" green="40" red="f0" type="rgb"/>
                     </LineBorder>
                   </Border>
                 </Property>

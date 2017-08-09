@@ -36,6 +36,7 @@ Conexion c=new Conexion();
 Connection conexion=c.conectar();
 Caja_NuevaVenta cnn = new Caja_NuevaVenta();
 Caja_AperturaCierre cn1 = new Caja_AperturaCierre();
+Caja_AperturaCierre cn11 = new Caja_AperturaCierre();
 Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
     /**
      * Creates new form Caja_Apertura
@@ -50,15 +51,16 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
 //        int fila = aperturalista.getSelectedRow();
 //        codigo.setText(String.valueOf(aperturalista.getValueAt(fila, 0)));
         cn1.CajaPC_NRO_CIERRE(PrincipalMDI.lblUsu.getText());
-        cn1.Caja_Verificar_Apertura_C(PrincipalMDI.lblUsu.getText(),tbApertura);
-        tbApertura.getSelectionModel().setSelectionInterval (0,0) ;
+        
         tbApertura.getTableHeader().setVisible(false);
         Calendar cal=Calendar.getInstance(); 
         Calendar calendario =new GregorianCalendar();
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
         lblHora.setText(hora);
         lblFecha.setText(fechaActual());
-        
+//        jLabel5.setText(" Sesión Actual   "+PrincipalMDI.lblIDSESION.getText());
+        cn11.Caja_Verificar_Apertura_C(PrincipalMDI.lblUsu.getText(),tbApertura);
+        tbApertura.getSelectionModel().setSelectionInterval (0,0) ;
         try {
             int fila = tbApertura.getSelectedRow();
    

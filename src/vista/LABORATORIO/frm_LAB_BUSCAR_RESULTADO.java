@@ -1047,6 +1047,9 @@ public void calcula() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtPacientesKeyPressed(evt);
                             }
+                            public void keyTyped(java.awt.event.KeyEvent evt) {
+                                txtPacientesKeyTyped(evt);
+                            }
                         });
 
                         btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
@@ -2392,6 +2395,21 @@ public void buscar_examenes(){
          Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
      }
     }//GEN-LAST:event_EXPORTAR_PDFActionPerformed
+
+    private void txtPacientesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPacientesKeyTyped
+         char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE &&tecla !='-'){
+            evt.consume();
+            getToolkit().beep();            
+        }
+        if (txtPacientes.getText().length()>7){
+            evt.consume();
+        }
+        if(tecla =='-' && txtPacientes.getText().contains("-")){
+            evt.consume();            
+        }
+    }//GEN-LAST:event_txtPacientesKeyTyped
     
     public void exportar_pdf_automaticamente(){
          //NUMERO DE DIAS

@@ -50,7 +50,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
-import vista.ConsultorioEx.RegistroSeguimiento;
 import static vista.LABORATORIO.frm_LAB_TOMA_MUESTRA_CABECERA.lblDocumento;
 import static vista.Principal.fechaActual;
 import vista.frmlaboratorioClinico;
@@ -3202,7 +3201,7 @@ public void buscar_examenes(){
             try {
             p.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(frm_LAB_ENTREGA_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
         }
                     
                    
@@ -3220,7 +3219,7 @@ public void buscar_examenes(){
             try {
             H.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(frm_LAB_ENTREGA_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
         }
 //             titulo8.setVisible(true);
 //            txtbuscarHC1.setText("");
@@ -3262,7 +3261,7 @@ char tecla= evt.getKeyChar();
             try {
             p.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(frm_LAB_ENTREGA_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
         }
                     
                    

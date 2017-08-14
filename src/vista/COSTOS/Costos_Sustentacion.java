@@ -76,7 +76,9 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
         con=conectar.conectar();
         inicializar_tabla();
        
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
+        //ICONO DE FORMULARIO
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+    
         btnEliminar.setEnabled(false);
         btnModificar.setEnabled(false);
         btnBuscarCPT.setVisible(false);

@@ -17,6 +17,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -52,6 +53,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         
         //FECHA Y HORA
         h1 = new Thread(this);
@@ -307,6 +309,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         tb_RESULTADOS_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_RESULTADOS_EC.setComponentPopupMenu(jPopupMenu1);
         tb_RESULTADOS_EC.setRowHeight(35);
+        tb_RESULTADOS_EC.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_RESULTADOS_EC.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tb_RESULTADOS_EC);
 
@@ -472,6 +475,12 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             tb_RESULTADOS_EC.getSelectionModel().setSelectionInterval(0, 0);
             tb_RESULTADOS_EC.requestFocus();
         }
+        
+         ///LIMITE DE DIGITOS
+       if (txtBuscarPaciente_EC_R.getText().length()>40)
+       {
+                evt.consume();
+       }
     }//GEN-LAST:event_txtBuscarPaciente_EC_RKeyTyped
 
     private void cbFecha_EC_RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFecha_EC_RActionPerformed

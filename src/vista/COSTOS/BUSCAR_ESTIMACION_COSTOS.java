@@ -68,12 +68,14 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
      */
     public BUSCAR_ESTIMACION_COSTOS() {
         initComponents();
-        setResizable(false);
+        
         con=conectar.conectar();
         setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
         cargarEstimacionCostos();
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
+        //ICONO DE FORMULARIO
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     }
     
     
@@ -114,18 +116,19 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
 
     public void formatoEstimacionCostos(){
         
-    tb_Buscar_Estimacion.getColumnModel().getColumn(0).setPreferredWidth(155);
-    tb_Buscar_Estimacion.getColumnModel().getColumn(1).setPreferredWidth(120);
-    tb_Buscar_Estimacion.getColumnModel().getColumn(2).setPreferredWidth(120);
+    tb_Buscar_Estimacion.getColumnModel().getColumn(0).setPreferredWidth(100);
+    tb_Buscar_Estimacion.getColumnModel().getColumn(2).setPreferredWidth(70);
     tb_Buscar_Estimacion.getColumnModel().getColumn(3).setPreferredWidth(120);
     tb_Buscar_Estimacion.getColumnModel().getColumn(4).setPreferredWidth(120);
     tb_Buscar_Estimacion.getColumnModel().getColumn(5).setPreferredWidth(120);
-    tb_Buscar_Estimacion.getColumnModel().getColumn(6).setPreferredWidth(80);
+    tb_Buscar_Estimacion.getColumnModel().getColumn(6).setPreferredWidth(60);
     tb_Buscar_Estimacion.getColumnModel().getColumn(7).setPreferredWidth(80);
     tb_Buscar_Estimacion.getColumnModel().getColumn(8).setPreferredWidth(90);
-    tb_Buscar_Estimacion.getColumnModel().getColumn(9).setPreferredWidth(90);
-    tb_Buscar_Estimacion.getColumnModel().getColumn(10).setPreferredWidth(160);
+    tb_Buscar_Estimacion.getColumnModel().getColumn(9).setPreferredWidth(60);
+    tb_Buscar_Estimacion.getColumnModel().getColumn(10).setPreferredWidth(200);
     //Ocultar    
+    tb_Buscar_Estimacion.getColumnModel().getColumn(0).setMinWidth(0);
+    tb_Buscar_Estimacion.getColumnModel().getColumn(0).setMaxWidth(0);
     tb_Buscar_Estimacion.getColumnModel().getColumn(1).setMinWidth(0);
     tb_Buscar_Estimacion.getColumnModel().getColumn(1).setMaxWidth(0);
     
@@ -152,14 +155,17 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         DETALLE_REPORTE = new javax.swing.JMenuItem();
         DETALLE_PDF = new javax.swing.JMenuItem();
         DETALLE_EXCEL = new javax.swing.JMenuItem();
-        txtBuscarEstimacion = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        cbxBuscarEstimacion = new javax.swing.JComboBox();
-        btnBuscarEstimacion = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Buscar_Estimacion = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jpanel = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        cbxBuscarEstimacion = new javax.swing.JComboBox();
+        txtBuscarEstimacion = new javax.swing.JTextField();
+        lblUsu = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lbldia = new javax.swing.JLabel();
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/reporte16x16.png"))); // NOI18N
         jMenuItem5.setText("REPORTES");
@@ -234,21 +240,67 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         REPORTES.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(0, 0));
 
-        txtBuscarEstimacion.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtBuscarEstimacionCaretUpdate(evt);
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        tb_Buscar_Estimacion = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
             }
-        });
-        txtBuscarEstimacion.addKeyListener(new java.awt.event.KeyAdapter() {
+        };
+        tb_Buscar_Estimacion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tb_Buscar_Estimacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tb_Buscar_Estimacion.setComponentPopupMenu(REPORTES);
+        tb_Buscar_Estimacion.setRowHeight(24);
+        tb_Buscar_Estimacion.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        tb_Buscar_Estimacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtBuscarEstimacionKeyPressed(evt);
+                tb_Buscar_EstimacionKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tb_Buscar_Estimacion);
+
+        jpanel.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel21.setText(" Búsqueda por:");
+
+        jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel57.setText("<html>Reporte Costos<span style=\"font-size:'14px'\"><br>CPT</br></span></html>");
+
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-32.png"))); // NOI18N
+        btnBuscar.setMnemonic('B');
+        btnBuscar.setText("Buscar");
+        btnBuscar.setToolTipText("Buscar (Alt-B)");
+        btnBuscar.setContentAreaFilled(false);
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnBuscar.setIconTextGap(30);
+        btnBuscar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel1.setText("Buscar por:");
-
+        cbxBuscarEstimacion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxBuscarEstimacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Codigo CPT", "Servicio", "Nomenclatura " }));
         cbxBuscarEstimacion.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -261,60 +313,83 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
             }
         });
 
-        btnBuscarEstimacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/view.gif"))); // NOI18N
-        btnBuscarEstimacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscarEstimacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarEstimacionActionPerformed(evt);
+        txtBuscarEstimacion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtBuscarEstimacion.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarEstimacionCaretUpdate(evt);
             }
         });
-
-        tb_Buscar_Estimacion = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int colIndex) {
-                return false; //Disallow the editing of any cell
-            }
-        };
-        tb_Buscar_Estimacion.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tb_Buscar_Estimacion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tb_Buscar_Estimacion.setComponentPopupMenu(REPORTES);
-        tb_Buscar_Estimacion.setRowHeight(24);
-        tb_Buscar_Estimacion.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtBuscarEstimacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tb_Buscar_EstimacionKeyPressed(evt);
+                txtBuscarEstimacionKeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tb_Buscar_Estimacion);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        lblUsu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
+        lblUsu.setText("Usuario");
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 30)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Búsqueda y Reporte de CPT");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
+        jpanel.setLayout(jpanelLayout);
+        jpanelLayout.setHorizontalGroup(
+            jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanelLayout.createSequentialGroup()
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxBuscarEstimacion, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                                .addComponent(txtBuscarEstimacion)))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(jLabel2)
-                .addGap(6, 6, 6))
+        jpanelLayout.setVerticalGroup(
+            jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(txtBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel5.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
+
+        lbldia.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        lbldia.setForeground(new java.awt.Color(255, 255, 255));
+        lbldia.setText("Búsqueda y Reporte de CPT");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbldia, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(lbldia, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -322,35 +397,21 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbxBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94)
-                        .addComponent(txtBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 819, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)
-                        .addComponent(cbxBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
         );
 
         getAccessibleContext().setAccessibleName("Búsqueda de CPT");
@@ -423,58 +484,6 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
     }//GEN-LAST:event_tb_Buscar_EstimacionKeyPressed
 
     
-    private void btnBuscarEstimacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEstimacionActionPerformed
-    try{
-    if(cbxBuscarEstimacion.getSelectedIndex()>0){
-        
-    String tipo_sust =txtBuscarEstimacion.getText().toString(); 
-    int combo = cbxBuscarEstimacion.getSelectedIndex();
-        
-    DefaultTableModel tabla= new DefaultTableModel();
-       
-       tabla.addColumn("Codigo");
-       tabla.addColumn("Codigo Precio");
-       tabla.addColumn("Codigo CPT");
-       tabla.addColumn("Servicio");
-       tabla.addColumn("Area");
-       tabla.addColumn("Forma de Pago");
-       tabla.addColumn("Precio");
-       tabla.addColumn("Tiempo(h)");
-       tabla.addColumn("Tiempo(Min)");
-       tabla.addColumn("Saldo");
-       tabla.addColumn("Nomenclatura");
-       cst=con.prepareCall("exec COSTOS_COSTOS_SUSTENTACION_ESTIMACION_buscar ?,?");     
-            cst.setString(1, tipo_sust);
-            cst.setInt(2, combo);
-            r=cst.executeQuery();
-       while (r.next()){
-       Object dato[]=new  Object[11];
-       for (int i=0; i<11; i++){
-           dato[i]=r.getString(i+1);
-       }
-       tabla.addRow(dato);
-       }
-       
-       this.tb_Buscar_Estimacion.setModel(tabla);
-       
-       formatoEstimacionCostos();
-       tb_Buscar_Estimacion.getSelectionModel().setSelectionInterval(0, 0);
-       tb_Buscar_Estimacion.requestFocus();
-       txtBuscarEstimacion.requestFocus();
-      
-       } else {
-        JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de busqueda");
-        cbxBuscarEstimacion.requestFocus();
-        txtBuscarEstimacion.setText("");
-    }   
-
-       }catch (Exception e){
-       }
-       
-        
-        
-    }//GEN-LAST:event_btnBuscarEstimacionActionPerformed
-
     private void txtBuscarEstimacionCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarEstimacionCaretUpdate
        
     }//GEN-LAST:event_txtBuscarEstimacionCaretUpdate
@@ -482,7 +491,8 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
     private void txtBuscarEstimacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarEstimacionKeyPressed
          char tecla= evt.getKeyChar();
          if(tecla==KeyEvent.VK_ENTER){
-            btnBuscarEstimacion.doClick();
+            tb_Buscar_Estimacion.getSelectionModel().setSelectionInterval(0, 0);
+            tb_Buscar_Estimacion.requestFocus();
          }
     }//GEN-LAST:event_txtBuscarEstimacionKeyPressed
 
@@ -748,6 +758,55 @@ exporterXLS.setParameter(JExcelApiExporterParameter.CHARACTER_ENCODING, "UTF-8")
          Logger.getLogger(BUSCAR_ESTIMACION_COSTOS.class.getName()).log(Level.SEVERE, null, ex);
      }
     }//GEN-LAST:event_TODO_EXCELActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+       try{
+    if(cbxBuscarEstimacion.getSelectedIndex()>0){
+        
+    String tipo_sust =txtBuscarEstimacion.getText().toString(); 
+    int combo = cbxBuscarEstimacion.getSelectedIndex();
+        
+    DefaultTableModel tabla= new DefaultTableModel();
+       
+       tabla.addColumn("Codigo");
+       tabla.addColumn("Codigo Precio");
+       tabla.addColumn("Codigo CPT");
+       tabla.addColumn("Servicio");
+       tabla.addColumn("Area");
+       tabla.addColumn("Forma de Pago");
+       tabla.addColumn("Precio");
+       tabla.addColumn("Tiempo(h)");
+       tabla.addColumn("Tiempo(Min)");
+       tabla.addColumn("Saldo");
+       tabla.addColumn("Nomenclatura");
+       cst=con.prepareCall("exec COSTOS_COSTOS_SUSTENTACION_ESTIMACION_buscar ?,?");     
+            cst.setString(1, tipo_sust);
+            cst.setInt(2, combo);
+            r=cst.executeQuery();
+       while (r.next()){
+       Object dato[]=new  Object[11];
+       for (int i=0; i<11; i++){
+           dato[i]=r.getString(i+1);
+       }
+       tabla.addRow(dato);
+       }
+       
+       this.tb_Buscar_Estimacion.setModel(tabla);
+       
+       formatoEstimacionCostos();
+       tb_Buscar_Estimacion.getSelectionModel().setSelectionInterval(0, 0);
+       tb_Buscar_Estimacion.requestFocus();
+       txtBuscarEstimacion.requestFocus();
+      
+       } else {
+        JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de busqueda");
+        cbxBuscarEstimacion.requestFocus();
+        txtBuscarEstimacion.setText("");
+    }   
+
+       }catch (Exception e){
+       }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 private void exportXls()
  {
      String ruta = "/reporteTotal/report1.jasper";
@@ -1202,16 +1261,19 @@ JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guarda
     private javax.swing.JMenuItem TODO_EXCEL;
     private javax.swing.JMenuItem TODO_PDF;
     private javax.swing.JMenuItem TODO_REPORTE;
-    private javax.swing.JButton btnBuscarEstimacion;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JComboBox cbxBuscarEstimacion;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPanel jpanel;
+    public static javax.swing.JLabel lblUsu;
+    private javax.swing.JLabel lbldia;
     public static javax.swing.JTable tb_Buscar_Estimacion;
     private javax.swing.JTextField txtBuscarEstimacion;
     // End of variables declaration//GEN-END:variables

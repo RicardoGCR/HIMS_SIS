@@ -83,6 +83,20 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         lblNomAD.setVisible(false);
         lblUsuD.setVisible(false);
        
+        //CERRAR CON ESCAPE
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                
+                cerrar();
+                                
+            }
+        });
+        
         
 //////obtener el nombre de la pc
 //        InetAddress localHost = InetAddress.getLocalHost();
@@ -831,6 +845,10 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
 
     private void tb_ExamenesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_ExamenesKeyPressed
        char tecla= evt.getKeyChar();
+       
+        try {
+            
+        
                 if(tecla==KeyEvent.VK_ENTER){
                     
                     int filaselec=tb_Examenes.getSelectedRow();
@@ -846,13 +864,17 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                             tb_examen_det.setBackground(Color.white);
                         }else{
                             btnPersonalResultado.requestFocus();
+                            
                         }
                         
                     }else{
                         JOptionPane.showMessageDialog(this, "Seleccione un Registro");
                     }
                     
+                }
+        } catch (Exception e) {
         }
+       
                    
     }//GEN-LAST:event_tb_ExamenesKeyPressed
 
@@ -873,6 +895,12 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             tb_Examenes.getSelectionModel().setSelectionInterval(0, 0);
             tb_Examenes.requestFocus();
         }
+       
+       ///LIMITE DE DIGITOS
+       if (txtBuscarPaciente.getText().length()>40)
+       {
+                evt.consume();
+       }
     }//GEN-LAST:event_txtBuscarPacienteKeyTyped
 
     private void ver_detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_detalleActionPerformed
@@ -891,24 +919,28 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                         int filaselec=tb_Examenes.getSelectedRow();
                         
                            dispose();
-                            RX_EC_EXAMEN_CAB rx=new RX_EC_EXAMEN_CAB();
+                            RX_EC_EXAMEN_CAB_RESULTADO rx=new RX_EC_EXAMEN_CAB_RESULTADO();
                             rx.setVisible(true);
-                            RX_EC_EXAMEN_CAB.txtHC.setText(tb_Examenes.getValueAt(filaselec, 1).toString());
-                            RX_EC_EXAMEN_CAB.txtNombreP.setText(tb_Examenes.getValueAt(filaselec, 2).toString());
-                            RX_EC_EXAMEN_CAB.txtDNI.setText(tb_Examenes.getValueAt(filaselec, 3).toString());
-                            RX_EC_EXAMEN_CAB.txtFechaNac.setText(tb_Examenes.getValueAt(filaselec, 4).toString());
-                            RX_EC_EXAMEN_CAB.txtEdad.setText(tb_Examenes.getValueAt(filaselec, 5).toString());
-                            RX_EC_EXAMEN_CAB.txtGenero.setText(tb_Examenes.getValueAt(filaselec, 6).toString());
-                            RX_EC_EXAMEN_CAB.txtAM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
-                            RX_EC_EXAMEN_CAB.txtCodigoDoc.setText(tb_Examenes.getValueAt(filaselec, 10).toString());
-//                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
                             
-                            RX_EC_EXAMEN_CAB.lblIDArea.setText(lblNumeArea.getText());
-                            RX_EC_EXAMEN_CAB.lblNomA.setText(lblNomArea.getText());
-
+                            RX_EC_EXAMEN_CAB_RESULTADO.txtID_EXAMEN_CAB.setText(tb_Examenes.getValueAt(filaselec, 10).toString());
+                            RX_EC_EXAMEN_CAB_RESULTADO.txtAM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
+                            RX_EC_EXAMEN_CAB_RESULTADO.txtHC.setText(tb_Examenes.getValueAt(filaselec, 1).toString());
+                            RX_EC_EXAMEN_CAB_RESULTADO.txtDNI.setText(tb_Examenes.getValueAt(filaselec, 3).toString());
+                            RX_EC_EXAMEN_CAB_RESULTADO.txtNombreP.setText(tb_Examenes.getValueAt(filaselec, 2).toString());
+//                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
+                            RX_EC_EXAMEN_CAB_RESULTADO.txtEdad.setText(tb_Examenes.getValueAt(filaselec, 5).toString());
+                            RX_EC_EXAMEN_CAB_RESULTADO.txtFechaNac.setText(tb_Examenes.getValueAt(filaselec, 4).toString());
+                            RX_EC_EXAMEN_CAB_RESULTADO.txtGenero.setText(tb_Examenes.getValueAt(filaselec, 6).toString());
+//                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
+//                            lblIDArea.setText(lblNumeArea.getText());
+//                            lblNomAD.setText(lblNomArea.getText());
+                                                    
+                            RX_EC_EXAMEN_CAB_RESULTADO.lblIDArea.setText(lblNumeArea.getText());
+                            RX_EC_EXAMEN_CAB_RESULTADO.lblNomA.setText(lblNomArea.getText());
+                            
 
                                   String u=lblUsu.getText();
-                                  RX_EC_EXAMEN_CAB.lblUsu.setText(u);
+                            RX_EC_EXAMEN_CAB_RESULTADO.lblUsu.setText(u);
                         }
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
@@ -970,7 +1002,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                         if( tb_Examenes.getRowCount()>0){
                         int filaselec=tb_Examenes.getSelectedRow();
                         
-                           dispose();
+                            dispose();
                             RX_EC_EXAMEN_CAB_RESULTADO rx=new RX_EC_EXAMEN_CAB_RESULTADO();
                             rx.setVisible(true);
                             
@@ -1433,6 +1465,18 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
 
+    public void cerrar(){
+        int eleccion = JOptionPane.showConfirmDialog(rootPane,"¿Desea realmente salir del formulario?","Mensaje de Confirmación",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE);
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+            dispose();   
+//            PrincipalMDI MDI= new PrincipalMDI();
+//            MDI.setVisible(true);  
+        }else{
+        }
+    }
     
     /**
      * @param args the command line arguments

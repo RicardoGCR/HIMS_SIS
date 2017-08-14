@@ -146,12 +146,14 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
     }
 }
     public void formatoProductoCabecera(){
-    tbProductoReferencial.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tbProductoReferencial.getColumnModel().getColumn(1).setPreferredWidth(170);
+    tbProductoReferencial.getColumnModel().getColumn(0).setPreferredWidth(35);
     tbProductoReferencial.getColumnModel().getColumn(2).setPreferredWidth(200);
     tbProductoReferencial.getColumnModel().getColumn(3).setPreferredWidth(80);
     tbProductoReferencial.getColumnModel().getColumn(4).setPreferredWidth(150);
     tbProductoReferencial.getColumnModel().getColumn(5).setPreferredWidth(150);
+    
+    tbProductoReferencial.getColumnModel().getColumn(1).setMinWidth(0);
+    tbProductoReferencial.getColumnModel().getColumn(1).setMaxWidth(0);
 }
 
     /**
@@ -171,14 +173,16 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
         txtTipoSusten = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         PRODUCTO_REFERENCIAL = new javax.swing.JDialog();
-        jLabel7 = new javax.swing.JLabel();
-        txtBuscarProductoCabecera = new javax.swing.JTextField();
-        btnBuscarProductoCabecera = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbProductoReferencial = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
+            jpanel3 = new javax.swing.JPanel();
+            titulo8 = new javax.swing.JLabel();
+            jLabel20 = new javax.swing.JLabel();
+            txtBuscarProductoCabecera = new javax.swing.JTextField();
+            btnBuscarProductoCabecera1 = new javax.swing.JButton();
             jPanel1 = new javax.swing.JPanel();
             jLabel1 = new javax.swing.JLabel();
             jLabel2 = new javax.swing.JLabel();
@@ -302,31 +306,7 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
             PRODUCTO_REFERENCIAL.setAutoRequestFocus(false);
             PRODUCTO_REFERENCIAL.setMinimumSize(new java.awt.Dimension(558, 570));
 
-            jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-            jLabel7.setText("Producto Referencial");
-
-            txtBuscarProductoCabecera.setForeground(new java.awt.Color(0, 51, 51));
-            txtBuscarProductoCabecera.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    txtBuscarProductoCabeceraActionPerformed(evt);
-                }
-            });
-            txtBuscarProductoCabecera.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    txtBuscarProductoCabeceraKeyPressed(evt);
-                }
-                public void keyTyped(java.awt.event.KeyEvent evt) {
-                    txtBuscarProductoCabeceraKeyTyped(evt);
-                }
-            });
-
-            btnBuscarProductoCabecera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/view.gif"))); // NOI18N
-            btnBuscarProductoCabecera.setBorder(null);
-            btnBuscarProductoCabecera.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnBuscarProductoCabeceraActionPerformed(evt);
-                }
-            });
+            jScrollPane3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
             tbProductoReferencial.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
@@ -356,36 +336,92 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
             });
             jScrollPane3.setViewportView(tbProductoReferencial);
 
+            jpanel3.setBackground(new java.awt.Color(102, 102, 102));
+
+            titulo8.setBackground(new java.awt.Color(0, 102, 102));
+            titulo8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+            titulo8.setForeground(new java.awt.Color(255, 255, 255));
+            titulo8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            titulo8.setText("Producto Referencial");
+            titulo8.setToolTipText("");
+            titulo8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+            jLabel20.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
+            jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            jLabel20.setText("Búsqueda por Nombre del Producto");
+
+            txtBuscarProductoCabecera.setForeground(new java.awt.Color(0, 51, 51));
+            txtBuscarProductoCabecera.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtBuscarProductoCabeceraCaretUpdate(evt);
+                }
+            });
+            txtBuscarProductoCabecera.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    txtBuscarProductoCabeceraActionPerformed(evt);
+                }
+            });
+            txtBuscarProductoCabecera.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    txtBuscarProductoCabeceraKeyPressed(evt);
+                }
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    txtBuscarProductoCabeceraKeyTyped(evt);
+                }
+            });
+
+            btnBuscarProductoCabecera1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-32.png"))); // NOI18N
+            btnBuscarProductoCabecera1.setBorder(null);
+            btnBuscarProductoCabecera1.setContentAreaFilled(false);
+            btnBuscarProductoCabecera1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnBuscarProductoCabecera1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnBuscarProductoCabecera1ActionPerformed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout jpanel3Layout = new javax.swing.GroupLayout(jpanel3);
+            jpanel3.setLayout(jpanel3Layout);
+            jpanel3Layout.setHorizontalGroup(
+                jpanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpanel3Layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addGroup(jpanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpanel3Layout.createSequentialGroup()
+                            .addComponent(txtBuscarProductoCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscarProductoCabecera1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(titulo8)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(199, Short.MAX_VALUE))
+            );
+            jpanel3Layout.setVerticalGroup(
+                jpanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpanel3Layout.createSequentialGroup()
+                    .addComponent(titulo8)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jpanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtBuscarProductoCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarProductoCabecera1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, 0)
+                    .addComponent(jLabel20)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+
             javax.swing.GroupLayout PRODUCTO_REFERENCIALLayout = new javax.swing.GroupLayout(PRODUCTO_REFERENCIAL.getContentPane());
             PRODUCTO_REFERENCIAL.getContentPane().setLayout(PRODUCTO_REFERENCIALLayout);
             PRODUCTO_REFERENCIALLayout.setHorizontalGroup(
                 PRODUCTO_REFERENCIALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PRODUCTO_REFERENCIALLayout.createSequentialGroup()
-                    .addContainerGap(162, Short.MAX_VALUE)
-                    .addGroup(PRODUCTO_REFERENCIALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7)
-                        .addGroup(PRODUCTO_REFERENCIALLayout.createSequentialGroup()
-                            .addComponent(txtBuscarProductoCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnBuscarProductoCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(129, 129, 129))
-                .addGroup(PRODUCTO_REFERENCIALLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane3)
-                    .addContainerGap())
+                .addComponent(jpanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
             );
             PRODUCTO_REFERENCIALLayout.setVerticalGroup(
                 PRODUCTO_REFERENCIALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PRODUCTO_REFERENCIALLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel7)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(PRODUCTO_REFERENCIALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtBuscarProductoCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscarProductoCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(22, 22, 22)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(49, Short.MAX_VALUE))
+                    .addComponent(jpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -440,8 +476,8 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblhPersonal)
                         .addComponent(lblFecha))
-                    .addGap(18, 18, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(219, 219, 219)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -807,59 +843,6 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
         formatoProductoCabecera();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void txtBuscarProductoCabeceraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarProductoCabeceraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarProductoCabeceraActionPerformed
-
-    private void txtBuscarProductoCabeceraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarProductoCabeceraKeyPressed
-        // TODO add your handling code here:
-        char tecla= evt.getKeyChar();
-        if(tecla==KeyEvent.VK_ENTER){
-            btnBuscarProductoCabecera.doClick();
-        }
-    }//GEN-LAST:event_txtBuscarProductoCabeceraKeyPressed
-
-    private void txtBuscarProductoCabeceraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarProductoCabeceraKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarProductoCabeceraKeyTyped
-
-    private void btnBuscarProductoCabeceraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoCabeceraActionPerformed
-        // TODO add your handling code here:
-        String consulta="";
-        try {
-            tbProductoReferencial.setModel(new DefaultTableModel());
-            String titulos[]={"Nº","Codigo","Nombre del Producto Referencial","Precio","Cantidad de Medida","Unidad de Medida"};  
-            pc=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(pc);
-            String fila[]=new String[7];
-            referencialCabecera obj=new referencialCabecera();
-            consulta="exec COSTOS_COSTOS_PRODUCTO_REFERENCIAL_CABECERA_INSUMO_buscar ?";
-
-            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, txtBuscarProductoCabecera.getText());
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                fila[0]=String.valueOf(c)+"º";
-                fila[1]=r.getString(1);
-                fila[2]=r.getString(2);
-                fila[3]=r.getString(3);
-                fila[4]=r.getString(4);
-                fila[5]=r.getString(5);
-                pc.addRow(fila);
-                c++;
-            }
-            tbProductoReferencial.setModel(pc);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(pc);
-            tbProductoReferencial.setRowSorter(elQueOrdena);
-            tbProductoReferencial.setModel(pc);
-            formatoProductoCabecera();
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-
-    }//GEN-LAST:event_btnBuscarProductoCabeceraActionPerformed
-
     private void tbProductoReferencialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductoReferencialMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbProductoReferencialMouseClicked
@@ -962,6 +945,97 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
             evt.consume();            
         }
     }//GEN-LAST:event_txtCantidadAUsarKeyTyped
+
+    private void txtBuscarProductoCabeceraCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarProductoCabeceraCaretUpdate
+        ProductoReferencial_buscar();
+    }//GEN-LAST:event_txtBuscarProductoCabeceraCaretUpdate
+    public void ProductoReferencial_buscar(){
+        String consulta="";
+        try {
+            tbProductoReferencial.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","Codigo","Nombre del Producto Referencial","Precio","Cantidad de Medida","Unidad de Medida"};  
+            pc=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(pc);
+            String fila[]=new String[7];
+            referencialCabecera obj=new referencialCabecera();
+            consulta="exec COSTOS_COSTOS_PRODUCTO_REFERENCIAL_CABECERA_INSUMO_buscar ?";
+
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, txtBuscarProductoCabecera.getText());
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                fila[5]=r.getString(5);
+                pc.addRow(fila);
+                c++;
+            }
+            tbProductoReferencial.setModel(pc);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(pc);
+            tbProductoReferencial.setRowSorter(elQueOrdena);
+            tbProductoReferencial.setModel(pc);
+            formatoProductoCabecera();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+    private void txtBuscarProductoCabeceraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarProductoCabeceraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarProductoCabeceraActionPerformed
+
+    private void txtBuscarProductoCabeceraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarProductoCabeceraKeyPressed
+        // TODO add your handling code here:
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            tbProductoReferencial.getSelectionModel().setSelectionInterval(0, 0);
+            tbProductoReferencial.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarProductoCabeceraKeyPressed
+
+    private void txtBuscarProductoCabeceraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarProductoCabeceraKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarProductoCabeceraKeyTyped
+
+    private void btnBuscarProductoCabecera1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoCabecera1ActionPerformed
+        // TODO add your handling code here:
+        String consulta="";
+        try {
+            tbProductoReferencial.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","Codigo","Nombre del Producto Referencial","Precio","Cantidad de Medida","Unidad de Medida"};  
+            pc=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(pc);
+            String fila[]=new String[7];
+            referencialCabecera obj=new referencialCabecera();
+            consulta="exec COSTOS_COSTOS_PRODUCTO_REFERENCIAL_CABECERA_INSUMO_buscar ?";
+
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, txtBuscarProductoCabecera.getText());
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                fila[5]=r.getString(5);
+                pc.addRow(fila);
+                c++;
+            }
+            tbProductoReferencial.setModel(pc);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(pc);
+            tbProductoReferencial.setRowSorter(elQueOrdena);
+            tbProductoReferencial.setModel(pc);
+            formatoProductoCabecera();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnBuscarProductoCabecera1ActionPerformed
 
     public void mostrarDetalleInsumo(){
         
@@ -1172,7 +1246,7 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog BuscarTipoSustentacion;
     public static javax.swing.JDialog PRODUCTO_REFERENCIAL;
-    private javax.swing.JButton btnBuscarProductoCabecera;
+    private javax.swing.JButton btnBuscarProductoCabecera1;
     private javax.swing.JCheckBox chConsumible;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1190,11 +1264,11 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1202,11 +1276,13 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPanel jpanel3;
     public static javax.swing.JLabel lblFecha;
     public static javax.swing.JLabel lblUsu;
     public static javax.swing.JLabel lblhPersonal;
     private javax.swing.JTable tableCostosSustentacionDet;
     public static javax.swing.JTable tbProductoReferencial;
+    private javax.swing.JLabel titulo8;
     private javax.swing.JTextField txtBuscarProductoCabecera;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCantidadAUsar;

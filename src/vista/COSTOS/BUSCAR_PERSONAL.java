@@ -54,19 +54,9 @@ Conexion cn=new Conexion();
         formatoPersonal();
         tbPersonalSueldo.getSelectionModel().setSelectionInterval(0, 0);
         tbPersonalSueldo.requestFocus();
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
-        //para limpiar el txt al darle click
- txtBuscar.addFocusListener(new FocusListener() {
-    @Override
-    public void focusGained(FocusEvent e) {
-  txtBuscar.setText("");
-    }
-
-    @Override
-    public void focusLost(FocusEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-} );
+        //ICONO DE FORMULARIO
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+    
     }
     public void cargarPersonal(){
     try {
@@ -106,20 +96,20 @@ Conexion cn=new Conexion();
             }
     }
     public void formatoPersonal(){
-    tbPersonalSueldo.getColumnModel().getColumn(0).setPreferredWidth(50);
+    tbPersonalSueldo.getColumnModel().getColumn(0).setPreferredWidth(35);
     tbPersonalSueldo.getColumnModel().getColumn(1).setPreferredWidth(80);
     
-    tbPersonalSueldo.getColumnModel().getColumn(3).setPreferredWidth(120); 
+    tbPersonalSueldo.getColumnModel().getColumn(3).setPreferredWidth(90); 
     tbPersonalSueldo.getColumnModel().getColumn(4).setPreferredWidth(120);
     tbPersonalSueldo.getColumnModel().getColumn(5).setPreferredWidth(120);
-    tbPersonalSueldo.getColumnModel().getColumn(6).setPreferredWidth(120);
+    tbPersonalSueldo.getColumnModel().getColumn(6).setPreferredWidth(80);
     tbPersonalSueldo.getColumnModel().getColumn(7).setPreferredWidth(120);
     tbPersonalSueldo.getColumnModel().getColumn(8).setPreferredWidth(120);
     tbPersonalSueldo.getColumnModel().getColumn(9).setPreferredWidth(120);
-    tbPersonalSueldo.getColumnModel().getColumn(10).setPreferredWidth(50);
-    tbPersonalSueldo.getColumnModel().getColumn(11).setPreferredWidth(180);
-    tbPersonalSueldo.getColumnModel().getColumn(12).setPreferredWidth(200);
-    tbPersonalSueldo.getColumnModel().getColumn(13).setPreferredWidth(200);
+    tbPersonalSueldo.getColumnModel().getColumn(10).setPreferredWidth(90);
+    tbPersonalSueldo.getColumnModel().getColumn(11).setPreferredWidth(60);
+    tbPersonalSueldo.getColumnModel().getColumn(12).setPreferredWidth(180);
+    tbPersonalSueldo.getColumnModel().getColumn(13).setPreferredWidth(180);
     
     //ocultar
     tbPersonalSueldo.getColumnModel().getColumn(2).setMinWidth(0);
@@ -140,14 +130,16 @@ Conexion cn=new Conexion();
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
-            jLabel1 = new javax.swing.JLabel();
-            cbxBuscar = new javax.swing.JComboBox();
-            jLabel2 = new javax.swing.JLabel();
+            jPanel1 = new javax.swing.JPanel();
+            jLabel3 = new javax.swing.JLabel();
+            jLabel4 = new javax.swing.JLabel();
             txtBuscar = new javax.swing.JTextField();
             btnBuscar = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
             setAlwaysOnTop(true);
+
+            jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
             tbPersonalSueldo.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
@@ -161,6 +153,7 @@ Conexion cn=new Conexion();
                 }
             ));
             tbPersonalSueldo.setRowHeight(25);
+            tbPersonalSueldo.setSelectionBackground(new java.awt.Color(102, 102, 102));
             tbPersonalSueldo.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                     tbPersonalSueldoMouseClicked(evt);
@@ -179,21 +172,23 @@ Conexion cn=new Conexion();
             });
             jScrollPane1.setViewportView(tbPersonalSueldo);
 
-            jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-            jLabel1.setText("Personal");
+            jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-            cbxBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Nombres", "Apellido Paterno", "Apellido Materno", "Cargo" }));
-            cbxBuscar.addItemListener(new java.awt.event.ItemListener() {
-                public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                    cbxBuscarItemStateChanged(evt);
-                }
-            });
+            jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+            jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
+            jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+            jLabel3.setText("Personal");
 
-            jLabel2.setText("Búsqueda por:");
+            jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel4.setText(" Apellidos y Nombres; Cargo");
 
             txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
-            txtBuscar.setText("Buscar ");
-            txtBuscar.setEnabled(false);
+            txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtBuscarCaretUpdate(evt);
+                }
+            });
             txtBuscar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtBuscarActionPerformed(evt);
@@ -208,53 +203,60 @@ Conexion cn=new Conexion();
                 }
             });
 
-            btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/view.gif"))); // NOI18N
+            btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-32.png"))); // NOI18N
             btnBuscar.setBorder(null);
-            btnBuscar.setEnabled(false);
+            btnBuscar.setContentAreaFilled(false);
+            btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnBuscar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     btnBuscarActionPerformed(evt);
                 }
             });
 
+            javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+            jPanel1.setLayout(jPanel1Layout);
+            jPanel1Layout.setHorizontalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap())
+            );
+            jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel4)
+                    .addContainerGap())
+            );
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(414, 414, 414)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(133, 133, 133)
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cbxBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(158, 158, 158)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel1)
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbxBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addGap(28, 28, 28)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
-                    .addContainerGap())
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0))
             );
 
             getAccessibleContext().setAccessibleName("BÚSQUEDA DE PERSONAL");
@@ -302,27 +304,6 @@ Conexion cn=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_tbPersonalSueldoKeyTyped
 
-    private void cbxBuscarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxBuscarItemStateChanged
-        // TODO add your handling code here:
-        try
-        {
-            if(evt.getStateChange()==ItemEvent.SELECTED){
-                if(this.cbxBuscar.getSelectedIndex()>0){
-                    txtBuscar.setEnabled(true);
-                    btnBuscar.setEnabled(true);
-                }
-
-            }
-            else{
-                txtBuscar.setEnabled(false);
-                btnBuscar.setEnabled(false);
-            }}
-            catch(Exception ex)
-            {
-                System.out.println("Error: " + ex.getMessage());
-            }
-    }//GEN-LAST:event_cbxBuscarItemStateChanged
-
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
@@ -333,6 +314,26 @@ Conexion cn=new Conexion();
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+       Personal_buscar();
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void tbPersonalSueldoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPersonalSueldoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbPersonalSueldoKeyReleased
+
+    private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
+        // TODO add your handling code here:
+        char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+                    tbPersonalSueldo.getSelectionModel().setSelectionInterval(0, 0);
+                    tbPersonalSueldo.requestFocus();
+                }
+    }//GEN-LAST:event_txtBuscarKeyPressed
+
+    private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
+        Personal_buscar();
+    }//GEN-LAST:event_txtBuscarCaretUpdate
+    public void Personal_buscar(){
         String consulta="";
         try {
             tbPersonalSueldo.setModel(new DefaultTableModel());
@@ -342,18 +343,9 @@ Conexion cn=new Conexion();
             String fila[]=new String[14];
 
             Usuario obj=new Usuario();
-            if(cbxBuscar.getSelectedItem()=="Nombres"){
-                consulta="exec COSTOS_COSTOS_SUSTENTACION_DET_PERSONAL_BuscarNombre ?";
-            }
-            else if(cbxBuscar.getSelectedItem()=="Apellido Paterno"){
-                consulta="exec COSTOS_COSTOS_SUSTENTACION_DET_PERSONAL_BuscarApePat ?";
-            }
-            else if(cbxBuscar.getSelectedItem()=="Apellido Materno"){
-                consulta="exec COSTOS_COSTOS_SUSTENTACION_DET_PERSONAL_BuscarApeMat ?";
-            }
-            else {
-                consulta="exec COSTOS_COSTOS_SUSTENTACION_DET_PERSONAL_BuscarCargo ?";
-            }   
+            
+            consulta="exec COSTOS_COSTOS_SUSTENTACION_DET_PERSONAL_BuscarApellidos ?";
+               
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtBuscar.getText());
             ResultSet r= cmd.executeQuery();
@@ -381,25 +373,11 @@ Conexion cn=new Conexion();
             tbPersonalSueldo.setRowSorter(elQueOrdena);
             this.tbPersonalSueldo.setModel(m);
             formatoPersonal();
-            tbPersonalSueldo.getSelectionModel().setSelectionInterval(0, 0);
-            tbPersonalSueldo.requestFocus();
+            
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void tbPersonalSueldoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPersonalSueldoKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbPersonalSueldoKeyReleased
-
-    private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
-        // TODO add your handling code here:
-        char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    btnBuscar.doClick();
-                }
-    }//GEN-LAST:event_txtBuscarKeyPressed
-
+    }
     
     
     /**
@@ -470,9 +448,9 @@ Conexion cn=new Conexion();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JComboBox cbxBuscar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable tbPersonalSueldo;
     private javax.swing.JTextField txtBuscar;

@@ -2092,7 +2092,6 @@ char tecla= evt.getKeyChar();
         }
     }
     public void Personal_cargar(){
-
     try {
              String titulos[]={"N°","Código","Apellido Paterno","Apellido Materno","Nombres","Cargo"};
             m=new DefaultTableModel(null,titulos);

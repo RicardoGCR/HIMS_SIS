@@ -971,6 +971,9 @@ public void calcula() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtPacientesKeyPressed(evt);
                             }
+                            public void keyTyped(java.awt.event.KeyEvent evt) {
+                                txtPacientesKeyTyped(evt);
+                            }
                         });
 
                         btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
@@ -2382,6 +2385,21 @@ public void buscar_examenes(){
     private void txtAnalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnalisisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAnalisisActionPerformed
+
+    private void txtPacientesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPacientesKeyTyped
+            char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE &&tecla !='-'){
+            evt.consume();
+            getToolkit().beep();            
+        }
+        if (txtPacientes.getText().length()>7){
+            evt.consume();
+        }
+        if(tecla =='-' && txtPacientes.getText().contains("-")){
+            evt.consume();            
+        }
+    }//GEN-LAST:event_txtPacientesKeyTyped
     public void enableDatos(){
     tb_TomasRealizadas.setEnabled(true);
     tb_TomasRealizadas.setBackground(Color.white);
@@ -2405,6 +2423,7 @@ public void buscar_examenes(){
             try {
                 if(lbldia.getText().equalsIgnoreCase("Exámenes con Toma de Muestras del Día")){
                 LAB_BUSCAR_TM_DIA();
+                
                 }
                 Thread.sleep(9000);
                 

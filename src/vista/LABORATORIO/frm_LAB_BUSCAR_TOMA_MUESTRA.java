@@ -1667,6 +1667,9 @@ public void calcula() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtPacientesKeyPressed(evt);
                             }
+                            public void keyTyped(java.awt.event.KeyEvent evt) {
+                                txtPacientesKeyTyped(evt);
+                            }
                         });
 
                         btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
@@ -2875,6 +2878,21 @@ public void buscar_examenes(){
     private void txthospiServKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txthospiServKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txthospiServKeyReleased
+
+    private void txtPacientesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPacientesKeyTyped
+         char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE &&tecla !='-'){
+            evt.consume();
+            getToolkit().beep();            
+        }
+        if (txtPacientes.getText().length()>7){
+            evt.consume();
+        }
+        if(tecla =='-' && txtPacientes.getText().contains("-")){
+            evt.consume();            
+        }
+    }//GEN-LAST:event_txtPacientesKeyTyped
     public void enableDatos(){
     tb_TomasRealizadas.setEnabled(true);
     tb_TomasRealizadas.setBackground(Color.white);

@@ -1635,9 +1635,9 @@ LAB_Fabricante_formato();
             getToolkit().beep();            
         }
         if (txtDesdeAnio.getText().length()>1)
-    {
-evt.consume();
-}
+        {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtDesdeAnioKeyTyped
 
     private void txtDesdeMKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDesdeMKeyTyped

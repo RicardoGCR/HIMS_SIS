@@ -61,6 +61,8 @@ import Atxy2k.CustomTextField.RestrictedTextField;
 import java.awt.Graphics;
 import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.print.Printable;
@@ -69,6 +71,8 @@ import java.awt.print.PrinterJob;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.lang.Object;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import tablas.*;
 import vista.sectorizacion.FrmSector;
 /*
@@ -86,7 +90,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     ResultSet r;
     //INSTANCIAS CLASE DE HISTORIA CLINICA
     HistoriaClinica hC = new HistoriaClinica();
-    DefaultTableModel m;
+    DefaultTableModel m, msb;
     PreparedStatement pstm;
     //VARIABLE PARA CARGAR LAS HISTORIAS CLINICAS CON ESTADO 'ACTIVO'
     String estado = "A";
@@ -150,6 +154,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             }
         });
         cerrar();
+        
+        //ESCAPE DE DIALOGO
+        addEscapeListenerWindowDialog(BuscarHC);
+        addEscapeListenerWindowDialog(ReasignarHC);
+        
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
  
@@ -583,6 +592,31 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         }  
     }
     
+    //INICIALIZAR TABLA HISTORIAS CLINICAS REASIGNAR
+    public void INICIALIZAR_TB_REASIGNAR(){       
+        try {
+            
+            String titulosb[]={"N°","DNI","Apellidos y Nombres"};
+            msb=new DefaultTableModel(null,titulosb);
+            JTable psb=new JTable(msb);
+            String filasb[]=new String[3];
+            tbReasignado.setModel(msb);
+            TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb);
+            tbReasignado.setRowSorter(elQueOrdenasb);
+            this.tbReasignado.setModel(msb);
+            
+            //FORMATO TB_REASIGNADO
+            tbReasignado.getColumnModel().getColumn(0).setPreferredWidth(15);
+            tbReasignado.getColumnModel().getColumn(1).setPreferredWidth(30);
+            tbReasignado.getColumnModel().getColumn(2).setPreferredWidth(130);
+            tbReasignado.setRowHeight(25);
+            
+        } catch (Exception e) {
+            System.out.println("error inicializar tabla_RV: " + e);
+        }
+            
+    }
+    
     //METODO PARA MOSTRAR HISTORIAS CLINICAS REASIGNADAS
     public void mostrarCodHC(String codigo){
     String consulta="";
@@ -766,13 +800,14 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         jLabel10 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
-        txtBuscarCodigoHC = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbReasignado = new javax.swing.JTable();
         btnReasignar = new javax.swing.JButton();
         btnAnadirRe = new javax.swing.JButton();
         lblCodigoR = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
+        jPanel24 = new javax.swing.JPanel();
+        txtBuscarCodigoHC = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -1180,6 +1215,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        ReasignarHC.setAlwaysOnTop(true);
         ReasignarHC.setMinimumSize(new java.awt.Dimension(455, 650));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1207,12 +1243,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        txtBuscarCodigoHC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtBuscarCodigoHC.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtBuscarCodigoHCCaretUpdate(evt);
-            }
-        });
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         tbReasignado = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -1223,17 +1254,14 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         tbReasignado.setForeground(new java.awt.Color(102, 102, 102));
         tbReasignado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2"
             }
         ));
         tbReasignado.setGridColor(new java.awt.Color(255, 255, 255));
-        tbReasignado.setSelectionBackground(new java.awt.Color(101, 166, 136));
+        tbReasignado.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tbReasignado.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tbReasignado);
 
@@ -1270,22 +1298,52 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             }
         });
 
+        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        txtBuscarCodigoHC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtBuscarCodigoHC.setBorder(null);
+        txtBuscarCodigoHC.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarCodigoHCCaretUpdate(evt);
+            }
+        });
+        txtBuscarCodigoHC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarCodigoHCKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addComponent(txtBuscarCodigoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtBuscarCodigoHC, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout ReasignarHCLayout = new javax.swing.GroupLayout(ReasignarHC.getContentPane());
         ReasignarHC.getContentPane().setLayout(ReasignarHCLayout);
         ReasignarHCLayout.setHorizontalGroup(
             ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ReasignarHCLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(36, 36, 36)
                 .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ReasignarHCLayout.createSequentialGroup()
                         .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ReasignarHCLayout.createSequentialGroup()
+                                .addGap(261, 261, 261)
+                                .addComponent(btnAnadirRe, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReasignarHCLayout.createSequentialGroup()
-                                .addComponent(txtBuscarCodigoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnReasignar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnAnadirRe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnReasignar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(ReasignarHCLayout.createSequentialGroup()
                         .addComponent(jLabel10)
@@ -1294,6 +1352,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCodigoR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22))))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         ReasignarHCLayout.setVerticalGroup(
             ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1309,11 +1368,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         .addGap(9, 9, 9)
                         .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtBuscarCodigoHC, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(btnReasignar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnReasignar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAnadirRe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
@@ -2702,7 +2761,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     ReasignarHC.setLocationRelativeTo(null);//en el centro
                     ReasignarHC.setResizable(false);
                     ReasignarHC.getContentPane().setBackground(Color.WHITE);
-                    mostrarCodHC("");
+                    INICIALIZAR_TB_REASIGNAR();
+//                    mostrarCodHC("");
             } else 
             if(btnNuevo.getText().equals("Reasignar")){ // TERCER ESCENARIO - REASIGNADO
                 String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + 
@@ -3298,7 +3358,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         int fila = tbReasignado.getSelectedRow();
         String codigoObtenido = String.valueOf(tbReasignado.getValueAt(fila, 0));
         String codigo = String.valueOf(codigoObtenido.charAt(0)) + String.valueOf(codigoObtenido.charAt(1)) 
-                + String.valueOf(codigoObtenido.charAt(2)) + String.valueOf(codigoObtenido.charAt(3)) + String.valueOf(codigoObtenido.charAt(5)) + String.valueOf(codigoObtenido.charAt(6)) ;
+                + String.valueOf(codigoObtenido.charAt(2)) + String.valueOf(codigoObtenido.charAt(3)) + String.valueOf(codigoObtenido.charAt(4)) 
+                + String.valueOf(codigoObtenido.charAt(6)) + String.valueOf(codigoObtenido.charAt(7)) ;
         int reasignar = JOptionPane.showConfirmDialog(ReasignarHC, "¿Desea limpiar todos los campos de \n la Historia Clínica N°" 
         + codigo + " para ser reasignada?",
             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
@@ -3980,6 +4041,32 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             }
         });
     }//GEN-LAST:event_BuscarHCKeyPressed
+
+    private void txtBuscarCodigoHCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarCodigoHCKeyTyped
+       char tecla= evt.getKeyChar();
+       if(tecla==KeyEvent.VK_ENTER){
+            tbReasignado.getSelectionModel().setSelectionInterval(0, 0);
+            tbReasignado.requestFocus();
+        }
+       
+       ///LIMITE DE DIGITOS
+       if (txtBuscarCodigoHC.getText().length()>40)
+       {
+                evt.consume();
+       }
+    }//GEN-LAST:event_txtBuscarCodigoHCKeyTyped
+    
+    public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+       ActionListener escAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        windowDialog.dispose();
+        }
+        };
+        windowDialog.getRootPane().registerKeyboardAction(escAction,
+        KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_IN_FOCUSED_WINDOW);
+   }
     
     //HORA
     public void run() {
@@ -4110,6 +4197,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -4139,6 +4228,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     public static javax.swing.JTextField txtApellidoPat;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBuscarCodigoHC;
+    public static javax.swing.JTextField txtBuscarPaciente;
     public static javax.swing.JTextField txtCelular;
     public static javax.swing.JTextField txtCodigo;
     public static javax.swing.JTextField txtDni;

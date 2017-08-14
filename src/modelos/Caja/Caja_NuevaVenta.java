@@ -2198,6 +2198,34 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: LISTAR LIQUIDACION " + e.getMessage());
         }
     }
+    
+    public void CAJA_VERIFICAR_HOSPITALIZACION(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[1];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_VERIFICAR_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+        } catch (Exception e) {
+            System.out.println("Error: BUSCAR HOSPITALIZACION " + e.getMessage());
+        }
+    }
         public void formatoTablaLiquidacion(JTable tabla){
 
             tabla.getColumnModel().getColumn(0).setPreferredWidth(120);

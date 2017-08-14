@@ -102,6 +102,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         
           btnGuardarCabeceraRes.setEnabled(false);
           
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
           
           
           //CERRAR DIALOGO CON ESCAPE
@@ -109,6 +113,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
           addEscapeListenerWindowDialog(PERSONAL_ROL);
           addEscapeListenerWindowDialog(PERSONAL_ROL_TODO);
           
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e4063db85786fe591b8c69812424a65a35b426ae
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
           //CERRAR CON ESCAPE
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
@@ -2835,6 +2844,10 @@ public void guardar_resultado_detalle(){
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
     public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
        ActionListener escAction = new ActionListener() {
         @Override
@@ -2847,6 +2860,11 @@ public void guardar_resultado_detalle(){
         JComponent.WHEN_IN_FOCUSED_WINDOW);
    }
     
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e4063db85786fe591b8c69812424a65a35b426ae
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
     public void cerrar(){
         int eleccion = JOptionPane.showConfirmDialog(rootPane,"¿Desea realmente salir del formulario?","Mensaje de Confirmación",
         JOptionPane.YES_NO_OPTION,

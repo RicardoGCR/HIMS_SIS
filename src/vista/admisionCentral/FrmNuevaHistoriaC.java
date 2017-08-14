@@ -169,6 +169,10 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                                 
             }
         });
+<<<<<<< HEAD
+=======
+        cerrar();
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
         
         //ESCAPE DE DIALOGO
         addEscapeListenerWindowDialog(BuscarHC);
@@ -1357,17 +1361,33 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ReasignarHCLayout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(21, 21, 21)
                 .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ReasignarHCLayout.createSequentialGroup()
                         .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnReasignar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                .addGap(36, 36, 36)
+                .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ReasignarHCLayout.createSequentialGroup()
+                        .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(ReasignarHCLayout.createSequentialGroup()
+                                .addGap(261, 261, 261)
+                                .addComponent(btnAnadirRe, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReasignarHCLayout.createSequentialGroup()
+                                .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnReasignar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
                     .addGroup(ReasignarHCLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                         .addComponent(lblCodigoR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1375,6 +1395,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAnadirRe, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
+=======
+                        .addComponent(lblCodigoR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
         );
         ReasignarHCLayout.setVerticalGroup(
             ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3381,7 +3406,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         String codigoObtenido = String.valueOf(tbReasignado.getValueAt(fila, 0));
         String codigo = String.valueOf(codigoObtenido.charAt(0)) + String.valueOf(codigoObtenido.charAt(1)) 
                 + String.valueOf(codigoObtenido.charAt(2)) + String.valueOf(codigoObtenido.charAt(3)) + String.valueOf(codigoObtenido.charAt(4)) 
+<<<<<<< HEAD
                 + String.valueOf(codigoObtenido.charAt(6)) + String.valueOf(codigoObtenido.charAt(7));
+=======
+                + String.valueOf(codigoObtenido.charAt(6)) + String.valueOf(codigoObtenido.charAt(7)) ;
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
         int reasignar = JOptionPane.showConfirmDialog(ReasignarHC, "¿Desea limpiar todos los campos de \n la Historia Clínica N°" 
         + codigo + " para ser reasignada?",
             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
@@ -4079,6 +4108,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 evt.consume();
        }
     }//GEN-LAST:event_txtBuscarCodigoHCKeyTyped
+<<<<<<< HEAD
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
         char tecla= evt.getKeyChar();
@@ -4089,6 +4119,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 evt.consume();
        }
     }//GEN-LAST:event_txtBuscarKeyTyped
+=======
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
     
     public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
        ActionListener escAction = new ActionListener() {
@@ -4101,6 +4133,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
         JComponent.WHEN_IN_FOCUSED_WINDOW);
    }
+<<<<<<< HEAD
     
    public void cerrar(){
        
@@ -4115,6 +4148,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         }else{
         }
     }
+=======
+>>>>>>> ded71ae52c039ad10850b6683ae571c66227768d
     
     //HORA
     public void run() {

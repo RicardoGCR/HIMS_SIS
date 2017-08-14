@@ -6,6 +6,8 @@
 package vista.RX;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
@@ -17,9 +19,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -67,6 +72,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         inicializar_tabla_cie10();
         VISIBLE_datos();
         
+        
+        
         //FECHA Y HORA
         h1 = new Thread(this);
         h1.start();
@@ -86,13 +93,36 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         EP_Descripcion.setEnabled(false);
         EP_CONCLUSION.setEnabled(false);
         btnBuscarCIE10.setEnabled(false);
+        BTN_QUITAR_CIE10.setEnabled(false);
         
-          tb_examen_det.setEnabled(true);
-          tb_examen_det.setBackground(Color.lightGray);
+//          tb_examen_det.setEnabled(false);
+//          tb_examen_det.setBackground(Color.lightGray);
           tb_examen_det.getSelectionModel().setSelectionInterval(0, 0);
           tb_examen_det.requestFocus();
         
           btnGuardarCabeceraRes.setEnabled(false);
+          
+          
+          
+          //CERRAR DIALOGO CON ESCAPE
+          addEscapeListenerWindowDialog(CIE10);
+          addEscapeListenerWindowDialog(PERSONAL_ROL);
+          addEscapeListenerWindowDialog(PERSONAL_ROL_TODO);
+          
+          //CERRAR CON ESCAPE
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                
+                cerrar();
+                                
+            }
+        });
+          
     }
 
     /**
@@ -207,7 +237,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         txtCAB_RESULTADO = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         EP_Descripcion = new javax.swing.JEditorPane();
-        jButton1 = new javax.swing.JButton();
+        BTN_QUITAR_CIE10 = new javax.swing.JButton();
         txtID_COD_DOC = new javax.swing.JTextField();
         txtCOD_EXAMEN_DETALLE = new javax.swing.JTextField();
         txtNumExamen = new javax.swing.JTextField();
@@ -217,15 +247,16 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
         PERSONAL_ROL.setAlwaysOnTop(true);
         PERSONAL_ROL.setMinimumSize(new java.awt.Dimension(692, 360));
+        PERSONAL_ROL.setResizable(false);
 
-        jPanel3.setBackground(new java.awt.Color(34, 113, 179));
+        jPanel3.setBackground(new java.awt.Color(240, 64, 87));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("PERSONAL RX");
 
         txtBuscarPersonal.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        txtBuscarPersonal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179), 3));
+        txtBuscarPersonal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 64, 87), 3));
         txtBuscarPersonal.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtBuscarPersonalCaretUpdate(evt);
@@ -297,6 +328,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addGap(0, 0, 0))
         );
 
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         tb_Personal_rol = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
@@ -316,6 +349,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         ));
         tb_Personal_rol.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol.setRowHeight(30);
+        tb_Personal_rol.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_Personal_rol.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -361,15 +395,16 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
         PERSONAL_ROL_TODO.setAlwaysOnTop(true);
         PERSONAL_ROL_TODO.setMinimumSize(new java.awt.Dimension(692, 360));
+        PERSONAL_ROL_TODO.setResizable(false);
 
-        jPanel10.setBackground(new java.awt.Color(34, 113, 179));
+        jPanel10.setBackground(new java.awt.Color(240, 64, 87));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("PERSONAL RX");
 
         txtBuscarPersonal_TODO.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        txtBuscarPersonal_TODO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179), 3));
+        txtBuscarPersonal_TODO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 64, 87), 3));
         txtBuscarPersonal_TODO.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtBuscarPersonal_TODOCaretUpdate(evt);
@@ -429,6 +464,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         tb_Personal_rol_todo = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
@@ -448,6 +485,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         ));
         tb_Personal_rol_todo.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol_todo.setRowHeight(30);
+        tb_Personal_rol_todo.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_Personal_rol_todo.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol_todo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -461,7 +499,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         PERSONAL_ROL_TODOLayout.setHorizontalGroup(
             PERSONAL_ROL_TODOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane4)
         );
         PERSONAL_ROL_TODOLayout.setVerticalGroup(
             PERSONAL_ROL_TODOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -473,6 +511,9 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
         CIE10.setAlwaysOnTop(true);
         CIE10.setMinimumSize(new java.awt.Dimension(470, 500));
+        CIE10.setResizable(false);
+
+        jScrollPane8.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         tb_CIE10 = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
@@ -493,6 +534,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         ));
         tb_CIE10.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_CIE10.setRowHeight(30);
+        tb_CIE10.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_CIE10.getTableHeader().setReorderingAllowed(false);
         tb_CIE10.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -903,6 +945,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("Personal - Realiza el Examen");
 
+        txtPersonalRealizaRes.setEditable(false);
         txtPersonalRealizaRes.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtPersonalRealizaRes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPersonalRealizaRes.addActionListener(new java.awt.event.ActionListener() {
@@ -921,8 +964,9 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
         jLabel26.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("Personal - Registra el Examen");
+        jLabel26.setText("Personal - Registra el Resultado");
 
+        txtPersonalRegistraResultado.setEditable(false);
         txtPersonalRegistraResultado.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtPersonalRegistraResultado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPersonalRegistraResultado.addActionListener(new java.awt.event.ActionListener() {
@@ -1190,7 +1234,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             }
         ));
         tb_examen_det.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tb_examen_det.setComponentPopupMenu(jPopupMenu2);
         tb_examen_det.setRowHeight(35);
         tb_examen_det.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_examen_det.getTableHeader().setReorderingAllowed(false);
@@ -1264,15 +1307,20 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             }
         });
 
+        EP_Descripcion.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                EP_DescripcionCaretUpdate(evt);
+            }
+        });
         jScrollPane3.setViewportView(EP_Descripcion);
 
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 0, 10)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/menos16x16.png"))); // NOI18N
-        jButton1.setText("QUITAR");
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BTN_QUITAR_CIE10.setFont(new java.awt.Font("Trebuchet MS", 0, 10)); // NOI18N
+        BTN_QUITAR_CIE10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/menos16x16.png"))); // NOI18N
+        BTN_QUITAR_CIE10.setText("QUITAR");
+        BTN_QUITAR_CIE10.setContentAreaFilled(false);
+        BTN_QUITAR_CIE10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BTN_QUITAR_CIE10ActionPerformed(evt);
             }
         });
 
@@ -1345,7 +1393,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(BTN_QUITAR_CIE10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscarCIE10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(5, 5, 5))
@@ -1380,7 +1428,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBuscarCIE10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton1)
+                                .addComponent(BTN_QUITAR_CIE10)
                                 .addComponent(jLabel14)))
                         .addGap(0, 0, 0)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1590,6 +1638,12 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             tb_Personal_rol.getSelectionModel().setSelectionInterval(0, 0);
             tb_Personal_rol.requestFocus();
         }
+        
+        ///LIMITE DE DIGITOS
+       if (txtBuscarPersonal.getText().length()>40)
+       {
+                evt.consume();
+       }
     }//GEN-LAST:event_txtBuscarPersonalKeyTyped
 
     private void btnBuscarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonalActionPerformed
@@ -1643,7 +1697,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     }//GEN-LAST:event_txtBuscarPersonal_TODOKeyReleased
 
     private void txtBuscarPersonal_TODOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPersonal_TODOKeyTyped
-        // TODO add your handling code here:
+        ///LIMITE DE DIGITOS
+       if (txtBuscarPersonal_TODO.getText().length()>40)
+       {
+                evt.consume();
+       }
     }//GEN-LAST:event_txtBuscarPersonal_TODOKeyTyped
 
     private void btnBuscarPersonal_TODOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonal_TODOActionPerformed
@@ -1696,11 +1754,12 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                             EP_Descripcion.setEnabled(true);
                             EP_CONCLUSION.setEnabled(true);
                             btnBuscarCIE10.setEnabled(true);
-                            btnGuardarCabeceraRes.setEnabled(false);                        
+                            btnGuardarCabeceraRes.setEnabled(false);  
+                            BTN_QUITAR_CIE10.setEnabled(true);
                         }
                         EP_Descripcion.requestFocus();
         }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
+            
         }
        }
     }//GEN-LAST:event_tb_examen_detMouseClicked
@@ -1772,27 +1831,42 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         if(txtCAB_RESULTADO.getText().equalsIgnoreCase("")){
             guardar_resultado_cabecera();   
             mostrar_VER_DETALLE_RESULTADO();
-            EP_Descripcion.setEnabled(false);
-            EP_CONCLUSION.setEnabled(false);
-            btnBuscarCIE10.setEnabled(false);
+           
 //            mostrar_VER_DETALLE_EC();    
+            
+//            btnGuardarCabeceraRes.setEnabled(false);
             
        }else{
             ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
-           int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+            
+            if(txtPersonalRealizaRes.getText().equalsIgnoreCase("") || txtPersonalRegistraResultado.getText().equalsIgnoreCase("")
+                        || EP_Descripcion.getText().equalsIgnoreCase("") || EP_CONCLUSION.getText().equalsIgnoreCase("")
+                        || tbCIE10.getRowCount()==0){
+                    JOptionPane.showMessageDialog(rootPane, "Verifique si ha seleccionado el personal \n o completado todos los campos");
+            }
+            else{
+            
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
                     if(guardar == 0 ){
                         JOptionPane.showMessageDialog(null, "Datos Guardados");
                         RX_EC_ESTADO_RESULTADO_MODIFICAR();
                         GUARDAR_RESULTADO_DETALLE_RX_CONC();
                         mostrar_VER_DETALLE_RESULTADO();
+                        btnGuardarCabeceraRes.setEnabled(false);
+                       
+                        
                         EP_Descripcion.setEnabled(false);
                         EP_CONCLUSION.setEnabled(false);
                         btnBuscarCIE10.setEnabled(false);
+                    }else{
+                        btnGuardarCabeceraRes.setEnabled(true);
                     }
+          
+            }
         }
         
-       btnGuardarCabeceraRes.setEnabled(false);
+       
         
     }//GEN-LAST:event_btnGuardarCabeceraResActionPerformed
 
@@ -1821,11 +1895,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         }
     }//GEN-LAST:event_btnPersonalResRealizaKeyPressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BTN_QUITAR_CIE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_QUITAR_CIE10ActionPerformed
         try{
             int filaselec=tbCIE10.getSelectedRow();
             if( filaselec>=0){
-                int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea QUITAR el servicio ?",
+                int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea QUITAR el Diagnóstico ?",
                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if(eliminar == 0 ){
                     
@@ -1840,7 +1914,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "Selecione el Detalle a eliminar");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BTN_QUITAR_CIE10ActionPerformed
 
     private void txt_CIE10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CIE10KeyTyped
         char tecla= evt.getKeyChar();
@@ -1848,6 +1922,12 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             tb_CIE10.getSelectionModel().setSelectionInterval(0, 0);
             tb_CIE10.requestFocus();
         }
+        
+        ///LIMITE DE DIGITOS
+       if (txt_CIE10.getText().length()>40)
+       {
+                evt.consume();
+       }
     }//GEN-LAST:event_txt_CIE10KeyTyped
 
     private void txt_CIE10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CIE10KeyReleased
@@ -1865,6 +1945,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     private void txtPersonalRealizaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPersonalRealizaResActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPersonalRealizaResActionPerformed
+
+    private void EP_DescripcionCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_EP_DescripcionCaretUpdate
+        btnGuardarCabeceraRes.setEnabled(true);
+    }//GEN-LAST:event_EP_DescripcionCaretUpdate
 
       
     public void mostrar_Cod_Cabecera_RESULTADO(String cod){
@@ -2060,8 +2144,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         RX_EC_EXAMEN C1=new RX_EC_EXAMEN();
         RX_EC_EXAMEN C2=new RX_EC_EXAMEN();
         try{          
-                if(txtPersonalRealizaRes.getText().equalsIgnoreCase("") || txtPersonalRegistraResultado.getText().equalsIgnoreCase("")){
-                    JOptionPane.showMessageDialog(rootPane, "Verifique si ha seleccionado el personal");
+                if(txtPersonalRealizaRes.getText().equalsIgnoreCase("") || txtPersonalRegistraResultado.getText().equalsIgnoreCase("")
+                        || EP_Descripcion.getText().equalsIgnoreCase("") || EP_CONCLUSION.getText().equalsIgnoreCase("")
+                        || tbCIE10.getRowCount()==0){
+                    JOptionPane.showMessageDialog(rootPane, "Verifique si ha seleccionado el personal \n o completado todos los campos");
                 }
                 else{
 
@@ -2082,6 +2168,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                             JOptionPane.showMessageDialog(null, "Datos Guardados");
                             txtCAB_RESULTADO.setText(rxg.RX_EC_ID_CAB_RES());
                             RX_EC_ESTADO_RESULTADO_MODIFICAR();
+                             EP_Descripcion.setEnabled(false);
+                                EP_CONCLUSION.setEnabled(false);
+                                btnBuscarCIE10.setEnabled(false);
+                            
                             if(EP_Descripcion.getText().length()!=0 && EP_CONCLUSION.getText().length()!=0){
                                 GUARDAR_RESULTADO_DETALLE_RX();
                                 
@@ -2705,6 +2795,7 @@ public void guardar_resultado_detalle(){
     }
     
     public void VISIBLE_datos(){
+        
         txtID_EXAMEN_CAB.setVisible(false);
         txtId_Documento_G.setVisible(false);
         lblCod_Cab_Resultado.setVisible(false);
@@ -2744,6 +2835,31 @@ public void guardar_resultado_detalle(){
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
     
+    public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+       ActionListener escAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        windowDialog.dispose();
+        }
+        };
+        windowDialog.getRootPane().registerKeyboardAction(escAction,
+        KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_IN_FOCUSED_WINDOW);
+   }
+    
+    public void cerrar(){
+        int eleccion = JOptionPane.showConfirmDialog(rootPane,"¿Desea realmente salir del formulario?","Mensaje de Confirmación",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE);
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+            dispose();   
+//            PrincipalMDI MDI= new PrincipalMDI();
+//            MDI.setVisible(true);  
+        }else{
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -2780,6 +2896,7 @@ public void guardar_resultado_detalle(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTN_QUITAR_CIE10;
     private javax.swing.JDialog CIE10;
     private javax.swing.JEditorPane EP_CONCLUSION;
     private javax.swing.JEditorPane EP_Descripcion;
@@ -2793,7 +2910,6 @@ public void guardar_resultado_detalle(){
     public static javax.swing.JButton btnPersonalResRealiza;
     public static javax.swing.JButton btnPersonalResultado;
     private javax.swing.JButton btnRegresarRes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2902,7 +3018,7 @@ public void guardar_resultado_detalle(){
             
             lblHoraReg.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
             }
         }

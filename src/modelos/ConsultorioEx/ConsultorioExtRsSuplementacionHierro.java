@@ -14,8 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAISHM;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeSHM;
+import vista.CRED.RSAISHM;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeSHM;
 
 /**
  *

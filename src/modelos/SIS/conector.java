@@ -17,7 +17,6 @@ import vista.SIS.principal;
 public class conector {
     public static Connection conectame(){
             Connection con1;
-            
 
     try { 
         Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 

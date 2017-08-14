@@ -2,8 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="1.771561000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="96"/>
-	<property name="ireport.y" value="287"/>
+	<property name="ireport.y" value="319"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -392,7 +391,7 @@ AND  CDC.id_documento= $P{doc}]]>
 			<componentElement>
 				<reportElement x="6" y="18" width="198" height="43" uuid="93c89eae-c938-48db-b6b6-22a1925dc297"/>
 				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<jr:codeExpression><![CDATA[$F{correlativo}]]></jr:codeExpression>
+					<jr:codeExpression><![CDATA[$F{serie}+""+$F{correlativo}]]></jr:codeExpression>
 				</jr:Code39>
 			</componentElement>
 			<staticText>

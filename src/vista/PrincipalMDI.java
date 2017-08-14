@@ -42,8 +42,6 @@ import vista.Caja.Caja_Precios;
 import vista.Caja.Caja_Registro;
 import vista.Caja.Caja_Transaccion;
 import vista.ConsultorioEx.ConsultorioExt;
-import vista.ConsultorioEx.RegistroEmbarazo;
-import vista.ConsultorioEx.RegistroSeguimiento;
 import vista.ConsultorioEx.Triaje;
 import vista.EC.EC_BUSCAR_EXAMEN_CAJA;
 import vista.EC.EC_RESULTADOS;
@@ -6536,10 +6534,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel106MouseClicked
 
     private void btnValores3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValores3ActionPerformed
-        RegistroSeguimiento seguimiento = new RegistroSeguimiento();
-        seguimiento.setVisible(true);
-        String u=lblUsu.getText();
-        RegistroSeguimiento.lblUsu.setText(u);
+//        RegistroSeguimiento seguimiento = new RegistroSeguimiento();
+//        seguimiento.setVisible(true);
+//        String u=lblUsu.getText();
+//        RegistroSeguimiento.lblUsu.setText(u);
     }//GEN-LAST:event_btnValores3ActionPerformed
 
     private void jLabel107MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel107MouseClicked
@@ -6547,10 +6545,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel107MouseClicked
 
     private void btnCarnetPerinatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarnetPerinatalActionPerformed
-        RegistroEmbarazo embarazo = new RegistroEmbarazo();
-        embarazo.setVisible(true);
-        String u=lblUsu.getText();
-        RegistroEmbarazo.lblUsu.setText(u);
+//        RegistroEmbarazo embarazo = new RegistroEmbarazo();
+//        embarazo.setVisible(true);
+//        String u=lblUsu.getText();
+//        RegistroEmbarazo.lblUsu.setText(u);
     }//GEN-LAST:event_btnCarnetPerinatalActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -6881,8 +6879,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdmEme1MouseEntered
 
     private void btnAdmEme1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdmEme1ActionPerformed
-        RegistroSeguimiento frmCRED = new RegistroSeguimiento();
-        frmCRED.setVisible(true);
+//        RegistroSeguimiento frmCRED = new RegistroSeguimiento();
+//        frmCRED.setVisible(true);
     }//GEN-LAST:event_btnAdmEme1ActionPerformed
 
     private void btnAdmEme2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdmEme2MouseEntered

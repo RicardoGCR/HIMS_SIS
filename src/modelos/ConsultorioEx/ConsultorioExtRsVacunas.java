@@ -16,8 +16,8 @@ import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAIVacunas;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeVacunas;
+import vista.CRED.RSAIVacunas;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeVacunas;
 
 public class ConsultorioExtRsVacunas implements Serializable {
     private static final long serialVersionUID = 1L;

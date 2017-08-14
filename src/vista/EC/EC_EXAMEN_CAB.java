@@ -6,6 +6,8 @@
 package vista.EC;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -16,9 +18,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -48,6 +53,9 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         initComponents();
         con=conectar.conectar();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        
+        
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
         PERSONAL_ROL.setLocationRelativeTo(null);
@@ -101,6 +109,26 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         txtNumExamen.setText("00000001");
         }    
         lblNumExamen.setText(txtNumExamen.getText());
+        
+        ///SALIR CON ESCAPE
+        addEscapeListenerWindowDialog(CIE10);
+        addEscapeListenerWindowDialog(PERSONAL_ROL);
+        addEscapeListenerWindowDialog(PERSONAL_ROL_TODO);
+        
+        //CERRAR CON ESCAPE
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                
+                cerrar();
+                                
+            }
+        });
+        
     }
 
     /**
@@ -221,14 +249,14 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         PERSONAL_ROL.setAlwaysOnTop(true);
         PERSONAL_ROL.setMinimumSize(new java.awt.Dimension(692, 360));
 
-        jPanel3.setBackground(new java.awt.Color(34, 113, 179));
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("PERSONAL RX");
 
         txtBuscarPersonal_EC.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        txtBuscarPersonal_EC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179), 3));
+        txtBuscarPersonal_EC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
         txtBuscarPersonal_EC.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtBuscarPersonal_ECCaretUpdate(evt);
@@ -300,6 +328,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 .addGap(0, 0, 0))
         );
 
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         tb_Personal_rol_EC = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
@@ -319,6 +349,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tb_Personal_rol_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol_EC.setRowHeight(22);
+        tb_Personal_rol_EC.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_Personal_rol_EC.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -362,14 +393,14 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         PERSONAL_ROL_TODO.setAlwaysOnTop(true);
         PERSONAL_ROL_TODO.setMinimumSize(new java.awt.Dimension(692, 360));
 
-        jPanel10.setBackground(new java.awt.Color(34, 113, 179));
+        jPanel10.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("PERSONAL RX");
 
         txtBuscarPersonal_TODO_EC.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        txtBuscarPersonal_TODO_EC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179), 3));
+        txtBuscarPersonal_TODO_EC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
         txtBuscarPersonal_TODO_EC.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtBuscarPersonal_TODO_ECCaretUpdate(evt);
@@ -429,6 +460,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         tb_Personal_rol_todo_EC = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
@@ -448,6 +481,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tb_Personal_rol_todo_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol_todo_EC.setRowHeight(22);
+        tb_Personal_rol_todo_EC.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_Personal_rol_todo_EC.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol_todo_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -491,6 +525,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         CIE10.setAlwaysOnTop(true);
         CIE10.setMinimumSize(new java.awt.Dimension(470, 500));
 
+        jScrollPane8.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         tb_CIE10_EC = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
@@ -509,7 +545,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             }
         ));
         tb_CIE10_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tb_CIE10_EC.setRowHeight(22);
+        tb_CIE10_EC.setRowHeight(28);
+        tb_CIE10_EC.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_CIE10_EC.getTableHeader().setReorderingAllowed(false);
         tb_CIE10_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1338,7 +1375,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         jLabel9.setText("DATOS DEL PERSONAL");
 
         jPanel8.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(34, 113, 179), 1, true));
+        jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
 
         btnRegresarRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salida 24 white.png"))); // NOI18N
         btnRegresarRes.setContentAreaFilled(false);
@@ -1362,7 +1399,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         );
 
         jPanel5.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(34, 113, 179), 1, true));
+        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
 
         btnGuardarDetalleRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
         btnGuardarDetalleRes.setToolTipText("Guardar Detalle");
@@ -1730,7 +1767,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 }
                 
             }catch(Exception e){
-                JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
+//                JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
             }
         }
     }//GEN-LAST:event_tb_examen_det_ECMouseClicked
@@ -1762,14 +1799,18 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
        if(txtCOD_CABECERA.getText().equalsIgnoreCase("")){
             GUARDAR_RESULTADO_CABECERA_EC();   
             mostrar_VER_DETALLE_EC();
-            btnGuardarDetalleRes.setEnabled(false);
-            EP_CONCLUSION_EC.setEnabled(false);
-            EP_Descripcion_EC.setEnabled(false);
-            btnBuscarCIE10.setEnabled(false);
-            jButton1.setEnabled(false);
+            
        }else{
            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
-           int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+           
+           if(txtCodigoDoc_EC.getText().equalsIgnoreCase("") || txtPersonalRegistra_EC.getText().equalsIgnoreCase("")
+                        || txtPersonalRealiza_EC.getText().equalsIgnoreCase("") || EP_CONCLUSION_EC.getText().equalsIgnoreCase("")
+                        || EP_Descripcion_EC.getText().equalsIgnoreCase("") || tbCIE10_EC.getRowCount()==0){
+                    JOptionPane.showMessageDialog(rootPane, "Verifique que ha ingresado todos los campos");
+           }
+           else{
+           
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
                     if(guardar == 0 ){
                         JOptionPane.showMessageDialog(null, "Datos Guardados");
@@ -1782,8 +1823,9 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                         btnBuscarCIE10.setEnabled(false);
                         jButton1.setEnabled(false);
                     }
-       }
-        
+             }
+           
+       }  
     }//GEN-LAST:event_btnGuardarDetalleResActionPerformed
 
     private void btnRegresarResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarResActionPerformed
@@ -1901,7 +1943,9 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
         
         try{          
-                if(txtCodigoDoc_EC.getText().equalsIgnoreCase("")){
+                if(txtCodigoDoc_EC.getText().equalsIgnoreCase("") || txtPersonalRegistra_EC.getText().equalsIgnoreCase("")
+                        || txtPersonalRealiza_EC.getText().equalsIgnoreCase("") || EP_CONCLUSION_EC.getText().equalsIgnoreCase("")
+                        || EP_Descripcion_EC.getText().equalsIgnoreCase("") || tbCIE10_EC.getRowCount()==0){
                     JOptionPane.showMessageDialog(rootPane, "Verifique que ha ingresado todos los campos");
                 }
                 else{
@@ -1926,7 +1970,13 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                                         EP_CONCLUSION_EC.getText().length()!= 0 ||
                                         EP_Descripcion_EC.getText().length()!= 0 ){
                                         GUARDAR_RESULTADO_DETALLE_EC();
-                                }                                          
+                                } 
+                                
+                                btnGuardarDetalleRes.setEnabled(false);
+                                EP_CONCLUSION_EC.setEnabled(false);
+                                EP_Descripcion_EC.setEnabled(false);
+                                btnBuscarCIE10.setEnabled(false);
+                                jButton1.setEnabled(false);
                         }
                         else{
                             JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
@@ -2548,6 +2598,31 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
     
+    public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+       ActionListener escAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        windowDialog.dispose();
+        }
+        };
+        windowDialog.getRootPane().registerKeyboardAction(escAction,
+        KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_IN_FOCUSED_WINDOW);
+   }
+    
+   public void cerrar(){
+        int eleccion = JOptionPane.showConfirmDialog(rootPane,"¿Desea realmente salir del formulario?","Mensaje de Confirmación",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE);
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+            dispose();   
+//            PrincipalMDI MDI= new PrincipalMDI();
+//            MDI.setVisible(true);  
+        }else{
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -2701,7 +2776,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             
             lblHoraReg_EC.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
             }
         }

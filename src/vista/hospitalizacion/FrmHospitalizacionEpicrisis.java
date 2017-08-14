@@ -28,7 +28,7 @@ import modelos.hospitalizacion.HospitalizacionExamenClinico;
 import modelos.hospitalizacion.HospitalizacionNotaEnfermeria;
 import modelos.hospitalizacion.HospitalizacionPapeletas;
 import servicios.Conexion;
-import vista.ConsultorioEx.RegistroSeguimiento;
+import vista.CRED.RegistroSeguimiento;
 import static vista.Principal.fechaActual;
 import vista.SALA_OPERACIONES.frm_SALA_OPERACION_CONDICION;
 import static vista.hospitalizacion.FrmHospitalizacionListarCajaPreventa.tbListarPapeleta;

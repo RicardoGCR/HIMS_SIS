@@ -22,7 +22,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.ConsultorioEx.ConsultorioExtOrdenpcr;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
-import static vista.ConsultorioEx.REGSEGMONITOREO.tbMonitoreo;
+import static vista.CRED.REGSEGMONITOREO.tbMonitoreo;
 
 /**
  *

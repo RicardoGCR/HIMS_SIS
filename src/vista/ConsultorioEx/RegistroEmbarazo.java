@@ -51,7 +51,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(1, false);
         pnlControl.setVisible(false);
         pnlMensaje.setVisible(false);
-        btnGuardar.setVisible(false);
+        btnGuardar.setEnabled(false);
         LimitadorDeDocumento limitCodigo = new LimitadorDeDocumento(13);
         txtCodigo.setDocument(limitCodigo);
         LimitadorDeDocumento limitAp = new LimitadorDeDocumento(2);
@@ -64,7 +64,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         txtIdHc.setVisible(false);
         lblTriaje.setVisible(false);
         lblId.setVisible(false);
-        btnInicio.setVisible(false);
+        btnInicio.setEnabled(false);
         btnRegistrosExistentes.setVisible(false);
         btnAtras.setVisible(false);
         btnNuevoEmbarazo.setEnabled(false);
@@ -118,7 +118,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         lblMant.setText("I");
         ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
         consultorio1.nombreEstablecimiento();
-        consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera("T",String.valueOf(tbMadres.getValueAt(fila, 0)));//para cambiar el estado de triaje de pendiente a ya atendido
+//        consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera("T",String.valueOf(tbMadres.getValueAt(fila, 0)));//para cambiar el estado de triaje de pendiente a ya atendido
         btnGuardar.setEnabled(true);
     }
 
@@ -170,7 +170,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 try {
                     GA.setMaximum(true);
                 } catch (PropertyVetoException ex) {
-                    Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(RegistroEmbarazo.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 jTabbedPane1.setSelectedIndex(1);
                 if(lblMant.getText().equals("I")){
@@ -183,7 +183,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 }
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Datos guardados de forma correcta");
-                btnGuardar.setVisible(false);
+                btnGuardar.setEnabled(false);
                 pnlMensaje.setBackground(new Color(33,115,70));
                 btnSi.setVisible(true);
                 btnSi.setText("OK");
@@ -206,7 +206,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         lblId.setText(String.valueOf(tbEmbarazoActual.getValueAt(fila, 0)));
         pnlControl.setVisible(true);
         BuscarMadres.dispose();
-        btnInicio.setVisible(true);
+        btnInicio.setEnabled(true);
     }
     
     public void enviarDatosCabecera(){
@@ -242,7 +242,6 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             tbEmbarazoActual = new javax.swing.JTable();
             buttonGroup1 = new javax.swing.ButtonGroup();
             buttonGroup2 = new javax.swing.ButtonGroup();
-            jPanel19 = new javax.swing.JPanel();
             jTabbedPane1 = new javax.swing.JTabbedPane();
             jPanel2 = new javax.swing.JPanel();
             jPanel1 = new javax.swing.JPanel();
@@ -258,6 +257,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             btnNuevo = new javax.swing.JButton();
             btnInicio = new javax.swing.JButton();
             lblAlertas = new javax.swing.JLabel();
+            lblID = new javax.swing.JLabel();
             pnlControl = new javax.swing.JPanel();
             jLabel20 = new javax.swing.JLabel();
             jPanel8 = new javax.swing.JPanel();
@@ -384,7 +384,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel29Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addComponent(txtBuscar)
                     .addContainerGap())
             );
             jPanel29Layout.setVerticalGroup(
@@ -395,7 +395,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             );
 
             btnNuevoEmbarazo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            btnNuevoEmbarazo.setForeground(new java.awt.Color(240, 240, 240));
+            btnNuevoEmbarazo.setForeground(new java.awt.Color(255, 255, 255));
             btnNuevoEmbarazo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Document-32.png"))); // NOI18N
             btnNuevoEmbarazo.setText("Nuevo");
             btnNuevoEmbarazo.setBorder(null);
@@ -410,7 +410,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             });
 
             btnRegistrosExistentes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            btnRegistrosExistentes.setForeground(new java.awt.Color(240, 240, 240));
+            btnRegistrosExistentes.setForeground(new java.awt.Color(255, 255, 255));
             btnRegistrosExistentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Bebé-32.png"))); // NOI18N
             btnRegistrosExistentes.setText("Registros Existente");
             btnRegistrosExistentes.setBorder(null);
@@ -425,7 +425,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             });
 
             btnAtras.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            btnAtras.setForeground(new java.awt.Color(240, 240, 240));
+            btnAtras.setForeground(new java.awt.Color(255, 255, 255));
             btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
             btnAtras.setText("Atrás");
             btnAtras.setBorder(null);
@@ -457,16 +457,17 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     .addContainerGap()
                     .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel28Layout.createSequentialGroup()
-                            .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel28Layout.createSequentialGroup()
                             .addComponent(btnNuevoEmbarazo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(34, 34, 34)
                             .addComponent(btnRegistrosExistentes)
                             .addGap(50, 50, 50)
-                            .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel28Layout.createSequentialGroup()
+                            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             jPanel28Layout.setVerticalGroup(
@@ -502,7 +503,6 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     "Title 1", "Title 2", "Title 3", "Title 4"
                 }
             ));
-            tbMadres.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
             tbMadres.setGridColor(new java.awt.Color(255, 255, 255));
             tbMadres.setRowHeight(25);
             tbMadres.setSelectionBackground(new java.awt.Color(102, 102, 102));
@@ -531,7 +531,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
                     .addGap(0, 0, 0)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE))
             );
             jPanel22Layout.setVerticalGroup(
                 jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -587,7 +587,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     }};
                     tbEmbarazoActual.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                     tbEmbarazoActual.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-                    tbEmbarazoActual.setForeground(new java.awt.Color(255, 255, 255));
+                    tbEmbarazoActual.setForeground(new java.awt.Color(51, 51, 51));
                     tbEmbarazoActual.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
 
@@ -631,9 +631,9 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel12)
                                 .addComponent(jLabel13))
-                            .addContainerGap(563, Short.MAX_VALUE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                            .addContainerGap(573, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
                     );
                     jPanel23Layout.setVerticalGroup(
                         jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -655,45 +655,28 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     BuscarMadres.getContentPane().setLayout(BuscarMadresLayout);
                     BuscarMadresLayout.setHorizontalGroup(
                         BuscarMadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(BuscarMadresLayout.createSequentialGroup()
-                            .addComponent(jTabbedPane2)
-                            .addContainerGap())
                         .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTabbedPane2)
                     );
                     BuscarMadresLayout.setVerticalGroup(
                         BuscarMadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(BuscarMadresLayout.createSequentialGroup()
                             .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
-                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addContainerGap())
                     );
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                     setMinimumSize(new java.awt.Dimension(1282, 707));
-                    getContentPane().setLayout(null);
 
-                    jPanel19.setBackground(new java.awt.Color(255, 255, 255));
-
-                    javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-                    jPanel19.setLayout(jPanel19Layout);
-                    jPanel19Layout.setHorizontalGroup(
-                        jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1280, Short.MAX_VALUE)
-                    );
-                    jPanel19Layout.setVerticalGroup(
-                        jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 70, Short.MAX_VALUE)
-                    );
-
-                    getContentPane().add(jPanel19);
-                    jPanel19.setBounds(0, 710, 1280, 70);
-
+                    jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
                     jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+                    jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 1)); // NOI18N
 
                     jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-                    jPanel1.setBackground(new java.awt.Color(39, 174, 97));
+                    jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
                     jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                     jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -709,7 +692,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     btnAlertas.setBackground(new java.awt.Color(255, 255, 255));
                     btnAlertas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                     btnAlertas.setForeground(new java.awt.Color(255, 255, 255));
-                    btnAlertas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
+                    btnAlertas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Búsqueda-32.png"))); // NOI18N
                     btnAlertas.setText("Alertas");
                     btnAlertas.setBorderPainted(false);
                     btnAlertas.setContentAreaFilled(false);
@@ -725,7 +708,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     });
 
                     btnGuardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                    btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
+                    btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
                     btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
                     btnGuardar.setText("Guardar");
                     btnGuardar.setContentAreaFilled(false);
@@ -741,7 +724,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     });
 
                     jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                    jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+                    jLabel2.setForeground(new java.awt.Color(255, 255, 255));
                     jLabel2.setText("Leyenda");
 
                     ChkAnalf1.setEditable(false);
@@ -806,7 +789,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     });
 
                     btnInicio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                    btnInicio.setForeground(new java.awt.Color(240, 240, 240));
+                    btnInicio.setForeground(new java.awt.Color(255, 255, 255));
                     btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Libreta de ahorros-32.png"))); // NOI18N
                     btnInicio.setText("Carnet");
                     btnInicio.setContentAreaFilled(false);
@@ -825,6 +808,10 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     lblAlertas.setForeground(new java.awt.Color(255, 255, 255));
                     lblAlertas.setText("10");
 
+                    lblID.setBackground(new java.awt.Color(39, 174, 97));
+                    lblID.setForeground(new java.awt.Color(102, 102, 102));
+                    lblID.setText("jLabel5");
+
                     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                     jPanel1.setLayout(jPanel1Layout);
                     jPanel1Layout.setHorizontalGroup(
@@ -833,12 +820,18 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addContainerGap()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(btnAlertas, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lblAlertas))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addContainerGap()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel2)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                     .addComponent(ChkAnalf1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -847,38 +840,32 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                     .addComponent(ChkEdad1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(jLabel37)))
-                                            .addGap(0, 0, Short.MAX_VALUE))))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(btnAlertas, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblAlertas)))
-                                    .addGap(0, 0, Short.MAX_VALUE)))
+                                                    .addComponent(jLabel37))
+                                                .addComponent(lblID))))
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addContainerGap())
                     );
                     jPanel1Layout.setVerticalGroup(
                         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addContainerGap()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(39, 39, 39)
                             .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(12, 12, 12)
+                            .addGap(18, 18, Short.MAX_VALUE)
                             .addComponent(btnGuardar)
-                            .addGap(18, 18, 18)
+                            .addGap(18, 18, Short.MAX_VALUE)
                             .addComponent(btnInicio)
-                            .addGap(18, 18, 18)
+                            .addGap(18, 18, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnAlertas)
                                 .addComponent(lblAlertas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblID)
                             .addGap(73, 73, 73)
-                            .addComponent(lblUsu)
-                            .addGap(28, 28, 28)
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -888,7 +875,9 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(ChkEdad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel37))
-                            .addGap(180, 180, 180))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblUsu)
+                            .addContainerGap())
                     );
 
                     pnlControl.setBackground(new java.awt.Color(255, 255, 255));
@@ -1333,7 +1322,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     jLabel4.setText("Dirección");
 
                     lblDni.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-                    lblDni.setForeground(new java.awt.Color(39, 174, 97));
+                    lblDni.setForeground(new java.awt.Color(51, 51, 51));
 
                     jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                     jLabel10.setForeground(new java.awt.Color(51, 51, 51));
@@ -1465,7 +1454,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     jLabel38.setText("Establecimiento Origen");
 
                     lblHc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-                    lblHc.setForeground(new java.awt.Color(39, 174, 97));
+                    lblHc.setForeground(new java.awt.Color(51, 51, 51));
                     lblHc.setText("____________");
 
                     jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1478,7 +1467,6 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     txtPaciente.setEditable(false);
                     txtPaciente.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                     txtPaciente.setForeground(new java.awt.Color(102, 102, 102));
-                    txtPaciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                     txtPaciente.setBorder(null);
                     txtPaciente.addCaretListener(new javax.swing.event.CaretListener() {
                         public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1505,7 +1493,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     jLabel3.setText("Apellidos y Nombres");
 
                     lblActoMed.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-                    lblActoMed.setForeground(new java.awt.Color(39, 174, 97));
+                    lblActoMed.setForeground(new java.awt.Color(51, 51, 51));
                     lblActoMed.setText("______________");
 
                     jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1845,7 +1833,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addComponent(btnSi, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btnNo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(819, Short.MAX_VALUE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
                     pnlMensajeLayout.setVerticalGroup(
                         pnlMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1865,22 +1853,22 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(pnlControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap(89, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(pnlControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addContainerGap())
+                                .addComponent(pnlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     );
                     jPanel2Layout.setVerticalGroup(
                         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addContainerGap()
                                     .addComponent(pnlControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
-                            .addContainerGap())
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(0, 0, 0))
                     );
 
                     jTabbedPane1.addTab("Datos Generales", jPanel2);
@@ -1889,11 +1877,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     Contenedor.setLayout(ContenedorLayout);
                     ContenedorLayout.setHorizontalGroup(
                         ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1528, Short.MAX_VALUE)
+                        .addGap(0, 1280, Short.MAX_VALUE)
                     );
                     ContenedorLayout.setVerticalGroup(
                         ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 712, Short.MAX_VALUE)
+                        .addGap(0, 704, Short.MAX_VALUE)
                     );
 
                     jTabbedPane1.addTab("Registros", Contenedor);
@@ -1902,17 +1890,25 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     ContenedorTablas.setLayout(ContenedorTablasLayout);
                     ContenedorTablasLayout.setHorizontalGroup(
                         ContenedorTablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1528, Short.MAX_VALUE)
+                        .addGap(0, 1280, Short.MAX_VALUE)
                     );
                     ContenedorTablasLayout.setVerticalGroup(
                         ContenedorTablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 712, Short.MAX_VALUE)
+                        .addGap(0, 704, Short.MAX_VALUE)
                     );
 
                     jTabbedPane1.addTab("Pestañas", ContenedorTablas);
 
-                    getContentPane().add(jTabbedPane1);
-                    jTabbedPane1.setBounds(0, 0, 1533, 740);
+                    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+                    getContentPane().setLayout(layout);
+                    layout.setHorizontalGroup(
+                        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTabbedPane1)
+                    );
+                    layout.setVerticalGroup(
+                        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                    );
 
                     pack();
                 }// </editor-fold>//GEN-END:initComponents
@@ -2101,7 +2097,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         try {
             alertas.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistroEmbarazo.class.getName()).log(Level.SEVERE, null, ex);
         }
         RegistroEmbarazo.jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btnAlertasActionPerformed
@@ -2242,6 +2238,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
 //            enviarDatosMadres();
             int fila = tbMadres.getSelectedRow();
             ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
+            lblID.setText(String.valueOf(tbMadres.getValueAt(fila, 0)));
             consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 13)),"AC",tbEmbarazoActual,"actual"); //llenar tabla de registro actuales
             consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 13)),"AN",tbEmbarazoAntiguos,"antigua"); //llenar tabla de registro antiguos
             if(tbEmbarazoActual.getRowCount()!=0){
@@ -2385,8 +2382,14 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
         Contenedor.add(GA);
+        try {
+            GA.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroEmbarazo.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jTabbedPane1.setSelectedIndex(1);
         RegistroEmbarazoPrincipal.lblId.setText(String.valueOf(lblId.getText()));
+    
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnNuevoEmbarazoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoEmbarazoActionPerformed
@@ -2522,7 +2525,6 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
@@ -2551,6 +2553,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     public static javax.swing.JTextField lblEdad;
     public static javax.swing.JLabel lblEstadoCiv;
     public static javax.swing.JLabel lblHc;
+    public static javax.swing.JLabel lblID;
     private javax.swing.JTextField lblId;
     public static javax.swing.JLabel lblMant;
     private javax.swing.JLabel lblMensaje;

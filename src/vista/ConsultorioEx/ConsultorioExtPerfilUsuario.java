@@ -5,6 +5,7 @@
  */
 package vista.ConsultorioEx;
 
+import vista.CRED.RegistroSeguimiento;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import java.awt.Color;
 import java.awt.Dimension;

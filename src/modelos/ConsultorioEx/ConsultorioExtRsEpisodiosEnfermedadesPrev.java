@@ -14,8 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAIEEP;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeEEP;
+import vista.CRED.RSAIEEP;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeEEP;
 public class ConsultorioExtRsEpisodiosEnfermedadesPrev implements Serializable {
     private static final long serialVersionUID = 1L;
     private Connection cn;
@@ -248,7 +248,7 @@ public class ConsultorioExtRsEpisodiosEnfermedadesPrev implements Serializable {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+            System.out.println("Error: mantenimiento ENFERMEDADES PRE " + ex.getMessage());
         }
         return resp;
     }

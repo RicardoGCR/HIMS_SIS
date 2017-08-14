@@ -2709,25 +2709,25 @@ public class FrmFormatoEmergenciaTriaje extends javax.swing.JFrame implements Ru
                             );
 
                             lblPaciente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                            lblPaciente.setText("jLabel25");
+                            lblPaciente.setText(" ");
 
                             jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                             jLabel24.setText("Paciente");
 
                             lblIDHCTr.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                            lblIDHCTr.setText("jLabel13");
+                            lblIDHCTr.setText(" ");
 
                             jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                             jLabel33.setText("Edad");
 
                             lblTraidoporTriaje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                            lblTraidoporTriaje.setText("jLabel34");
+                            lblTraidoporTriaje.setText(" ");
 
                             jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                             jLabel34.setText("Género");
 
                             lblParentesco.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                            lblParentesco.setText("jLabel35");
+                            lblParentesco.setText(" ");
 
                             lblIDPreventa.setForeground(new java.awt.Color(255, 255, 255));
                             lblIDPreventa.setText("jLabel35");
@@ -2736,13 +2736,13 @@ public class FrmFormatoEmergenciaTriaje extends javax.swing.JFrame implements Ru
                             lblFechaIM.setText("Fecha de Ingreso");
 
                             lblFechaIng.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                            lblFechaIng.setText("jLabel43");
+                            lblFechaIng.setText(" ");
 
                             lblHoraIM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                             lblHoraIM.setText("Hora de Ingreso");
 
                             lblHoraIng.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                            lblHoraIng.setText("jLabel43");
+                            lblHoraIng.setText(" ");
 
                             javax.swing.GroupLayout pnlTriajeLayout = new javax.swing.GroupLayout(pnlTriaje);
                             pnlTriaje.setLayout(pnlTriajeLayout);

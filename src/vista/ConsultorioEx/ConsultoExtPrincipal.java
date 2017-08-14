@@ -5,6 +5,7 @@
  */
 package vista.ConsultorioEx;
 
+import vista.CRED.RegistroSeguimiento;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;

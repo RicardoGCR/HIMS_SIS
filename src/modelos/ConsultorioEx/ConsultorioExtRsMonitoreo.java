@@ -62,14 +62,16 @@ public class ConsultorioExtRsMonitoreo implements Serializable {
     }
     
     public void formatoTablaDiagnostico(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
         tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
         tabla.getColumnModel().getColumn(4).setPreferredWidth(150);
         tabla.getColumnModel().getColumn(5).setPreferredWidth(150);
         tabla.getColumnModel().getColumn(6).setPreferredWidth(610);
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0); 
 //        COLUMNAS OCULTAS
         TableColumn columna0 = tabla.getColumnModel().getColumn(0);
             columna0.setMaxWidth(0);
@@ -81,7 +83,7 @@ public class ConsultorioExtRsMonitoreo implements Serializable {
             columna7.setMinWidth(0);
             columna7.setPreferredWidth(0);
             tabla.doLayout();
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(45);
     }
     
     public void inicializarTabla(JTable tabla){

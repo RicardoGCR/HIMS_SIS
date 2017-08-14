@@ -63,7 +63,6 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                 RegistroEmbarazoGA.chkNo.setText("X");
                 RegistroEmbarazoGA.chkSi.setText("");
 
-                
                 }
                 
                 if ((r.getString(4)).equals("Parto Vaginal") ){

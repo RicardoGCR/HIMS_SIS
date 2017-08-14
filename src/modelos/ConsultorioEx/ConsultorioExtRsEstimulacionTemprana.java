@@ -18,8 +18,9 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAIET;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDN;
+import vista.CRED.RSAIET;
+import vista.CRED.RegistroSeguimiento;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeDN;
 //import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeET;
 
 /**
@@ -207,67 +208,67 @@ public class ConsultorioExtRsEstimulacionTemprana implements Serializable {
                         DateFormat dfoM9 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaM9 = dfoM9.parse(fechaSeleccionadaM9);
                         RSAIET.FET13.setDate(fechaM9);
-                        RSAIET.DXET13.setText(r.getString(22));
-                        RSAIET.FUAET13.setText(r.getString(23));
+                        RSAIET.DXET13.setText(r.getString(28));
+                        RSAIET.FUAET13.setText(r.getString(29));
                     }
                 } catch (Exception e) {
                 }
                 
                 
                 try {
-                    if(r.getString(24).equals("")){
+                    if(r.getString(30).equals("")){
                         RSAIET.FET14.setDate(null);
                     } else {
-                        String fechaSeleccionadaM10 = (String)(r.getString(24));
+                        String fechaSeleccionadaM10 = (String)(r.getString(30));
                         DateFormat dfoM10 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaM10 = dfoM10.parse(fechaSeleccionadaM10);
                         RSAIET.FET14.setDate(fechaM10);
-                        RSAIET.DXET14.setText(r.getString(25));
-                        RSAIET.FUAET14.setText(r.getString(26));
+                        RSAIET.DXET14.setText(r.getString(31));
+                        RSAIET.FUAET14.setText(r.getString(32));
                     }
                 } catch (Exception e) {
                 }
                 ////////////////////////////////////////////////////
                 //2 AÑOS
                 try {
-                    if(r.getString(27).equals("")){
+                    if(r.getString(33).equals("")){
                         RSAIET.FET21.setDate(null);
                     } else {
-                        String fechaSeleccionadaM11 = (String)(r.getString(27));
+                        String fechaSeleccionadaM11 = (String)(r.getString(33));
                         DateFormat dfoM11 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaM11 = dfoM11.parse(fechaSeleccionadaM11);
                         RSAIET.FET21.setDate(fechaM11);
-                        RSAIET.DXET21.setText(r.getString(28));
-                        RSAIET.FUAET21.setText(r.getString(29));
+                        RSAIET.DXET21.setText(r.getString(34));
+                        RSAIET.FUAET21.setText(r.getString(35));
                     }
                 } catch (Exception e) {
                 }
                 
                 try {
-                    if(r.getString(30).equals("")){
+                    if(r.getString(36).equals("")){
                         RSAIET.FET22.setDate(null);
                     } else {
-                        String fechaSeleccionadaM12 = (String)(r.getString(30));
+                        String fechaSeleccionadaM12 = (String)(r.getString(36));
                         DateFormat dfoM12 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaM12 = dfoM12.parse(fechaSeleccionadaM12);
                         RSAIET.FET22.setDate(fechaM12);
-                        RSAIET.DXET22.setText(r.getString(31));
-                        RSAIET.FUAET22.setText(r.getString(32));
+                        RSAIET.DXET22.setText(r.getString(37));
+                        RSAIET.FUAET22.setText(r.getString(38));
                     }
                 } catch (Exception e) {
                 }
                 ///////////////////////////////////////////////////////
                 //3 AÑOS
                 try {
-                    if(r.getString(33).equals("")){
+                    if(r.getString(39).equals("")){
                         RSAIET.FET23.setDate(null);
                     } else {
-                        String fechaSeleccionadaM13 = (String)(r.getString(33));
+                        String fechaSeleccionadaM13 = (String)(r.getString(39));
                         DateFormat dfoM13 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaM13 = dfoM13.parse(fechaSeleccionadaM13);
                         RSAIET.FET23.setDate(fechaM13);
-                        RSAIET.DXET23.setText(r.getString(34));
-                        RSAIET.FUAET23.setText(r.getString(35));
+                        RSAIET.DXET23.setText(r.getString(40));
+                        RSAIET.FUAET23.setText(r.getString(41));
                     }
                 } catch (Exception e) {
                 }
@@ -368,7 +369,7 @@ public class ConsultorioExtRsEstimulacionTemprana implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-//                lblPorcentajeET.setText(r.getString(1) + " %"); 
+                RegistroSeguimiento.lblPorcentajeET.setText(r.getString(1) + " %"); 
                 RSAIET.lblPorcentajeV.setText(r.getString(1) + " %"); 
             }
             //

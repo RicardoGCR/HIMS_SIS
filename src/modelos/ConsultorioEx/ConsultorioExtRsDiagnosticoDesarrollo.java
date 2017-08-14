@@ -19,9 +19,10 @@ import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import net.sf.jasperreports.components.table.Column;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAIDD;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDD;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDN;
+import vista.CRED.RSAIDD;
+import vista.CRED.RegistroSeguimiento;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeDD;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeDN;
 
 /**
  *
@@ -337,7 +338,7 @@ public class ConsultorioExtRsDiagnosticoDesarrollo implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                lblPorcentajeDD.setText(r.getString(1) + " %"); 
+                RegistroSeguimiento.lblPorcentajeDD.setText(r.getString(1) + " %"); 
                 RSAIDD.lblPorcentajeV.setText(r.getString(1) + " % Completado"); 
             }
             //
@@ -380,7 +381,7 @@ public class ConsultorioExtRsDiagnosticoDesarrollo implements Serializable {
         tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(40);
     }  
     public ConsultorioExtRsDiagnosticoDesarrollo() {
         Conexion con = new Conexion();

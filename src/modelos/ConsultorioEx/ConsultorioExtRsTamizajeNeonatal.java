@@ -15,9 +15,9 @@ import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAITN;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDD;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeTN;
+import vista.CRED.RSAITN;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeDD;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeTN;
 
 public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
     private static final long serialVersionUID = 1L;

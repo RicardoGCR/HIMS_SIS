@@ -1770,6 +1770,7 @@ byte tga;
 
     private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
         BuscarGrupo();
+        
     }//GEN-LAST:event_txtBuscarCaretUpdate
 
     private void tb_Grupo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo1MouseClicked

@@ -18,7 +18,7 @@ import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAIREGSEG;
+import vista.CRED.RSAIREGSEG;
 
 public class ConsultorioExtRsCabecera implements Serializable {
     DefaultTableModel m;

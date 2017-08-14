@@ -16,8 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAITAPTG;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeTAP;
+import vista.CRED.RSAITAPTG;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeTAP;
 public class ConsultorioExtRsTamizajeAnemiaParasitosis implements Serializable {
     private static final long serialVersionUID = 1L;
     

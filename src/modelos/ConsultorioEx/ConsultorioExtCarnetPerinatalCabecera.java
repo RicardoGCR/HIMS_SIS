@@ -163,8 +163,8 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
             int c=1;
             while(r.next()){
                 RegistroEmbarazoPrincipal.lblMadre.setText(r.getString(1)); 
-                RegistroEmbarazoPrincipal.lblActoMedico.setText("Acto Médico " + r.getString(2));
-                RegistroEmbarazoPrincipal.lblFP.setText("Forma de Pago " + r.getString(3));
+                RegistroEmbarazoPrincipal.lblActoMedico.setText(r.getString(2));
+                RegistroEmbarazoPrincipal.lblFP.setText(r.getString(3));
                 RegistroEmbarazoPrincipal.lblIdActoMedico.setText(r.getString(5));
                 if(r.getString(4).equals("") || r.getString(4).equalsIgnoreCase("null"))
                     RegistroEmbarazoPrincipal.lblFua.setText("");
@@ -230,7 +230,8 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
     }
     
     public void formatoTablaConsultorioExControlPerinatalCabListar(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(40);//
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//
         tabla.getColumnModel().getColumn(2).setPreferredWidth(250);//
         tabla.getColumnModel().getColumn(3).setPreferredWidth(120);//

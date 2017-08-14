@@ -172,7 +172,7 @@ public class ConsultorioExtEsnitss implements Serializable {
             columna15.setMinWidth(0);
             columna15.setPreferredWidth(0);
             tabla.doLayout();
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(45);
     }
     
     public void consultorioExListarC(String busqueda,String tipo,JTable tabla){

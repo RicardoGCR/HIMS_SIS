@@ -18,8 +18,8 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAIDN;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDN;
+import vista.CRED.RSAIDN;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeDN;
 public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
     private static final long serialVersionUID = 1L;
     private int dnId;

@@ -19,8 +19,8 @@ import javax.swing.table.TableRowSorter;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAICCD;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeCCD;
+import vista.CRED.RSAICCD;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeCCD;
 
 public class ConsultorioExtRsCcd implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -29,6 +29,7 @@ public class ConsultorioExtRsCcd implements Serializable {
     private Connection cn;
     private int RsId;
     private int rsCcd;
+    //RECIEN NACIDO
     private String rn1Fecha;
     private String rn1Cie10;
     private String rn1Fua;
@@ -40,6 +41,7 @@ public class ConsultorioExtRsCcd implements Serializable {
     private String rn3Fua;
     private String rn4Fecha;
     private String rn4Cie10;
+    //MENORES DE UN AÑO 
     private String rn4Fua;
     private String m1Fecha;
     private String m1Cie10;
@@ -74,6 +76,7 @@ public class ConsultorioExtRsCcd implements Serializable {
     private String m11Fecha;
     private String m11Cie10;
     private String m11Fua;
+    //1AÑO
     private String m11Fecha1;
     private String m11Cie101;
     private String m11Fua1;
@@ -92,6 +95,7 @@ public class ConsultorioExtRsCcd implements Serializable {
     private String m16Fecha;
     private String m16Cie10;
     private String m16Fua;
+    //2 AÑOS
     private String m21Fecha;
     private String m21Cie10;
     private String m21Fua;
@@ -104,6 +108,7 @@ public class ConsultorioExtRsCcd implements Serializable {
     private String m24Fecha;
     private String m24Cie10;
     private String m24Fua;
+    //3 AÑOS
     private String m31Fecha;
     private String m31Cie10;
     private String m31Fua;
@@ -116,6 +121,7 @@ public class ConsultorioExtRsCcd implements Serializable {
     private String m34Fecha;
     private String m34Cie10;
     private String m34Fua;
+    //4 AÑOS
     private String m41Fecha;
     private String m41Cie10;
     private String m41Fua;
@@ -128,9 +134,11 @@ public class ConsultorioExtRsCcd implements Serializable {
     private String m44Fecha;
     private String m44Cie10;
     private String m44Fua;
+    // 5 AÑOS
     private String m5Fecha1;
     private String m5Cie101;
     private String m5Fua1;
+    
     private String m6Fecha1;
     private String m6Cie101;
     private String m6Fua1;
@@ -926,29 +934,29 @@ public class ConsultorioExtRsCcd implements Serializable {
             cmd.setString(100,getM44Fua());
             
             //5 AÑOS
-            cmd.setString(101, getM5Fecha());
-            cmd.setString(102, getM5Cie10());
-            cmd.setString(103, getM5Fua());
+            cmd.setString(101, getM5Fecha1());
+            cmd.setString(102, getM5Cie101());
+            cmd.setString(103, getM5Fua1());
             
             //6 AÑOS
-            cmd.setString(104, getM6Fecha());
-            cmd.setString(105, getM6Cie10());
-            cmd.setString(106, getM6Fua());
+            cmd.setString(104, getM6Fecha1());
+            cmd.setString(105, getM6Cie101());
+            cmd.setString(106, getM6Fua1());
             
             //7 AÑOS
-            cmd.setString(107, getM7Fecha());
-            cmd.setString(108, getM7Cie10());
-            cmd.setString(109, getM7Fua());
+            cmd.setString(107, getM7Fecha1());
+            cmd.setString(108, getM7Cie101());
+            cmd.setString(109, getM7Fua1());
             
             //8 AÑOS
-            cmd.setString(110, getM8Fecha());
-            cmd.setString(111, getM8Cie10());
-            cmd.setString(112, getM8Fua());
+            cmd.setString(110, getM8Fecha1());
+            cmd.setString(111, getM8Cie101());
+            cmd.setString(112, getM8Fua1());
             
             //9 AÑOS
-            cmd.setString(113, getM9Fecha());
-            cmd.setString(114, getM9Cie10());
-            cmd.setString(115, getM9Fua());
+            cmd.setString(113, getM9Fecha1());
+            cmd.setString(114, getM9Cie101());
+            cmd.setString(115, getM9Fua1());
             
             //10 AÑOS
             cmd.setString(116, getM10Fecha1());
@@ -1009,7 +1017,7 @@ public class ConsultorioExtRsCcd implements Serializable {
         tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(45);
     }
 
     public void porcentajeCCD(int rs_id){

@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAIVacunas;
+import vista.CRED.RSAIVacunas;
 import vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V;
 public class ConsultorioExtCarnetPerinatalFu implements Serializable {
     private static final long serialVersionUID = 1L;

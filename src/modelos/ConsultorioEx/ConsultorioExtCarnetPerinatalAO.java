@@ -91,7 +91,7 @@ public class ConsultorioExtCarnetPerinatalAO {
                     RegistroEmbarazoAO.txtDespues.setEditable(false);
                     RegistroEmbarazoAO.txtRNmayor.setEditable(false);
                     RegistroEmbarazoAO.lblIdActoMedico.setText(r.getString(23));
-                    RegistroEmbarazoAO.lblActoMedico.setText("Acto Médico de registro " + r.getString(24));
+                    RegistroEmbarazoAO.lblActoMedico.setText(r.getString(24));
                 }
 
                 }

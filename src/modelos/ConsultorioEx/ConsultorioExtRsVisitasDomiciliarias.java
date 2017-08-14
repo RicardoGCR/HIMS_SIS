@@ -14,8 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-import vista.ConsultorioEx.RSAIVD;
-import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeVD;
+import vista.CRED.RSAIVD;
+import static vista.CRED.RegistroSeguimiento.lblPorcentajeVD;
 public class ConsultorioExtRsVisitasDomiciliarias implements Serializable {
     private static final long serialVersionUID = 1L;
     private Connection cn;

@@ -8,6 +8,8 @@ package vista.RX;
 import java.awt.Color;
 import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -18,9 +20,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -85,6 +90,23 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 //        btnPersonalSolicita.setEnabled(false);
 //        btnGuardarDetalle.setEnabled(false);
                 
+        ///CERRAR DIALOGOS
+        addEscapeListenerWindowDialog(PERSONAL_ROL);
+        addEscapeListenerWindowDialog(PERSONAL_ROL_TODO);
+        
+        //CERRAR CON ESCAPE
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                
+                cerrar();
+                                
+            }
+        });
         
     }
 
@@ -187,6 +209,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jPanel11 = new javax.swing.JPanel();
         btnGuardarCabeceraEx = new javax.swing.JButton();
 
+        PERSONAL_ROL.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         PERSONAL_ROL.setAlwaysOnTop(true);
         PERSONAL_ROL.setMinimumSize(new java.awt.Dimension(710, 370));
         PERSONAL_ROL.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -295,6 +318,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         ));
         tb_Personal_rol.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol.setRowHeight(22);
+        tb_Personal_rol.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_Personal_rol.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -338,17 +362,18 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         Frontal.setText("Frontal");
         jPopupMenu2.add(Frontal);
 
+        PERSONAL_ROL_TODO.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         PERSONAL_ROL_TODO.setAlwaysOnTop(true);
         PERSONAL_ROL_TODO.setMinimumSize(new java.awt.Dimension(692, 360));
 
-        jPanel10.setBackground(new java.awt.Color(34, 113, 179));
+        jPanel10.setBackground(new java.awt.Color(240, 64, 87));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("PERSONAL RX");
 
         txtBuscarPersonal_TODO.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        txtBuscarPersonal_TODO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179), 3));
+        txtBuscarPersonal_TODO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 64, 87), 3));
         txtBuscarPersonal_TODO.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtBuscarPersonal_TODOCaretUpdate(evt);
@@ -408,6 +433,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         tb_Personal_rol_todo = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
@@ -427,6 +454,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         ));
         tb_Personal_rol_todo.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol_todo.setRowHeight(22);
+        tb_Personal_rol_todo.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_Personal_rol_todo.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol_todo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -881,6 +909,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblHospiServ.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHospiServ.setText("- - -");
 
+        txtHabitacion.setEditable(false);
         txtHabitacion.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         txtHabitacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtHabitacion.setText("- - -");
@@ -898,6 +927,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("Cama");
 
+        txtCama.setEditable(false);
         txtCama.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         txtCama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCama.setText("- - -");
@@ -973,7 +1003,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             }
         ));
         tb_examen_det.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tb_examen_det.setComponentPopupMenu(jPopupMenu2);
         tb_examen_det.setRowHeight(35);
         tb_examen_det.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_examen_det.getTableHeader().setReorderingAllowed(false);
@@ -1272,6 +1301,12 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             tb_Personal_rol.getSelectionModel().setSelectionInterval(0, 0);
             tb_Personal_rol.requestFocus();
         }
+        
+        ///LIMITE DE DIGITOS
+       if (txtBuscarPersonal.getText().length()>40)
+       {
+                evt.consume();
+       }
     }//GEN-LAST:event_txtBuscarPersonalKeyTyped
 
     private void btnBuscarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonalActionPerformed
@@ -1289,6 +1324,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
     private void txtBuscarPersonalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPersonalKeyReleased
         txtBuscarPersonal.setText(txtBuscarPersonal.getText().toUpperCase());
+        
+       
     }//GEN-LAST:event_txtBuscarPersonalKeyReleased
 
     private void btnGuardarCabeceraExActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCabeceraExActionPerformed
@@ -1296,7 +1333,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         //mostrar_VER_DETALLE();
 //        txtId_Documento_G.setText(txtCodigoDoc.getText());
 //        txtAMB.setText(txtAM.getText());
-        DESHABILITAR();
+        
         
         
     }//GEN-LAST:event_btnGuardarCabeceraExActionPerformed
@@ -1332,6 +1369,12 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             tb_Personal_rol_todo.getSelectionModel().setSelectionInterval(0, 0);
             tb_Personal_rol_todo.requestFocus();
         }
+        
+        ///LIMITE DE DIGITOS
+       if (txtBuscarPersonal_TODO.getText().length()>40)
+       {
+                evt.consume();
+       }
     }//GEN-LAST:event_txtBuscarPersonal_TODOKeyTyped
 
     private void btnBuscarPersonal_TODOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonal_TODOActionPerformed
@@ -1682,8 +1725,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             tb_Personal_rol.setRowSorter(elQueOrdena);
             this.tb_Personal_rol.setModel(m1);
             formato_Personal_Rol();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Error en la tabla p");
+        }catch (Exception e){
+            
         }
     }
     
@@ -1737,6 +1780,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                                 
                                     RX_EC_ESTADO_MODIFICAR();
                                     guardarDetalleExamen();
+                                    DESHABILITAR();
                                 }                                          
                         }
                         else{
@@ -2063,6 +2107,31 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
     
+    public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+       ActionListener escAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        windowDialog.dispose();
+        }
+        };
+        windowDialog.getRootPane().registerKeyboardAction(escAction,
+        KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_IN_FOCUSED_WINDOW);
+   }
+    
+    public void cerrar(){
+        int eleccion = JOptionPane.showConfirmDialog(rootPane,"¿Desea realmente salir del formulario?","Mensaje de Confirmación",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE);
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+            dispose();   
+//            PrincipalMDI MDI= new PrincipalMDI();
+//            MDI.setVisible(true);  
+        }else{
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -2201,7 +2270,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             
             lblHoraReg.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
             }
         }

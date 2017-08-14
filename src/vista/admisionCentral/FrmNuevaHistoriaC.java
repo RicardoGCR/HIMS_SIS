@@ -61,6 +61,8 @@ import Atxy2k.CustomTextField.RestrictedTextField;
 import java.awt.Graphics;
 import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.print.Printable;
@@ -69,6 +71,8 @@ import java.awt.print.PrinterJob;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.lang.Object;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import tablas.*;
 import vista.sectorizacion.FrmSector;
 /*
@@ -86,7 +90,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     ResultSet r;
     //INSTANCIAS CLASE DE HISTORIA CLINICA
     HistoriaClinica hC = new HistoriaClinica();
-    DefaultTableModel m;
+    DefaultTableModel m, msb;
     PreparedStatement pstm;
     //VARIABLE PARA CARGAR LAS HISTORIAS CLINICAS CON ESTADO 'ACTIVO'
     String estado = "A";
@@ -141,33 +145,55 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
-        // BOTON ESCAPE (ESC)
+        
+//        // BOTON ESCAPE (ESC)
+//        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+//            @Override
+//            public void actionPerformed(java.awt.event.ActionEvent e)
+//            {
+//                dispose();
+//            }
+//        });
+//        cerrar();
+        
+        //CERRAR CON ESCAPE
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        
         getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e)
             {
-                dispose();
+                
+                cerrar();
+                                
             }
         });
-        cerrar();
+        
+        //ESCAPE DE DIALOGO
+        addEscapeListenerWindowDialog(BuscarHC);
+        addEscapeListenerWindowDialog(ReasignarHC);
+        
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
- 
+        
+//        cbxTipoBusqueda.setBackground(Color.white);
+       
     }
     
-    public void cerrar (){
-        try {
-            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-            addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent e){
-                    dispose();
-                }
-        });
-            this.setVisible(true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public void cerrar (){
+//        try {
+//            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+//            addWindowListener(new WindowAdapter() {
+//                public void windowClosing(WindowEvent e){
+//                    dispose();
+//                }
+//        });
+//            this.setVisible(true);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
     //Restringir campos al ingresar datos
     public void restringirCampos(int limite,javax.swing.JTextField campo){
         RestrictedTextField restricted = new RestrictedTextField(campo);
@@ -460,7 +486,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6) + String.valueOf(txtCodigo.getText().charAt(7))) ;
 //        if(txtID.getText().equalsIgnoreCase(hC.idHistoriaClinica())){
         //VALIDA QUE LOS CAMPOS PRINCIPALES ESTEN COMPLETOS, SINO MUESTR AUN MENSAJE DE ERROR
-            if(txtDni.getText().equals("") || txtNombre1.getText().equals("") || txtApellidoPat.getText().equals("") ||
+            if(txtCodigo.getText().equals("") || txtDni.getText().equals("") || txtNombre1.getText().equals("") || txtApellidoPat.getText().equals("") ||
                    txtApellidoPat.getText().equals("") || txtFechaNac.getText().equals("") ||
                          cbxDepartamento.getSelectedIndex()==0 || cbxDepartamentoNac.getSelectedIndex() == 0 
                         || cbxProvincia.getSelectedIndex() == 0 || cbxProvinciaNac.getSelectedIndex()==0 || cbxDistrito.getSelectedIndex() == 0
@@ -583,6 +609,31 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         }  
     }
     
+    //INICIALIZAR TABLA HISTORIAS CLINICAS REASIGNAR
+    public void INICIALIZAR_TB_REASIGNAR(){       
+        try {
+            
+            String titulosb[]={"N°","DNI","Apellidos y Nombres"};
+            msb=new DefaultTableModel(null,titulosb);
+            JTable psb=new JTable(msb);
+            String filasb[]=new String[3];
+            tbReasignado.setModel(msb);
+            TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb);
+            tbReasignado.setRowSorter(elQueOrdenasb);
+            this.tbReasignado.setModel(msb);
+            
+            //FORMATO TB_REASIGNADO
+            tbReasignado.getColumnModel().getColumn(0).setPreferredWidth(15);
+            tbReasignado.getColumnModel().getColumn(1).setPreferredWidth(30);
+            tbReasignado.getColumnModel().getColumn(2).setPreferredWidth(130);
+            tbReasignado.setRowHeight(25);
+            
+        } catch (Exception e) {
+            System.out.println("error inicializar tabla_RV: " + e);
+        }
+            
+    }
+    
     //METODO PARA MOSTRAR HISTORIAS CLINICAS REASIGNADAS
     public void mostrarCodHC(String codigo){
     String consulta="";
@@ -649,25 +700,28 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         try{            
             pstm = hC.getCn().prepareStatement("SELECT cod_hc, dni\n" +
                                                 "FROM ADMISION_HISTORIA_CLINICA\n" +
-                                                "WHERE dni = '"+dni+"'");            
+                                                "WHERE dni = '"+dni+"'");        
+            
+            /////AQUI ME QUEDE FALTA MODIFICAR VALIDAR DNI
+            
             r = pstm.executeQuery();                         
             while(r.next()){
                 existe = true;
                 if(existe == true){
-                    codigo = r.getString("COD_HC");   
+                    codigo = r.getString(1);   
                     String codigo2 = String.valueOf(codigo.charAt(0)) + String.valueOf(codigo.charAt(1)) + 
                                      String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + String.valueOf(codigo.charAt(4)) + "-" + 
                                      String.valueOf(codigo.charAt(6)) + String.valueOf(codigo.charAt(7));
-                    dni = r.getString("dni");
+                    dni = r.getString(1);
                     if ( txtDni.getText().equals(dni) ){                
-                        JOptionPane.showMessageDialog(ReasignarHC, "Este número de DNI ya existe en la \n"
+                        JOptionPane.showMessageDialog(this, "Este número de DNI ya existe en la \n"
                                 + "           Base de Datos\n "
-                                + "   Historia Clínica N° " + codigo2, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                                + "   Historia Clínica N° " + codigo2);
                     }
                 }    
             }
             r.close();   
-        } catch(SQLException e){
+            } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
           }
         return existe;
@@ -699,7 +753,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             FrmNuevaHistoriaC.txtNombre2.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 6)));   
             FrmNuevaHistoriaC.txtNombre3.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 7)));   
             FrmNuevaHistoriaC.txtFechaNac.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 8)));   
-            //FrmNuevaHistoriaC.txtEstado.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 37)));  
+            FrmNuevaHistoriaC.txtEstado.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 35)));  
             FrmNuevaHistoriaC.cbxDepartamentoNac.setSelectedItem(tbHistoriaC.getValueAt(fila, 22));
             FrmNuevaHistoriaC.cbxProvinciaNac.setSelectedItem(String.valueOf(tbHistoriaC.getValueAt(fila, 21)));
             FrmNuevaHistoriaC.cbxDistritoNac.setSelectedItem(String.valueOf(tbHistoriaC.getValueAt(fila, 20)));
@@ -766,13 +820,14 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         jLabel10 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
-        txtBuscarCodigoHC = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbReasignado = new javax.swing.JTable();
         btnReasignar = new javax.swing.JButton();
         btnAnadirRe = new javax.swing.JButton();
         lblCodigoR = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
+        jPanel24 = new javax.swing.JPanel();
+        txtBuscarCodigoHC = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -975,6 +1030,9 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyTyped(evt);
             }
         });
 
@@ -1180,6 +1238,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        ReasignarHC.setAlwaysOnTop(true);
         ReasignarHC.setMinimumSize(new java.awt.Dimension(455, 650));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1207,12 +1266,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        txtBuscarCodigoHC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtBuscarCodigoHC.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtBuscarCodigoHCCaretUpdate(evt);
-            }
-        });
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         tbReasignado = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -1223,22 +1277,20 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         tbReasignado.setForeground(new java.awt.Color(102, 102, 102));
         tbReasignado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2"
             }
         ));
         tbReasignado.setGridColor(new java.awt.Color(255, 255, 255));
-        tbReasignado.setSelectionBackground(new java.awt.Color(101, 166, 136));
+        tbReasignado.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tbReasignado.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tbReasignado);
 
         btnReasignar.setBackground(new java.awt.Color(51, 204, 255));
         btnReasignar.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        btnReasignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/reasignar.png"))); // NOI18N
         btnReasignar.setText("Reasignar");
         btnReasignar.setBorderPainted(false);
         btnReasignar.setContentAreaFilled(false);
@@ -1270,30 +1322,59 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             }
         });
 
+        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        txtBuscarCodigoHC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtBuscarCodigoHC.setBorder(null);
+        txtBuscarCodigoHC.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarCodigoHCCaretUpdate(evt);
+            }
+        });
+        txtBuscarCodigoHC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarCodigoHCKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addComponent(txtBuscarCodigoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtBuscarCodigoHC, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout ReasignarHCLayout = new javax.swing.GroupLayout(ReasignarHC.getContentPane());
         ReasignarHC.getContentPane().setLayout(ReasignarHCLayout);
         ReasignarHCLayout.setHorizontalGroup(
             ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ReasignarHCLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(21, 21, 21)
+                .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ReasignarHCLayout.createSequentialGroup()
-                        .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReasignarHCLayout.createSequentialGroup()
-                                .addComponent(txtBuscarCodigoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnReasignar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnAnadirRe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnReasignar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ReasignarHCLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCodigoR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))))
+                        .addComponent(lblCodigoR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReasignarHCLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAnadirRe, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         ReasignarHCLayout.setVerticalGroup(
             ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1309,11 +1390,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         .addGap(9, 9, 9)
                         .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtBuscarCodigoHC, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(btnReasignar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(ReasignarHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnReasignar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAnadirRe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
@@ -2162,11 +2243,9 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     .addComponent(jLabel23))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(cbxProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 45, Short.MAX_VALUE))
-                    .addComponent(cbxDepartamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxDistrito, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbxDepartamento, 0, 201, Short.MAX_VALUE)
+                    .addComponent(cbxDistrito, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxProvincia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(105, 105, 105)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
@@ -2472,7 +2551,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addGap(3, 3, 3)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -2482,7 +2561,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addGap(0, 0, 0)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
 
@@ -2624,7 +2703,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1068, Short.MAX_VALUE)
                     .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2702,7 +2781,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     ReasignarHC.setLocationRelativeTo(null);//en el centro
                     ReasignarHC.setResizable(false);
                     ReasignarHC.getContentPane().setBackground(Color.WHITE);
-                    mostrarCodHC("");
+                    INICIALIZAR_TB_REASIGNAR();
+//                    mostrarCodHC("");
             } else 
             if(btnNuevo.getText().equals("Reasignar")){ // TERCER ESCENARIO - REASIGNADO
                 String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + 
@@ -2856,13 +2936,15 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         //VALIDA SI EL DNI NO EXISTE, 
         //VALIDA SI LA HISTORIA CLINICA ESTA COMPLETA, SINO ME MUESTRA EL MENSAJE DE ERROR 
         if(validaDNI(txtDni.getText())==false){
-            if(txtCodigo.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Debe ingresar un Número de HistoriaClínica");
+            if(txtCodigo.getText().equalsIgnoreCase("") || txtCodigo.getText().length()<8){
+                JOptionPane.showMessageDialog(this, "Debe ingresar un Número de HistoriaClínica valido");
             } else {
-                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(5)) + String.valueOf(txtCodigo.getText().charAt(6)); 
+                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6)) + String.valueOf(txtCodigo.getText().charAt(7)); 
                 //VALIDA QUE EL CODIGO NO EXISTA EN LA BASE DE DATOS
                 validaCodigo(codigo);
             }
+        }else{
+            JOptionPane.showMessageDialog(this, "Este número de DNI ya existe en la \n  Base de Datos");
         } 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -3298,7 +3380,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         int fila = tbReasignado.getSelectedRow();
         String codigoObtenido = String.valueOf(tbReasignado.getValueAt(fila, 0));
         String codigo = String.valueOf(codigoObtenido.charAt(0)) + String.valueOf(codigoObtenido.charAt(1)) 
-                + String.valueOf(codigoObtenido.charAt(2)) + String.valueOf(codigoObtenido.charAt(3)) + String.valueOf(codigoObtenido.charAt(5)) + String.valueOf(codigoObtenido.charAt(6)) ;
+                + String.valueOf(codigoObtenido.charAt(2)) + String.valueOf(codigoObtenido.charAt(3)) + String.valueOf(codigoObtenido.charAt(4)) 
+                + String.valueOf(codigoObtenido.charAt(6)) + String.valueOf(codigoObtenido.charAt(7));
         int reasignar = JOptionPane.showConfirmDialog(ReasignarHC, "¿Desea limpiar todos los campos de \n la Historia Clínica N°" 
         + codigo + " para ser reasignada?",
             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
@@ -3338,11 +3421,13 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             habilitarOpciones(true);
             txtCodigo.setEnabled(false);
             btnGuardar.setEnabled(false);
-        } catch(Exception e){
+        }catch(Exception e){
             ImageIcon iNuevo=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Documento-32.png")); 
             JOptionPane.showMessageDialog(ReasignarHC, "No hay Historias Clínicas disponibles para reasignar", "Mensaje", JOptionPane.ERROR_MESSAGE);
+//            txtBuscarCodigoHC.setText("");
             btnNuevo.setText("Nuevo");
             btnNuevo.setIcon(iNuevo);
+            txtBuscarCodigoHC.setText("");
             limpiar();
             habilitarOpciones(false);
             habilitarBotones(true);
@@ -3623,7 +3708,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             if(cbxTipoBusqueda.getSelectedIndex() != 6){
             // IMPRESION DE HISTORIA CLINICA
                 if(fila == -1){
-                    JOptionPane.showMessageDialog(this, "Debe seleccionar una Historia Clínica");
+                    JOptionPane.showMessageDialog(BuscarHC, "Debe seleccionar una Historia Clínica");
                 } else {
                         String cod_hc = tbHistoriaC.getValueAt(fila, 1).toString();
                         String codigo = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1)) + 
@@ -3678,7 +3763,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         }
                 }
         } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error: _reporteHC" + e.toString());
+                JOptionPane.showMessageDialog(BuscarHC, "Error : reporteHC" );
         }
     }//GEN-LAST:event_btnImprimirActionPerformed
 
@@ -3980,6 +4065,56 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             }
         });
     }//GEN-LAST:event_BuscarHCKeyPressed
+
+    private void txtBuscarCodigoHCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarCodigoHCKeyTyped
+       char tecla= evt.getKeyChar();
+       if(tecla==KeyEvent.VK_ENTER){
+            tbReasignado.getSelectionModel().setSelectionInterval(0, 0);
+            tbReasignado.requestFocus();
+        }
+       
+       ///LIMITE DE DIGITOS
+       if (txtBuscarCodigoHC.getText().length()>40)
+       {
+                evt.consume();
+       }
+    }//GEN-LAST:event_txtBuscarCodigoHCKeyTyped
+
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+        char tecla= evt.getKeyChar();
+      
+       ///LIMITE DE DIGITOS
+       if (txtBuscar.getText().length()>40)
+       {
+                evt.consume();
+       }
+    }//GEN-LAST:event_txtBuscarKeyTyped
+    
+    public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+       ActionListener escAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        windowDialog.dispose();
+        }
+        };
+        windowDialog.getRootPane().registerKeyboardAction(escAction,
+        KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+        JComponent.WHEN_IN_FOCUSED_WINDOW);
+   }
+    
+   public void cerrar(){
+       
+        int eleccion = JOptionPane.showConfirmDialog(rootPane,"¿Desea realmente salir del formulario?","Mensaje de Confirmación",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE);
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+            dispose();   
+//            PrincipalMDI MDI= new PrincipalMDI();
+//            MDI.setVisible(true);  
+        }else{
+        }
+    }
     
     //HORA
     public void run() {
@@ -4110,6 +4245,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -4139,6 +4276,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     public static javax.swing.JTextField txtApellidoPat;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBuscarCodigoHC;
+    public static javax.swing.JTextField txtBuscarPaciente;
     public static javax.swing.JTextField txtCelular;
     public static javax.swing.JTextField txtCodigo;
     public static javax.swing.JTextField txtDni;

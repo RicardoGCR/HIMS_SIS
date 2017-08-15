@@ -107,7 +107,7 @@ public class MovimientoHistoriaClinica {
     
     public void cabecera(JTable tabla){
         String titulos[]={"Acto Médico","Fecha","Hora","N° H.C","Datos del Paciente","Servicio/Area/Departamento",
-                              "Consultorio","Turno","Médico","Num A","Tipo Edad","Estado","   E"};
+                              "Consultorio","Turno","Médico","Num A","Tipo Edad","Estado","   E", "Mayor/Menor"};
                 m=new DefaultTableModel(null,titulos);
                 JTable p=new JTable(m);
                 tabla.setModel(m);
@@ -129,6 +129,7 @@ public class MovimientoHistoriaClinica {
             tabla.getColumnModel().getColumn(9).setPreferredWidth(210);
             tabla.getColumnModel().getColumn(10).setPreferredWidth(60);
             tabla.getColumnModel().getColumn(11).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(14).setPreferredWidth(100);
             //Ocultar columna 11 Pendiente (P) (S) (R)
             TableColumn columna = tabla.getColumnModel().getColumn(13);
             columna.setMaxWidth(0);
@@ -148,10 +149,10 @@ public class MovimientoHistoriaClinica {
         try {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"id","Acto Médico","Fecha","Hora","N° H.C","Datos del Paciente","Area/Servicio/UPSS",
-                              "Consultorio","Turno","Médico","Nº At","Edad","Estado","   E"};
+                              "Consultorio","Turno","Médico","Nº At","Edad","Estado","   E", "Mayor/Menor"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[14];
+            String fila[]=new String[15];
             consulta="EXEC SP_ADMISION_MOVIMIENTO_HC_LISTADO_MOVIMIENTO ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setInt(1, tipo);
@@ -177,6 +178,16 @@ public class MovimientoHistoriaClinica {
                 fila[9]=r.getString(10); // medico
                 fila[10]=r.getString(11); // numero de atencion
                 fila[11]=r.getString(12); // edad mayor menor
+                
+                int mm = Integer.parseInt(r.getString(12));
+                if(mm<18){
+                    fila[14]="MENOR";
+                }else{
+                    if(mm>=18){
+                        fila[14]="MAYOR";
+                    }
+                }
+                
                 fila[12]=r.getString(13); //estado 
                 fila[13]=r.getString(14); //estado oculto
                     m.addRow(fila);

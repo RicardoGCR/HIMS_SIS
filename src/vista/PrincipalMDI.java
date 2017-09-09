@@ -1120,6 +1120,9 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnCaja.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Caja fuerte-90.png"))); // NOI18N
         btnCaja.setVerifyInputWhenFocusTarget(false);
         btnCaja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCajaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCajaMouseEntered(evt);
             }
@@ -7114,6 +7117,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
         String u=PrincipalMDI.lblUsu.getText();
         CA.lblusu.setText(u);
     }//GEN-LAST:event_jLabel74MouseClicked
+
+    private void btnCajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCajaMouseClicked
 
 
     /**

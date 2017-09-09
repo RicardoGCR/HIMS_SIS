@@ -481,7 +481,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     //METODO PARA GUARDAR UNA NUEVA HISTORIA CLINICA
     public void btnGuardar(){
         try {
-        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Guardar-32.png")); 
+        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png")); 
         String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) 
                 + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6) + String.valueOf(txtCodigo.getText().charAt(7))) ;
 //        if(txtID.getText().equalsIgnoreCase(hC.idHistoriaClinica())){
@@ -698,26 +698,26 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         boolean existe = false; //variable bandera para comprobar si NO existe el expediente en la BD
         
         try{            
-            pstm = hC.getCn().prepareStatement("SELECT cod_hc, dni\n" +
+            pstm = hC.getCn().prepareStatement("SELECT dni, cod_hc\n" +
                                                 "FROM ADMISION_HISTORIA_CLINICA\n" +
                                                 "WHERE dni = '"+dni+"'");        
             
-            /////AQUI ME QUEDE FALTA MODIFICAR VALIDAR DNI
             
             r = pstm.executeQuery();                         
             while(r.next()){
                 existe = true;
                 if(existe == true){
-                    codigo = r.getString(1);   
+                    codigo = r.getString(2);   
                     String codigo2 = String.valueOf(codigo.charAt(0)) + String.valueOf(codigo.charAt(1)) + 
                                      String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + String.valueOf(codigo.charAt(4)) + "-" + 
-                                     String.valueOf(codigo.charAt(6)) + String.valueOf(codigo.charAt(7));
+                                     String.valueOf(codigo.charAt(5)) + String.valueOf(codigo.charAt(6));
                     dni = r.getString(1);
                     if ( txtDni.getText().equals(dni) ){                
                         JOptionPane.showMessageDialog(this, "Este número de DNI ya existe en la \n"
                                 + "           Base de Datos\n "
                                 + "   Historia Clínica N° " + codigo2);
                     }
+                    
                 }    
             }
             r.close();   
@@ -2784,129 +2784,135 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     INICIALIZAR_TB_REASIGNAR();
 //                    mostrarCodHC("");
             } else 
-            if(btnNuevo.getText().equals("Reasignar")){ // TERCER ESCENARIO - REASIGNADO
-                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + 
-                                String.valueOf(txtCodigo.getText().charAt(1)) + 
-                                String.valueOf(txtCodigo.getText().charAt(2)) + 
-                                String.valueOf(txtCodigo.getText().charAt(3)) + 
-                                String.valueOf(txtCodigo.getText().charAt(4)) + 
-                                String.valueOf(txtCodigo.getText().charAt(6)) + 
-                                String.valueOf(txtCodigo.getText().charAt(7));
-                HistoriaClinica hC2 = new HistoriaClinica();
-                hC2.setId_hc(txtID.getText());
-                hC2.setDni(txtDni.getText());
-                hC2.setCod_hc(codigo);
-                hC2.setApe_pat(txtApellidoPat.getText());
-                hC2.setApe_mat(txtApellidoMat.getText());
-                hC2.setNombre1(txtNombre1.getText());
-                hC2.setNombre2(txtNombre2.getText());
-                hC2.setNombre3(txtNombre3.getText());
-                hC2.setFec_nac(txtFechaNac.getText());
-                //GENERO
-                if(rbtMasculino.isSelected()){
-                    hC2.setSexo("M");
-                } 
-                if(rbtFemenino.isSelected()){
-                    hC2.setSexo("F");
-                }
-                //ACTUAL
-                hC2.setDep_act(cbxDepartamento.getSelectedItem().toString());
-                hC2.setPro_act(cbxProvincia.getSelectedItem().toString());
-                hC2.setDis_act(cbxDistrito.getSelectedItem().toString());
-                // CODIGO DEL DISTRITO 
-                hC2.setCod_dis(hC.codDistrito(cbxDistrito.getSelectedItem().toString()));
-                // CODIGO DISTRITO NAC
-                hC2.setCod_dis_nac(hC.codDistrito(cbxDistritoNac.getSelectedItem().toString()));
-                // NOMBRE DISTRITO, PROVINCIA, DEPARTAMENTO
-                hC2.setDis_nac(cbxDistritoNac.getSelectedItem().toString()); 
-                hC2.setPro_nac(cbxProvinciaNac.getSelectedItem().toString());
-                hC2.setDep_nac(cbxDepartamentoNac.getSelectedItem().toString());
-                hC2.setOcupacion(txtOcupacion.getText());
-                hC2.setEstado_civil(cbxEstadoCivil.getSelectedItem().toString());
-                hC2.setGrupo_sang(txtGrupoSan.getText());
-                hC2.setReligion(txtReligion.getText());
-                hC2.setTelefono(txtTelefono.getText());
-                hC2.setCelular(txtCelular.getText());
-                hC2.setGrado_inst(txtGradoIns.getText());
-                hC2.setNacionalidad(txtNacionalidad.getText());
-                hC2.setNom_usu(lblUsuUsuario.getText());
-                if(!cbxProvincia.getSelectedItem().toString().equals("CHINCHA")){
-                            hC2.setSe_cod("Turista");
-                            hC2.setTipo_dir_nom("Turista");
-                            hC2.setNom_dir("Turista");
-                            hC2.setNum("");
-                        } else {
-                        hC2.setSe_cod(cbxSector.getSelectedItem().toString());
-                        //TIPO_DIR_NOM
-                        hC2.setTipo_dir_nom(cbxTipoDireccion.getSelectedItem().toString());
-                        hC2.setNom_dir(cbxDireccion.getSelectedItem().toString());
-                        hC2.setNum(txtNumero.getText());
-               }
-                hC2.setLote(txtLote.getText());
-                hC2.setRiesgo(txtRiesgo.getText());
-                if(hC2.guardarDatosReasignar()==true){
-                    if(txtDni.getText().equals("") || txtNombre1.getText().equals("") || txtApellidoPat.getText().equals("") ||
-                       txtApellidoPat.getText().equals("") || txtFechaNac.getText().equals("") ||
-                            cbxDepartamento.getSelectedIndex()==0 || cbxDepartamentoNac.getSelectedIndex() == 0 
-                            || cbxProvincia.getSelectedIndex() == 0 || cbxProvinciaNac.getSelectedIndex()==0 || cbxDistrito.getSelectedIndex() == 0
-                            || cbxDistritoNac.getSelectedIndex()==0 || txtRiesgo.getText().equals("")){
-                        JOptionPane.showMessageDialog(this, "Debe ingresar los siguientes campos \n\t\t + lugar de nacimiento y actual");
-                        txtDni.setBackground(new Color(51,204,255));
-                        txtNombre1.setBackground(new Color(51,204,255));
-                        txtApellidoPat.setBackground(new Color(51,204,255));
-                        txtApellidoMat.setBackground(new Color(51,204,255));
-                        txtFechaNac.setBackground(new Color(51,204,255));
-                        txtCodigo.setBackground(new Color(51,204,255));
-                        txtRiesgo.setBackground(new Color(51,204,255));
-                        cbxDistrito.setEnabled(false);
-                        cbxDistrito.setEnabled(false);
-                        cbxDistritoNac.setEnabled(false);
-                        cbxDistritoNac.setEnabled(false);
-                        txtCodigo.setEnabled(false);
+            if (btnNuevo.getText().equals("Reasignar")) { // TERCER ESCENARIO - REASIGNADO
+                    if (txtDni.getText().equalsIgnoreCase("") || txtDni.getText().length() < 8) {
+                        JOptionPane.showMessageDialog(this, "Ingrese un N° de DNI valido");
                     } else {
-                    ImageIcon iNuevo=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Documento-32.png")); 
-                    String cod_hc = txtCodigo.getText();
-                    String codigo3 = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1)) + 
-                                     String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) +
-                                     String.valueOf(cod_hc.charAt(4)) + String.valueOf(cod_hc.charAt(6)) + String.valueOf(cod_hc.charAt(7));
-                    String rutaInforme = "src\\reportes\\admisionCentral\\historiaClinica.jasper";
-                    Map parametros = new HashMap();
-                    parametros.put("cod_hc", codigo3);
-                    JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
-                    String datos = codigo3 + "_" + txtApellidoPat.getText() + txtApellidoMat.getText() + txtNombre1.getText(); 
-                
-                            JasperViewer ventanavisor = new JasperViewer(informe, false);
-                            ventanavisor.setTitle("Historia Clínica" + codigo3);
-                            ventanavisor.setVisible(true);
-                    JOptionPane.showMessageDialog(this, "Historia Clínica reasignada a " + 
-                    txtApellidoPat.getText() + " " + txtApellidoMat.getText() + " " + 
-                    txtNombre1.getText() + " " + txtNombre2.getText() + " " + txtNombre3.getText());
-                    btnNuevo.setText("Nuevo");
-                    btnNuevo.setIcon(iNuevo);
-                    btnNuevo.setToolTipText("Nuevo (Alt + N)");
-                    btnNuevo.setMnemonic(KeyEvent.VK_N);
-                    habilitarOpciones(false);
-                    lblNumero.setVisible(false);
-                    lblLt.setVisible(false);
-                    txtNumero.setVisible(false);
-                    txtLote.setVisible(false);
-                    btnNuevo.setIcon(iNuevo);
-                    limpiar();
-                    String codigoGen = String.valueOf(hC.codHistoriaClinica().charAt(0)) + 
-                                       String.valueOf(hC.codHistoriaClinica().charAt(1)) + 
-                                       String.valueOf(hC.codHistoriaClinica().charAt(2)) + 
-                                       String.valueOf(hC.codHistoriaClinica().charAt(3)) +
-                                       String.valueOf(hC.codHistoriaClinica().charAt(4)) + "-" +
-                                       String.valueOf(hC.codHistoriaClinica().charAt(5)) +  
-                                       String.valueOf(hC.codHistoriaClinica().charAt(6));
-                    txtCodigo.setText(codigoGen);
+                        if (validaDNI(txtDni.getText()) == false) {
+                            String codigo = String.valueOf(txtCodigo.getText().charAt(0))
+                                    + String.valueOf(txtCodigo.getText().charAt(1))
+                                    + String.valueOf(txtCodigo.getText().charAt(2))
+                                    + String.valueOf(txtCodigo.getText().charAt(3))
+                                    + String.valueOf(txtCodigo.getText().charAt(4))
+                                    + String.valueOf(txtCodigo.getText().charAt(6))
+                                    + String.valueOf(txtCodigo.getText().charAt(7));
+                            HistoriaClinica hC2 = new HistoriaClinica();
+                            hC2.setId_hc(txtID.getText());
+                            hC2.setDni(txtDni.getText());
+                            hC2.setCod_hc(codigo);
+                            hC2.setApe_pat(txtApellidoPat.getText());
+                            hC2.setApe_mat(txtApellidoMat.getText());
+                            hC2.setNombre1(txtNombre1.getText());
+                            hC2.setNombre2(txtNombre2.getText());
+                            hC2.setNombre3(txtNombre3.getText());
+                            hC2.setFec_nac(txtFechaNac.getText());
+                            //GENERO
+                            if (rbtMasculino.isSelected()) {
+                                hC2.setSexo("M");
+                            }
+                            if (rbtFemenino.isSelected()) {
+                                hC2.setSexo("F");
+                            }
+                            //ACTUAL
+                            hC2.setDep_act(cbxDepartamento.getSelectedItem().toString());
+                            hC2.setPro_act(cbxProvincia.getSelectedItem().toString());
+                            hC2.setDis_act(cbxDistrito.getSelectedItem().toString());
+                            // CODIGO DEL DISTRITO 
+                            hC2.setCod_dis(hC.codDistrito(cbxDistrito.getSelectedItem().toString()));
+                            // CODIGO DISTRITO NAC
+                            hC2.setCod_dis_nac(hC.codDistrito(cbxDistritoNac.getSelectedItem().toString()));
+                            // NOMBRE DISTRITO, PROVINCIA, DEPARTAMENTO
+                            hC2.setDis_nac(cbxDistritoNac.getSelectedItem().toString());
+                            hC2.setPro_nac(cbxProvinciaNac.getSelectedItem().toString());
+                            hC2.setDep_nac(cbxDepartamentoNac.getSelectedItem().toString());
+                            hC2.setOcupacion(txtOcupacion.getText());
+                            hC2.setEstado_civil(cbxEstadoCivil.getSelectedItem().toString());
+                            hC2.setGrupo_sang(txtGrupoSan.getText());
+                            hC2.setReligion(txtReligion.getText());
+                            hC2.setTelefono(txtTelefono.getText());
+                            hC2.setCelular(txtCelular.getText());
+                            hC2.setGrado_inst(txtGradoIns.getText());
+                            hC2.setNacionalidad(txtNacionalidad.getText());
+                            hC2.setNom_usu(lblUsuUsuario.getText());
+                            if (!cbxProvincia.getSelectedItem().toString().equals("CHINCHA")) {
+                                hC2.setSe_cod("Turista");
+                                hC2.setTipo_dir_nom("Turista");
+                                hC2.setNom_dir("Turista");
+                                hC2.setNum("");
+                            } else {
+                                hC2.setSe_cod(cbxSector.getSelectedItem().toString());
+                                //TIPO_DIR_NOM
+                                hC2.setTipo_dir_nom(cbxTipoDireccion.getSelectedItem().toString());
+                                hC2.setNom_dir(cbxDireccion.getSelectedItem().toString());
+                                hC2.setNum(txtNumero.getText());
+                            }
+                            hC2.setLote(txtLote.getText());
+                            hC2.setRiesgo(txtRiesgo.getText());
+                            if (hC2.guardarDatosReasignar() == true) {
+                                if (txtDni.getText().equals("") || txtNombre1.getText().equals("") || txtApellidoPat.getText().equals("")
+                                        || txtApellidoPat.getText().equals("") || txtFechaNac.getText().equals("")
+                                        || cbxDepartamento.getSelectedIndex() == 0 || cbxDepartamentoNac.getSelectedIndex() == 0
+                                        || cbxProvincia.getSelectedIndex() == 0 || cbxProvinciaNac.getSelectedIndex() == 0 || cbxDistrito.getSelectedIndex() == 0
+                                        || cbxDistritoNac.getSelectedIndex() == 0 || txtRiesgo.getText().equals("")) {
+                                    JOptionPane.showMessageDialog(this, "Debe ingresar los siguientes campos \n\t\t + lugar de nacimiento y actual");
+                                    txtDni.setBackground(new Color(51, 204, 255));
+                                    txtNombre1.setBackground(new Color(51, 204, 255));
+                                    txtApellidoPat.setBackground(new Color(51, 204, 255));
+                                    txtApellidoMat.setBackground(new Color(51, 204, 255));
+                                    txtFechaNac.setBackground(new Color(51, 204, 255));
+                                    txtCodigo.setBackground(new Color(51, 204, 255));
+                                    txtRiesgo.setBackground(new Color(51, 204, 255));
+                                    cbxDistrito.setEnabled(false);
+                                    cbxDistrito.setEnabled(false);
+                                    cbxDistritoNac.setEnabled(false);
+                                    cbxDistritoNac.setEnabled(false);
+                                    txtCodigo.setEnabled(false);
+                                } else {
+                                    ImageIcon iNuevo = new ImageIcon(this.getClass().getResource("/imagenes/iconos/Documento-32.png"));
+                                    String cod_hc = txtCodigo.getText();
+                                    String codigo3 = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1))
+                                            + String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3))
+                                            + String.valueOf(cod_hc.charAt(4)) + String.valueOf(cod_hc.charAt(6)) + String.valueOf(cod_hc.charAt(7));
+                                    String rutaInforme = "src\\reportes\\admisionCentral\\historiaClinica.jasper";
+                                    Map parametros = new HashMap();
+                                    parametros.put("cod_hc", codigo3);
+                                    JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
+                                    String datos = codigo3 + "_" + txtApellidoPat.getText() + txtApellidoMat.getText() + txtNombre1.getText();
+
+                                    JasperViewer ventanavisor = new JasperViewer(informe, false);
+                                    ventanavisor.setTitle("Historia Clínica" + codigo3);
+                                    ventanavisor.setVisible(true);
+                                    JOptionPane.showMessageDialog(this, "Historia Clínica reasignada a "
+                                            + txtApellidoPat.getText() + " " + txtApellidoMat.getText() + " "
+                                            + txtNombre1.getText() + " " + txtNombre2.getText() + " " + txtNombre3.getText());
+                                    btnNuevo.setText("Nuevo");
+                                    btnNuevo.setIcon(iNuevo);
+                                    btnNuevo.setToolTipText("Nuevo (Alt + N)");
+                                    btnNuevo.setMnemonic(KeyEvent.VK_N);
+                                    habilitarOpciones(false);
+                                    lblNumero.setVisible(false);
+                                    lblLt.setVisible(false);
+                                    txtNumero.setVisible(false);
+                                    txtLote.setVisible(false);
+                                    btnNuevo.setIcon(iNuevo);
+                                    limpiar();
+                                    String codigoGen = String.valueOf(hC.codHistoriaClinica().charAt(0))
+                                            + String.valueOf(hC.codHistoriaClinica().charAt(1))
+                                            + String.valueOf(hC.codHistoriaClinica().charAt(2))
+                                            + String.valueOf(hC.codHistoriaClinica().charAt(3))
+                                            + String.valueOf(hC.codHistoriaClinica().charAt(4)) + "-"
+                                            + String.valueOf(hC.codHistoriaClinica().charAt(5))
+                                            + String.valueOf(hC.codHistoriaClinica().charAt(6));
+                                    txtCodigo.setText(codigoGen);
+                                }
+                                cbxDistritoNac.setEnabled(false);
+                                cbxDistrito.setEnabled(false);
+                            } else {
+                                JOptionPane.showMessageDialog(this, "Error al actualizar los datos");
+                            }
+                        }
                     }
-                    cbxDistritoNac.setEnabled(false);
-                    cbxDistrito.setEnabled(false);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Error al actualizar los datos");
-                }        
-            }
+                }
             } catch (Exception e) {
             }
         
@@ -2935,17 +2941,24 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         //VALIDA SI EL DNI NO EXISTE, 
         //VALIDA SI LA HISTORIA CLINICA ESTA COMPLETA, SINO ME MUESTRA EL MENSAJE DE ERROR 
-        if(validaDNI(txtDni.getText())==false){
-            if(txtCodigo.getText().equalsIgnoreCase("") || txtCodigo.getText().length()<8){
-                JOptionPane.showMessageDialog(this, "Debe ingresar un Número de HistoriaClínica valido");
-            } else {
-                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6)) + String.valueOf(txtCodigo.getText().charAt(7)); 
-                //VALIDA QUE EL CODIGO NO EXISTA EN LA BASE DE DATOS
-                validaCodigo(codigo);
-            }
+        if(txtDni.getText().equalsIgnoreCase("") || txtDni.getText().length()<8){
+            JOptionPane.showMessageDialog(this, "Ingrese un N° de DNI valido");
         }else{
-            JOptionPane.showMessageDialog(this, "Este número de DNI ya existe en la \n  Base de Datos");
-        } 
+            if(validaDNI(txtDni.getText())==false){
+                if(txtCodigo.getText().equalsIgnoreCase("") || txtCodigo.getText().length()<8){
+                    JOptionPane.showMessageDialog(this, "Ingrese un Número de Historia Clínica valido");
+                } else {
+                    String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6)) + String.valueOf(txtCodigo.getText().charAt(7)); 
+                    //VALIDA QUE EL CODIGO NO EXISTA EN LA BASE DE DATOS
+                    validaCodigo(codigo);
+                }
+
+    //            if(txtDni.getText().length()<8){
+    //                        JOptionPane.showMessageDialog(this, "Ingrese un N° de DNI valido");
+    //            }
+            }
+        }
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed

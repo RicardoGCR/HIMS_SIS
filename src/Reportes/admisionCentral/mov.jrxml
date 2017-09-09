@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sectorizacion" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="877b8323-8dbf-4a3f-a05d-1980ac0a5101">
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.0000000000000124"/>
-	<property name="ireport.x" value="122"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
@@ -92,7 +92,7 @@
 				<textElement>
 					<font size="9"/>
 				</textElement>
-				<text><![CDATA[Acto Med]]></text>
+				<text><![CDATA[AM]]></text>
 			</staticText>
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="-15" y="80" width="826" height="1" uuid="00c5ffa7-fb91-4310-9fd0-b7d592d3e201"/>
@@ -110,7 +110,7 @@
 				<text><![CDATA[Consultorio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="498" y="59" width="44" height="20" uuid="c07853d5-1cb4-4845-af1e-7de0e05b8d27"/>
+				<reportElement x="498" y="59" width="32" height="20" uuid="c07853d5-1cb4-4845-af1e-7de0e05b8d27"/>
 				<text><![CDATA[Turno]]></text>
 			</staticText>
 			<staticText>
@@ -129,32 +129,33 @@
 				<text><![CDATA[Area/Servicio/UPSS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="541" y="59" width="160" height="20" uuid="3a123b39-54fc-4f8d-99c1-7cf5f8c66d58"/>
+				<reportElement x="530" y="59" width="120" height="20" uuid="3a123b39-54fc-4f8d-99c1-7cf5f8c66d58"/>
+				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Médico]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="735" y="59" width="28" height="10" uuid="00426676-b719-4118-8fee-70fe3a3a9cb3"/>
+				<reportElement x="684" y="69" width="28" height="10" uuid="00426676-b719-4118-8fee-70fe3a3a9cb3"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[Num]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="735" y="69" width="28" height="10" uuid="5ab808d9-8188-4b0f-8d6b-c97521d2024a"/>
+				<reportElement x="684" y="59" width="28" height="10" uuid="5ab808d9-8188-4b0f-8d6b-c97521d2024a"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[Atención]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="700" y="59" width="33" height="20" uuid="75cd9b6b-80e3-4ac5-b240-4b9e4efb2c36"/>
+				<reportElement x="651" y="59" width="33" height="20" uuid="75cd9b6b-80e3-4ac5-b240-4b9e4efb2c36"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Edad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="763" y="59" width="48" height="20" uuid="dbad488a-c7e5-4a94-a0c0-7217fa00d985"/>
+				<reportElement x="716" y="59" width="36" height="20" uuid="dbad488a-c7e5-4a94-a0c0-7217fa00d985"/>
 				<text><![CDATA[Estado]]></text>
 			</staticText>
 			<textField>
@@ -251,39 +252,46 @@
 				<textFieldExpression><![CDATA[$F{AREA/SERVICIO/DEPTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="544" y="2" width="160" height="15" uuid="5e79b653-0e5c-43d8-9789-e3e926313e2f"/>
+				<reportElement x="530" y="2" width="123" height="15" uuid="5e79b653-0e5c-43d8-9789-e3e926313e2f"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{personal_aten}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="735" y="2" width="30" height="15" uuid="653d188d-dcc7-44ca-bb39-db656d44c31e"/>
+				<reportElement x="686" y="2" width="30" height="15" uuid="653d188d-dcc7-44ca-bb39-db656d44c31e"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{num_aten}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="703" y="2" width="33" height="15" uuid="125833b5-cd2a-470a-bfed-8c0c05348b15"/>
+				<reportElement x="654" y="2" width="33" height="15" uuid="125833b5-cd2a-470a-bfed-8c0c05348b15"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{EDAD}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="764" y="2" width="48" height="15" uuid="2b9b27e4-2200-4910-a31c-c739e144e17a"/>
+				<reportElement x="716" y="2" width="37" height="15" uuid="2b9b27e4-2200-4910-a31c-c739e144e17a"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{estado_movi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="499" y="2" width="42" height="15" uuid="c1d666df-d8e9-49d2-9258-43dbfcaabbe1"/>
+				<reportElement x="499" y="2" width="31" height="15" uuid="c1d666df-d8e9-49d2-9258-43dbfcaabbe1"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{turno_cita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="763" y="2" width="39" height="20" uuid="ec60f98a-cdf3-4cf8-8a84-b67b86338415"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{EDAD}<18)? "MENOR" : "MAYOR")]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

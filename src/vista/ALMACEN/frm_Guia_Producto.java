@@ -298,7 +298,7 @@ String hora, minutos, segundos, ampm;
                 titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
                 titulo5.setForeground(new java.awt.Color(255, 255, 255));
                 titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                titulo5.setText("Guía de Productos");
+                titulo5.setText("Guía Valorizada de Productos");
                 titulo5.setToolTipText("");
                 titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 

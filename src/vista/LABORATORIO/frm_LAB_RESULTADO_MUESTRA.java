@@ -2140,21 +2140,20 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
         if(tb_InsumosFinal.getRowCount()>0){
            int limpiar = JOptionPane.showConfirmDialog(this, "¿Desea Nuevamente realizar la SUSTENTACIÓN de los Insumos?",
                       "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-              if(limpiar ==0){
+                if(limpiar ==0){
                   limpiarTabla();
-                     frm_LAB_RESULTADO_INSUMOS RI=new frm_LAB_RESULTADO_INSUMOS();
-        RI.setVisible(true);
-        Insumos_cargar(lblid_cod_doc_det.getText());
-        frm_LAB_RESULTADO_INSUMOS.lblArea.setText(lblArea.getText());
-        frm_LAB_RESULTADO_INSUMOS.lblServicio.setText(lblServicio.getText());
-              }
-         
+                    frm_LAB_RESULTADO_INSUMOS RI=new frm_LAB_RESULTADO_INSUMOS();
+                    RI.setVisible(true);
+                    Insumos_cargar(lblid_cod_doc_det.getText());
+                    frm_LAB_RESULTADO_INSUMOS.lblArea.setText(lblArea.getText());
+                    frm_LAB_RESULTADO_INSUMOS.lblServicio.setText(lblServicio.getText());
+                }
         }else{
-            frm_LAB_RESULTADO_INSUMOS RI=new frm_LAB_RESULTADO_INSUMOS();
-        RI.setVisible(true);
-        Insumos_cargar(lblid_cod_doc_det.getText());
-        frm_LAB_RESULTADO_INSUMOS.lblArea.setText(lblArea.getText());
-        frm_LAB_RESULTADO_INSUMOS.lblServicio.setText(lblServicio.getText());
+                frm_LAB_RESULTADO_INSUMOS RI=new frm_LAB_RESULTADO_INSUMOS();
+                RI.setVisible(true);
+                Insumos_cargar(lblid_cod_doc_det.getText());
+                frm_LAB_RESULTADO_INSUMOS.lblArea.setText(lblArea.getText());
+                frm_LAB_RESULTADO_INSUMOS.lblServicio.setText(lblServicio.getText());
            
 }
     }//GEN-LAST:event_btnInsumosActionPerformed
@@ -2222,7 +2221,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
                     printwriter.print(ruta);
                 }
                JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(ruta), parametros, c.conectar());
-            JasperExportManager.exportReportToPdfFile(informe, PATH);//mandamos como parametros la ruta del archivo a compilar y el nombre y ruta donde se guardaran    
+                JasperExportManager.exportReportToPdfFile(informe, PATH);//mandamos como parametros la ruta del archivo a compilar y el nombre y ruta donde se guardaran    
                 //comprobamos si a la hora de guardar obtuvo la extension y si no se la asignamos
                 if (!(PATH.endsWith(".pdf"))) {
                     File temp = new File(PATH + ".pdf");
@@ -2243,10 +2242,10 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
     
     public void Insumos_cargar(String cod){
         //Combobox JTable
-    String [] datos = {"Todo","Perdida"};
-    JComboBox jcbx = new JComboBox(datos);
+            String [] datos = {"Todo","Perdida"};
+            JComboBox jcbx = new JComboBox(datos);
     try {
-        int filaselec=frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getSelectedRow();
+            int filaselec=frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getSelectedRow();
              String titulos[]={"N°","codigoKardex","Codigo Produc","Descripcion del Producto",
                  "Entrada","Cantidad","Saldo","UM","Fecha de Vencimiento","Lote","Marca","Estado de Uso"};
             m=new DefaultTableModel(null,titulos);
@@ -2254,13 +2253,13 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
             String fila[]=new String[12];
 
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
-        String consulta="exec sp_LAB_BUSQUEDA_RESULTADO_INSUMOS ?";
+            String consulta="exec sp_LAB_BUSQUEDA_RESULTADO_INSUMOS ?";
         
-        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, cod);
-        ResultSet r=cmd.executeQuery();
-        int c=1;
-        while(r.next()){
+            ResultSet r=cmd.executeQuery();
+            int c=1;
+            while(r.next()){
             fila[0]=String.valueOf(c)+"º";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
@@ -2285,7 +2284,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
             tc.setCellEditor(tce);
             
             //Combobox seleccionado en retorno
-        frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.setDefaultRenderer(Object.class,new FormatoTabla());
+            frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.setDefaultRenderer(Object.class,new FormatoTabla());
             Insumos_formato();
     } catch (Exception e) {
         JOptionPane.showMessageDialog(rootPane, "Error en la tabla");

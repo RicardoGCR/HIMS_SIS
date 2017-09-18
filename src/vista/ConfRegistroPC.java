@@ -1278,9 +1278,11 @@ try{
     }//GEN-LAST:event_btnBuscarPacienteActionPerformed
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
-tab.setSelectedIndex(2);
+            tab.setSelectedIndex(2);
              limpiar();
              enableDatos(true);
+             cargarPC();
+             formatoPC();
     }//GEN-LAST:event_btnListaActionPerformed
 
     private void txtBuscar1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscar1CaretUpdate

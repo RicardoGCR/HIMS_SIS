@@ -1680,7 +1680,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
     }
 
     public void GuardarDetalleCREDITO_ALTA(){
-         System.out.println("FILAS  " +tb_Liquidacion.getRowCount());
+        System.out.println("FILAS  " +tb_Liquidacion.getRowCount());
         for(int i = 0; i < tb_Liquidacion.getRowCount(); i++){
                 jLabel36.setText(String.valueOf(tb_Liquidacion.getValueAt(i, 9)));
                 Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
@@ -10277,8 +10277,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
             CPTNomenclaturas();
         }
     }//GEN-LAST:event_tb_CPTBUSCARKeyPressed
-  private void suma()
-    {
+  private void suma(){
         double total = 0;
         double totalD = 0;
         double IGV=0;
@@ -13133,10 +13132,10 @@ if(tgp==1){
                 BHC.dispose();
                 Jerarquias.dispose();
                 nomenclaturas.dispose();
-                Stop();
-                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
-                PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
                 
+//                PrincipalMDI.ErrorCajaCerrada.setVisible(true);
+                PrincipalMDI.jTabbedPane1.setSelectedIndex(0);
+                Stop();
             }
             
             try {

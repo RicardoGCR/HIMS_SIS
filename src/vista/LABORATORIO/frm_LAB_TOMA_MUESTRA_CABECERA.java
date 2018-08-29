@@ -34,6 +34,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.LABORATORIO.Celda_Checkox;
+import modelos.LABORATORIO.LAB_Analisis_Examen;
 import modelos.LABORATORIO.LAB_Toma_Muestra_Cabecera;
 import modelos.LABORATORIO.LAB_Toma_Muestra_Detalle;
 import modelos.LABORATORIO.LAB_Toma_Muestra_Subdetalle;
@@ -41,6 +42,7 @@ import modelos.LABORATORIO.LAB_Valores_Referenciales;
 import modelos.Usuario;
 import servicios.Conexion;
 import static vista.LABORATORIO.frm_LAB_TOMA_MUESTRA_DETALLE.tb_Muestras;
+import static vista.LABORATORIO.frm_LAB_TOMA_MUESTRA_INGRESO.tb_Pacientes;
 
 /**
  *
@@ -1305,7 +1307,21 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                     JOptionPane.showMessageDialog(null, "Datos Guardados");
                     limpiar();
                       dispose();
-                     
+                     String acto ="";
+                        acto=(lblDocumento.getText());
+                        String sql = "EXEC LA_GENERAR_FUA_REF ?";
+                        LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
+                        PreparedStatement cmd = obj.getCn().prepareStatement(sql);
+                        cmd.setString(1, acto);
+                        if(!cmd.execute())
+                        {
+                            System.out.println("Fua Generado");
+                        }
+                        else{
+                            System.out.println("Error FUA");
+                        }
+                        cmd.close();
+                        obj.getCn().close();
                   }
                   else{
                     JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");

@@ -1044,7 +1044,7 @@ DefaultTableModel m;
 
     private void lblUsu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUsu1MouseClicked
         Caja_PC_Registro CPC = new Caja_PC_Registro();
-        CPC.VerificarExistenciaEME(PrincipalMDI.lblUsu.getText(),PrincipalMDI.tbEME);
+        CPC.VerificarExistencia(PrincipalMDI.lblUsu.getText(),"",PrincipalMDI.tbEME);
         dispose();
     }//GEN-LAST:event_lblUsu1MouseClicked
 

@@ -108,13 +108,6 @@
 				<text><![CDATA[Estado Civil:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="4" width="100" height="20" uuid="7324f47d-caf4-4391-8a4a-7d4717130d20"/>
-				<textElement>
-					<font fontName="SansSerif" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Acto médico:]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="4" y="25" width="95" height="20" uuid="dc0c3afc-8954-432f-b6f4-afd05a72424e"/>
 				<textElement>
 					<font fontName="SansSerif" size="14" isBold="true"/>
@@ -240,13 +233,6 @@
 				</textElement>
 				<text><![CDATA[Riesgo:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="100" y="4" width="100" height="20" uuid="e515f291-1ec1-4508-b64b-64e80ff4f897"/>
-				<textElement>
-					<font fontName="SansSerif" size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{NUM_ACTOMEDICO}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="200" y="4" width="100" height="20" uuid="fd5a61b7-f240-4c9c-8a17-2762c65f5780"/>
 				<textElement textAlignment="Right">

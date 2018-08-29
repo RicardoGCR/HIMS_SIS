@@ -397,7 +397,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbBuscar);
 
-        jPanel35.setBackground(new java.awt.Color(23, 160, 134));
+        jPanel35.setBackground(new java.awt.Color(232, 76, 61));
         jPanel35.setPreferredSize(new java.awt.Dimension(0, 2));
 
         javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);

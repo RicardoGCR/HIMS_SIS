@@ -2,6 +2,8 @@
     YAMILA ROCCA RUIZ
  */
 package modelos.admisionCentral;
+import java.awt.print.PageFormat;
+import java.awt.print.PrinterJob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,9 +19,11 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
@@ -149,10 +153,10 @@ public class MovimientoHistoriaClinica {
         try {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"id","Acto Médico","Fecha","Hora","N° H.C","Datos del Paciente","Area/Servicio/UPSS",
-                              "Consultorio","Turno","Médico","Nº At","Edad","Estado","   E", "Mayor/Menor"};
+                              "Consultorio","Turno","Médico","Nº At","Edad","Estado","   E", "Mayor/Menor","DNI","ba"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[15];
+            String fila[]=new String[17];
             consulta="EXEC SP_ADMISION_MOVIMIENTO_HC_LISTADO_MOVIMIENTO ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setInt(1, tipo);
@@ -188,10 +192,22 @@ public class MovimientoHistoriaClinica {
                     }
                 }
                 
-                fila[12]=r.getString(13); //estado 
-                fila[13]=r.getString(14); //estado oculto
-                    m.addRow(fila);
-                    c++;
+                if (r.getString(14).trim().equals("S")){
+                    fila[12]="Salida";
+                }else if (r.getString(14).trim().equals("P")){
+                    fila[12]="Pendiente";
+                }else if (r.getString(14).trim().equals("T")){
+                    fila[12]="Salida";
+                }else if (r.getString(14).trim().equals("C")){
+                    fila[12]="Salida";
+                }else if (r.getString(14).trim().equals("R")){
+                    fila[12]="Retorno";
+                }                   
+                fila[13]=r.getString(14); //estado oculto   
+                fila[15]=r.getString(16); //estado oculto    
+                fila[16]=r.getString(17); //estado oculto
+                m.addRow(fila);
+                c++;
             }
             tabla.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
@@ -215,12 +231,17 @@ public class MovimientoHistoriaClinica {
         {
             String sql = "EXEC SP_ADMISION_MOVIMIENTO_HC_ACTUALIZAR_ESTADO ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
+            System.out.println(estadoM);
+            System.out.println(id);
+            System.out.println(usuario);
             cmd.setString(1, estadoM);
             cmd.setInt(2, id);
             cmd.setString(3, usuario);
             if(!cmd.execute())
             {
                 resp = true;
+            }else{
+                resp = false;
             }
             cmd.close();
             getCn().close();
@@ -231,7 +252,18 @@ public class MovimientoHistoriaClinica {
         }
         return resp;
     }
-    
+    Conexion con = new Conexion();
+     public void reporteCODHIST(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("CODHIS",id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/CODHIST.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                System.out.println("error i "+e);
+                
+            }
+    } 
     public MovimientoHistoriaClinica()
     {
         Conexion con = new Conexion();

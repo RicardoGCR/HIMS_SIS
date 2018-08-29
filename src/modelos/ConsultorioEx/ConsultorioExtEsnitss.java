@@ -175,7 +175,7 @@ public class ConsultorioExtEsnitss implements Serializable {
         tabla.setRowHeight(45);
     }
     
-    public void consultorioExListarC(String busqueda,String tipo,JTable tabla){
+    public void consultorioExListarC(String busqueda,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -186,12 +186,11 @@ public class ConsultorioExtEsnitss implements Serializable {
             JTable p=new JTable(m);
             String fila[]=new String[16];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CONSULTORIO_EXT_TRIAJE_LISTAR ?,?,?,?";
+            consulta="EXEC CONSULTORIO_EXT_TRIAJE_LISTAR ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, busqueda);
-            cmd.setString(2, "");
-            cmd.setString(3, "");
-            cmd.setString(4, tipo);
+//            cmd.setString(2, "");
+//            cmd.setString(3, "");
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){

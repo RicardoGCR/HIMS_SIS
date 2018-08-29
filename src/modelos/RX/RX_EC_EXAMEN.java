@@ -5,9 +5,14 @@
  */
 
 package modelos.RX;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 /**
  *
@@ -26,6 +31,7 @@ public class RX_EC_EXAMEN {
     private String FECHA_ACTU;
     private String HORA_ACTU;
     private String NOM_PC;
+    DefaultTableModel m;
     
     public RX_EC_EXAMEN()
     {
@@ -97,6 +103,84 @@ public class RX_EC_EXAMEN {
             System.out.println("Error CODIGO: " + ex.getMessage());
         }
         return cod;
+    }
+    
+    public void LISTA_CABECERAS(JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID_CAJAº NUM_EXA","COD_PERS","NOM_PERS","COD_PERS_1","NOM_PERS_1","PC","FP","REF"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[9];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC RX_EC_BUSCAR_CAJA_FECHAS_RX_1";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+           
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                    m.addRow(fila);
+                    c++;
+//                    a++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+        } catch (Exception e) {
+            System.out.println("ERROR AL LISTAR : " + e.getMessage());
+        }
+    }
+    
+    
+    public void LISTA_DETALLES(String ID,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Cod. Documento Det.","Cod. Nomenclatura","Descripción Nomenclatura",
+                           "Incidencia" ,"Placas Usadas", "Medida","Producto"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[7];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC RX_EC_VER_DETALLE_EXAMEN ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ID);
+            ResultSet r= cmd.executeQuery();
+            int c=1, usado=0;
+           
+            while(r.next()){
+//                        for (int i=0; i<5; i++){
+                        fila[0]=r.getString(1);
+                        fila[1]=r.getString(2); 
+                        fila[2]=r.getString(3); 
+                        fila[3]=r.getString(4);
+                        
+                        fila[4]=r.getString(5);
+                        fila[5]=r.getString(6); 
+                        fila[6]=r.getString(7);
+//                      
+                        
+                          m.addRow(fila);
+                        }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+        } catch (Exception e) {
+            System.out.println("ERROR AL LISTAR : " + e.getMessage());
+        }
     }
     
     public Connection getCn() {

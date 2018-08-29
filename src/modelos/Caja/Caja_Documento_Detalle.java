@@ -262,7 +262,7 @@ public boolean AGREGAR_DETALLE_VENTA(){
         }
         catch(Exception ex)
         {
-            System.out.println("Error  " + ex.getMessage());
+            System.out.println("Error REGISTRO FR  " + ex.getMessage());
         }
         return resp;
     }

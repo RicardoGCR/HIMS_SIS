@@ -103,18 +103,18 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
             }
         });
         
-        LimitadorDeDocumento limitConsumoMensual = new LimitadorDeDocumento(10);
-        txtConsumoMensual.setDocument(limitConsumoMensual);
-        LimitadorDeDocumento limitConsumoMensualAgua = new LimitadorDeDocumento(10);
-        txtConsumoMensualAgua.setDocument(limitConsumoMensualAgua);
-        LimitadorDeDocumento limitArea = new LimitadorDeDocumento(5);
-        txtArea.setDocument(limitArea);
-        LimitadorDeDocumento limitConsultasMensual = new LimitadorDeDocumento(5);
-        txtConsultas_Mensuales.setDocument(limitConsultasMensual);
-        LimitadorDeDocumento limitPonderacionEnergia = new LimitadorDeDocumento(3);
-        txtPonderacionEnergia.setDocument(limitPonderacionEnergia);
-        LimitadorDeDocumento limitPonderacionAgua = new LimitadorDeDocumento(3);
-        txtPonderacionAgua.setDocument(limitPonderacionAgua);
+//        LimitadorDeDocumento limitConsumoMensual = new LimitadorDeDocumento(10);
+//        txtConsumoMensual.setDocument(limitConsumoMensual);
+//        LimitadorDeDocumento limitConsumoMensualAgua = new LimitadorDeDocumento(10);
+//        txtConsumoMensualAgua.setDocument(limitConsumoMensualAgua);
+//        LimitadorDeDocumento limitArea = new LimitadorDeDocumento(5);
+//        txtArea.setDocument(limitArea);
+//        LimitadorDeDocumento limitConsultasMensual = new LimitadorDeDocumento(5);
+//        txtConsultas_Mensuales.setDocument(limitConsultasMensual);
+//        LimitadorDeDocumento limitPonderacionEnergia = new LimitadorDeDocumento(3);
+//        txtPonderacionEnergia.setDocument(limitPonderacionEnergia);
+//        LimitadorDeDocumento limitPonderacionAgua = new LimitadorDeDocumento(3);
+//        txtPonderacionAgua.setDocument(limitPonderacionAgua);
     }
     
     
@@ -461,11 +461,11 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
         jLabel18 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        txtPonderacionEnergia = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtBaseAsignacionEnergia = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         txtSumatoriaEnergiaBA1 = new javax.swing.JTextField();
+        txtPonderacionEnergia = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         txtPonderacionAgua = new javax.swing.JTextField();
@@ -840,25 +840,6 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
         jLabel12.setFont(new java.awt.Font("Palatino Linotype", 1, 13)); // NOI18N
         jLabel12.setText("Ponderación de consumo (b):");
 
-        txtPonderacionEnergia.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPonderacionEnergiaCaretUpdate(evt);
-            }
-        });
-        txtPonderacionEnergia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPonderacionEnergiaActionPerformed(evt);
-            }
-        });
-        txtPonderacionEnergia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtPonderacionEnergiaKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPonderacionEnergiaKeyTyped(evt);
-            }
-        });
-
         jLabel13.setFont(new java.awt.Font("Palatino Linotype", 1, 13)); // NOI18N
         jLabel13.setText("Base de Asignación (a)*(b)=(c):");
 
@@ -887,25 +868,32 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
             }
         });
 
+        txtPonderacionEnergia.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtPonderacionEnergiaCaretUpdate(evt);
+            }
+        });
+        txtPonderacionEnergia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPonderacionEnergiaKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(txtPonderacionEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel16))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtBaseAsignacionEnergia)
-                            .addComponent(txtSumatoriaEnergiaBA1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel12))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtBaseAsignacionEnergia)
+                    .addComponent(txtSumatoriaEnergiaBA1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                    .addComponent(txtPonderacionEnergia))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1303,10 +1291,6 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
         }
     }//GEN-LAST:event_TablaServiciosBKeyPressed
 
-    private void txtPonderacionEnergiaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPonderacionEnergiaCaretUpdate
-       
-    }//GEN-LAST:event_txtPonderacionEnergiaCaretUpdate
-
     private void txtPonderacionAguaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPonderacionAguaCaretUpdate
       // consumoAgua();        // TODO add your handling code here:
     }//GEN-LAST:event_txtPonderacionAguaCaretUpdate
@@ -1355,10 +1339,6 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
     }//GEN-LAST:event_btn_agregar_SBActionPerformed
 
     
-    private void txtPonderacionEnergiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPonderacionEnergiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPonderacionEnergiaActionPerformed
-
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
 
         dispose();  
@@ -1369,24 +1349,6 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_cancelarActionPerformed
-
-    private void txtPonderacionEnergiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPonderacionEnergiaKeyReleased
-        try {
-        
-        if(txtArea.getText().equalsIgnoreCase("")){
-            JOptionPane.showMessageDialog(rootPane,"Debe ingresar el Área");
-             txtArea.requestFocus();   
-             txtPonderacionEnergia.setText("");           
-        }else if(txtPonderacionEnergia.getText().equalsIgnoreCase("")){
-            txtBaseAsignacionEnergia.setText("");
-        }else{
-            energiaElectrica();
-          
-        }
-            
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_txtPonderacionEnergiaKeyReleased
 
     private void txtPonderacionAguaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPonderacionAguaKeyReleased
         
@@ -1676,34 +1638,18 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
     }
     }//GEN-LAST:event_txtAreaKeyTyped
 
-    private void txtPonderacionEnergiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPonderacionEnergiaKeyTyped
-    //permite escribir solo numeros
-    try {        
-
-        char tecla;
-        tecla = evt.getKeyChar();
-        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
-            evt.consume();
-            getToolkit().beep();            
-        }
-    
-    } catch (Exception e) {
-    }    
-       
-    }//GEN-LAST:event_txtPonderacionEnergiaKeyTyped
-
     private void txtPonderacionAguaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPonderacionAguaKeyTyped
     //permite escribir solo numeros y un punto decimal
-    try {
-
-        char tecla;
-        tecla = evt.getKeyChar();
-        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
-            evt.consume();
-            getToolkit().beep();            
-        }
-                } catch (Exception e) {
-        }
+//    try {
+//
+//        char tecla;
+//        tecla = evt.getKeyChar();
+//        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+//            evt.consume();
+//            getToolkit().beep();            
+//        }
+//                } catch (Exception e) {
+//        }
     }//GEN-LAST:event_txtPonderacionAguaKeyTyped
 
     private void txtAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaKeyReleased
@@ -1865,6 +1811,14 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
     private void txtConsumoMensualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsumoMensualActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtConsumoMensualActionPerformed
+
+    private void txtPonderacionEnergiaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPonderacionEnergiaCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPonderacionEnergiaCaretUpdate
+
+    private void txtPonderacionEnergiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPonderacionEnergiaKeyReleased
+        energiaElectrica();
+    }//GEN-LAST:event_txtPonderacionEnergiaKeyReleased
 
      public void cargarResumenCostoSBasicos(){
         try{

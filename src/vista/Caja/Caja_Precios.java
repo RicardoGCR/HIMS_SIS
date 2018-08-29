@@ -534,6 +534,7 @@ Ticket ticket=new Ticket();
                 public boolean isCellEditable(int rowIndex, int colIndex){
                     return false; //Disallow the editing of any cell
                 }};
+                jDialog1 = new javax.swing.JDialog();
                 jPanel1 = new javax.swing.JPanel();
                 btnNuevo = new javax.swing.JButton();
                 btneditar = new javax.swing.JButton();
@@ -820,6 +821,20 @@ Ticket ticket=new Ticket();
                             .addGap(0, 0, 0)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                             .addContainerGap())
+                    );
+
+                    jDialog1.setAlwaysOnTop(true);
+                    jDialog1.setResizable(false);
+
+                    javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+                    jDialog1.getContentPane().setLayout(jDialog1Layout);
+                    jDialog1Layout.setHorizontalGroup(
+                        jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE)
+                    );
+                    jDialog1Layout.setVerticalGroup(
+                        jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 300, Short.MAX_VALUE)
                     );
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1712,6 +1727,7 @@ Ticket ticket=new Ticket();
     private javax.swing.JButton eli;
     public static javax.swing.JTextField forma;
     private javax.swing.JLabel fp;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;

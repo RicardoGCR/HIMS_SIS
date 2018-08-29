@@ -207,7 +207,8 @@ DefaultTableModel m;
                 String descripcion = txtDescripcion.getText();
                     consultorio1.setId(Integer.parseInt(txtID.getText()));
                     consultorio1.setNumero(numero);
-                    consultorio1.setDescripcion(descripcion);
+                    consultorio1.setDescripcion(descripcion);       
+                    consultorio1.setAR_ID(Integer.parseInt(unior.getText()));
                     if(consultorio1.mantenimientoConsultorioExConsultorio(lblMant.getText())==true){
                         String id = consultorio1.consultorioID();
                         System.out.println("ID: " + id);
@@ -215,7 +216,8 @@ DefaultTableModel m;
                         consultorio1.listarConsultorios("", tbConsultorios);
                         btnGuardar.setEnabled(false);
                         btnEliminar.setEnabled(false);
-                        btnModificar.setEnabled(false);
+                        btnModificar.setEnabled(false); 
+                        pnlMensaje.setVisible(false);
                         limpiar();
                         habilitarCampos(false);
                         lblMant.setText("I");
@@ -504,7 +506,7 @@ DefaultTableModel m;
                 lblusu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 lblusu.setForeground(new java.awt.Color(255, 255, 255));
                 lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
-                lblusu.setText("Silvana");
+                lblusu.setText("GERMAN");
 
                 lblMant.setText("Mantenimiento");
 
@@ -673,19 +675,8 @@ DefaultTableModel m;
                 tbConsultorios.setSelectionBackground(new java.awt.Color(102, 102, 102));
                 tbConsultorios.getTableHeader().setReorderingAllowed(false);
                 tbConsultorios.addMouseListener(new java.awt.event.MouseAdapter() {
-                    public void mouseClicked(java.awt.event.MouseEvent evt) {
-                        tbConsultoriosMouseClicked(evt);
-                    }
                     public void mousePressed(java.awt.event.MouseEvent evt) {
                         tbConsultoriosMousePressed(evt);
-                    }
-                });
-                tbConsultorios.addKeyListener(new java.awt.event.KeyAdapter() {
-                    public void keyPressed(java.awt.event.KeyEvent evt) {
-                        tbConsultoriosKeyPressed(evt);
-                    }
-                    public void keyReleased(java.awt.event.KeyEvent evt) {
-                        tbConsultoriosKeyReleased(evt);
                     }
                 });
                 jScrollPane3.setViewportView(tbConsultorios);
@@ -1060,45 +1051,23 @@ DefaultTableModel m;
         Unidad.setVisible(true);
     }//GEN-LAST:event_b2ActionPerformed
 
-    private void tbConsultoriosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbConsultoriosKeyReleased
-        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
-            int fila = tbConsultorios.getSelectedRow();
-            txtID.setText(String.valueOf(tbConsultorios.getValueAt(fila, 0)));
-            txtNumero.setText(String.valueOf(tbConsultorios.getValueAt(fila, 1)));
-            txtDescripcion.setText(String.valueOf(tbConsultorios.getValueAt(fila, 2)));
-            txtuo.setText(String.valueOf(tbConsultorios.getValueAt(fila, 3)));
-            unior.setText(String.valueOf(tbConsultorios.getValueAt(fila, 4)));
-            btnModificar.setEnabled(true);
-            btnEliminar.setEnabled(true);
-            btnGuardar.setEnabled(false);
-        }
-    }//GEN-LAST:event_tbConsultoriosKeyReleased
-
-    private void tbConsultoriosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbConsultoriosKeyPressed
-
-    }//GEN-LAST:event_tbConsultoriosKeyPressed
-
-    private void tbConsultoriosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbConsultoriosMousePressed
-
-    }//GEN-LAST:event_tbConsultoriosMousePressed
-
-    private void tbConsultoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbConsultoriosMouseClicked
-        if(evt.getClickCount()==1){
-            int fila = tbConsultorios.getSelectedRow();
-            txtID.setText(String.valueOf(tbConsultorios.getValueAt(fila, 0)));
-            txtNumero.setText(String.valueOf(tbConsultorios.getValueAt(fila, 1)));
-            txtDescripcion.setText(String.valueOf(tbConsultorios.getValueAt(fila, 2)));
-            txtuo.setText(String.valueOf(tbConsultorios.getValueAt(fila, 3)));
-            unior.setText(String.valueOf(tbConsultorios.getValueAt(fila, 4)));
-            btnModificar.setEnabled(true);
-            btnEliminar.setEnabled(true);
-            btnGuardar.setEnabled(false);
-        }
-    }//GEN-LAST:event_tbConsultoriosMouseClicked
-
     private void txtDescripcionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescripcionKeyReleased
        txtDescripcion.setText(txtDescripcion.getText().toUpperCase());
     }//GEN-LAST:event_txtDescripcionKeyReleased
+
+    private void tbConsultoriosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbConsultoriosMousePressed
+         if(evt.getClickCount()==1){
+            int fila = tbConsultorios.getSelectedRow();
+            txtID.setText(String.valueOf(tbConsultorios.getValueAt(fila, 0)));
+            txtNumero.setText(String.valueOf(tbConsultorios.getValueAt(fila, 1)));
+            txtDescripcion.setText(String.valueOf(tbConsultorios.getValueAt(fila, 2)));
+            txtuo.setText(String.valueOf(tbConsultorios.getValueAt(fila, 3)));
+            unior.setText(String.valueOf(tbConsultorios.getValueAt(fila, 4)));
+            btnModificar.setEnabled(true);
+            btnEliminar.setEnabled(true);
+            btnGuardar.setEnabled(false);
+        }
+    }//GEN-LAST:event_tbConsultoriosMousePressed
 
     /**
      * @param args the command line arguments

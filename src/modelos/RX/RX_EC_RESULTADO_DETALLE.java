@@ -23,6 +23,9 @@ public class RX_EC_RESULTADO_DETALLE {
     private String DESCRIPCION_RESULTADO;
     private String CONCLUSION_DIAGNOSTICA;
     private String NOM_USU;
+    private int CANTIDAD;
+    private String MEDIDA;
+    private String INCIDENCIA;
     
     public RX_EC_RESULTADO_DETALLE()
     {
@@ -35,13 +38,16 @@ public class RX_EC_RESULTADO_DETALLE {
         boolean resp = false;
         try
         {
-            String sql = "exec RX_EC_RESULTADO_DETALLE_INSERTAR ?,?,?,?,?";
+            String sql = "exec RX_EC_RESULTADO_DETALLE_INSERTAR ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getCOD_CAB_RESULTADO());
             cmd.setInt(2, getCOD_EXAMEN_DETALLE());
             cmd.setString(3, getDESCRIPCION_RESULTADO());
             cmd.setString(4, getCONCLUSION_DIAGNOSTICA());        
             cmd.setString(5, getNOM_USU());
+            cmd.setInt(6, getCANTIDAD());
+            cmd.setString(7, getMEDIDA());
+            cmd.setString(8, getINCIDENCIA());
             
             if(!cmd.execute())
             {
@@ -172,6 +178,30 @@ public class RX_EC_RESULTADO_DETALLE {
 
     public void setID_COD_DOC_DET(int ID_COD_DOC_DET) {
         this.ID_COD_DOC_DET = ID_COD_DOC_DET;
+    }
+
+    public int getCANTIDAD() {
+        return CANTIDAD;
+    }
+
+    public void setCANTIDAD(int CANTIDAD) {
+        this.CANTIDAD = CANTIDAD;
+    }
+
+    public String getMEDIDA() {
+        return MEDIDA;
+    }
+
+    public void setMEDIDA(String MEDIDA) {
+        this.MEDIDA = MEDIDA;
+    }
+
+    public String getINCIDENCIA() {
+        return INCIDENCIA;
+    }
+
+    public void setINCIDENCIA(String INCIDENCIA) {
+        this.INCIDENCIA = INCIDENCIA;
     }
     
     

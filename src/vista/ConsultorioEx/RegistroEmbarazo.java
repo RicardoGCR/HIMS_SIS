@@ -129,7 +129,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             AdmisionEmergenciaCabecera adEmerCab = new AdmisionEmergenciaCabecera();
             if(lblMant.getText().equals("U") || lblMant.getText().equals("E"))
                 consultorio1.setCpId(Integer.parseInt(lblId.getText()));
-            consultorio1.setIdHc(txtIdHc.getText());
+            consultorio1.setIdHc("HC000000000000191316");
             consultorio1.setCpEstbOrigen(txtEstabOrigen.getText());
             consultorio1.setCpAniosAprob(ChkAnAp.getText());
             consultorio1.setCpEstbAct(txtEstablecimiento.getText());
@@ -663,7 +663,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                         .addGroup(BuscarMadresLayout.createSequentialGroup()
                             .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
-                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, Short.MAX_VALUE)
                             .addContainerGap())
                     );
 
@@ -1907,7 +1907,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     );
                     layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                        .addComponent(jTabbedPane1)
                     );
 
                     pack();
@@ -2209,13 +2209,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         tbEmbarazoActual.setVisible(true);
         jScrollPane1.setVisible(true);
         ConsultorioExtEsnitss consultorio1 = new ConsultorioExtEsnitss();
-        consultorio1.consultorioExListarC(txtBuscar.getText(), "Q", tbMadres);
+        consultorio1.consultorioExListarC(txtBuscar.getText(), tbMadres);
         jTabbedPane2.setSelectedIndex(0);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
         ConsultorioExtEsnitss consultorio1 = new ConsultorioExtEsnitss();
-        consultorio1.consultorioExListarC(txtBuscar.getText(), "Q", tbMadres);
+        consultorio1.consultorioExListarC(txtBuscar.getText(), tbMadres);
     }//GEN-LAST:event_txtBuscarCaretUpdate
 
     private void txtBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarMouseClicked

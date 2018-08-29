@@ -586,7 +586,7 @@
         <Container class="javax.swing.JPanel" name="jPanel6">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="86" green="a0" red="17" type="rgb"/>
+              <Color blue="e6" green="e6" red="e6" type="rgb"/>
             </Property>
           </Properties>
 
@@ -647,10 +647,10 @@
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="26" style="0"/>
+                  <Font name="Segoe UI Semilight" size="26" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Diagn&#xf3;sticos"/>
               </Properties>
@@ -708,7 +708,7 @@
             <Component class="javax.swing.JButton" name="btnBuscarPaciente4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-27.png"/>
+                  <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-30.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -722,7 +722,7 @@
             <Component class="javax.swing.JLabel" name="lblTipo1">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="86" green="a0" red="17" type="rgb"/>
+                  <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel71"/>
               </Properties>
@@ -730,7 +730,7 @@
             <Component class="javax.swing.JLabel" name="lblTipoDiag">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="86" green="a0" red="17" type="rgb"/>
+                  <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel78"/>
               </Properties>
@@ -842,7 +842,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="86" green="a0" red="17" type="rgb"/>
+              <Color blue="e6" green="e6" red="e6" type="rgb"/>
             </Property>
           </Properties>
 
@@ -895,10 +895,10 @@
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="26" style="0"/>
+                  <Font name="Segoe UI Semilight" size="26" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ex&#xe1;menes Auxiliares"/>
               </Properties>
@@ -956,7 +956,7 @@
             <Component class="javax.swing.JButton" name="btnBuscarPaciente3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-27.png"/>
+                  <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-30.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -970,7 +970,7 @@
             <Component class="javax.swing.JLabel" name="lblTipo">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="86" green="a0" red="17" type="rgb"/>
+                  <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel71"/>
               </Properties>
@@ -1305,7 +1305,7 @@
         <Container class="javax.swing.JPanel" name="jPanel15">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="86" green="a0" red="17" type="rgb"/>
+              <Color blue="e6" green="e6" red="e6" type="rgb"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[310, 441]"/>
@@ -1370,10 +1370,10 @@
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="30" style="0"/>
+                  <Font name="Segoe UI Semilight" size="30" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Paciente"/>
               </Properties>
@@ -1384,7 +1384,7 @@
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Busqueda por DNI, H.C. y Apellidos"/>
               </Properties>
@@ -1392,7 +1392,7 @@
             <Component class="javax.swing.JLabel" name="bus">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="86" green="a0" red="17" type="rgb"/>
+                  <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel37"/>
               </Properties>
@@ -1450,7 +1450,7 @@
             <Component class="javax.swing.JLabel" name="bus3">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="86" green="a0" red="17" type="rgb"/>
+                  <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel37"/>
               </Properties>
@@ -1458,7 +1458,7 @@
             <Component class="javax.swing.JButton" name="btnBuscarPaciente2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-27.png"/>
+                  <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-30.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

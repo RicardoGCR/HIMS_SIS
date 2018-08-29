@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RX_RESULTADO" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c13cf613-334a-49ed-9495-7315d618913c">
+	<property name="ireport.zoom" value="1.7715610000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#4682B4">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE2FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="CIE10" uuid="36340420-a53c-459f-9cac-42ba408f71aa">
+		<parameter name="COD" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+RXRDD.ID_CIE10, C.DESC_ENF
+FROM
+RX_EC_EXAMEN_CABECERA					RXC,
+RX_EC_EXAMEN_DETALLE					RXD,
+RX_EC_RESULTADO_CABECERA				RXRC,
+RX_EC_RESULTADO_DETALLE					RXRD,
+RX_RC_RESULTADO_DETALLE_DIAGNOSTICO		RXRDD,
+CAJA_DOCUMENTO_CABECERA					CDC,
+CAJA_DOCUMENTO_DETALLE					CDD,
+CIE10									C
+WHERE
+CDC.id_documento			=		CDD.id_documento AND
+RXC.ID_DOCUMENTO			=		CDC.id_documento AND
+CDD.id_cod_doc_det			=		RXD.ID_COD_DOC_DET AND
+RXC.ID_EXAMEN_CAB			=		RXD.ID_EXAMEN_CAB AND
+RXRC.ID_EXAMEN_CAB			=		RXC.ID_EXAMEN_CAB AND
+RXRC.COD_CAB_RESULTADO		=		RXRD.COD_CAB_RESULTADO AND
+RXRD.COD_EXAMEN_DETALLE		=		RXD.COD_EXAMEN_DETALLE AND
+RXRD.COD_DETALLE_RESULTADO	=		RXRDD.COD_DETALLE_RESULTADO AND
+C.ID_CIE10					=		RXRDD.ID_CIE10 AND
+RXRD.COD_DETALLE_RESULTADO = $P{COD}]]>
+		</queryString>
+		<field name="ID_CIE10" class="java.lang.Long"/>
+		<field name="DESC_ENF" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="COD_DET" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[EXEC RESULTADO_RX_GUARDADO $P{COD_DET}]]>
+	</queryString>
+	<field name="COD_HC" class="java.lang.String"/>
+	<field name="Paciente" class="java.lang.String"/>
+	<field name="dni" class="java.lang.String"/>
+	<field name="FEC_NAC" class="java.sql.Date"/>
+	<field name="AÑOS" class="java.lang.String"/>
+	<field name="sexo" class="java.lang.String"/>
+	<field name="NUM_ACTOMEDICO" class="java.lang.Long"/>
+	<field name="nom_forma_pago" class="java.lang.String"/>
+	<field name="HOSP_SERVICIO" class="java.lang.String"/>
+	<field name="HAB_NOM" class="java.lang.String"/>
+	<field name="CA_DESC" class="java.lang.String"/>
+	<field name="FECHA_ORDEN" class="java.lang.String"/>
+	<field name="HORA_ORDEN" class="java.lang.String"/>
+	<field name="SE_DESC" class="java.lang.String"/>
+	<field name="SOLICITA" class="java.lang.String"/>
+	<field name="NOMBRE_PERSONAL_RESULTADO" class="java.lang.String"/>
+	<field name="NOM_PER_REGISTRA_RESUL" class="java.lang.String"/>
+	<field name="NUMERO_RESULTADO" class="java.lang.String"/>
+	<field name="FECHA_REGISTRO_RESULTADO" class="java.lang.String"/>
+	<field name="HORA_REGISTRO_RESULTADO" class="java.lang.String"/>
+	<field name="DESCRIPCION_RESULTADO" class="java.lang.String"/>
+	<field name="CONCLUSION_DIAGNOSTICA" class="java.lang.String"/>
+	<field name="descripcion_nomen_tipo" class="java.lang.String"/>
+	<field name="INCIDENCIA" class="java.lang.String"/>
+	<field name="MEDIDA" class="java.lang.String"/>
+	<field name="CANTIDAD" class="java.lang.Integer"/>
+	<field name="FUA" class="java.lang.String"/>
+	<field name="IMAGEN" class="java.io.InputStream"/>
+	<field name="PC" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="555" height="20" forecolor="#220000" uuid="d541a833-b6bb-432f-ab83-fe75c31e4ecb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Semibold" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SERVICIO DE DIAGNÓSTICO POR IMÁGENES]]></text>
+			</staticText>
+			<image>
+				<reportElement x="491" y="0" width="63" height="50" uuid="8f7d89c5-50a3-4ffa-8509-80d6dc5ddbbe"/>
+				<imageExpression><![CDATA[$F{IMAGEN}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="27" width="555" height="20" uuid="84d71fc5-7812-4bff-9599-cf26db0425e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semibold" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ESTUDIO RADIOGRÁFICO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="4" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="156" splitType="Stretch">
+			<rectangle>
+				<reportElement x="18" y="0" width="520" height="145" uuid="e8c08a5b-aaa8-42a1-84e2-8442351345bd"/>
+				<graphicElement>
+					<pen lineColor="#999999"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="108" y="12" width="44" height="20" uuid="828721d0-6db4-4215-93f1-a74493df6e5d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUM_ACTOMEDICO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="12" width="74" height="20" uuid="3a69f55e-d857-4bb1-81da-9a98b6e919d3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Acto Médico]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="220" y="12" width="76" height="20" uuid="a77fb854-5932-4be1-a68b-9ecfad03147d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="182" y="12" width="38" height="20" uuid="a4bfccda-726d-4d27-bff3-a78c2b9ae8a5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="52" width="188" height="20" uuid="965a0ca5-ba24-48e3-bc15-58dbc5f62292"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="52" width="74" height="20" uuid="160fd7ff-b25f-421f-b304-6ceb63da6b53"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Paciente]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="72" width="74" height="20" uuid="6b424269-6e84-4db4-bb19-ef4382fddf09"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AÑOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="72" width="74" height="20" uuid="d514a64c-2fc2-4662-801f-98b1f9dec2f4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Edad]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="92" width="188" height="20" uuid="3173f009-8229-4507-b69d-a0cb80cb3667"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOLICITA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="92" width="74" height="20" uuid="69fa44f1-c21c-47d6-8645-5662d5c82ee4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Médico Sol.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="112" width="166" height="20" uuid="0c9ae38e-d34f-4181-9cb7-4f90d03e8ebb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom_forma_pago}+" "+$F{FUA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="112" width="95" height="20" uuid="c3962ace-9c32-4e98-908c-bb6286a3b949"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Forma de Pago]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="32" width="101" height="20" uuid="e0237e7e-8562-4118-b866-30400474422e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COD_HC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="32" width="74" height="20" uuid="af4d20da-8465-4910-bd49-5278797353cd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[N° HC]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="405" y="32" width="59" height="20" uuid="e42f5781-6483-4ee4-af68-e71a58fc2432"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECHA_ORDEN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="32" width="95" height="20" uuid="0785e789-9bfd-4583-9b3b-eea86e7600d5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Orden]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="478" y="32" width="49" height="20" uuid="13ec65c9-6366-46ef-b241-9c7abadcd959"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HORA_ORDEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="52" width="122" height="20" uuid="02522b02-72ba-4b66-a203-86d1068f3bd7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HOSP_SERVICIO}.equals(null) ?
+    "--" :
+    $F{HOSP_SERVICIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="52" width="95" height="20" uuid="a9fae939-febd-491c-8a54-0baf985e6b8d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Serv. Hospital.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="405" y="72" width="59" height="20" uuid="1a892f50-33fe-4e58-a226-3bdc0a4c7113"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HAB_NOM}.equals(null) ?
+    "--" :
+    $F{HAB_NOM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="72" width="95" height="20" uuid="b6ed559e-7ed1-4284-9a48-9a7dff023d3f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Habitación/Cama]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="478" y="72" width="49" height="20" uuid="b29052a4-c201-4c41-8557-fe5d857dea43"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CA_DESC}.equals(null) ?
+    "--" :
+    $F{CA_DESC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="92" width="59" height="20" uuid="41f4833d-1ed7-4606-88a6-d6fa975d34c2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECHA_REGISTRO_RESULTADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="92" width="95" height="20" uuid="fb608557-9ffd-400d-a813-00c67633498a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Resultado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="478" y="92" width="49" height="20" uuid="c1c4c6e1-3ed7-4fd3-91af-7b0dee8ef15e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HORA_REGISTRO_RESULTADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="112" width="95" height="20" uuid="cc55ba88-e28d-4a64-9266-185a4270ddbb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Resp. Resultado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="405" y="112" width="122" height="20" uuid="2a0eeef5-cd69-48b8-979c-5ff4b001b4eb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBRE_PERSONAL_RESULTADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="72" width="76" height="20" uuid="9ddf2193-608f-43f7-bdf7-a330eee904c2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="182" y="72" width="38" height="20" uuid="1346ccd9-719f-43bf-896e-91f040e56dbe"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="12" width="69" height="20" uuid="09b548ab-53e9-4ee6-bba4-47911967c5ad"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Servicio]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="405" y="12" width="100" height="20" uuid="2f63651c-0999-4c46-b6e6-b7017910ebc1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="310" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="10" width="278" height="20" uuid="e314bab1-f513-4e69-90b3-9c3e53f04d21"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS CLÍNICOS :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="20" y="142" width="504" height="68" uuid="3158fdf4-893d-41e0-91a3-8c6675908984"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPCION_RESULTADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="122" width="164" height="20" uuid="6f821eb7-b96b-4fd9-9e46-d53f9cd9496d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semibold" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIAGNÓSTICOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="216" width="164" height="20" uuid="34ce02c1-0366-4517-9265-cabc40c4c749"/>
+				<textElement>
+					<font fontName="Segoe UI Semibold" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="20" y="236" width="504" height="63" uuid="6df2aefd-ab0e-47ad-bd42-b83698260c22"/>
+				<textFieldExpression><![CDATA[$F{CONCLUSION_DIAGNOSTICA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="36" width="460" height="20" uuid="467610dc-99e4-4bee-864e-d7c14b5bc76a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo} +"         "+$F{INCIDENCIA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="56" width="124" height="20" uuid="340030fb-d4eb-4bb5-baff-65987d04d2ec"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nº DE PLACA UTILIZADA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="56" width="195" height="20" uuid="754f54a2-df39-403c-8b69-78a946b17877"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["0"+$F{CANTIDAD}+"        "+$F{MEDIDA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="86" width="555" height="20" uuid="47bf252b-a248-458f-b52d-55a8b9c31e6a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semibold" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[EXAMEN RADIOLÓGICO]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band height="114" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="80" width="554" height="20" uuid="769ca873-3899-4a3f-b3e7-e845235e4d18"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ATTE, DR(A)]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 1" style="table" x="18" y="27" width="520" height="40" uuid="8298c3d7-d892-4e2b-b28f-dca3282d0fbd"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="CIE10" uuid="0926e898-e3fd-4d74-8ab7-d572db7edc3e">
+						<datasetParameter name="COD">
+							<datasetParameterExpression><![CDATA[$P{COD_DET}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="74" uuid="8831a132-ab17-4c6b-bb74-ee0494afaaf9">
+						<jr:tableHeader style="table 1_TH" height="19" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="74" height="19" forecolor="#FFFFFF" uuid="c121c62f-0832-4f07-b927-ba141c2fe8fa"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9" isBold="true"/>
+								</textElement>
+								<text><![CDATA[COD. CIE10]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="74" height="20" uuid="9e1096ac-a7fa-4640-a49b-6dfe36dfa850"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ID_CIE10}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="446" uuid="0bdb3912-9bbd-44d1-91bb-ec51ea2f8920">
+						<jr:tableHeader style="table 1_TH" height="19" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="446" height="19" forecolor="#FFFFFF" uuid="e576534a-7755-44f2-be95-7a4604313dcb"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9" isBold="true"/>
+								</textElement>
+								<text><![CDATA[DESCRIPCIÓN ]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="10" y="0" width="436" height="20" uuid="fa3d6e8e-c0d0-4d03-bf7d-5fd979b8531a"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{DESC_ENF}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="18" y="7" width="164" height="20" uuid="3358b525-129e-4889-9124-236af7af1651"/>
+				<textElement>
+					<font fontName="Segoe UI Semibold" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CIE10 PREVENTIVO]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

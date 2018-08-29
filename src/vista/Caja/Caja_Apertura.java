@@ -72,7 +72,7 @@ Caja_AperturaCierre nuevaV = new Caja_AperturaCierre();
         Caja_AperturaCierre CAID =new Caja_AperturaCierre();
         CAID.CajaID_SESION(PrincipalMDI.lblUsu.getText());
         PrincipalMDI.ibiIDAPERTURA.setText(lblID.getText());
-        PrincipalMDI.jTabbedPane1.setSelectedIndex(4);
+        PrincipalMDI.jTabbedPane1.setSelectedIndex(2);
         nuevaV.reporteAperura(Integer.parseInt(lblID.getText()),lblusu.getText());
 //        APERTURA.dispose();
         dispose();

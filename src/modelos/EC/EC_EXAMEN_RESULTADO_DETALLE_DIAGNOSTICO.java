@@ -18,6 +18,7 @@ public class EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO {
     private int ID_DETALLE_RESULTADO_EC;
     private int ID_CIE10;
     private String NOM_USU;
+    private String ID_DOCUMENTO;
     
     
     public EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO()
@@ -46,6 +47,28 @@ public class EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO {
         catch(Exception ex)
         {
             System.out.println("Error detalle diagnostico: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+        public boolean EC_FUA()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC EC_GENERAR_FUA_REF ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getID_DOCUMENTO());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error : " + ex.getMessage());
         }
         return resp;
     }
@@ -81,5 +104,15 @@ public class EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO {
     public void setCn(Connection cn) {
         this.cn = cn;
     }
+
+    public String getID_DOCUMENTO() {
+        return ID_DOCUMENTO;
+    }
+
+    public void setID_DOCUMENTO(String ID_DOCUMENTO) {
+        this.ID_DOCUMENTO = ID_DOCUMENTO;
+    }
+    
+    
    
 }

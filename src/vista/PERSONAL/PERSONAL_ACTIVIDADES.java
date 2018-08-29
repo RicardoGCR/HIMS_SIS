@@ -88,7 +88,6 @@ DefaultTableModel m, m1, m2, m3, m4, m5, m6, m7;
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e)
             {
-                
                 cerrar();
                                 
             }
@@ -277,7 +276,6 @@ DefaultTableModel m, m1, m2, m3, m4, m5, m6, m7;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(784, 556));
-        setPreferredSize(new java.awt.Dimension(784, 556));
 
         jPanel1.setBackground(new java.awt.Color(122, 77, 135));
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 70));
@@ -785,7 +783,6 @@ DefaultTableModel m, m1, m2, m3, m4, m5, m6, m7;
         if(tecla==KeyEvent.VK_ENTER){
             TB_UO_ACTIVIDADES.getSelectionModel().setSelectionInterval(0, 0);
             TB_UO_ACTIVIDADES.requestFocus();
-            
             int filaselec=TB_UO_ACTIVIDADES.getSelectedRow();
             LBL_COD_UO_ACTIVIDADES.setText(String.valueOf(TB_UO_ACTIVIDADES.getValueAt(filaselec, 1)));
         }

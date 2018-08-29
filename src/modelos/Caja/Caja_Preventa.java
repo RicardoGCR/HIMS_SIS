@@ -15,6 +15,8 @@ import javax.swing.table.TableRowSorter;
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
 import vista.Caja.Caja_Pagos;
+import vista.EC.EC_PRINCIPAL;
+import vista.RX.RX_PRINCIPAL;
 import vista.admisionEmergencia.FrmFormatoEmergencia;
 import vista.admisionEmergencia.FrmFormatoEmergenciaCabecera;
 import vista.hospitalizacion.FrmHospitalizacionCajaPreventa;
@@ -68,13 +70,18 @@ public class Caja_Preventa {
     private String elisa_prueba_config;
     private String elisa_consejero;
     private String Sexo;
-    private int Id_DetalleFR;
-    private int Id_Cabecera;
+    private String Id_DetalleFR;
+    private String Id_Cabecera;
     private String id_documento;
     private int Id_Preventa;
     private String Triaje_Id;
+    private String DESCRIP;
 
     private String procedencia;
+    private String RX_DESC;
+    private String EC_DESC;
+    private String ID_RX;
+    private String ID_EC;
     
     Conexion con = new Conexion();
 
@@ -386,6 +393,283 @@ public class Caja_Preventa {
         }
     }
     
+        
+    public void CONSULTAR_CITAS_RX(String FP){
+        String consulta="";
+        try {
+            consulta="RX_CAJA_CITAS ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, FP);
+////            cmd.setString(2, mes);
+////            cmd.setString(3, anio);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                if(r.getString(1).equals("")){
+                    Caja_Pagos.lblCSIS.setText("0");
+                }else{
+                    Caja_Pagos.lblCSIS.setText(r.getString(1)); 
+                }    
+                Caja_Pagos.lblID_CITAS.setText(r.getString(2));  
+                Caja_Pagos.lbFECHA_CITA.setText(r.getString(3));  
+                Caja_Pagos.lblCONTADOR_RX.setText(r.getString(4));  
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
+    public void CONSULTAR_CITAS_EC(String FP){
+        String consulta="";
+        try {
+            consulta="EC_CAJA_CITAS ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, FP);
+////            cmd.setString(2, mes);
+////            cmd.setString(3, anio);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                if(r.getString(1).equals("")){
+                    Caja_Pagos.lblCSIS.setText("0");
+                }else{
+                    Caja_Pagos.lblCSIS.setText(r.getString(1)); 
+                }    
+                Caja_Pagos.lblID_CITAS.setText(r.getString(2));  
+                Caja_Pagos.lbFECHA_CITA.setText(r.getString(3));  
+                Caja_Pagos.lblCONTADOR_RX.setText(r.getString(4));  
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS EC  " + e.getMessage());
+        }
+    }
+    
+    public void CONSULTAR_CITAS_RX_HOY(){
+        String consulta="";
+        try {
+            consulta="RX_LISTAR_DIA_CABECERA";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, FP);
+////            cmd.setString(2, mes);
+////            cmd.setString(3, anio);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+               
+                RX_PRINCIPAL.jLabel2.setText(r.getString(1));  
+                RX_PRINCIPAL.jLabel3.setText("SIS \t"+r.getString(2));  
+                RX_PRINCIPAL.jLabel4.setText("Otros \t"+r.getString(3));  
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
+    public void CONSULTAR_CITAS_EC_HOY(){
+        String consulta="";
+        try {
+            consulta="EC_LISTAR_DIA_CABECERA";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, FP);
+////            cmd.setString(2, mes);
+////            cmd.setString(3, anio);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+               
+                EC_PRINCIPAL.jLabel2.setText(r.getString(1));  
+                EC_PRINCIPAL.jLabel3.setText("SIS \t"+r.getString(2));  
+                EC_PRINCIPAL.jLabel4.setText("Otros \t"+r.getString(3));  
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
+
+    
+    public void CONSULTAR_CITAS_RX_HOY_EME(){
+        String consulta="";
+        try {
+            consulta="RX_LISTAR_PENDIENTES_EME";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RX_PRINCIPAL.jLabel5.setText("Emergencia "+r.getString(1));   
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
+    public void CONSULTAR_CITAS_EC_HOY_EME(){
+        String consulta="";
+        try {
+            consulta="EC_LISTAR_PENDIENTES_EME";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                EC_PRINCIPAL.jLabel5.setText("Emergencia "+r.getString(1));   
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
+    
+    public void RUTA_FUA_CANTIDAD(){
+        String consulta="";
+        try {
+            consulta="RX_RUTA_FUA";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RX_PRINCIPAL.HOY.setText(r.getString(1));   
+                RX_PRINCIPAL.jLabel14.setText(r.getString(2));
+                RX_PRINCIPAL.jLabel12.setText(r.getString(3));
+                RX_PRINCIPAL.jLabel10.setText(r.getString(4));
+                RX_PRINCIPAL.jLabel6.setText(r.getString(5));
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
+    
+    public void RUTA_FUA_DIA(){
+        String consulta="";
+        try {
+            consulta="RX_RUTA_FUA_DIAS";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RX_PRINCIPAL.jLabel15.setText(r.getString(1));   
+                RX_PRINCIPAL.jLabel13.setText(r.getString(2));
+                RX_PRINCIPAL.jLabel11.setText(r.getString(3));
+                RX_PRINCIPAL.jLabel9.setText(r.getString(4));
+                RX_PRINCIPAL.jLabel1.setText(r.getString(5));
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
+    
+    public void CONSULTAR_CAJA(){
+        String consulta="";
+        try {
+            consulta="RX_CAJA_CONSULTAR_TERMINAL ";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+////            cmd.setString(1, FP);
+////            cmd.setString(2, mes);
+////            cmd.setString(3, anio);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    
+                Caja_Pagos.lblTIPOCAJA.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
+    public boolean RX_ACTUALIZAR_CANTIDAD(){
+        boolean resp = false;
+        try {
+            String sql = "Exec RX_CAJA_CITAS_ACTUALIZAR ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getRX_DESC());
+            cmd.setString(2, getID_RX());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean EC_ACTUALIZAR_CANTIDAD(){
+        boolean resp = false;
+        try {
+            String sql = "Exec EC_CAJA_CITAS_ACTUALIZAR ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getEC_DESC());
+            cmd.setString(2, getID_EC());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean RX_REGRESAR_CANTIDAD(){
+        boolean resp = false;
+        try {
+            String sql = "Exec RX_CAJA_CITAS_REGRESAR ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getRX_DESC());
+            cmd.setString(2, getID_RX());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean EC_REGRESAR_CANTIDAD(){
+        boolean resp = false;
+        try {
+            String sql = "Exec EC_CAJA_CITAS_REGRESAR ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getEC_DESC());
+            cmd.setString(2, getID_EC());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
     
     public boolean modificarDetallePreventa(){
         boolean resp = false;
@@ -412,9 +696,10 @@ public class Caja_Preventa {
         boolean resp = false;
         try
         {
-            String sql = "Exec Caja_Actualizar_DetallePreventaFR ?";
+            String sql = "Exec CAJA_PREVENTA_ACTUALIZAR_ESTADO ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getId_DetalleFR());
+            cmd.setString(1, getId_DetalleFR());
+//            cmd.setString(2, getDESCRIP());
 
             if(!cmd.execute())
             {
@@ -626,7 +911,71 @@ public class Caja_Preventa {
         }
         return cod;
     }
+    
+    public void LISTARRX_HOY(JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Cupo","Paciente"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[2];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC RX_LISTAR_PENDIENTES_HOY";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // nhc
+                fila[1]=r.getString(2);
 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            FORMATO_RX(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarDatosEmergencia: " + e.getMessage());
+        }
+    }
+    
+    public void LISTAREC_HOY(JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Cupo","Paciente"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[2];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC EC_LISTAR_PENDIENTES_HOY";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // nhc
+                fila[1]=r.getString(2);
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            FORMATO_RX(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarDatosEmergencia: " + e.getMessage());
+        }
+    }
+    
+    public void FORMATO_RX(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(80);//acto medico
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(420);//nhc
+    }
     
     public void formatoTablaCargarFormatEmer(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
@@ -1779,19 +2128,19 @@ public class Caja_Preventa {
         this.Sexo = Sexo;
     }
 
-    public int getId_DetalleFR() {
+    public String getId_DetalleFR() {
         return Id_DetalleFR;
     }
 
-    public void setId_DetalleFR(int Id_DetalleFR) {
+    public void setId_DetalleFR(String Id_DetalleFR) {
         this.Id_DetalleFR = Id_DetalleFR;
     }
 
-    public int getId_Cabecera() {
+    public String getId_Cabecera() {
         return Id_Cabecera;
     }
 
-    public void setId_Cabecera(int Id_Cabecera) {
+    public void setId_Cabecera(String Id_Cabecera) {
         this.Id_Cabecera = Id_Cabecera;
     }
 
@@ -1817,6 +2166,46 @@ public class Caja_Preventa {
 
     public void setTriaje_Id(String Triaje_Id) {
         this.Triaje_Id = Triaje_Id;
+    }
+
+    public String getDESCRIP() {
+        return DESCRIP;
+    }
+
+    public void setDESCRIP(String DESCRIP) {
+        this.DESCRIP = DESCRIP;
+    }
+
+    public String getRX_DESC() {
+        return RX_DESC;
+    }
+
+    public void setRX_DESC(String RX_DESC) {
+        this.RX_DESC = RX_DESC;
+    }
+
+    public String getID_RX() {
+        return ID_RX;
+    }
+
+    public void setID_RX(String ID_RX) {
+        this.ID_RX = ID_RX;
+    }
+
+    public String getID_EC() {
+        return ID_EC;
+    }
+
+    public void setID_EC(String ID_EC) {
+        this.ID_EC = ID_EC;
+    }
+
+    public String getEC_DESC() {
+        return EC_DESC;
+    }
+
+    public void setEC_DESC(String EC_DESC) {
+        this.EC_DESC = EC_DESC;
     }
     
     

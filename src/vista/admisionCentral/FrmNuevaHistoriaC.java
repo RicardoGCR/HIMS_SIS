@@ -801,7 +801,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         jPanel12 = new javax.swing.JPanel();
         titulo6 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        cbxTipoBusqueda = new javax.swing.JComboBox<String>();
+        cbxTipoBusqueda = new javax.swing.JComboBox<>();
         txtBuscar = new javax.swing.JTextField();
         btnBuscarHc = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
@@ -873,24 +873,24 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        cbxDepartamentoNac = new javax.swing.JComboBox<String>();
-        cbxProvinciaNac = new javax.swing.JComboBox<String>();
-        cbxDistritoNac = new javax.swing.JComboBox<String>();
+        cbxDepartamentoNac = new javax.swing.JComboBox<>();
+        cbxProvinciaNac = new javax.swing.JComboBox<>();
+        cbxDistritoNac = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        cbxDepartamento = new javax.swing.JComboBox<String>();
-        cbxProvincia = new javax.swing.JComboBox<String>();
-        cbxDistrito = new javax.swing.JComboBox<String>();
+        cbxDepartamento = new javax.swing.JComboBox<>();
+        cbxProvincia = new javax.swing.JComboBox<>();
+        cbxDistrito = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
-        cbxTipoDireccion = new javax.swing.JComboBox<String>();
+        cbxTipoDireccion = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
         txtNumero = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
-        cbxSector = new javax.swing.JComboBox<String>();
-        cbxDireccion = new javax.swing.JComboBox<String>();
+        cbxSector = new javax.swing.JComboBox<>();
+        cbxDireccion = new javax.swing.JComboBox<>();
         lblNumero = new javax.swing.JLabel();
         lblLt = new javax.swing.JLabel();
         txtLote = new javax.swing.JTextField();
@@ -901,7 +901,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        cbxEstadoCivil = new javax.swing.JComboBox<String>();
+        cbxEstadoCivil = new javax.swing.JComboBox<>();
         txtReligion = new javax.swing.JTextField();
         txtGrupoSan = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
@@ -914,13 +914,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
+        btnNuevo1 = new javax.swing.JButton();
+        btnNuevo2 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -994,7 +989,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         cbxTipoBusqueda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxTipoBusqueda.setForeground(new java.awt.Color(51, 51, 51));
-        cbxTipoBusqueda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "N° de Historia Clínica", "DNI", "Apellidos", "Nombres", "Dirección", "Sector" }));
+        cbxTipoBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "N° de Historia Clínica", "DNI", "Apellidos", "Nombres", "Dirección", "Sector" }));
         cbxTipoBusqueda.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxTipoBusquedaItemStateChanged(evt);
@@ -1400,7 +1395,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addGap(5, 5, 5))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Admisión - Historia Clìnica");
         setMinimumSize(new java.awt.Dimension(855, 722));
 
@@ -1978,7 +1973,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         cbxDepartamentoNac.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxDepartamentoNac.setForeground(new java.awt.Color(102, 102, 102));
-        cbxDepartamentoNac.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
+        cbxDepartamentoNac.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         cbxDepartamentoNac.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxDepartamentoNacItemStateChanged(evt);
@@ -2093,7 +2088,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         cbxDepartamento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxDepartamento.setForeground(new java.awt.Color(102, 102, 102));
-        cbxDepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
+        cbxDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         cbxDepartamento.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxDepartamentoItemStateChanged(evt);
@@ -2112,7 +2107,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         cbxProvincia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxProvincia.setForeground(new java.awt.Color(102, 102, 102));
-        cbxProvincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
+        cbxProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         cbxProvincia.setEnabled(false);
         cbxProvincia.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2132,7 +2127,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         cbxDistrito.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxDistrito.setForeground(new java.awt.Color(102, 102, 102));
-        cbxDistrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
+        cbxDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         cbxDistrito.setEnabled(false);
         cbxDistrito.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2156,7 +2151,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         cbxTipoDireccion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxTipoDireccion.setForeground(new java.awt.Color(102, 102, 102));
-        cbxTipoDireccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
+        cbxTipoDireccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         cbxTipoDireccion.setEnabled(false);
         cbxTipoDireccion.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2340,7 +2335,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         cbxEstadoCivil.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxEstadoCivil.setForeground(new java.awt.Color(102, 102, 102));
-        cbxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Soltero(a)", "Casado(a)", "Viudo(a)", "Divorciado(a),", "Conviviente" }));
+        cbxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero(a)", "Casado(a)", "Viudo(a)", "Divorciado(a),", "Conviviente" }));
         cbxEstadoCivil.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cbxEstadoCivilKeyPressed(evt);
@@ -2515,6 +2510,28 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnNuevo1.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        btnNuevo1.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Agregar propiedad-16.png"))); // NOI18N
+        btnNuevo1.setToolTipText("");
+        btnNuevo1.setContentAreaFilled(false);
+        btnNuevo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNuevo1.setEnabled(false);
+        btnNuevo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        btnNuevo2.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        btnNuevo2.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Agregar propiedad-16.png"))); // NOI18N
+        btnNuevo2.setToolTipText("");
+        btnNuevo2.setContentAreaFilled(false);
+        btnNuevo2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNuevo2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNuevo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevo2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -2535,16 +2552,24 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNuevo2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1085, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btnNuevo1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(5, 5, 5)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2555,78 +2580,20 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNuevo2))
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
-        );
-
-        jPanel14.setBackground(new java.awt.Color(196, 196, 196));
-
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Editar-28.png"))); // NOI18N
-        jLabel28.setText("Modificar (Alt + M)");
-
-        jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Documento-28.png"))); // NOI18N
-        jLabel41.setText("Nuevo (Alt + N)");
-
-        jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Guardar-28.png"))); // NOI18N
-        jLabel42.setText("Guardar (Alt + G)");
-
-        jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Basura-28.png"))); // NOI18N
-        jLabel43.setText("Eliminar (Alt + E)");
-
-        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Búsqueda-28.png"))); // NOI18N
-        jLabel44.setText("Buscar (Alt + B)");
-
-        jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Salida-32.png"))); // NOI18N
-        jLabel45.setText("Salir (ESC)");
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(jLabel41)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel42)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel28)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel43)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel44)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(4, 4, 4))
-            .addComponent(jLabel45, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btnNuevo1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel13.setBackground(new java.awt.Color(43, 43, 43));
@@ -2704,7 +2671,6 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1068, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2720,11 +2686,9 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
         );
 
         pack();
@@ -2913,6 +2877,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         }
                     }
                 }
+                btnNuevo2.setEnabled(true);
             } catch (Exception e) {
             }
         
@@ -2945,7 +2910,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             JOptionPane.showMessageDialog(this, "Ingrese un N° de DNI valido");
         }else{
             if(validaDNI(txtDni.getText())==false){
-                if(txtCodigo.getText().equalsIgnoreCase("") || txtCodigo.getText().length()<8){
+                if(txtCodigo.getText().equalsIgnoreCase("") || txtCodigo.getText().length()<4){
                     JOptionPane.showMessageDialog(this, "Ingrese un Número de Historia Clínica valido");
                 } else {
                     String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6)) + String.valueOf(txtCodigo.getText().charAt(7)); 
@@ -2975,6 +2940,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             btnModificar.setText("Actualizar");
             txtNumero.setEnabled(true);
             btnModificar.setIcon(i);
+            btnNuevo2.setEnabled(true);
         } else 
         if(btnModificar.getText().equals("Actualizar")){ // PERMITE ACTUALIZAR LOS DATOS D EUN REGISTRO
             if(txtID.getText() != (hC.idHistoriaClinica())){
@@ -4102,6 +4068,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 evt.consume();
        }
     }//GEN-LAST:event_txtBuscarKeyTyped
+
+    private void btnNuevo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo2ActionPerformed
+        FrmSector FrmSector=new FrmSector();
+        FrmSector.setVisible(true);
+    }//GEN-LAST:event_btnNuevo2ActionPerformed
     
     public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
        ActionListener escAction = new ActionListener() {
@@ -4186,6 +4157,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private javax.swing.JButton btnImprimir;
     public static javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnNuevo1;
+    private javax.swing.JButton btnNuevo2;
     private javax.swing.JButton btnReasignar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -4219,7 +4192,6 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -4234,11 +4206,6 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -4255,10 +4222,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     public static javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -4289,7 +4254,6 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     public static javax.swing.JTextField txtApellidoPat;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBuscarCodigoHC;
-    public static javax.swing.JTextField txtBuscarPaciente;
     public static javax.swing.JTextField txtCelular;
     public static javax.swing.JTextField txtCodigo;
     public static javax.swing.JTextField txtDni;

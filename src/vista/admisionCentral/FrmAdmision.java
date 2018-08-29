@@ -256,7 +256,6 @@ public class FrmAdmision extends javax.swing.JFrame {
         frmMov.setVisible(true);
         this.dispose();
         String u=Principal.lblUsu.getText();
-        frmMov.lblUsuUsuario.setText(u);
     }//GEN-LAST:event_mnuMovimientoHCActionPerformed
 
     private void mnuSeguimientoHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSeguimientoHCActionPerformed

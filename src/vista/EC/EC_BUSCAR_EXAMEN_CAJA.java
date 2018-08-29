@@ -23,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.EC.EC_EXAMEN_CABECERA;
+import modelos.EC.EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO;
 import modelos.Usuario;
 import servicios.Conexion;
 import static vista.EC.EC_EXAMEN_CAB.btnPersonalRealiza_EC;
@@ -52,10 +53,10 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         initComponents();
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         
-        
+        jPanel3.setVisible(false);
         DETALLE.setLocationRelativeTo(null);
         DETALLE.getContentPane().setBackground(Color.white);
         
@@ -77,6 +78,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         lblGenero_EC_D.setVisible(false);
         lblIDArea_EC_D.setVisible(false);
         lblUsuD_EC_D.setVisible(false);
+        jPanel2.setVisible(false);
+        jPanel5.setVisible(false);
         
         //mostrarPacientes_EC();
         
@@ -108,18 +111,18 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         DETALLE = new javax.swing.JDialog();
         jScrollPane3 = new javax.swing.JScrollPane();
         tb_Detalle_EC_D = new javax.swing.JTable();
-        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        lblNumero = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         lblFechaNaci_EC_D = new javax.swing.JLabel();
-        lblGenero_EC_D = new javax.swing.JLabel();
-        lblEdad_EC_D = new javax.swing.JLabel();
-        lblIDArea_EC_D = new javax.swing.JLabel();
         lblNomAD_EC_D = new javax.swing.JLabel();
         lblUsuD_EC_D = new javax.swing.JLabel();
+        lblEdad_EC_D = new javax.swing.JLabel();
+        lblIDArea_EC_D = new javax.swing.JLabel();
+        lblGenero_EC_D = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        txtNombres_EC_D = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -130,7 +133,6 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         txtAM_EC_D = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtHC_EC_D = new javax.swing.JTextField();
-        txtNombres_EC_D = new javax.swing.JTextField();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         detalle = new javax.swing.JMenuItem();
         jpanel = new javax.swing.JPanel();
@@ -142,33 +144,41 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jLabel4 = new javax.swing.JLabel();
         cbFecha_EC = new javax.swing.JCheckBox();
         fecha_fin_EC = new com.toedter.calendar.JDateChooser();
-        EC_BUSCAR_FECHAS = new javax.swing.JButton();
         jPanel23 = new javax.swing.JPanel();
         txtBuscarPaciente_EC = new javax.swing.JTextField();
+        btnBuscarPaciente = new javax.swing.JButton();
+        EC_BUSCAR_FECHAS = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lblFecha_EC = new javax.swing.JLabel();
+        lblfecha_F2 = new javax.swing.JLabel();
+        lblHora_EC = new javax.swing.JLabel();
+        lblNumeArea_EC = new javax.swing.JLabel();
+        lblNomArea_EC = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Examen_EC = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        lblfecha_F2 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         lblfecha_I_EC = new javax.swing.JLabel();
         lblG_EC = new javax.swing.JLabel();
         lblfecha_F_EC = new javax.swing.JLabel();
-        lblFecha_EC = new javax.swing.JLabel();
-        lblNumeArea_EC = new javax.swing.JLabel();
-        lblHora_EC = new javax.swing.JLabel();
-        lblNomArea_EC = new javax.swing.JLabel();
 
         DETALLE.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        DETALLE.setMinimumSize(new java.awt.Dimension(705, 400));
+        DETALLE.setAlwaysOnTop(true);
+        DETALLE.setMinimumSize(new java.awt.Dimension(690, 350));
+        DETALLE.setResizable(false);
+
+        jScrollPane3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         tb_Detalle_EC_D = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
             }
         };
-        tb_Detalle_EC_D.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        tb_Detalle_EC_D.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        tb_Detalle_EC_D.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tb_Detalle_EC_D.setForeground(new java.awt.Color(51, 51, 51));
         tb_Detalle_EC_D.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -177,37 +187,21 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tb_Detalle_EC_D.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tb_Detalle_EC_D.setRowHeight(25);
-        tb_Detalle_EC_D.setSelectionBackground(new java.awt.Color(40, 112, 99));
+        tb_Detalle_EC_D.setRowHeight(40);
+        tb_Detalle_EC_D.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_Detalle_EC_D.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tb_Detalle_EC_D);
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 1, 23)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("DETALLE");
+        jPanel1.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
-        jPanel1.setBackground(new java.awt.Color(255, 51, 51));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("El paciente tiene ");
-
-        lblNumero.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        lblNumero.setForeground(new java.awt.Color(255, 255, 255));
-        lblNumero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNumero.setText("jLabel12");
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("examen(es) pendiente(es). ¿ Desea cargar ?");
-
-        jButton2.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("OK");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton2.setText("   Cerrar");
+        jButton2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jButton2.setContentAreaFilled(false);
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jButton2.setIconTextGap(30);
         jButton2.setMaximumSize(new java.awt.Dimension(23, 23));
         jButton2.setMinimumSize(new java.awt.Dimension(23, 23));
         jButton2.setPreferredSize(new java.awt.Dimension(23, 23));
@@ -221,33 +215,16 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11)
-                .addGap(0, 0, 0)
-                .addComponent(lblNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel11)
-                .addComponent(lblNumero)
-                .addComponent(jLabel12)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE))
+            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
+        jPanel6.setBackground(new java.awt.Color(230, 230, 230));
+
         lblFechaNaci_EC_D.setText("jLabel13");
-
-        lblGenero_EC_D.setText("jLabel13");
-
-        lblEdad_EC_D.setText("jLabel13");
-
-        lblIDArea_EC_D.setText("jLabel13");
 
         lblNomAD_EC_D.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNomAD_EC_D.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -255,6 +232,59 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
         lblUsuD_EC_D.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         lblUsuD_EC_D.setText("jLabel14");
+
+        lblEdad_EC_D.setText("jLabel13");
+
+        lblIDArea_EC_D.setText("jLabel13");
+
+        lblGenero_EC_D.setText("jLabel13");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(lblEdad_EC_D, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblGenero_EC_D))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(lblFechaNaci_EC_D)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblIDArea_EC_D)))
+                .addGap(18, 18, 18)
+                .addComponent(lblUsuD_EC_D, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(267, 267, 267)
+                .addComponent(lblNomAD_EC_D, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEdad_EC_D)
+                            .addComponent(lblGenero_EC_D))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFechaNaci_EC_D)
+                            .addComponent(lblIDArea_EC_D)))
+                    .addComponent(lblNomAD_EC_D)
+                    .addComponent(lblUsuD_EC_D))
+                .addContainerGap())
+        );
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel40.setText("Detalles");
+
+        txtNombres_EC_D.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombres_EC_D.setForeground(new java.awt.Color(51, 51, 51));
+        txtNombres_EC_D.setText("jLabel3");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -295,10 +325,6 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         txtHC_EC_D.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtHC_EC_D.setEnabled(false);
 
-        txtNombres_EC_D.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        txtNombres_EC_D.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNombres_EC_D.setEnabled(false);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -316,8 +342,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombres_EC_D, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(346, 346, 346))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -331,7 +356,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtDocumento_EC_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -343,9 +368,43 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel6)
-                    .addComponent(txtDNI_EC_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombres_EC_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDNI_EC_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
+        );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(txtNombres_EC_D)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86))))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel40)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNombres_EC_D)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DETALLELayout = new javax.swing.GroupLayout(DETALLE.getContentPane());
@@ -353,53 +412,17 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         DETALLELayout.setHorizontalGroup(
             DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(DETALLELayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(DETALLELayout.createSequentialGroup()
-                        .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(DETALLELayout.createSequentialGroup()
-                                .addComponent(lblEdad_EC_D, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblGenero_EC_D))
-                            .addGroup(DETALLELayout.createSequentialGroup()
-                                .addComponent(lblFechaNaci_EC_D)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblIDArea_EC_D)))
-                        .addGap(18, 18, 18)
-                        .addComponent(lblUsuD_EC_D, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblNomAD_EC_D, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
         );
         DETALLELayout.setVerticalGroup(
             DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DETALLELayout.createSequentialGroup()
-                .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DETALLELayout.createSequentialGroup()
-                        .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEdad_EC_D)
-                            .addComponent(lblGenero_EC_D))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFechaNaci_EC_D)
-                            .addComponent(lblIDArea_EC_D)))
-                    .addGroup(DETALLELayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(lblNomAD_EC_D)
-                            .addComponent(lblUsuD_EC_D))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         detalle.setText("Ver detalle");
@@ -411,25 +434,22 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jPopupMenu1.add(detalle);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(900, 600));
-        setResizable(false);
 
-        jpanel.setBackground(new java.awt.Color(102, 102, 102));
+        jpanel.setBackground(new java.awt.Color(40, 40, 43));
 
         titulo5.setBackground(new java.awt.Color(0, 102, 102));
         titulo5.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
-        titulo5.setForeground(new java.awt.Color(255, 255, 255));
-        titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo5.setText("Exámenes EC");
+        titulo5.setForeground(new java.awt.Color(204, 204, 204));
+        titulo5.setText("Ordenes");
         titulo5.setToolTipText("");
         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 25)); // NOI18N
+        lblUsu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblUsu.setForeground(new java.awt.Color(255, 255, 255));
         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblUsu.setText("Usuario");
 
-        fecha_inicio_EC.setBackground(new java.awt.Color(255, 255, 255));
+        fecha_inicio_EC.setBackground(new java.awt.Color(40, 40, 43));
         fecha_inicio_EC.setDateFormatString("dd-MM-yyyy");
         fecha_inicio_EC.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -444,17 +464,17 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Inicio :");
+        jLabel1.setText("Desde");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Termino :");
+        jLabel2.setText("Hasta");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("AM, DNI , HC, APELLIDOS Y NOMBRES");
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setText("AM, DNI, HC, Apellidos y Nombres");
 
-        cbFecha_EC.setBackground(new java.awt.Color(255, 255, 255));
+        cbFecha_EC.setBackground(new java.awt.Color(40, 40, 43));
         cbFecha_EC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbFecha_EC.setForeground(new java.awt.Color(255, 255, 255));
         cbFecha_EC.setText("Buscar por Rango de Fechas");
@@ -469,19 +489,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             }
         });
 
-        fecha_fin_EC.setBackground(new java.awt.Color(255, 255, 255));
+        fecha_fin_EC.setBackground(new java.awt.Color(40, 40, 43));
         fecha_fin_EC.setDateFormatString("dd-MM-yyyy");
         fecha_fin_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fecha_fin_ECKeyTyped(evt);
-            }
-        });
-
-        EC_BUSCAR_FECHAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-32.png"))); // NOI18N
-        EC_BUSCAR_FECHAS.setContentAreaFilled(false);
-        EC_BUSCAR_FECHAS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EC_BUSCAR_FECHASActionPerformed(evt);
             }
         });
 
@@ -518,57 +530,160 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             .addComponent(txtBuscarPaciente_EC, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
+        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+        btnBuscarPaciente.setContentAreaFilled(false);
+        btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPacienteActionPerformed(evt);
+            }
+        });
+
+        EC_BUSCAR_FECHAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+        EC_BUSCAR_FECHAS.setContentAreaFilled(false);
+        EC_BUSCAR_FECHAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EC_BUSCAR_FECHAS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EC_BUSCAR_FECHASActionPerformed(evt);
+            }
+        });
+
+        lblFecha_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha_EC.setText("jLabel3");
+
+        lblfecha_F2.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        lblfecha_F2.setForeground(new java.awt.Color(255, 255, 255));
+        lblfecha_F2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblfecha_F2.setText(" ");
+
+        lblHora_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblHora_EC.setText("jLabel3");
+
+        lblNumeArea_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumeArea_EC.setText("jLabel3");
+
+        lblNomArea_EC.setBackground(new java.awt.Color(43, 43, 43));
+        lblNomArea_EC.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        lblNomArea_EC.setForeground(new java.awt.Color(43, 43, 43));
+        lblNomArea_EC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNomArea_EC.setText("jLabel3");
+
+        jLabel13.setForeground(new java.awt.Color(43, 43, 43));
+        jLabel13.setText("jLabel3");
+
+        jLabel14.setForeground(new java.awt.Color(43, 43, 43));
+        jLabel14.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNomArea_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblFecha_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNumeArea_EC)
+                        .addGap(26, 26, 26)
+                        .addComponent(lblHora_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(lblfecha_F2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNomArea_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNumeArea_EC)
+                            .addComponent(lblFecha_EC)
+                            .addComponent(lblHora_EC))
+                        .addGap(16, 16, 16)
+                        .addComponent(lblfecha_F2)))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
         jpanel.setLayout(jpanelLayout);
         jpanelLayout.setHorizontalGroup(
             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cbFecha_EC, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelLayout.createSequentialGroup()
-                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fecha_fin_EC, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                                    .addComponent(fecha_inicio_EC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelLayout.createSequentialGroup()
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fecha_inicio_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(fecha_fin_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpanelLayout.createSequentialGroup()
+                                .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EC_BUSCAR_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(titulo5)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(EC_BUSCAR_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbFecha_EC, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanelLayout.createSequentialGroup()
+                        .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125))
         );
         jpanelLayout.setVerticalGroup(
             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
-                .addComponent(cbFecha_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fecha_inicio_EC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(21, 21, 21)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(fecha_fin_EC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(EC_BUSCAR_FECHAS)))
-                .addGap(51, 51, 51)
-                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addGap(41, 41, 41)
+                        .addComponent(cbFecha_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(fecha_inicio_EC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(fecha_fin_EC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EC_BUSCAR_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -578,6 +693,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                 return false; //Disallow the editing of any cell
             }
         };
+        tb_Examen_EC.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         tb_Examen_EC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -589,11 +705,15 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tb_Examen_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Examen_EC.setComponentPopupMenu(jPopupMenu1);
         tb_Examen_EC.setRowHeight(35);
         tb_Examen_EC.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tb_Examen_EC.getTableHeader().setReorderingAllowed(false);
+        tb_Examen_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_Examen_ECMouseClicked(evt);
+            }
+        });
         tb_Examen_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_Examen_ECKeyPressed(evt);
@@ -601,26 +721,15 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         });
         jScrollPane1.setViewportView(tb_Examen_EC);
 
-        jPanel4.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel4.setBackground(new java.awt.Color(25, 188, 157));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Light", 0, 23)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Exámenes del Día");
 
-        lblfecha_F2.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblfecha_F2.setForeground(new java.awt.Color(255, 255, 255));
-        lblfecha_F2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblfecha_F2.setText(" ");
-
-        jLabel13.setForeground(new java.awt.Color(43, 43, 43));
-        jLabel13.setText("jLabel3");
-
-        jLabel14.setForeground(new java.awt.Color(43, 43, 43));
-        jLabel14.setText("jLabel3");
-
         lblfecha_I_EC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblfecha_I_EC.setForeground(new java.awt.Color(255, 255, 255));
-        lblfecha_I_EC.setText("  ");
+        lblfecha_I_EC.setText("     ");
 
         lblG_EC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblG_EC.setForeground(new java.awt.Color(255, 255, 255));
@@ -628,86 +737,34 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
         lblfecha_F_EC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblfecha_F_EC.setForeground(new java.awt.Color(255, 255, 255));
-        lblfecha_F_EC.setText(" ");
-
-        lblFecha_EC.setForeground(new java.awt.Color(255, 255, 255));
-        lblFecha_EC.setText("jLabel3");
-
-        lblNumeArea_EC.setForeground(new java.awt.Color(255, 255, 255));
-        lblNumeArea_EC.setText("jLabel3");
-
-        lblHora_EC.setForeground(new java.awt.Color(255, 255, 255));
-        lblHora_EC.setText("jLabel3");
-
-        lblNomArea_EC.setBackground(new java.awt.Color(43, 43, 43));
-        lblNomArea_EC.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        lblNomArea_EC.setForeground(new java.awt.Color(43, 43, 43));
-        lblNomArea_EC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblNomArea_EC.setText("jLabel3");
+        lblfecha_F_EC.setText("     ");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
-                        .addGap(108, 108, 108)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(lblFecha_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblHora_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(lblNumeArea_EC)))
-                        .addGap(170, 170, 170))
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(492, 492, 492))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(lblfecha_I_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblfecha_I_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblG_EC)
                         .addGap(10, 10, 10)
                         .addComponent(lblfecha_F_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(185, 185, 185)
-                        .addComponent(lblfecha_F2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(183, 183, 183)
-                        .addComponent(jLabel14))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblNomArea_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(616, 616, 616)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel15))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblFecha_EC)
-                                    .addComponent(lblHora_EC))
-                                .addGap(13, 13, 13)
-                                .addComponent(lblNumeArea_EC))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblNomArea_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(19, 19, 19)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel15)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblfecha_F2)
                     .addComponent(lblfecha_I_EC)
                     .addComponent(lblG_EC)
                     .addComponent(lblfecha_F_EC))
@@ -719,18 +776,19 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
             .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -786,8 +844,68 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
     }//GEN-LAST:event_fecha_fin_ECKeyTyped
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {   
+//            EC_BUSCAR_EXAMEN_CAJA R = new EC_BUSCAR_EXAMEN_CAJA();
+//            R.setVisible(false);
+//            DETALLE.dispose();
+//            cargar_tabla_cabecera_OK_EC();
+            DETALLE.setVisible(false);
+         
+        } catch (Exception e) {
+        }        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtDocumento_EC_DCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDocumento_EC_DCaretUpdate
+        VER_DETALLE();
+    }//GEN-LAST:event_txtDocumento_EC_DCaretUpdate
+
+    private void detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detalleActionPerformed
+        DETALLE.setVisible(true);
+        ver_detalle_EC();
+    }//GEN-LAST:event_detalleActionPerformed
+
+    private void tb_Examen_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Examen_ECKeyPressed
+       char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+                    
+                    int filaselec=tb_Examen_EC.getSelectedRow();
+                    if( filaselec>=0){
+                        cargar_tabla_cabecera_ENTER_EC();
+
+                        if(txtCOD_CABECERA.getText().length()!=0){
+                            btnPersonalRegistra_EC.setEnabled(false);
+                            btnPersonalRealiza_EC.setEnabled(false);
+                            btnPersonalSolicita.setEnabled(false);
+                            tb_examen_det_EC.setEnabled(true);
+                            tb_examen_det_EC.setBackground(Color.white);
+                        }else{
+                            btnPersonalRegistra_EC.requestFocus();
+                        }
+                    
+                    } 
+                    
+        }
+    }//GEN-LAST:event_tb_Examen_ECKeyPressed
+
+    private void txtBuscarPaciente_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_ECKeyPressed
+       char tecla= evt.getKeyChar();
+      if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tb_Examen_EC.getSelectionModel().setSelectionInterval(0, 0);
+            tb_Examen_EC.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarPaciente_ECKeyPressed
+
+    private void txtBuscarPaciente_ECKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_ECKeyReleased
+       txtBuscarPaciente_EC.setText(txtBuscarPaciente_EC.getText().toUpperCase());
+    }//GEN-LAST:event_txtBuscarPaciente_ECKeyReleased
+
+    private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
+
+    }//GEN-LAST:event_btnBuscarPacienteActionPerformed
+
     private void EC_BUSCAR_FECHASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EC_BUSCAR_FECHASActionPerformed
-      try{
+         try{
           
          String fecha = lblFecha_EC.getText();
          int diaAC = Integer.parseInt(fecha.substring(0, 2));
@@ -851,31 +969,9 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
           }
     }//GEN-LAST:event_EC_BUSCAR_FECHASActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {   
-            EC_BUSCAR_EXAMEN_CAJA R = new EC_BUSCAR_EXAMEN_CAJA();
-            R.setVisible(false);
-            DETALLE.dispose();
-            cargar_tabla_cabecera_OK_EC();
-         
-        } catch (Exception e) {
-        }        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void txtDocumento_EC_DCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDocumento_EC_DCaretUpdate
-        VER_DETALLE();
-    }//GEN-LAST:event_txtDocumento_EC_DCaretUpdate
-
-    private void detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detalleActionPerformed
-        DETALLE.setVisible(true);
-        ver_detalle_EC();
-    }//GEN-LAST:event_detalleActionPerformed
-
-    private void tb_Examen_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Examen_ECKeyPressed
-       char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    
-                    int filaselec=tb_Examen_EC.getSelectedRow();
+    private void tb_Examen_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Examen_ECMouseClicked
+        if(evt.getClickCount()==2){
+            int filaselec=tb_Examen_EC.getSelectedRow();
                     if( filaselec>=0){
                         cargar_tabla_cabecera_ENTER_EC();
 
@@ -890,21 +986,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                         }
                     
                     } 
-                    
         }
-    }//GEN-LAST:event_tb_Examen_ECKeyPressed
-
-    private void txtBuscarPaciente_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_ECKeyPressed
-       char tecla= evt.getKeyChar();
-      if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
-            tb_Examen_EC.getSelectionModel().setSelectionInterval(0, 0);
-            tb_Examen_EC.requestFocus();
-        }
-    }//GEN-LAST:event_txtBuscarPaciente_ECKeyPressed
-
-    private void txtBuscarPaciente_ECKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_ECKeyReleased
-       txtBuscarPaciente_EC.setText(txtBuscarPaciente_EC.getText().toUpperCase());
-    }//GEN-LAST:event_txtBuscarPaciente_ECKeyReleased
+    }//GEN-LAST:event_tb_Examen_ECMouseClicked
 
     public void inicializar_tabla_Examenes_EC(){       
         try {
@@ -963,11 +1046,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     
     public void formatoExamen_EC(){        
               
-            tb_Examen_EC.getColumnModel().getColumn(0).setPreferredWidth(80); 
+
             tb_Examen_EC.getColumnModel().getColumn(1).setPreferredWidth(80);
             tb_Examen_EC.getColumnModel().getColumn(2).setPreferredWidth(300);
             tb_Examen_EC.getColumnModel().getColumn(3).setPreferredWidth(100);                
-            tb_Examen_EC.getColumnModel().getColumn(4).setPreferredWidth(60); 
+
             tb_Examen_EC.getColumnModel().getColumn(5).setPreferredWidth(60);
             tb_Examen_EC.getColumnModel().getColumn(6).setPreferredWidth(60);
             tb_Examen_EC.getColumnModel().getColumn(7).setPreferredWidth(80); 
@@ -979,6 +1062,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             tb_Examen_EC.getColumnModel().getColumn(0).setMaxWidth(0);    
             tb_Examen_EC.getColumnModel().getColumn(4).setMinWidth(0);
             tb_Examen_EC.getColumnModel().getColumn(4).setMaxWidth(0);
+            tb_Examen_EC.getColumnModel().getColumn(10).setMinWidth(0);
+            tb_Examen_EC.getColumnModel().getColumn(10).setMaxWidth(0);
     }
     
     public void mostrarArea_EC(){
@@ -1005,7 +1090,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         txtHC_EC_D.setText(tb_Examen_EC.getValueAt(filaselec, 1).toString());
         txtDNI_EC_D.setText(tb_Examen_EC.getValueAt(filaselec, 3).toString());
         txtNombres_EC_D.setText(tb_Examen_EC.getValueAt(filaselec, 2).toString());
-        lblNumero.setText(tb_Examen_EC.getValueAt(filaselec, 8).toString());
+//        lblNumero.setText(tb_Examen_EC.getValueAt(filaselec, 8).toString());
         lblFechaNaci_EC_D.setText(tb_Examen_EC.getValueAt(filaselec, 4).toString());
         lblEdad_EC_D.setText(tb_Examen_EC.getValueAt(filaselec, 5).toString());
         lblGenero_EC_D.setText(tb_Examen_EC.getValueAt(filaselec, 6).toString());
@@ -1049,9 +1134,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     }
     
     public void formatoVerDetalle(){                      
-            tb_Detalle_EC_D.getColumnModel().getColumn(0).setPreferredWidth(130); 
-            tb_Detalle_EC_D.getColumnModel().getColumn(1).setPreferredWidth(130);
-            tb_Detalle_EC_D.getColumnModel().getColumn(2).setPreferredWidth(600);                      
+            tb_Detalle_EC_D.getColumnModel().getColumn(0).setMinWidth(0);
+            tb_Detalle_EC_D.getColumnModel().getColumn(0).setMaxWidth(0);    
+            tb_Detalle_EC_D.getColumnModel().getColumn(1).setMinWidth(0);
+            tb_Detalle_EC_D.getColumnModel().getColumn(1).setMaxWidth(0);
+            tb_Detalle_EC_D.getColumnModel().getColumn(2).setPreferredWidth(600);               
     }
      
     public void cargar_tabla_cabecera_ENTER_EC(){
@@ -1062,11 +1149,26 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                            dispose();
                             EC_EXAMEN_CAB ec=new EC_EXAMEN_CAB();
                             ec.setVisible(true);
-                            
+                           
                             EC_EXAMEN_CAB.txtCodigoDoc_EC.setText(tb_Examen_EC.getValueAt(filaselec, 10).toString());
+                            
+                            EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO cno1 = new EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO();
+                            cno1.setID_DOCUMENTO(tb_Examen_EC.getValueAt(filaselec, 10).toString());
+                                if(cno1.EC_FUA()==true){
+                                       System.out.println("FUA GENERADO");
+                                } else {
+                                        System.out.println("ERROR GENERAR FUA");
+                                }
+                            
                             EC_EXAMEN_CAB.txtAM.setText(tb_Examen_EC.getValueAt(filaselec, 7).toString());
                             EC_EXAMEN_CAB.txtHC.setText(tb_Examen_EC.getValueAt(filaselec, 1).toString());
                             EC_EXAMEN_CAB.txtDNI.setText(tb_Examen_EC.getValueAt(filaselec, 3).toString());
+                            
+                            EC_EXAMEN_CAB.jLabel39.setText(tb_Examen_EC.getValueAt(filaselec, 7).toString());
+                            EC_EXAMEN_CAB.txtEdad2.setText(tb_Examen_EC.getValueAt(filaselec, 1).toString());
+                            EC_EXAMEN_CAB.txtEdad1.setText(tb_Examen_EC.getValueAt(filaselec, 3).toString());
+                            
+                            
                             EC_EXAMEN_CAB.txtNombreP.setText(tb_Examen_EC.getValueAt(filaselec, 2).toString());
 //                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
                             EC_EXAMEN_CAB.txtEdad.setText(tb_Examen_EC.getValueAt(filaselec, 5).toString());
@@ -1087,6 +1189,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
         }           
     }
+    
     
     public void cargar_tabla_cabecera_OK_EC(){
     try{
@@ -1346,7 +1449,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EC_BUSCAR_EXAMEN_CAJA().setVisible(true);
+                try {
+                    new EC_BUSCAR_EXAMEN_CAJA().setVisible(true);
+                } catch (Exception e) {
+                }
+                
             }
         });
     }
@@ -1354,20 +1461,19 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DETALLE;
     private javax.swing.JButton EC_BUSCAR_FECHAS;
+    private javax.swing.JButton btnBuscarPaciente;
     private javax.swing.JCheckBox cbFecha_EC;
     private javax.swing.JMenuItem detalle;
     private com.toedter.calendar.JDateChooser fecha_fin_EC;
     private com.toedter.calendar.JDateChooser fecha_inicio_EC;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1376,7 +1482,10 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1391,7 +1500,6 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JLabel lblNomAD_EC_D;
     private javax.swing.JLabel lblNomArea_EC;
     private javax.swing.JLabel lblNumeArea_EC;
-    private javax.swing.JLabel lblNumero;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lblUsuD_EC_D;
     private javax.swing.JLabel lblfecha_F2;
@@ -1405,7 +1513,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JTextField txtDNI_EC_D;
     private javax.swing.JTextField txtDocumento_EC_D;
     private javax.swing.JTextField txtHC_EC_D;
-    private javax.swing.JTextField txtNombres_EC_D;
+    private javax.swing.JLabel txtNombres_EC_D;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -1415,7 +1523,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         while (ct == h1) {
             calcula();
             if(cbFecha_EC.isSelected()==false){
-                mostrarPacientes_EC();
+                try {
+                    mostrarPacientes_EC();
+                } catch (Exception e) {
+                }
+                
             }
             
             lblHora_EC.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);

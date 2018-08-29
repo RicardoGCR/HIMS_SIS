@@ -70,6 +70,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         getContentPane().setBackground(Color.WHITE);
         setLocationRelativeTo(null);//en el centro
         habilitarBotones(true);
+        btnModificar.setEnabled(true);
         habilitarOpciones(false);
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
@@ -161,7 +162,9 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         cbxDistrito.setSelectedIndex(0);
         cbxSector.setSelectedIndex(0);
         cbxTipoDireccion.setSelectedIndex(0);
-        txtDireccion.setText("");
+        txtDireccion.setText(""); 
+        txtAlias.setText("");
+
     }
     
     public void cabecera(){
@@ -250,7 +253,8 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                 se1.setCod_dis(se1.codDistrito(cbxDistrito.getSelectedItem().toString()));
                 se1.setSe_cod(cbxSector.getSelectedItem().toString());
                 se1.setSe_tipo_dir(cbxTipoDireccion.getSelectedItem().toString());
-                se1.setSe_dir(txtDireccion.getText());
+                se1.setSe_dir(txtDireccion.getText());    
+                se1.setSe_alias(txtAlias.getText());
                 se1.setSe_usuario(lblUsuUsuario.getText());
                 se1.setCod_prov(se1.codProvincia(String.valueOf(cbxProvinciaS.getSelectedItem().toString())));
                 se1.setCod_dep(se1.codDepartamento(cbxDepartamentoS.getSelectedItem().toString()));
@@ -270,19 +274,13 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                 }
     }
     
-    public void verificaDireccion(String tipo, String direccion, String dpto, String prov, String distrito, String sector){
+    public void verificaDireccion(String tipo, String direccion,String Alias, String dpto, String prov, String distrito, String sector){
         try {
-            PreparedStatement cmd = se.getCn().prepareStatement("SELECT * FROM SISTEMA_SECTOR SE, SISTEMA_DEPARTAMENTO SD, SISTEMA_PROVINCIA SP, SISTEMA_DISTRITO SDIS \n" +
-"         WHERE SE_TIPO_DIR LIKE '"+tipo+"'\n" +
-"         AND SE_DIR = '"+direccion+"'\n" +
-"         AND SE.COD_DIS = SDIS.cod_dis\n" +
-"         AND SE.COD_DEP = SD.cod_dep\n" +
-"         AND SE.COD_PROV = SP.cod_prov\n" +
-"         AND SD.nombre_departamento = '"+dpto+"'\n" +
-"         AND SP.nombre_provincia = '"+prov+"'\n" +
-"         AND SDIS.nombre_distrito = '"+distrito+"'\n" +
-"		 AND SE.SE_COD = '"+sector+"'\n" +
-"		 AND SE.SE_ESTADO = 'A'");
+            PreparedStatement cmd = se.getCn().prepareStatement("SELECT * FROM SISTEMA_SECTOR SE\n" +
+"inner join st_dpto DPTO ON SE.DEPT=DPTO.CODDPTO AND DPTO.DESCRI='"+dpto+"'\n" +
+"INNER JOIN ST_prov PROV ON SE.PROV=PROV.CODDPTO AND  SE.DEPT=PROV.CODDPTO AND PROV.DESCRI='"+prov+"'\n" +
+"INNER JOIN ST_DIST DIST ON SE.DIST=DIST.CODDIST AND  SE.DEPT=DIST.CODDPTO AND  SE.PROV=DIST.CODPROV AND DIST.DESCRI='"+distrito+"'\n" +
+"WHERE SE_TIPO_DIR LIKE '"+tipo+"' AND SE_ALIAS = '"+Alias+"' AND SE_DIR = '"+direccion+"'AND SE.SE_COD = '"+sector+"' AND SE.SE_ESTADO = 'A'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){
                 JOptionPane.showMessageDialog(null, "Es posible que esta dirección ya se ecuentre \n \t                 en la Base de Datos");
@@ -305,7 +303,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         tbSectorizacion = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        cbxTipoBusqueda = new javax.swing.JComboBox<String>();
+        cbxTipoBusqueda = new javax.swing.JComboBox<>();
         txtBuscarSector = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -313,6 +311,16 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         rbtInactivos = new javax.swing.JRadioButton();
         rbtTodos = new javax.swing.JRadioButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jButton1 = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
+        jDist = new javax.swing.JLabel();
+        jDept = new javax.swing.JLabel();
+        jProv = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        btnGuardar1 = new javax.swing.JButton();
+        jToolBar1 = new javax.swing.JToolBar();
         jPanel8 = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -335,11 +343,11 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cbxDepartamentoS = new javax.swing.JComboBox<String>();
-        cbxProvinciaS = new javax.swing.JComboBox<String>();
-        cbxDistrito = new javax.swing.JComboBox<String>();
-        cbxSector = new javax.swing.JComboBox<String>();
-        cbxTipoDireccion = new javax.swing.JComboBox<String>();
+        cbxDepartamentoS = new javax.swing.JComboBox<>();
+        cbxProvinciaS = new javax.swing.JComboBox<>();
+        cbxDistrito = new javax.swing.JComboBox<>();
+        cbxSector = new javax.swing.JComboBox<>();
+        cbxTipoDireccion = new javax.swing.JComboBox<>();
         txtDireccion = new javax.swing.JTextField();
         jPanel14 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -348,6 +356,9 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
+        btnNuevo1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtAlias = new javax.swing.JTextField();
 
         BuscarSector.setMinimumSize(new java.awt.Dimension(750, 450));
         BuscarSector.setResizable(false);
@@ -410,7 +421,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         jLabel8.setText("Buscar por:");
 
         cbxTipoBusqueda.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        cbxTipoBusqueda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de Sector", "Distrito", "Dirección" }));
+        cbxTipoBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "N° de Sector", "Distrito", "Dirección" }));
         cbxTipoBusqueda.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxTipoBusquedaItemStateChanged(evt);
@@ -535,7 +546,90 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jButton1.setText("jButton1");
+
+        jDialog1.setAutoRequestFocus(false);
+        jDialog1.setMaximumSize(new java.awt.Dimension(526, 133));
+        jDialog1.setMinimumSize(new java.awt.Dimension(526, 133));
+        jDialog1.setSize(new java.awt.Dimension(526, 133));
+
+        jDist.setText("DISTRITO");
+
+        jDept.setText("DEPARTAMENTO");
+
+        jProv.setText("PROVINCIA");
+
+        jPanel10.setBackground(new java.awt.Color(101, 166, 136));
+        jPanel10.setPreferredSize(new java.awt.Dimension(500, 65));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("NUEVO SECTOR");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+        );
+
+        btnGuardar1.setBackground(new java.awt.Color(0, 0, 0));
+        btnGuardar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnGuardar1.setText("GUARDAR");
+        btnGuardar1.setToolTipText("");
+        btnGuardar1.setContentAreaFilled(false);
+        btnGuardar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDist)
+                .addGap(18, 18, 18)
+                .addComponent(jDept)
+                .addGap(18, 18, 18)
+                .addComponent(jProv)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1)
+                .addContainerGap())
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                .addContainerGap(223, Short.MAX_VALUE)
+                .addComponent(btnGuardar1)
+                .addGap(210, 210, 210))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDist)
+                    .addComponent(jDept)
+                    .addComponent(jProv)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jDialog1.getAccessibleContext().setAccessibleDescription("");
+
+        jToolBar1.setRollover(true);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sectorización");
 
         jPanel8.setBackground(new java.awt.Color(101, 166, 136));
@@ -667,7 +761,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -751,7 +845,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
 
         cbxDepartamentoS.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxDepartamentoS.setForeground(new java.awt.Color(102, 102, 102));
-        cbxDepartamentoS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxDepartamentoS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbxDepartamentoS.setBorder(null);
         cbxDepartamentoS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbxDepartamentoS.addItemListener(new java.awt.event.ItemListener() {
@@ -767,7 +861,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
 
         cbxProvinciaS.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxProvinciaS.setForeground(new java.awt.Color(102, 102, 102));
-        cbxProvinciaS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
+        cbxProvinciaS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         cbxProvinciaS.setBorder(null);
         cbxProvinciaS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbxProvinciaS.addItemListener(new java.awt.event.ItemListener() {
@@ -783,7 +877,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
 
         cbxDistrito.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxDistrito.setForeground(new java.awt.Color(102, 102, 102));
-        cbxDistrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
+        cbxDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         cbxDistrito.setBorder(null);
         cbxDistrito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbxDistrito.addItemListener(new java.awt.event.ItemListener() {
@@ -799,7 +893,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
 
         cbxSector.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxSector.setForeground(new java.awt.Color(102, 102, 102));
-        cbxSector.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
+        cbxSector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         cbxSector.setBorder(null);
         cbxSector.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbxSector.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -810,7 +904,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
 
         cbxTipoDireccion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         cbxTipoDireccion.setForeground(new java.awt.Color(102, 102, 102));
-        cbxTipoDireccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Urb", "Calle", "Barrio", "Av", "Psje", "AA.HH.", "Prol" }));
+        cbxTipoDireccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Urb", "Calle", "Barrio", "Av", "Psje", "AA.HH.", "Prol" }));
         cbxTipoDireccion.setBorder(null);
         cbxTipoDireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbxTipoDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -872,7 +966,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                 .addComponent(jLabel43)
                 .addGap(6, 6, 6)
                 .addComponent(jLabel44)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addComponent(jLabel45)
                 .addContainerGap())
         );
@@ -889,45 +983,75 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                     .addComponent(jLabel45)))
         );
 
+        btnNuevo1.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        btnNuevo1.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Agregar propiedad-16.png"))); // NOI18N
+        btnNuevo1.setToolTipText("");
+        btnNuevo1.setContentAreaFilled(false);
+        btnNuevo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNuevo1.setEnabled(false);
+        btnNuevo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNuevo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevo1ActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel10.setText("Alias");
+
+        txtAlias.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtAlias.setForeground(new java.awt.Color(102, 102, 102));
+        txtAlias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAliasKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(38, 38, 38)))
-                        .addGap(84, 84, 84)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbxDepartamentoS, 0, 186, Short.MAX_VALUE)
-                            .addComponent(cbxProvinciaS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxDistrito, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxSector, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxTipoDireccion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtDireccion)))
-                    .addComponent(jSeparator1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(38, 38, 38)))
+                                .addGap(84, 84, 84)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbxDepartamentoS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbxProvinciaS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbxDistrito, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbxSector, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDireccion)
+                                    .addComponent(cbxTipoDireccion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jSeparator1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNuevo1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -944,31 +1068,37 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel7))
                     .addComponent(cbxDepartamentoS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel6))
                     .addComponent(cbxProvinciaS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cbxDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(cbxSector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cbxTipoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNuevo1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(cbxSector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbxTipoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtAlias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -977,9 +1107,10 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         habilitarOpciones(true);
         habilitarBotones(false);
-        btnModificar.setEnabled(false);
+        //btnModificar.setEnabled(false);
         btnEliminar.setEnabled(false);
-        btnBuscar.setEnabled(true);
+        btnBuscar.setEnabled(true); 
+        btnNuevo1.setEnabled(true);
         limpiarDatos();
         cbxDepartamentoS.requestFocus();
         cbxDepartamentoS.showPopup();
@@ -987,14 +1118,15 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         String tipo = cbxTipoDireccion.getSelectedItem().toString();
-        String direccion = txtDireccion.getText();
+        String direccion = txtDireccion.getText();       
+        String alias = txtAlias.getText();
         String dpto = cbxDepartamentoS.getSelectedItem().toString();
         String prov = cbxProvinciaS.getSelectedItem().toString();
         String distrito = cbxDistrito.getSelectedItem().toString();
         String sector = cbxSector.getSelectedItem().toString();
         String provincia = cbxProvinciaS.getSelectedItem().toString();
         String departamento = cbxDepartamentoS.getSelectedItem().toString();
-        verificaDireccion(tipo,direccion,dpto,prov,distrito,sector);
+        verificaDireccion(tipo,direccion,alias,dpto,prov,distrito,sector);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -1155,8 +1287,10 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                     if(this.cbxDistrito.getSelectedIndex()>0){
                         this.cbxSector.removeAllItems(); 
                     Statement sta=conexion.createStatement();
+                    String provincia=cbxProvinciaS.getSelectedItem().toString();   
                     String distrito=cbxDistrito.getSelectedItem().toString();
-                    ResultSet rs=sta.executeQuery("EXEC SP_SISTEMASECTOR_LISTAR '"+se.codDistrito(distrito)+"'");
+                        System.out.println(distrito);
+                    ResultSet rs=sta.executeQuery("EXEC SP_SISTEMASECTOR_LISTAR '"+provincia+"','"+distrito+"'");
                     this.cbxSector.addItem("Seleccionar...");
                     while(rs.next()){
                      this.cbxSector.addItem(rs.getString("SE_COD"));
@@ -1299,6 +1433,65 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         }
     }//GEN-LAST:event_cbxTipoDireccionKeyPressed
 
+    private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
+        jDialog1.setVisible(true);
+        String dpt=cbxDepartamentoS.getSelectedItem().toString();
+        String prov=cbxProvinciaS.getSelectedItem().toString();
+        String dist=cbxDistrito.getSelectedItem().toString();
+        jDept.setText(dpt);  
+        jProv.setText(prov);
+        jDist.setText(dist);
+        try{  
+            Statement sta=conexion.createStatement();
+            String distrito=cbxDistrito.getSelectedItem().toString();
+            ResultSet rs=sta.executeQuery("EXEC [GENERAR_SE_COD] ");
+            rs.next();
+            this.jTextField1.setText(rs.getString("SE_COD"));
+        }
+        catch(Exception ex) 
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_btnNuevo1ActionPerformed
+
+    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+        try {
+            Sector se1 = new Sector();
+            if(jDist.getText().equals("Seleccionar...") || jProv.getText().equals("Seleccionar...") || jDept.getText().equals("Seleccionar...")){
+                JOptionPane.showMessageDialog(this, "Elija Los campos Correctos");
+            }else{
+                if(se1.nuevoSEctor(jTextField1.getText(), jDist.getText(), jProv.getText(), jDept.getText())==true){
+                    JOptionPane.showMessageDialog(this, "Datos Guardados");
+                    jDialog1.setVisible(false);
+                        if(this.cbxDistrito.getSelectedIndex()>0){
+                            this.cbxSector.removeAllItems(); 
+                        Statement sta=conexion.createStatement();
+                        String provincia=cbxProvinciaS.getSelectedItem().toString();   
+                        String distrito=cbxDistrito.getSelectedItem().toString();
+                        System.out.println(distrito);
+                        ResultSet rs=sta.executeQuery("EXEC SP_SISTEMASECTOR_LISTAR '"+provincia+"','"+distrito+"'");
+                        this.cbxSector.addItem("Seleccionar..."); 
+                        while(rs.next()){
+                         this.cbxSector.addItem(rs.getString("SE_COD"));
+                        }
+                         }else{
+                                this.cbxSector.removeAllItems();
+
+                            this.cbxSector.addItem("Seleccionar...");
+                                }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al guardar");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnGuardar1ActionPerformed
+
+    private void txtAliasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAliasKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAliasKeyReleased
+
     //HORA
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
@@ -1350,8 +1543,10 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
     private javax.swing.JButton btnBuscar;
     public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnGuardar;
+    public static javax.swing.JButton btnGuardar1;
     public static javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnNuevo1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxDepartamentoS;
     private javax.swing.JComboBox<String> cbxDistrito;
@@ -1359,9 +1554,15 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
     private javax.swing.JComboBox<String> cbxSector;
     private javax.swing.JComboBox<String> cbxTipoBusqueda;
     private javax.swing.JComboBox<String> cbxTipoDireccion;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jDept;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jDist;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel28;
@@ -1378,12 +1579,16 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel jProv;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblUsuUsuario;
@@ -1393,6 +1598,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
     private javax.swing.JTable tbSectorizacion;
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
+    private javax.swing.JTextField txtAlias;
     private javax.swing.JTextField txtBuscarSector;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtID;

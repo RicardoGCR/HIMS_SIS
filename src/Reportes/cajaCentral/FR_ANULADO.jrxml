@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
+	<property name="ireport.zoom" value="2.000000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#666666"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#666666"/>
+			<bottomPen lineWidth="0.5" lineColor="#666666"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#666666"/>
+			<bottomPen lineWidth="0.5" lineColor="#666666"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#666666"/>
+			<bottomPen lineWidth="0.5" lineColor="#666666"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="DetalleDoc" uuid="61acbba3-ce3a-4e29-9f2c-ab04b23a8606">
+		<parameter name="id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[EXEC CAJA_FARMACIA_ANULADOS_REPORTE $P{id}]]>
+		</queryString>
+		<field name="ID_CAB" class="java.lang.String"/>
+		<field name="F_PAGO" class="java.lang.String"/>
+		<field name="DNI" class="java.lang.String"/>
+		<field name="CLI_DES" class="java.lang.String"/>
+		<field name="FECHA" class="java.lang.String"/>
+		<field name="MONTO TOTAL" class="java.math.BigDecimal"/>
+	</subDataset>
+	<parameter name="doc" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT   TOP 1
+			   (SELECT TOP 1 upper( UE_DESC ) FROM SISTEMA_UNIDAD_EJECUTORA) AS DESCRIP,  (SELECT TOP 1 FOTO  FROM QR) AS IMAGEN,
+			   PP.ape_pat_per+' '+PP.ape_mat_per+' '+PP.nombres_per AS PERSONAL
+
+
+FROM  ADMISION_HISTORIA_CLINICA AHC, CAJA_DOCUMENTO_CABECERA CDC,
+ CAJA_ACTO_MEDICO CAM,CAJA_JERARQUIA_FORMA_PAGO CJ ,USUARIO U,PERSONAL_PERSONAL PP
+WHERE
+AHC.id_hc = CDC.id_hc AND
+CDC.Id_ActoMedico = CAM.ID_ACTOMEDICO AND
+CJ.cod_jerar_forma_pago=CDC.cod_jerar_forma_pago AND
+U.Usu_Codigo=CDC.cod_usu AND
+PP.cod_per=U.cod_per
+AND U.Usu_Usuario=$P{doc}]]>
+	</queryString>
+	<field name="DESCRIP" class="java.lang.String"/>
+	<field name="IMAGEN" class="java.io.InputStream"/>
+	<field name="PERSONAL" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="-2" y="-14" width="182" height="17" uuid="b3c7f37f-5126-4ebc-b676-c0e5fb4e3416"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-2" y="23" width="182" height="20" uuid="22ca2046-0a05-48f5-8020-3d65ac1000f0"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<text><![CDATA[RUC: 20410275768]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-2" y="3" width="182" height="20" uuid="238716cf-1030-4632-bd37-f2dc4bf91ded"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<text><![CDATA[AV. Alva Maurtua N° 600 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-2" y="12" width="182" height="20" uuid="fa143640-a646-4c8f-b66e-c7334ba94c30"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<text><![CDATA[CHINCHA ALTA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="-2" y="-5" width="182" height="14" uuid="205efce8-3c7a-498b-b902-30cbe6e0b1f1"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[REPORTE FARMACIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-2" y="6" width="182" height="14" uuid="e64f17c0-2934-4db8-83cb-34265a718b06"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NO PAGADAS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<componentElement>
+				<reportElement key="table 1" mode="Opaque" x="-2" y="0" width="198" height="16" uuid="f26c0eac-752c-4080-894d-cb30984ffba3"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DetalleDoc" uuid="9fdf4a53-af04-4c32-b7f6-901119e781d9">
+						<datasetParameter name="id">
+							<datasetParameterExpression><![CDATA[$P{doc}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="40" uuid="4eba2c7c-b8be-45b5-b218-46957eac49e8">
+						<jr:columnHeader height="16" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="23" height="13" uuid="a8b0d07a-fd7c-4600-a91b-dc45ff9fafd1"/>
+								<textElement>
+									<font fontName="SansSerif" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SERIE]]></text>
+							</staticText>
+							<line>
+								<reportElement x="0" y="13" width="40" height="1" forecolor="#333333" uuid="8e07a77a-be24-457e-8db2-802f9817d7c7"/>
+								<graphicElement>
+									<pen lineStyle="Dashed"/>
+								</graphicElement>
+							</line>
+						</jr:columnHeader>
+						<jr:detailCell height="26" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="26" uuid="03bdd162-86ff-4092-8185-e6072ebcd1d3"/>
+								<textElement verticalAlignment="Middle">
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ID_CAB}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="108" uuid="2a6803ea-70d2-44d9-aade-4aceb27f4e38">
+						<jr:columnHeader height="16" rowSpan="1">
+							<staticText>
+								<reportElement x="5" y="0" width="103" height="14" uuid="1efad7d3-21db-4f29-9f8c-a354ae4f2817"/>
+								<textElement>
+									<font fontName="SansSerif" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[FORMA PAGO       DNI]]></text>
+							</staticText>
+							<line>
+								<reportElement x="0" y="13" width="108" height="1" forecolor="#333333" uuid="ee7fb7ea-0c26-4656-9593-281c63962b0e"/>
+								<graphicElement>
+									<pen lineStyle="Dashed"/>
+								</graphicElement>
+							</line>
+						</jr:columnHeader>
+						<jr:detailCell height="26" rowSpan="1">
+							<textField>
+								<reportElement x="5" y="0" width="58" height="26" uuid="348e832c-9649-4c00-aa0e-909bca77826e"/>
+								<textElement verticalAlignment="Middle">
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{F_PAGO}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="63" y="0" width="45" height="26" uuid="05ee413a-b408-488a-9992-925c3acaab3a"/>
+								<textElement verticalAlignment="Middle">
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{DNI}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="94" uuid="060763a7-6e03-40d7-868b-df46f9f25dd6">
+						<jr:columnHeader height="16" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="94" height="13" uuid="0ccb48b4-026c-4392-8196-b819f65861bd"/>
+								<textElement>
+									<font fontName="SansSerif" size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+							<line>
+								<reportElement x="0" y="13" width="94" height="1" forecolor="#333333" uuid="e14f5d06-4f4c-4249-bfe7-cba496ac5c27"/>
+								<graphicElement>
+									<pen lineStyle="Dashed"/>
+								</graphicElement>
+							</line>
+						</jr:columnHeader>
+						<jr:detailCell height="26" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="25" height="26" uuid="ddc2c248-4a85-49db-b2aa-35f909151027"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MONTO TOTAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="168" splitType="Stretch">
+			<staticText>
+				<reportElement x="-2" y="54" width="100" height="11" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
+				<textElement>
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<text><![CDATA[CAJERO ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="39" y="54" width="173" height="11" uuid="dd96d3ff-9cef-4aef-9025-211197b68ad2"/>
+				<textElement>
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-2" y="5" width="162" height="20" uuid="4eb8a352-42b5-4cf6-8607-cad123cbe829"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Ventas de SISMED que no se Cancelaron en Caja]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

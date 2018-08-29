@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.sis.gob.pe/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.sis.gob.pe/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sis.gob.pe/">
+      <s:element name="BuscarAseguradosDocIdent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IdEess" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TipoDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Documento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarAseguradosDocIdentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarAseguradosDocIdentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CredencialWS" type="tns:CredencialWS" />
+      <s:complexType name="CredencialWS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BuscarAseguradosDocIdentSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarAseguradosDocIdent" />
+  </wsdl:message>
+  <wsdl:message name="BuscarAseguradosDocIdentSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarAseguradosDocIdentResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarAseguradosDocIdentCredencialWS">
+    <wsdl:part name="CredencialWS" element="tns:CredencialWS" />
+  </wsdl:message>
+  <wsdl:portType name="siswsSoap">
+    <wsdl:operation name="BuscarAseguradosDocIdent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos de asegurado</wsdl:documentation>
+      <wsdl:input message="tns:BuscarAseguradosDocIdentSoapIn" />
+      <wsdl:output message="tns:BuscarAseguradosDocIdentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="siswsSoap" type="tns:siswsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarAseguradosDocIdent">
+      <soap:operation soapAction="http://www.sis.gob.pe/BuscarAseguradosDocIdent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarAseguradosDocIdentCredencialWS" part="CredencialWS" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="siswsSoap12" type="tns:siswsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarAseguradosDocIdent">
+      <soap12:operation soapAction="http://www.sis.gob.pe/BuscarAseguradosDocIdent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarAseguradosDocIdentCredencialWS" part="CredencialWS" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="sisws">
+    <wsdl:port name="siswsSoap" binding="tns:siswsSoap">
+      <soap:address location="http://app.sis.gob.pe/edi/sisws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="siswsSoap12" binding="tns:siswsSoap12">
+      <soap12:address location="http://app.sis.gob.pe/edi/sisws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

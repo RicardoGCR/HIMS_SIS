@@ -56,6 +56,20 @@ import static vista.admisionCentral.FrmNuevaHistoriaC.txtID;
 import static vista.admisionCentral.FrmNuevaHistoriaC.txtNombre1;
 import static vista.Principal.fechaActual;
 import vista.PrincipalMDI;
+import app.sis.gob.pe.edi.maestros.BuscarEESSxCodigoResponse;
+import app.sis.gob.pe.edi.maestros.BuscarFFamaceuticaxCodigoResponse;
+import app.sis.gob.pe.edi.maestros.BuscarInsumosxCodigoResponse;
+import app.sis.gob.pe.edi.maestros.BuscarMedicamentosxCodigoResponse;
+import app.sis.gob.pe.edi.maestros.BuscarPerSaludxNroDocResponse;
+import app.sis.gob.pe.edi.sisws.Sisws;
+import app.sis.gob.pe.edi.sisws.SiswsSoap;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.ws.Binding;
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.handler.Handler;
+import modelos.Caja.Caja_NuevaVenta;
+import webservice.handler.MsgHandler;
 /**
  *
  * @author PC02
@@ -93,6 +107,8 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
             cp.listarDatosEmergencia(txtBuscar.getText(), "", "", tbCabecera);
             tbCabecera.getSelectionModel().setSelectionInterval(0, 0);
             tbCabecera.requestFocus();
+            jPanel3.setVisible(false);
+            cargareliminar1.setVisible(false);
             
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
@@ -141,6 +157,61 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
         lblIdFP.setVisible(false);
         txtNroRegistro.setVisible(false);
         lblIDHCTo.setVisible(false);
+        btnNuevo.requestFocus();
+    }
+    final private String MAESTROUsuario = "siges";
+    final private String MAESTROClave = "pr2cnze10as";
+
+    final private String RECEPCIONTRAMAUsuario = "siges";
+    final private String RECEPCIONTRAMAClave = "pr2cnze10as";
+    
+    public void CONSULTA_SIS(){
+        try {
+            String dni = lblDni.getText();
+            String result = buscarAseguradosDocIdent("05195", "1", dni);
+            System.out.println(result);
+            jTextField2.setText(result);
+
+            String delims = "[|]";
+            String[] data = result.split(delims);
+            System.out.println("total campos :" + String.valueOf(data.length));
+            lblCantidadSIS.setText(String.valueOf(data.length));
+            if(lblCantidadSIS.getText().equals("1")){
+                cargareliminar1.setVisible(true);
+                Mensaje1.setText("El paciente no cuenta con el Seguro Integral de Salud, La forma de pago se cambió a Contado");
+                txtFormaPago.setText("CONTADO");
+                lblFP.setText("P0001");
+            }else if(!lblCantidadSIS.getText().equals("1")){
+                cargareliminar1.setVisible(true);
+                cargareliminar1.setBackground(new Color(0,94,152)); 
+                Mensaje1.setText("El Paciente si cuenta con el Seguro Integral de Salud");
+            }
+
+
+            jtxtTipoDoc.setText(data[0]);
+            jtxtdni.setText(data[1]);
+            jtxtApPat.setText(data[2]);
+            jtxtApMat.setText(data[3]);
+            jtxtNombres.setText(data[4]);
+
+            jTextField7.setText(data[4]);
+            jTextField8.setText(data[5]);
+            jTextField9.setText(data[6]);
+            jTextField10.setText(data[7]);
+            jTextField11.setText(data[8]);
+            jTextField12.setText(data[9]);
+            jTextField13.setText(data[10]);
+            jTextField14.setText(data[11]);
+            jTextField15.setText(data[12]);
+            jTextField16.setText(data[13]);
+            jTextField17.setText(data[14]);
+            jTextField18.setText(data[15]);
+        } catch (Exception e) {
+//            cargareliminar1.setVisible(true);
+//            cargareliminar1.setBackground(new Color(255,91,70)); 
+//            Mensaje1.setText("No hay conexión a internet, Verifique ");
+            System.out.println("No hay Intenet");
+        }
     }
     
     public void cerrar (){
@@ -166,6 +237,126 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                        } else {
                              System.out.println("erorr ID_PREVENTA ");
                        }  
+    }
+    
+     /**
+     * ***********
+     */
+    /*    SISWS   */
+    /**
+     * ***********
+     */
+    private static String buscarAseguradosDocIdent(java.lang.String idEess, java.lang.String tipoDoc, java.lang.String documento) {
+        Sisws service = new Sisws();
+        SiswsSoap port = service.getSiswsSoap();
+
+        Binding binding = ((BindingProvider) port).getBinding();
+
+        List<Handler> handlersList = new ArrayList<Handler>();
+        handlersList.add(new MsgHandler());  //SOAPMessageContext context
+        binding.setHandlerChain(handlersList);
+
+        return port.buscarAseguradosDocIdent(idEess, tipoDoc, documento);
+    }
+
+    /**
+     * ***********
+     */
+    /*  MAESTROS  */
+    /**
+     * ***********
+     */
+    // USUARIO: siges
+    // CLAVE : pr2cnze10as
+    private static BuscarEESSxCodigoResponse.BuscarEESSxCodigoResult buscarEESSxCodigo(java.lang.String idEess, java.lang.String usuario, java.lang.String clave) {
+        app.sis.gob.pe.edi.maestros.Maestros service = new app.sis.gob.pe.edi.maestros.Maestros();
+        app.sis.gob.pe.edi.maestros.MaestrosSoap port = service.getMaestrosSoap();
+        return port.buscarEESSxCodigo(idEess, usuario, clave);
+    }
+
+    private static BuscarFFamaceuticaxCodigoResponse.BuscarFFamaceuticaxCodigoResult buscarFFamaceuticaxCodigo(java.lang.String codigo, java.lang.String usuario, java.lang.String clave) {
+        app.sis.gob.pe.edi.maestros.Maestros service = new app.sis.gob.pe.edi.maestros.Maestros();
+        app.sis.gob.pe.edi.maestros.MaestrosSoap port = service.getMaestrosSoap();
+        return port.buscarFFamaceuticaxCodigo(codigo, usuario, clave);
+    }
+
+    private static BuscarInsumosxCodigoResponse.BuscarInsumosxCodigoResult buscarInsumosxCodigo(java.lang.String codigo, java.lang.String usuario, java.lang.String clave) {
+        app.sis.gob.pe.edi.maestros.Maestros service = new app.sis.gob.pe.edi.maestros.Maestros();
+        app.sis.gob.pe.edi.maestros.MaestrosSoap port = service.getMaestrosSoap();
+        return port.buscarInsumosxCodigo(codigo, usuario, clave);
+    }
+
+    private static BuscarMedicamentosxCodigoResponse.BuscarMedicamentosxCodigoResult buscarMedicamentosxCodigo(java.lang.String codigo, java.lang.String usuario, java.lang.String clave) {
+        app.sis.gob.pe.edi.maestros.Maestros service = new app.sis.gob.pe.edi.maestros.Maestros();
+        app.sis.gob.pe.edi.maestros.MaestrosSoap port = service.getMaestrosSoap();
+        return port.buscarMedicamentosxCodigo(codigo, usuario, clave);
+    }
+
+    private static BuscarPerSaludxNroDocResponse.BuscarPerSaludxNroDocResult buscarPerSaludxNroDoc(java.lang.String codigo, java.lang.String usuario, java.lang.String clave) {
+        app.sis.gob.pe.edi.maestros.Maestros service = new app.sis.gob.pe.edi.maestros.Maestros();
+        app.sis.gob.pe.edi.maestros.MaestrosSoap port = service.getMaestrosSoap();
+        return port.buscarPerSaludxNroDoc(codigo, usuario, clave);
+    }
+
+    /**
+     * ******************
+     */
+    /*  RECEPCION TRAMA  */
+    /**
+     * ******************
+     */
+    private static String buscarAsegurados(java.lang.String disa, java.lang.String tipoFormato, java.lang.String contrato, java.lang.String correlativo, java.lang.String codTabla) {
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTrama service = new app.sis.gob.pe.edi.recepciontrama.RecepcionTrama();
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTramaSoap port = service.getRecepcionTramaSoap();
+        return port.buscarAsegurados(disa, tipoFormato, contrato, correlativo, codTabla);
+    }
+
+    private static String buscarAseguradosARFSISV2(java.lang.String sUsuario, java.lang.String sPassword, java.lang.String disa, java.lang.String tipoFormato, java.lang.String contrato, java.lang.String correlativo, java.lang.String codTabla) {
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTrama service = new app.sis.gob.pe.edi.recepciontrama.RecepcionTrama();
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTramaSoap port = service.getRecepcionTramaSoap();
+        return port.buscarAseguradosARFSISV2(sUsuario, sPassword, disa, tipoFormato, contrato, correlativo, codTabla);
+    }
+
+    private static String buscarAseguradosPE(java.lang.String sUsuario, java.lang.String sPassword, java.lang.String sDNIResponsable, java.lang.String sOpcion, java.lang.String sTipoDoc, java.lang.String sDoc, java.lang.String sDisa, java.lang.String sTipoFormato, java.lang.String sContrato, java.lang.String sCorrelativo) {
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTrama service = new app.sis.gob.pe.edi.recepciontrama.RecepcionTrama();
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTramaSoap port = service.getRecepcionTramaSoap();
+        return port.buscarAseguradosPE(sUsuario, sPassword, sDNIResponsable, sOpcion, sTipoDoc, sDoc, sDisa, sTipoFormato, sContrato, sCorrelativo);
+    }
+
+    private static String buscarPersonalSaludV2(java.lang.String sUsuario, java.lang.String sPassword, java.lang.String documento) {
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTrama service = new app.sis.gob.pe.edi.recepciontrama.RecepcionTrama();
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTramaSoap port = service.getRecepcionTramaSoap();
+        return port.buscarPersonalSaludV2(sUsuario, sPassword, documento);
+    }
+
+    private static String consultaRetroarfsis(java.lang.String sUsuario, java.lang.String sPassword, java.lang.String opcion) {
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTrama service = new app.sis.gob.pe.edi.recepciontrama.RecepcionTrama();
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTramaSoap port = service.getRecepcionTramaSoap();
+        return port.consultaRetroarfsis(sUsuario, sPassword, opcion);
+    }
+
+    private static String validarRC40V2(java.lang.String sUsuario, java.lang.String sPassword, java.lang.String disaFua, java.lang.String lotefua, java.lang.String numerofua, java.lang.String destinoFua, java.lang.String modalidad, javax.xml.datatype.XMLGregorianCalendar fecate, javax.xml.datatype.XMLGregorianCalendar fecing, javax.xml.datatype.XMLGregorianCalendar feccorte, java.lang.String disavin, java.lang.String lotevin, java.lang.String numevin, java.lang.String udrautorizavin, java.lang.String loteautorizavin, java.lang.String secautorizavin, java.lang.String disaafi, java.lang.String loteafi, java.lang.String numafi, java.lang.String secafi, java.lang.String tablaafi, java.lang.String compoafi, java.lang.String vFLAGVALIDACION) {
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTrama service = new app.sis.gob.pe.edi.recepciontrama.RecepcionTrama();
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTramaSoap port = service.getRecepcionTramaSoap();
+        return port.validarRC40V2(sUsuario, sPassword, disaFua, lotefua, numerofua, destinoFua, modalidad, fecate, fecing, feccorte, disavin, lotevin, numevin, udrautorizavin, loteautorizavin, secautorizavin, disaafi, loteafi, numafi, secafi, tablaafi, compoafi, vFLAGVALIDACION);
+    }
+
+    private static String validarRC41V2(java.lang.String sUsuario, java.lang.String sPassword, java.lang.String numeroSolicitud, java.lang.String afiDisa, java.lang.String afiLote, java.lang.String afiNumero, java.lang.String afiSecuencia, java.lang.String afiTabla, java.lang.String afiComponente, java.lang.String afiStuacion, double montoTotalConsignado, java.lang.String vFLAGVALIDACION) {
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTrama service = new app.sis.gob.pe.edi.recepciontrama.RecepcionTrama();
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTramaSoap port = service.getRecepcionTramaSoap();
+        return port.validarRC41V2(sUsuario, sPassword, numeroSolicitud, afiDisa, afiLote, afiNumero, afiSecuencia, afiTabla, afiComponente, afiStuacion, montoTotalConsignado, vFLAGVALIDACION);
+    }
+
+    private static String validarRC42V2(java.lang.String sUsuario, java.lang.String sPassword, java.lang.String servicio, javax.xml.datatype.XMLGregorianCalendar fecate, java.lang.String disa, java.lang.String lote, java.lang.String numformato, java.lang.String secuencia, java.lang.String tabla, java.lang.String componente, java.lang.String destino, java.lang.String vFLAGVALIDACION) {
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTrama service = new app.sis.gob.pe.edi.recepciontrama.RecepcionTrama();
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTramaSoap port = service.getRecepcionTramaSoap();
+        return port.validarRC42V2(sUsuario, sPassword, servicio, fecate, disa, lote, numformato, secuencia, tabla, componente, destino, vFLAGVALIDACION);
+    }
+
+    private static String verificaFUADuplicadoV2(java.lang.String sUsuario, java.lang.String sPassword, java.lang.String disa, java.lang.String tipoFormato, java.lang.String numero) {
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTrama service = new app.sis.gob.pe.edi.recepciontrama.RecepcionTrama();
+        app.sis.gob.pe.edi.recepciontrama.RecepcionTramaSoap port = service.getRecepcionTramaSoap();
+        return port.verificaFUADuplicadoV2(sUsuario, sPassword, disa, tipoFormato, numero);
     }
 
      public void imprimirCabecera(){
@@ -235,12 +426,12 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
         String consulta="";
         try {
             tbPacientes.setModel(new DefaultTableModel());
-             String titulos[]={"Nº H.C.","DNI","Paciente","Direccion","Sexo","Fecha","Edad","",""};
+             String titulos[]={"Nº H.C.","DNI","Paciente","Direccion","Sexo","Fecha","Edad",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[9];
             AdmisionEmergenciaCabecera obj=new AdmisionEmergenciaCabecera();
-                    consulta="exec CAJA_BUSCAR_HISTORIAS_TOPICOS_TRIAJE ?";      
+                    consulta="exec CAJA_BUSCAR_HISTORIAS ?";      
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtBuscarPaciente.getText());
             ResultSet r= cmd.executeQuery();
@@ -254,7 +445,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                 fila[5]=r.getString(6);
                 fila[6]=r.getString(7);
                 fila[7]=r.getString(8);
-                fila[8]=r.getString(9);
+//                fila[8]=r.getString(9);
                 m.addRow(fila);
                 c++;
             }
@@ -284,8 +475,8 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
     tbPacientes.getColumnModel().getColumn(5).setMaxWidth(0);
     tbPacientes.getColumnModel().getColumn(7).setMinWidth(0);
     tbPacientes.getColumnModel().getColumn(7).setMaxWidth(0);
-    tbPacientes.getColumnModel().getColumn(8).setMinWidth(0);
-    tbPacientes.getColumnModel().getColumn(8).setMaxWidth(0);
+//    tbPacientes.getColumnModel().getColumn(8).setMinWidth(0);
+//    tbPacientes.getColumnModel().getColumn(8).setMaxWidth(0);
     tbPacientes.setRowHeight(38);
     }
     
@@ -459,7 +650,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
         BHC.dispose();
 
             txtNHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
-            lblTriajeId.setText(String.valueOf(tbPacientes.getValueAt(fila, 8)));
+//            lblTriajeId.setText(String.valueOf(tbPacientes.getValueAt(fila, 8)));
             txtTraidopor.requestFocus();
              btnGuardar.setEnabled(true);
 
@@ -512,6 +703,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
         dlgBuscarCPT.dispose();
         txtCPT.setText(String.valueOf(tb_Grupo4.getValueAt(fila, 2)));
         txtCPTDES.setText(String.valueOf(tb_Grupo4.getValueAt(fila, 1)));
+       
     }   
     
 
@@ -803,6 +995,26 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                             jPanel30 = new javax.swing.JPanel();
                             txtBuscarFormaPago = new javax.swing.JTextField();
                             btnBuscarPaciente4 = new javax.swing.JButton();
+                            jPanel3 = new javax.swing.JPanel();
+                            jTextField2 = new javax.swing.JTextField();
+                            jtxtTipoDoc = new javax.swing.JTextField();
+                            jtxtdni = new javax.swing.JTextField();
+                            jtxtApPat = new javax.swing.JTextField();
+                            jtxtApMat = new javax.swing.JTextField();
+                            jtxtNombres = new javax.swing.JTextField();
+                            jTextField7 = new javax.swing.JTextField();
+                            jTextField8 = new javax.swing.JTextField();
+                            jTextField9 = new javax.swing.JTextField();
+                            jTextField14 = new javax.swing.JTextField();
+                            jTextField13 = new javax.swing.JTextField();
+                            jTextField12 = new javax.swing.JTextField();
+                            jTextField11 = new javax.swing.JTextField();
+                            jTextField10 = new javax.swing.JTextField();
+                            jTextField15 = new javax.swing.JTextField();
+                            jTextField16 = new javax.swing.JTextField();
+                            jTextField17 = new javax.swing.JTextField();
+                            jTextField18 = new javax.swing.JTextField();
+                            lblCantidadSIS = new javax.swing.JLabel();
                             jScrollPane6 = new javax.swing.JScrollPane();
                             tb_FP = new javax.swing.JTable(){
                                 public boolean isCellEditable(int rowIndex, int colIndex){
@@ -883,6 +1095,9 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 jLabel16 = new javax.swing.JLabel();
                                 jLabel21 = new javax.swing.JLabel();
                                 txtNroRegistro = new javax.swing.JLabel();
+                                cargareliminar1 = new javax.swing.JPanel();
+                                Mensaje1 = new javax.swing.JLabel();
+                                eli1 = new javax.swing.JButton();
                                 jPanel29 = new javax.swing.JPanel();
                                 jScrollPane25 = new javax.swing.JScrollPane();
                                 tbCabecera = new javax.swing.JTable();
@@ -1934,12 +2149,12 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 dlgBuscarCPT.setMinimumSize(new java.awt.Dimension(749, 338));
                                 dlgBuscarCPT.setResizable(false);
 
-                                jPanel12.setBackground(new java.awt.Color(23, 160, 134));
+                                jPanel12.setBackground(new java.awt.Color(230, 230, 230));
                                 jPanel12.setMinimumSize(new java.awt.Dimension(310, 441));
 
                                 jLabel74.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                jLabel74.setForeground(new java.awt.Color(255, 255, 255));
-                                jLabel74.setText("Prioridad");
+                                jLabel74.setForeground(new java.awt.Color(51, 51, 51));
+                                jLabel74.setText("Servicio");
 
                                 jPanel31.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1978,7 +2193,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                         .addComponent(txtBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 );
 
-                                btnBuscarPaciente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                                btnBuscarPaciente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
                                 btnBuscarPaciente3.setContentAreaFilled(false);
                                 btnBuscarPaciente3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                 btnBuscarPaciente3.addActionListener(new java.awt.event.ActionListener() {
@@ -2013,7 +2228,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                         .addGap(356, 356, 356))
                                 );
 
-                                jPanel36.setBackground(new java.awt.Color(23, 160, 134));
+                                jPanel36.setBackground(new java.awt.Color(232, 76, 61));
                                 jPanel36.setPreferredSize(new java.awt.Dimension(0, 2));
 
                                 javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
@@ -2088,18 +2303,18 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 BHC.setMinimumSize(new java.awt.Dimension(749, 350));
                                 BHC.setResizable(false);
 
-                                jPanel15.setBackground(new java.awt.Color(23, 160, 134));
+                                jPanel15.setBackground(new java.awt.Color(230, 230, 230));
                                 jPanel15.setMinimumSize(new java.awt.Dimension(310, 441));
 
-                                jLabel19.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+                                jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                                jLabel19.setForeground(new java.awt.Color(102, 102, 102));
                                 jLabel19.setText("Paciente");
 
                                 jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                                jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+                                jLabel14.setForeground(new java.awt.Color(102, 102, 102));
                                 jLabel14.setText("Busqueda por DNI, H.C. y Apellidos");
 
-                                bus.setForeground(new java.awt.Color(23, 160, 134));
+                                bus.setForeground(new java.awt.Color(230, 230, 230));
                                 bus.setText("jLabel37");
 
                                 jPanel27.setBackground(new java.awt.Color(255, 255, 255));
@@ -2144,10 +2359,10 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                         .addComponent(txtBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 );
 
-                                bus3.setForeground(new java.awt.Color(23, 160, 134));
+                                bus3.setForeground(new java.awt.Color(230, 230, 230));
                                 bus3.setText("jLabel37");
 
-                                btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                                btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
                                 btnBuscarPaciente2.setContentAreaFilled(false);
                                 btnBuscarPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                 btnBuscarPaciente2.addActionListener(new java.awt.event.ActionListener() {
@@ -2370,7 +2585,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 });
                                 jScrollPane24.setViewportView(tbPacientes);
 
-                                jPanel35.setBackground(new java.awt.Color(23, 160, 134));
+                                jPanel35.setBackground(new java.awt.Color(232, 76, 61));
                                 jPanel35.setPreferredSize(new java.awt.Dimension(0, 2));
 
                                 javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
@@ -2430,10 +2645,10 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 jLabel46.setText("No se hallaron coincidencias");
 
                                 jLabel87.setFont(new java.awt.Font("Segoe UI Light", 0, 100)); // NOI18N
-                                jLabel87.setForeground(new java.awt.Color(23, 160, 134));
+                                jLabel87.setForeground(new java.awt.Color(232, 76, 61));
                                 jLabel87.setText(":(");
 
-                                jPanel28.setBackground(new java.awt.Color(25, 188, 157));
+                                jPanel28.setBackground(new java.awt.Color(232, 76, 61));
 
                                 btnNuevo1.setBackground(new java.awt.Color(204, 204, 204));
                                 btnNuevo1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -2545,11 +2760,11 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 Jerarquias.setMinimumSize(new java.awt.Dimension(628, 300));
                                 Jerarquias.setResizable(false);
 
-                                jPanel11.setBackground(new java.awt.Color(23, 160, 134));
+                                jPanel11.setBackground(new java.awt.Color(230, 230, 230));
                                 jPanel11.setMinimumSize(new java.awt.Dimension(310, 441));
 
-                                jLabel22.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                                jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+                                jLabel22.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                                jLabel22.setForeground(new java.awt.Color(102, 102, 102));
                                 jLabel22.setText("Forma de Pago");
 
                                 jPanel30.setBackground(new java.awt.Color(255, 255, 255));
@@ -2593,7 +2808,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                         .addComponent(txtBuscarFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 );
 
-                                btnBuscarPaciente4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                                btnBuscarPaciente4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
                                 btnBuscarPaciente4.setContentAreaFilled(false);
                                 btnBuscarPaciente4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                                 btnBuscarPaciente4.addActionListener(new java.awt.event.ActionListener() {
@@ -2601,6 +2816,86 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                         btnBuscarPaciente4ActionPerformed(evt);
                                     }
                                 });
+
+                                jTextField18.addActionListener(new java.awt.event.ActionListener() {
+                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                        jTextField18ActionPerformed(evt);
+                                    }
+                                });
+
+                                lblCantidadSIS.setText("jLabel1");
+
+                                javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+                                jPanel3.setLayout(jPanel3Layout);
+                                jPanel3Layout.setHorizontalGroup(
+                                    jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                                                    .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jtxtNombres))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jtxtApMat, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                                                    .addComponent(jtxtApPat)
+                                                    .addComponent(jTextField16))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jTextField17, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                                                    .addComponent(jTextField9)
+                                                    .addComponent(jTextField14))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                                                    .addComponent(jTextField8)
+                                                    .addComponent(jTextField18))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                                                    .addComponent(jTextField10)
+                                                    .addComponent(jtxtTipoDoc))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jtxtdni, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                                                    .addComponent(jTextField13)
+                                                    .addComponent(jTextField12)))
+                                            .addComponent(lblCantidadSIS))
+                                        .addContainerGap(606, Short.MAX_VALUE))
+                                );
+                                jPanel3Layout.setVerticalGroup(
+                                    jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jtxtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtxtApMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtxtdni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(2, 2, 2)
+                                        .addComponent(lblCantidadSIS)
+                                        .addGap(2, 2, 2)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtxtApPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtxtTipoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                );
 
                                 javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
                                 jPanel11.setLayout(jPanel11Layout);
@@ -2614,7 +2909,9 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                                 .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(btnBuscarPaciente4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap())
                                 );
                                 jPanel11Layout.setVerticalGroup(
                                     jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2626,6 +2923,9 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                             .addComponent(btnBuscarPaciente4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                             .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(352, 352, 352))
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                 );
 
                                 jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
@@ -2663,7 +2963,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 Jerarquias.getContentPane().setLayout(JerarquiasLayout);
                                 JerarquiasLayout.setHorizontalGroup(
                                     JerarquiasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane6)
                                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 );
                                 JerarquiasLayout.setVerticalGroup(
@@ -2912,6 +3212,11 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                         btnFiltrarActionPerformed(evt);
                                     }
                                 });
+                                btnFiltrar.addKeyListener(new java.awt.event.KeyAdapter() {
+                                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                                        btnFiltrarKeyPressed(evt);
+                                    }
+                                });
 
                                 javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
                                 jPanel6.setLayout(jPanel6Layout);
@@ -3028,6 +3333,11 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
 
                                 cbxFormaLlegada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                                 cbxFormaLlegada.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Caminando" }));
+                                cbxFormaLlegada.addKeyListener(new java.awt.event.KeyAdapter() {
+                                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                                        cbxFormaLlegadaKeyPressed(evt);
+                                    }
+                                });
 
                                 jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                                 jLabel3.setText("Observación");
@@ -3084,7 +3394,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 );
 
                                 jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                                jLabel2.setText("Prioridad");
+                                jLabel2.setText("Servicio");
 
                                 panelFormaPago1.setBackground(new java.awt.Color(255, 255, 255));
                                 panelFormaPago1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -3153,6 +3463,9 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                     }
                                 });
                                 txtParentesco.addKeyListener(new java.awt.event.KeyAdapter() {
+                                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                                        txtParentescoKeyPressed(evt);
+                                    }
                                     public void keyReleased(java.awt.event.KeyEvent evt) {
                                         txtParentescoKeyReleased(evt);
                                     }
@@ -3190,6 +3503,9 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                     }
                                 });
                                 txtTraidopor.addKeyListener(new java.awt.event.KeyAdapter() {
+                                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                                        txtTraidoporKeyPressed(evt);
+                                    }
                                     public void keyReleased(java.awt.event.KeyEvent evt) {
                                         txtTraidoporKeyReleased(evt);
                                     }
@@ -3221,6 +3537,9 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 pnlEObservación.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                                 pnlEObservación.setForeground(new java.awt.Color(51, 51, 51));
                                 pnlEObservación.addKeyListener(new java.awt.event.KeyAdapter() {
+                                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                                        pnlEObservaciónKeyPressed(evt);
+                                    }
                                     public void keyReleased(java.awt.event.KeyEvent evt) {
                                         pnlEObservaciónKeyReleased(evt);
                                     }
@@ -3420,6 +3739,46 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 txtNroRegistro.setForeground(new java.awt.Color(255, 255, 255));
                                 txtNroRegistro.setText("21");
 
+                                cargareliminar1.setBackground(new java.awt.Color(255, 91, 70));
+
+                                Mensaje1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+                                Mensaje1.setForeground(new java.awt.Color(255, 255, 255));
+                                Mensaje1.setText("El paciente no cuenta con el Seguro Integral de Salud, La forma de pago se cambió a Contado");
+
+                                eli1.setForeground(new java.awt.Color(240, 240, 240));
+                                eli1.setText("OK");
+                                eli1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+                                eli1.setContentAreaFilled(false);
+                                eli1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                                eli1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                                eli1.setIconTextGap(30);
+                                eli1.addActionListener(new java.awt.event.ActionListener() {
+                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                        eli1ActionPerformed(evt);
+                                    }
+                                });
+
+                                javax.swing.GroupLayout cargareliminar1Layout = new javax.swing.GroupLayout(cargareliminar1);
+                                cargareliminar1.setLayout(cargareliminar1Layout);
+                                cargareliminar1Layout.setHorizontalGroup(
+                                    cargareliminar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(cargareliminar1Layout.createSequentialGroup()
+                                        .addGap(19, 19, 19)
+                                        .addComponent(Mensaje1)
+                                        .addGap(46, 46, 46)
+                                        .addComponent(eli1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                );
+                                cargareliminar1Layout.setVerticalGroup(
+                                    cargareliminar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(cargareliminar1Layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addGroup(cargareliminar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Mensaje1)
+                                            .addComponent(eli1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                );
+
                                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                                 jPanel1.setLayout(jPanel1Layout);
                                 jPanel1Layout.setHorizontalGroup(
@@ -3438,11 +3797,13 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                                 .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(90, 90, 90)))
                                         .addContainerGap())
+                                    .addComponent(cargareliminar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 );
                                 jPanel1Layout.setVerticalGroup(
                                     jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addContainerGap()
+                                        .addComponent(cargareliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtNroRegistro, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -3580,7 +3941,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                         .addGap(0, 0, 0)
                                         .addComponent(panelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jScrollPane25, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE))
+                                        .addComponent(jScrollPane25, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE))
                                 );
 
                                 tbPaneles.addTab("tab4", jPanel29);
@@ -3719,7 +4080,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                         .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
                                         .addComponent(tbPaneles))
-                                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+                                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
                                 );
 
                                 pack();
@@ -3789,8 +4150,6 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
                                 panelBusqueda.setVisible(false);
                                 jLabel42.setForeground(new Color(153,153,153));
                                 jLabel43.setForeground(new Color(255,255,255));
-                                
-                                
 
                             } else {
                                 cargareliminar.setVisible(true);
@@ -3827,11 +4186,12 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
             btnEliminar.setEnabled(false);
             btnBuscarFormaPago.setVisible(true);
             btnBuscarCPT.setVisible(true);
+            cargareliminar1.setVisible(false);
             habilitarDatos();
             lblNewMod.setText("N");
             mostrarDatosModif(false);
             tbPaneles.setSelectedIndex(0);
-           
+            btnFiltrar.requestFocus();
    
             //JOptionPane.showMessageDialog(this, txtaMotivo.getText());
     }//GEN-LAST:event_btnNuevoActionPerformed
@@ -3862,6 +4222,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
         btnEliminar.setEnabled(false);
         jLabel43.setVisible(true);
         jLabel42.setVisible(true);
+        cargareliminar1.setVisible(false);
         tbPaneles.setSelectedIndex(1);
         lblNewMod.setText("M");
 //        adEmerCab.cargarFormatEmer("", "", tbFormatosEmer);
@@ -4245,25 +4606,26 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
         char teclaPresionada = evt.getKeyChar(); 
         if(teclaPresionada==KeyEvent.VK_ENTER){ 
             enviarNomenclatura();
+            btnGuardar.requestFocus();
         }
     }//GEN-LAST:event_tb_Grupo4KeyPressed
 
     private void txtBuscarPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPacienteCaretUpdate
-        panelBuscarHC.setVisible(false);
-        paneltablaHC.setVisible(true);
-        panelSinHC.setVisible(false);
-        BuscarHC();
-
-        if (tbPacientes.getRowCount() == 0){
-            panelBuscarHC.setVisible(false);
-            paneltablaHC.setVisible(false);
-            panelSinHC.setVisible(true);
-        }
-        if (txtBuscarPaciente.getText().length()==0){
-            panelBuscarHC.setVisible(true);
-            paneltablaHC.setVisible(false);
-            panelSinHC.setVisible(false);
-        }
+//        panelBuscarHC.setVisible(false);
+//        paneltablaHC.setVisible(true);
+//        panelSinHC.setVisible(false);
+//        BuscarHC();
+//
+//        if (tbPacientes.getRowCount() == 0){
+//            panelBuscarHC.setVisible(false);
+//            paneltablaHC.setVisible(false);
+//            panelSinHC.setVisible(true);
+//        }
+//        if (txtBuscarPaciente.getText().length()==0){
+//            panelBuscarHC.setVisible(true);
+//            paneltablaHC.setVisible(false);
+//            panelSinHC.setVisible(false);
+//        }
 
     }//GEN-LAST:event_txtBuscarPacienteCaretUpdate
 
@@ -4278,6 +4640,23 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
     private void txtBuscarPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacienteKeyPressed
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
+            panelBuscarHC.setVisible(false);
+        paneltablaHC.setVisible(true);
+        panelSinHC.setVisible(false);
+        BuscarHC();
+
+        if (tbPacientes.getRowCount() == 0){
+            panelBuscarHC.setVisible(false);
+            paneltablaHC.setVisible(false);
+            panelSinHC.setVisible(true);
+        }
+        if (txtBuscarPaciente.getText().length()==0){
+            panelBuscarHC.setVisible(true);
+            paneltablaHC.setVisible(false);
+            panelSinHC.setVisible(false);
+        }
+        
+            
             //int fila = tb_Grupo3.getSelectedRow();
             tbPacientes.getSelectionModel().setSelectionInterval (0,0) ;
             tbPacientes.requestFocus();
@@ -4335,6 +4714,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             enviarDatosTbPaciente();
+            txtTraidopor.requestFocus();
         }
 
     }//GEN-LAST:event_tbPacientesKeyPressed
@@ -4491,6 +4871,9 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
             Jerarquias.dispose();
             txtFormaPago.setText(String.valueOf(tb_FP.getValueAt(fila, 1)));
             lblFP.setText(String.valueOf(tb_FP.getValueAt(fila, 0)));
+            if(txtFormaPago.getText().equals("SIS")){
+                CONSULTA_SIS();
+            }
 
             }
     }//GEN-LAST:event_tb_FPMouseClicked
@@ -4503,6 +4886,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
             Jerarquias.dispose();
             txtFormaPago.setText(String.valueOf(tb_FP.getValueAt(fila, 1)));
             lblFP.setText(String.valueOf(tb_FP.getValueAt(fila, 0)));
+            pnlEObservación.requestFocus();
         }
     }//GEN-LAST:event_tb_FPKeyPressed
 
@@ -4684,6 +5068,61 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
 
         }
     }//GEN-LAST:event_noeliActionPerformed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void eli1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli1ActionPerformed
+        cargareliminar1.setVisible(false);
+    }//GEN-LAST:event_eli1ActionPerformed
+
+    private void txtTraidoporKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTraidoporKeyPressed
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+           txtParentesco.requestFocus();
+        }
+    }//GEN-LAST:event_txtTraidoporKeyPressed
+
+    private void txtParentescoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtParentescoKeyPressed
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+           cbxFormaLlegada.showPopup();
+           cbxFormaLlegada.requestFocus(true);
+        }
+    }//GEN-LAST:event_txtParentescoKeyPressed
+
+    private void cbxFormaLlegadaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxFormaLlegadaKeyPressed
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            Jerarquias.setLocationRelativeTo(null);//en el centro
+            Jerarquias.getContentPane().setBackground(Color.WHITE);
+            txtBuscarFormaPago.setText("");
+            Jerarquias.setVisible(true);
+        }
+    }//GEN-LAST:event_cbxFormaLlegadaKeyPressed
+
+    private void pnlEObservaciónKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pnlEObservaciónKeyPressed
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            dlgBuscarCPT.setLocationRelativeTo(null);//en el centro
+            dlgBuscarCPT.setResizable(false);
+            dlgBuscarCPT.getContentPane().setBackground(Color.WHITE);
+            dlgBuscarCPT.setVisible(true);
+            Caja_Nomenclatura cajaNomen = new Caja_Nomenclatura();
+            cajaNomen.cajaNomenclaturaListarEmergencia("", tb_Grupo4);
+        }
+    }//GEN-LAST:event_pnlEObservaciónKeyPressed
+
+    private void btnFiltrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnFiltrarKeyPressed
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            filtrarDatos();
+            cbxTipoBusqueda.requestFocus();
+            lblPestana.setText("C");
+            tbPaciente.getSelectionModel().setSelectionInterval(0,0); 
+        }
+    }//GEN-LAST:event_btnFiltrarKeyPressed
     
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
@@ -4756,6 +5195,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
     private javax.swing.JLabel EDITAR;
     private javax.swing.JDialog Jerarquias;
     private javax.swing.JLabel Mensaje;
+    private javax.swing.JLabel Mensaje1;
     private javax.swing.JButton btnAddDiagF;
     private javax.swing.JButton btnAddDiagP;
     private javax.swing.JButton btnAddExam;
@@ -4783,6 +5223,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
     private javax.swing.JLabel bus;
     private javax.swing.JLabel bus3;
     private javax.swing.JPanel cargareliminar;
+    private javax.swing.JPanel cargareliminar1;
     public static javax.swing.JComboBox cbxFormaLlegada;
     private javax.swing.JComboBox cbxTipoBusqueda;
     private javax.swing.JDialog dlgBuscarCPT;
@@ -4794,6 +5235,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
     private javax.swing.JDialog dlgMostrarDatosTopico;
     private javax.swing.JDialog dlgMostrarDatosTriajeT;
     private javax.swing.JButton eli;
+    private javax.swing.JButton eli1;
     private com.toedter.calendar.JDateChooser fechaf;
     private com.toedter.calendar.JDateChooser fechai;
     private javax.swing.JButton jButton2;
@@ -4864,6 +5306,7 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel35;
@@ -4891,13 +5334,32 @@ public class FrmFormatoEmergenciaCabecera extends javax.swing.JFrame implements 
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private com.toedter.calendar.JDateChooser jdcBusquedaFecha;
     private com.toedter.calendar.JDateChooser jdtBuscarTriTop;
     private com.toedter.calendar.JDateChooser jdtBuscarTriaje;
     private com.toedter.calendar.JDateChooser jdtFechaTop;
     private javax.swing.JPopupMenu jpmCabecera;
+    private javax.swing.JTextField jtxtApMat;
+    private javax.swing.JTextField jtxtApPat;
+    private javax.swing.JTextField jtxtNombres;
+    private javax.swing.JTextField jtxtTipoDoc;
+    private javax.swing.JTextField jtxtdni;
     public static javax.swing.JLabel lblApNom;
     public static javax.swing.JLabel lblCabpT;
+    private javax.swing.JLabel lblCantidadSIS;
     public static javax.swing.JLabel lblDepartamento;
     public static javax.swing.JLabel lblDireccion;
     public static javax.swing.JLabel lblDistrito;

@@ -26,6 +26,7 @@ private Connection cn;
 private String NOM_USU;  
 private int NRO_PC;
 private int AR_ID;  
+private String MODULO;
 
     public void CajaPC_Listar(){
         String consulta="";
@@ -71,8 +72,9 @@ private int AR_ID;
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                Caja_Registro.lblUsu.setText("<html>"+r.getString(2)+"<span style=\"font-size:'14px'\"><br>"+"Usuario, "+r.getString(1)+"<html>");
-                Caja_Registro.lblResumenUsuario.setText("<html>"+"Cajero "+r.getString(2)+"<html>");
+//                Caja_Registro.lblUsu.setText("<html>"+r.getString(2)+"<span style=\"font-size:'14px'\"><br>"+"Usuario, "+r.getString(1)+"<html>");
+                Caja_Registro.lblUsu.setText(r.getString(2));
+                Caja_Registro.lblResumenUsuario.setText(r.getString(2));
                 }
             //
         } catch (Exception e) {
@@ -99,7 +101,7 @@ private int AR_ID;
             System.out.println("Error: PC: " + e.getMessage());
         }
     }
-        public void VerificarExistencia(String Usuario,JTable tabla){
+        public void VerificarExistencia(String Usuario,String modulo,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -108,9 +110,10 @@ private int AR_ID;
             JTable p=new JTable(m);
             String fila[]=new String[1];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec CAJA_VERIFICAR_EXISTENCIA_PC_CONFIGURACION ?";
+            consulta="exec CAJA_VERIFICAR_EXISTENCIA_PC_CONFIGURACION ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, Usuario); ///bus1 esto se busca
+            cmd.setString(1, Usuario); 
+            cmd.setString(2, modulo);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -126,44 +129,18 @@ private int AR_ID;
             System.out.println("Error: CONSULTAR PC EXISTENTE " + e.getMessage());
         }
     }
-        public void VerificarExistenciaEME(String Usuario,JTable tabla){
-        String consulta="";
-        try {
-            tabla.setModel(new DefaultTableModel());
-            String titulos[]={"PC"};
-            m=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m);
-            String fila[]=new String[1];
-            //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec CAJA_VERIFICAR_EXISTENCIA_PC_CONFIGURACION_EME ?";
-            PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, Usuario); ///bus1 esto se busca
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                fila[0]=r.getString(1);
-                    m.addRow(fila);
-                    c++;
-            }
-            tabla.setModel(m);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            tabla.setRowSorter(elQueOrdena);
-            tabla.setModel(m);
-        } catch (Exception e) {
-            System.out.println("Error: CONSULTAR PC EXISTENTE " + e.getMessage());
-        }
-    }
+    
     public boolean NuevoTerminal(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_CONFIGURAR_TERMINAL "
-                        + "?,?,?";
+                        + "?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             //cmd.setString(1, getCod_nomen_caja());
             cmd.setInt(1, getAR_ID());
             cmd.setString(2, getNOM_USU());
             cmd.setInt(3, getNRO_PC());
-
+            cmd.setString(4, getMODULO());
             if(!cmd.execute())
             {
                 resp = true;
@@ -178,13 +155,39 @@ private int AR_ID;
         return resp;
     }
     
-    public int VerificarNumero(String nombre){
+    public void NUMERACION(String Num){
+        String consulta="";
+        try {
+            consulta="EXEC BUSCAR_NUMERACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Num);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                
+                if(r.getString(1).equals("0")){
+                    Caja_Registro.txtNRO.setEditable(true);
+                    Caja_Registro.txtNRO.requestFocus();
+                }else{
+                    Caja_Registro.txtNRO.setText(r.getString(1)); 
+                    Caja_Registro.txtNRO.setEditable(false);
+                    System.out.println("NUMERO ASIGNADO "+r.getString(1));
+                } 
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error AL CARGAR EL PRECIO: " + e.getMessage());
+        }
+    }
+    
+    public int VerificarNumero(String modulo, String nombre){
         int resultado=0;
         try
         {
-            String sql = "select * from SISTEMA_CONFIGURACION_PC_AREA where PA_MODULO ='CC' AND NRO_PC=?";
+            String sql = "select * from SISTEMA_CONFIGURACION_PC_AREA where PA_MODULO =? AND NRO_PC=?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, nombre);
+            cmd.setString(1, modulo);
+            cmd.setString(2, nombre);
             ResultSet rs = cmd.executeQuery();
             for (int i=0; rs.next (); i++)
             {
@@ -235,6 +238,14 @@ private int AR_ID;
 
     public void setAR_ID(int AR_ID) {
         this.AR_ID = AR_ID;
+    }
+
+    public String getMODULO() {
+        return MODULO;
+    }
+
+    public void setMODULO(String MODULO) {
+        this.MODULO = MODULO;
     }
     
     

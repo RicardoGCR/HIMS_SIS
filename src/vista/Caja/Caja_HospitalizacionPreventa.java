@@ -574,7 +574,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Gènero");
+        jLabel6.setText("Genero");
 
         jPanel54.setBackground(new java.awt.Color(43, 43, 43));
 

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f79e7d25-5974-4bfb-9f0a-a99594e50c4f">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="AS" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[EXEC [SP_SISTEMASECTOR_REPORTE_PERSONAL]]]>
+	</queryString>
+	<field name="SE_COD" class="java.lang.String"/>
+	<field name="SE_COD1" class="java.lang.String"/>
+	<field name="DPTO" class="java.lang.String"/>
+	<field name="PROV" class="java.lang.String"/>
+	<field name="DIST" class="java.lang.String"/>
+	<field name="nombre_mostrar" class="java.lang.String"/>
+	<field name="FECHA_INI" class="java.lang.String"/>
+	<field name="FECHA_FIN" class="java.lang.String"/>
+	<field name="UNIDAD" class="java.lang.String"/>
+	<group name="Departamento">
+		<groupExpression><![CDATA[$F{DPTO}]]></groupExpression>
+		<groupHeader>
+			<band height="22">
+				<textField>
+					<reportElement x="2" y="0" width="220" height="20" uuid="8e0437ee-78f4-4d59-8444-f51d9cf5e6e6"/>
+					<textFieldExpression><![CDATA[$F{DPTO}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Provincia">
+		<groupExpression><![CDATA[$F{PROV}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<textField>
+					<reportElement x="14" y="0" width="239" height="20" uuid="c06ec7fe-a686-40d2-a46b-dcd1118c1dec"/>
+					<textFieldExpression><![CDATA[$F{PROV}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Distrito">
+		<groupExpression><![CDATA[$F{SE_COD}]]></groupExpression>
+		<groupHeader>
+			<band height="41">
+				<textField>
+					<reportElement x="29" y="0" width="321" height="20" uuid="428f0113-2fb0-4d10-b61b-68ed820bab62"/>
+					<textFieldExpression><![CDATA[$F{DIST}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="37" y="20" width="100" height="20" uuid="a93e7881-0e61-4386-898f-49063c54fa9a"/>
+					<text><![CDATA[Personal]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="405" y="20" width="64" height="20" uuid="d2c5fa75-30c1-4632-8f1b-74d6d507ab29"/>
+					<text><![CDATA[Fecha Inicio]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="471" y="20" width="75" height="20" uuid="90f4fecb-1e2b-431d-a4d1-cff4bf8acb01"/>
+					<text><![CDATA[Fecha Termino]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="273" y="20" width="64" height="20" uuid="17c27dc8-8651-4f63-a773-cb835273843e"/>
+					<text><![CDATA[Desde]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="337" y="20" width="66" height="20" uuid="0ea61f9d-5ee6-4450-ac1f-3f8e4c5a5513"/>
+					<text><![CDATA[Hasta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="307" y="0" width="64" height="20" uuid="c35eb58d-12e0-42f1-8122-9b7bbde70b0e"/>
+					<text><![CDATA[SECTOR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="435" y="0" width="64" height="20" uuid="0f5a4c74-9a4a-48c9-823f-ee118644570c"/>
+					<text><![CDATA[PERIODO]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="1"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="154" y="14" width="239" height="46" uuid="eeaae18a-b849-4d9e-991c-b561986992fb"/>
+				<textElement>
+					<font size="40" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Sectorización]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="71" width="445" height="34" forecolor="#999999" uuid="f0c1efe1-9b62-4c10-81eb-b8fb31eff083"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNIDAD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="37" y="3" width="236" height="20" uuid="863b2f94-4c88-4361-ac5a-ae1612807dd1"/>
+				<textFieldExpression><![CDATA[$F{nombre_mostrar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="3" width="78" height="20" uuid="acfb5c34-5095-45be-9cb5-efcf7dec33ce"/>
+				<textFieldExpression><![CDATA[$F{FECHA_FIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="3" width="64" height="20" uuid="5d4dc739-6c65-4120-a964-0193f76387ce"/>
+				<textFieldExpression><![CDATA[$F{FECHA_INI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="3" width="64" height="20" uuid="ba90449e-dda6-446a-8037-f39912f897d2"/>
+				<textFieldExpression><![CDATA[$F{SE_COD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="3" width="68" height="20" uuid="9784d1df-61cc-46bd-ac64-1310ca43c0d1"/>
+				<textFieldExpression><![CDATA[$F{SE_COD1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="4fd18fed-89a0-41a4-873c-d11bf36cda40"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

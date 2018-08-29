@@ -60,10 +60,11 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
      */
     public RX_EC_BUSCAR_EXAMEN_C() throws UnknownHostException {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
 //        setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         this.getContentPane().setBackground(Color.white);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
         DETALLE.setLocationRelativeTo(null);
         DETALLE.getContentPane().setBackground(Color.white);
         con=conectar.conectar();
@@ -453,10 +454,8 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Diagnóstico por Imágenes RX");
-        setMinimumSize(new java.awt.Dimension(833, 659));
-        setResizable(false);
 
-        jpanel.setBackground(new java.awt.Color(240, 64, 87));
+        jpanel.setBackground(new java.awt.Color(209, 52, 56));
 
         titulo5.setBackground(new java.awt.Color(0, 102, 102));
         titulo5.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
@@ -524,15 +523,15 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        P_FECHAS.setBackground(new java.awt.Color(240, 64, 87));
+        P_FECHAS.setBackground(new java.awt.Color(209, 52, 56));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Inicio      :");
+        jLabel1.setText("Desde");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Termino :");
+        jLabel2.setText("Hata");
 
         btnBuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
         btnBuscarP.setContentAreaFilled(false);
@@ -543,9 +542,13 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             }
         });
 
+        fecha_inicio.setBackground(new java.awt.Color(209, 52, 56));
+        fecha_inicio.setForeground(new java.awt.Color(255, 255, 255));
         fecha_inicio.setDateFormatString("dd-MM-yyyy");
         fecha_inicio.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        fecha_fin.setBackground(new java.awt.Color(209, 52, 56));
+        fecha_fin.setForeground(new java.awt.Color(255, 255, 255));
         fecha_fin.setDateFormatString("dd-MM-yyyy");
         fecha_fin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
@@ -606,7 +609,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                             .addComponent(cbFecha)
                             .addComponent(titulo5)
                             .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 21, Short.MAX_VALUE))
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -622,9 +625,9 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         jpanelLayout.setVerticalGroup(
             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(29, 29, 29)
                 .addComponent(titulo5)
-                .addGap(97, 97, 97)
+                .addGap(79, 79, 79)
                 .addComponent(cbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(P_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -886,12 +889,14 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                             RX_EC_EXAMEN_CAB rx=new RX_EC_EXAMEN_CAB();
                             rx.setVisible(true);
                             RX_EC_EXAMEN_CAB.txtHC.setText(tb_Examenes.getValueAt(filaselec, 1).toString());
+                            RX_EC_EXAMEN_CAB.txtHC1.setText(tb_Examenes.getValueAt(filaselec, 1).toString());
                             RX_EC_EXAMEN_CAB.txtNombreP.setText(tb_Examenes.getValueAt(filaselec, 2).toString());
                             RX_EC_EXAMEN_CAB.txtDNI.setText(tb_Examenes.getValueAt(filaselec, 3).toString());
                             RX_EC_EXAMEN_CAB.txtFechaNac.setText(tb_Examenes.getValueAt(filaselec, 4).toString());
                             RX_EC_EXAMEN_CAB.txtEdad.setText(tb_Examenes.getValueAt(filaselec, 5).toString());
                             RX_EC_EXAMEN_CAB.txtGenero.setText(tb_Examenes.getValueAt(filaselec, 6).toString());
                             RX_EC_EXAMEN_CAB.txtAM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
+                            RX_EC_EXAMEN_CAB.lblACTOM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
                             RX_EC_EXAMEN_CAB.txtCodigoDoc.setText(tb_Examenes.getValueAt(filaselec, 10).toString());
 //                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
                             
@@ -966,12 +971,14 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                             RX_EC_EXAMEN_CAB rx=new RX_EC_EXAMEN_CAB();
                             rx.setVisible(true);
                             RX_EC_EXAMEN_CAB.txtHC.setText(txtHC.getText());
+                            RX_EC_EXAMEN_CAB.txtHC1.setText(txtHC.getText());
                             RX_EC_EXAMEN_CAB.txtNombreP.setText(txtNombres.getText());
                             RX_EC_EXAMEN_CAB.txtDNI.setText(txtDNI.getText());
                             RX_EC_EXAMEN_CAB.txtFechaNac.setText(lblFechaNaci.getText());
                             RX_EC_EXAMEN_CAB.txtEdad.setText(lblEdad.getText());
                             RX_EC_EXAMEN_CAB.txtGenero.setText(lblGenero.getText());
                             RX_EC_EXAMEN_CAB.txtAM.setText(txtAM.getText());
+                            RX_EC_EXAMEN_CAB.lblACTOM.setText(txtAM.getText());
                             RX_EC_EXAMEN_CAB.txtCodigoDoc.setText(txtDocumento.getText());
 //                            RX_EC_EXAMEN_CAB.lblCantidad.setText(lblNumero.getText());
                             
@@ -998,7 +1005,9 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                             
                             RX_EC_EXAMEN_CAB.txtCodigoDoc.setText(tb_Examenes.getValueAt(filaselec, 10).toString());
                             RX_EC_EXAMEN_CAB.txtAM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
+                            RX_EC_EXAMEN_CAB.lblACTOM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
                             RX_EC_EXAMEN_CAB.txtHC.setText(tb_Examenes.getValueAt(filaselec, 1).toString());
+                            RX_EC_EXAMEN_CAB.txtHC1.setText(tb_Examenes.getValueAt(filaselec, 1).toString());
                             RX_EC_EXAMEN_CAB.txtDNI.setText(tb_Examenes.getValueAt(filaselec, 3).toString());
                             RX_EC_EXAMEN_CAB.txtNombreP.setText(tb_Examenes.getValueAt(filaselec, 2).toString());
 //                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());

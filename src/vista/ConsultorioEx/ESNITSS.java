@@ -2242,7 +2242,7 @@ public class ESNITSS extends javax.swing.JFrame {
         BuscarPacientes.setResizable(false);
         BuscarPacientes.getContentPane().setBackground(Color.WHITE);
         ConsultorioExtEsnitss consultorio1 = new ConsultorioExtEsnitss();
-        consultorio1.consultorioExListarC(txtBuscarPaciente.getText(), "Q", tbPacientes);
+        consultorio1.consultorioExListarC(txtBuscarPaciente.getText(), tbPacientes);
     }//GEN-LAST:event_btnBuscarPacienteActionPerformed
 
     private void txtDuovirCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDuovirCaretUpdate
@@ -2334,7 +2334,7 @@ public class ESNITSS extends javax.swing.JFrame {
 
     private void txtBuscarPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPacienteCaretUpdate
         ConsultorioExtEsnitss consultorio1 = new ConsultorioExtEsnitss();
-        consultorio1.consultorioExListarC(txtBuscarPaciente.getText(), "Q", tbPacientes);
+        consultorio1.consultorioExListarC(txtBuscarPaciente.getText(),tbPacientes);
     }//GEN-LAST:event_txtBuscarPacienteCaretUpdate
 
     private void txtBuscarPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarPacienteMouseClicked

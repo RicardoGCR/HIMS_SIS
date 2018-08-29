@@ -4,9 +4,9 @@
 	<property name="ireport.zoom" value="1.610510000000001"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
-	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
-	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" isBold="true" pdfFontName="Times-Roman"/>
 	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
 	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
 		<conditionalStyle>
@@ -65,7 +65,7 @@ AND SE_COD = $P{SE_COD}]]>
 			<staticText>
 				<reportElement x="8" y="-5" width="243" height="51" forecolor="#FFFFFF" uuid="4b1add76-473c-4e97-80cd-8a95a54cbced"/>
 				<textElement>
-					<font fontName="Segoe UI Light" size="36"/>
+					<font fontName="Segoe UI Light"/>
 				</textElement>
 				<text><![CDATA[Sectorización]]></text>
 			</staticText>
@@ -87,30 +87,18 @@ AND SE_COD = $P{SE_COD}]]>
 			</staticText>
 			<staticText>
 				<reportElement x="8" y="9" width="71" height="29" uuid="edeac92f-e1ee-4bdd-9885-ad78af930586"/>
-				<textElement>
-					<font size="20"/>
-				</textElement>
 				<text><![CDATA[Sector:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="8" y="47" width="71" height="29" uuid="ac473c61-c3ee-42ef-a2bd-5f1dd5c8fc94"/>
-				<textElement>
-					<font size="20"/>
-				</textElement>
 				<text><![CDATA[Distrito:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="87" y="9" width="164" height="33" uuid="0e07327f-fddd-4705-8504-0719b517767f"/>
-				<textElement>
-					<font size="20"/>
-				</textElement>
 				<textFieldExpression><![CDATA[$F{se_cod}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="87" y="47" width="164" height="33" uuid="e5486cf6-ecb7-4299-a472-053a02b369f3"/>
-				<textElement>
-					<font size="20"/>
-				</textElement>
 				<textFieldExpression><![CDATA[$F{dis_act}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -196,14 +184,14 @@ AND SE_COD = $P{SE_COD}]]>
 				<textField evaluationTime="Report">
 					<reportElement style="Column header" x="513" y="-1" width="40" height="13" forecolor="#FFFFFF" uuid="e2eaa92d-0515-4783-a440-4fd08c3ccb75"/>
 					<textElement verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
+						<font isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement style="Column header" x="433" y="-1" width="80" height="13" forecolor="#FFFFFF" uuid="abf1db08-2c25-42f2-8b3d-66f9d2191130"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
+						<font isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 				</textField>
@@ -211,7 +199,7 @@ AND SE_COD = $P{SE_COD}]]>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement style="Column header" x="1" y="9" width="197" height="13" forecolor="#FFFFFF" uuid="130481e2-abe6-4c65-8641-21580495a5ae"/>
 				<textElement verticalAlignment="Middle">
-					<font size="10" isBold="false"/>
+					<font isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>

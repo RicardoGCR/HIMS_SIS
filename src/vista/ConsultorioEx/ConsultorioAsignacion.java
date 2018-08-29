@@ -210,7 +210,7 @@ Connection conexion=c.conectar();
                             CA.setCod_rol(Integer.parseInt(codmed.getText()));
                             CA.setFecha(determinarFecha(txtFecha));
                             CA.setId_Turno(Integer.parseInt(turid.getText()));/////
-                            CA.setUsuario(CA.codUsuario(lblusu.getText()));
+                            CA.setUsuario(CA.codUsuario(lblUsu.getText()));
                             CA.setNro_cita_A(Integer.parseInt(txtAdicionales.getText()));
                             CA.setNro_cita_F(Integer.parseInt(txtFuturas.getText()));
 
@@ -343,7 +343,7 @@ Connection conexion=c.conectar();
                 btneditar = new javax.swing.JButton();
                 btnguardar = new javax.swing.JButton();
                 btneliminar = new javax.swing.JButton();
-                lblusu = new javax.swing.JLabel();
+                lblUsu = new javax.swing.JLabel();
                 btneliminar1 = new javax.swing.JButton();
                 btnsubir = new javax.swing.JButton();
                 btnbuscar = new javax.swing.JButton();
@@ -755,7 +755,7 @@ Connection conexion=c.conectar();
                     Consultorios.getContentPane().add(jTabbedPane8);
                     jTabbedPane8.setBounds(0, 118, 910, 310);
 
-                    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
                     jPanel1.setBackground(new java.awt.Color(0, 153, 102));
 
@@ -819,9 +819,9 @@ Connection conexion=c.conectar();
                         }
                     });
 
-                    lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-                    lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                    lblusu.setText("Silvana");
+                    lblUsu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+                    lblUsu.setText("GERMAN");
 
                     btneliminar1.setForeground(new java.awt.Color(240, 240, 240));
                     btneliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
@@ -878,7 +878,7 @@ Connection conexion=c.conectar();
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lblusu)
+                                    .addComponent(lblUsu)
                                     .addGap(16, 16, 16))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -906,7 +906,7 @@ Connection conexion=c.conectar();
                                     .addGap(18, 18, 18))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(22, 22, 22)
-                                    .addComponent(lblusu)
+                                    .addComponent(lblUsu)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1944,7 +1944,7 @@ Connection conexion=c.conectar();
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTabbedPane jTabbedPane8;
-    private javax.swing.JLabel lblusu;
+    public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     private javax.swing.JTable tb_Detalle;

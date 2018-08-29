@@ -272,7 +272,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 vis.porcentajeVD(id);
                 datosPadres(triaje);
                 pnlPadres.setVisible(true);
-                btnGuardar.setEnabled(false);
+//                btnGuardar.setEnabled(false);
                 lblNiñosRegustrado.setText(txtPaciente.getText());
                 jTabbedPane1.setSelectedIndex(2);
                 btnLista.setEnabled(true);
@@ -781,7 +781,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 btnGuardar.setText("Guardar");
                 btnGuardar.setContentAreaFilled(false);
                 btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                btnGuardar.setEnabled(false);
                 btnGuardar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
                 btnGuardar.setIconTextGap(30);

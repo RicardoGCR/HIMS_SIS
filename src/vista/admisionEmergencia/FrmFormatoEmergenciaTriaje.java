@@ -1904,18 +1904,18 @@ public class FrmFormatoEmergenciaTriaje extends javax.swing.JFrame implements Ru
                             BHC.setMinimumSize(new java.awt.Dimension(749, 350));
                             BHC.setResizable(false);
 
-                            jPanel15.setBackground(new java.awt.Color(23, 160, 134));
+                            jPanel15.setBackground(new java.awt.Color(230, 230, 230));
                             jPanel15.setMinimumSize(new java.awt.Dimension(310, 441));
 
-                            jLabel19.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                            jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+                            jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                            jLabel19.setForeground(new java.awt.Color(102, 102, 102));
                             jLabel19.setText("Paciente");
 
                             jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                            jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+                            jLabel14.setForeground(new java.awt.Color(102, 102, 102));
                             jLabel14.setText("Busqueda por DNI, H.C. y Apellidos");
 
-                            bus.setForeground(new java.awt.Color(23, 160, 134));
+                            bus.setForeground(new java.awt.Color(230, 230, 230));
                             bus.setText("jLabel37");
 
                             jPanel27.setBackground(new java.awt.Color(255, 255, 255));
@@ -1960,10 +1960,10 @@ public class FrmFormatoEmergenciaTriaje extends javax.swing.JFrame implements Ru
                                     .addComponent(txtBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                             );
 
-                            bus3.setForeground(new java.awt.Color(23, 160, 134));
+                            bus3.setForeground(new java.awt.Color(230, 230, 230));
                             bus3.setText("jLabel37");
 
-                            btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                            btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
                             btnBuscarPaciente2.setContentAreaFilled(false);
                             btnBuscarPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                             btnBuscarPaciente2.addActionListener(new java.awt.event.ActionListener() {
@@ -2186,7 +2186,7 @@ public class FrmFormatoEmergenciaTriaje extends javax.swing.JFrame implements Ru
                             });
                             jScrollPane24.setViewportView(tbPacientes);
 
-                            jPanel35.setBackground(new java.awt.Color(23, 160, 134));
+                            jPanel35.setBackground(new java.awt.Color(232, 76, 61));
                             jPanel35.setPreferredSize(new java.awt.Dimension(0, 2));
 
                             javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
@@ -2246,7 +2246,7 @@ public class FrmFormatoEmergenciaTriaje extends javax.swing.JFrame implements Ru
                             jLabel46.setText("No se hallaron coincidencias");
 
                             jLabel87.setFont(new java.awt.Font("Segoe UI Light", 0, 100)); // NOI18N
-                            jLabel87.setForeground(new java.awt.Color(23, 160, 134));
+                            jLabel87.setForeground(new java.awt.Color(232, 76, 61));
                             jLabel87.setText(":(");
 
                             javax.swing.GroupLayout panelSinHCLayout = new javax.swing.GroupLayout(panelSinHC);
@@ -2300,6 +2300,11 @@ public class FrmFormatoEmergenciaTriaje extends javax.swing.JFrame implements Ru
 
                             jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/opciones.png"))); // NOI18N
                             jMenuItem1.setText("Opciones");
+                            jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+                                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                    jMenuItem1ActionPerformed(evt);
+                                }
+                            });
                             jpmTriaje.add(jMenuItem1);
                             jpmTriaje.add(jSeparator1);
 
@@ -3841,6 +3846,10 @@ public class FrmFormatoEmergenciaTriaje extends javax.swing.JFrame implements Ru
             txtIDM.requestFocus();
         }
     }//GEN-LAST:event_txtTallaKeyPressed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       

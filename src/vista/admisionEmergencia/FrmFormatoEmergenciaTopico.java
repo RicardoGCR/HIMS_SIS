@@ -1633,10 +1633,10 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                         });
                         jScrollPane16.setViewportView(tbDiagnosticos);
 
-                        jPanel6.setBackground(new java.awt.Color(23, 160, 134));
+                        jPanel6.setBackground(new java.awt.Color(230, 230, 230));
 
-                        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 26)); // NOI18N
-                        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel13.setFont(new java.awt.Font("Segoe UI Semilight", 0, 26)); // NOI18N
+                        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
                         jLabel13.setText("Diagnósticos");
 
                         jPanel29.setBackground(new java.awt.Color(255, 255, 255));
@@ -1681,7 +1681,7 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                                 .addComponent(txtBuscarDiagnostico, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         );
 
-                        btnBuscarPaciente4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                        btnBuscarPaciente4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
                         btnBuscarPaciente4.setContentAreaFilled(false);
                         btnBuscarPaciente4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                         btnBuscarPaciente4.addActionListener(new java.awt.event.ActionListener() {
@@ -1690,10 +1690,10 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                             }
                         });
 
-                        lblTipo1.setForeground(new java.awt.Color(23, 160, 134));
+                        lblTipo1.setForeground(new java.awt.Color(230, 230, 230));
                         lblTipo1.setText("jLabel71");
 
-                        lblTipoDiag.setForeground(new java.awt.Color(23, 160, 134));
+                        lblTipoDiag.setForeground(new java.awt.Color(230, 230, 230));
                         lblTipoDiag.setText("jLabel78");
 
                         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1796,10 +1796,10 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                         });
                         jScrollPane15.setViewportView(tbDatosLab);
 
-                        jPanel2.setBackground(new java.awt.Color(23, 160, 134));
+                        jPanel2.setBackground(new java.awt.Color(230, 230, 230));
 
-                        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 26)); // NOI18N
-                        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel12.setFont(new java.awt.Font("Segoe UI Semilight", 0, 26)); // NOI18N
+                        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
                         jLabel12.setText("Exámenes Auxiliares");
 
                         jPanel28.setBackground(new java.awt.Color(255, 255, 255));
@@ -1844,7 +1844,7 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                                 .addComponent(txtBusquedaTo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         );
 
-                        btnBuscarPaciente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                        btnBuscarPaciente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
                         btnBuscarPaciente3.setContentAreaFilled(false);
                         btnBuscarPaciente3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                         btnBuscarPaciente3.addActionListener(new java.awt.event.ActionListener() {
@@ -1853,7 +1853,7 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                             }
                         });
 
-                        lblTipo.setForeground(new java.awt.Color(23, 160, 134));
+                        lblTipo.setForeground(new java.awt.Color(230, 230, 230));
                         lblTipo.setText("jLabel71");
 
                         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -2080,18 +2080,18 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                         BHC.setMinimumSize(new java.awt.Dimension(749, 350));
                         BHC.setResizable(false);
 
-                        jPanel15.setBackground(new java.awt.Color(23, 160, 134));
+                        jPanel15.setBackground(new java.awt.Color(230, 230, 230));
                         jPanel15.setMinimumSize(new java.awt.Dimension(310, 441));
 
-                        jLabel19.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-                        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 30)); // NOI18N
+                        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
                         jLabel19.setText("Paciente");
 
                         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
                         jLabel14.setText("Busqueda por DNI, H.C. y Apellidos");
 
-                        bus.setForeground(new java.awt.Color(23, 160, 134));
+                        bus.setForeground(new java.awt.Color(230, 230, 230));
                         bus.setText("jLabel37");
 
                         jPanel27.setBackground(new java.awt.Color(255, 255, 255));
@@ -2136,10 +2136,10 @@ public class FrmFormatoEmergenciaTopico extends javax.swing.JFrame implements Ru
                                 .addComponent(txtBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         );
 
-                        bus3.setForeground(new java.awt.Color(23, 160, 134));
+                        bus3.setForeground(new java.awt.Color(230, 230, 230));
                         bus3.setText("jLabel37");
 
-                        btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                        btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-30.png"))); // NOI18N
                         btnBuscarPaciente2.setContentAreaFilled(false);
                         btnBuscarPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                         btnBuscarPaciente2.addActionListener(new java.awt.event.ActionListener() {

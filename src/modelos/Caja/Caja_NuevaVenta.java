@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package modelos.Caja;
+import java.awt.print.PageFormat;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,15 +16,29 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
+import javax.print.attribute.AttributeSet;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.HashPrintServiceAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.Copies;
+import javax.print.attribute.standard.MediaPrintableArea;
+import javax.print.attribute.standard.MediaSize;
+import javax.print.attribute.standard.MediaSizeName;
+import javax.print.attribute.standard.PrinterName;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
+import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import vista.Caja.Caja_Cierre;
@@ -73,11 +90,147 @@ private String EstadoVisibleAdmision;
 private int Id_Cod_det;
 private int ID_SESION;
 private String FUA;
+private double IGV;
+private double SUBTOTAL;
+private double REDONDEO;    
+private String CODRENAESREFE;
+private String NUMREF;
+//////////////////////////
+private String APE_PAT;
+private String APE_MAT;
+private String NOMBRES;
+private String DIRECCION;
+private String DPTO;
+private String PROV;
+private String DIST;
+private String FECHA_NAC;
+private String DNI_A;
 
-        
+    public String getCODRENAESREFE() {
+        return CODRENAESREFE;
+    }
+
+    public String getNUMREF() {
+        return NUMREF;
+    }
+
+    public void setNUMREF(String NUMREF) {
+        this.NUMREF = NUMREF;
+    }
+
+    public void setCODRENAESREFE(String CODRENAESREFE) {
+        this.CODRENAESREFE = CODRENAESREFE;
+    }
+
+    public String getAPE_PAT() {
+        return APE_PAT;
+    }
+
+    public void setAPE_PAT(String APE_PAT) {
+        this.APE_PAT = APE_PAT;
+    }
+
+    public String getAPE_MAT() {
+        return APE_MAT;
+    }
+
+    public void setAPE_MAT(String APE_MAT) {
+        this.APE_MAT = APE_MAT;
+    }
+
+    public String getNOMBRES() {
+        return NOMBRES;
+    }
+
+    public void setNOMBRES(String NOMBRES) {
+        this.NOMBRES = NOMBRES;
+    }
+
+    public String getDIRECCION() {
+        return DIRECCION;
+    }
+
+    public void setDIRECCION(String DIRECCION) {
+        this.DIRECCION = DIRECCION;
+    }
+
+    public String getDPTO() {
+        return DPTO;
+    }
+
+    public void setDPTO(String DPTO) {
+        this.DPTO = DPTO;
+    }
+
+    public String getPROV() {
+        return PROV;
+    }
+
+    public void setPROV(String PROV) {
+        this.PROV = PROV;
+    }
+
+    public String getDIST() {
+        return DIST;
+    }
+
+    public void setDIST(String DIST) {
+        this.DIST = DIST;
+    }
+
+    public String getFECHA_NAC() {
+        return FECHA_NAC;
+    }
+
+    public void setFECHA_NAC(String FECHA_NAC) {
+        this.FECHA_NAC = FECHA_NAC;
+    }
+
+    public String getDNI_A() {
+        return DNI_A;
+    }
+
+    public void setDNI_A(String DNI_A) {
+        this.DNI_A = DNI_A;
+    }
+    
+    
 ////////////////////////////////////////////////////
 Conexion con = new Conexion();
 
+    public boolean ACTUALIZAR_HC(String opc)
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTUALIZAR_HC ?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getAPE_PAT());
+            cmd.setString(2, getAPE_MAT());
+            cmd.setString(3, getNOMBRES());
+            cmd.setString(4, getDIRECCION());
+            cmd.setString(5, getDPTO());
+            cmd.setString(6, getPROV());
+            cmd.setString(7, getDIST());
+            cmd.setString(8, getDNI_A());
+            cmd.setString(9, getFECHA_NAC()); 
+            cmd.setString(10, opc);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    
+    
 public void Caja_Correlativo(String usu){
         try {
             String consulta = "exec CAJA_SERIE_CORRELATIVO ?";
@@ -88,6 +241,23 @@ public void Caja_Correlativo(String usu){
                Caja_Pagos.lblSerie.setText(r.getString(1));
                Caja_Pagos.lblNumDoc.setText(r.getString(2));
                Caja_Pagos.lblNumeroDoc.setText(r.getString(1)+"-"+r.getString(2));
+        }
+        }catch(Exception ex){
+            System.out.println("Error al generar serie y numero " + ex.getMessage());
+        }
+    }
+
+
+public void Caja_Correlativo_FARMACIA(String usu){
+        try {
+            String consulta = "exec CAJA_SERIE_CORRELATIVO_FARMACIA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, usu);
+            ResultSet r= cmd.executeQuery();
+        if(r.next()){
+               Caja_Pagos.lblSerie.setText(r.getString(1));
+//               Caja_Pagos.lblNumDoc.setText(r.getString(2));
+//               Caja_Pagos.lblNumeroDoc.setText(r.getString(1)+"-"+r.getString(2));
         }
         }catch(Exception ex){
             System.out.println("Error al generar serie y numero " + ex.getMessage());
@@ -203,24 +373,24 @@ public void SumaPENDIENTEReporteCIERRE(String pendiente,Integer SESION){
             System.out.println("Error: SUMA PENDIENTE  " + e.getMessage());
         }
     }
-public void SumaANULADOReporte(String anulado, Integer SESION){
-        String consulta="";
-        try {
-            consulta="CAJA_RESUMEN_DIARIO_TOTAL_ANULADO ?,?";
-            PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, anulado);
-            cmd.setInt(2, SESION);
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                    
-                Caja_Pagos.lblTotalAnulado.setText(r.getString(1));    
-            }
-            //
-        } catch (Exception e) {
-            System.out.println("Error: SUMA ANULADO  " + e.getMessage());
-        }
-    }
+//public void SumaANULADOReporte(String anulado, Integer SESION){
+//        String consulta="";
+//        try {
+//            consulta="CAJA_RESUMEN_DIARIO_TOTAL_ANULADO ?,?";
+//            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, anulado);
+//            cmd.setInt(2, SESION);
+//            ResultSet r= cmd.executeQuery();
+//            int c=1;
+//            while(r.next()){
+//                    
+//                Caja_Pagos.lblTotalAnulado.setText(r.getString(1));    
+//            }
+//            //
+//        } catch (Exception e) {
+//            System.out.println("Error: SUMA ANULADO  " + e.getMessage());
+//        }
+//    }
 public void SumaANULADOReporteCIERRE(String anulado, Integer SESION){
         String consulta="";
         try {
@@ -253,7 +423,33 @@ public void ReporteDiario(String USUARIO,Integer SESION) {
         }
     }
 
-public void ReporteFechas(String USUARIO,int F1,int F2) {
+    public void ReporteDiario_fua(String ID) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("ID", ID);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/FUA.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("FUA");
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+    }
+
+    public void FUA1(String ID) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("ID", ID);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/FUA.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("FUA");
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR AL IMPRIMIR FUA:"+e.getMessage());
+        }
+    }
+
+    public void ReporteFechas(String USUARIO,int F1,int F2) {
         try {
             Map parametros = new HashMap();
             parametros.put("USUARIO", USUARIO);
@@ -262,13 +458,14 @@ public void ReporteFechas(String USUARIO,int F1,int F2) {
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteFechas.jasper"), parametros, con.conectar()); 
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("Reporte");
-           ventanavisor.setVisible(true);
+            ventanavisor.setVisible(true);
         } catch (Exception e) {
             Caja_Reporte_Fechas.ErrorPrint.setUndecorated(true);
             Caja_Reporte_Fechas.ErrorPrint.setVisible(true);
         }
     }
-public void ReporteFechasCAJEROS(int F1,int F2) {
+
+    public void ReporteFechasCAJEROS(int F1,int F2) {
         try {
             Map parametros = new HashMap();
             parametros.put("F1", F1);
@@ -281,7 +478,8 @@ public void ReporteFechasCAJEROS(int F1,int F2) {
             System.out.println("ERRORR");
         }
     }
-public void ReporteFechasCC6(String USUARIO,int F1,int F2, String FP,String CC6) {
+    
+    public void ReporteFechasCC6(String USUARIO,int F1,int F2, String FP,String CC6) {
         try {
             Map parametros = new HashMap();
             parametros.put("USU", USUARIO);
@@ -300,7 +498,7 @@ public void ReporteFechasCC6(String USUARIO,int F1,int F2, String FP,String CC6)
     }
 
 
-public void ConsultoriosExtPREVENTAListar(String ap_id){
+    public void ConsultoriosExtPREVENTAListar(String ap_id){
         String consulta="";
         try {
             consulta="CAJA_ACTOMEDICO_EXISTENTE ?";
@@ -319,7 +517,7 @@ public void ConsultoriosExtPREVENTAListar(String ap_id){
         }
     }
 
-public void ConsultoriosACTOMEDICO_EMERGENCIA(String ap_id){
+    public void ConsultoriosACTOMEDICO_EMERGENCIA(String ap_id){
         String consulta="";
         try {
             consulta="Caja_AM_EMERGENCIA ?";
@@ -327,8 +525,7 @@ public void ConsultoriosACTOMEDICO_EMERGENCIA(String ap_id){
             cmd.setString(1, ap_id);
             ResultSet r= cmd.executeQuery();
             int c=1;
-            while(r.next()){
-                    
+            while(r.next()){   
                 Caja_Pagos.lblActoMedico.setText(r.getString(1));    
                 Caja_Pagos.lblMantP.setText("PR");
             }
@@ -358,7 +555,7 @@ public void ConsultoriosACTOMEDICO_EMERGENCIA(String ap_id){
         }
     }
 
-public void ConsultoriosExtPREVENTAListarCEX(String ap_id){
+    public void ConsultoriosExtPREVENTAListarCEX(String ap_id){
         String consulta="";
         try {
             consulta="CAJA_ACTOMEDICO_EXISTENTE_CEX ?";
@@ -378,7 +575,7 @@ public void ConsultoriosExtPREVENTAListarCEX(String ap_id){
     }
 
 
-        public void Caja_Id_Preventa(String ap_id){
+    public void Caja_Id_Preventa(String ap_id){
         String consulta="";
         try {
             consulta="Caja_Verificar_PreVenta ?";
@@ -418,7 +615,7 @@ public void ConsultoriosExtPREVENTAListarCEX(String ap_id){
         }
         return resp;
     }
-       public boolean ActualizarEstadoPagoCREDITO_HOSPITALARIO_det()
+    public boolean ActualizarEstadoPagoCREDITO_HOSPITALARIO_det()
         {
         boolean resp = false;
         try
@@ -441,7 +638,7 @@ public void ConsultoriosExtPREVENTAListarCEX(String ap_id){
         return resp;
     }
 
-public boolean NuevoActoMedico()
+    public boolean NuevoActoMedico()
         {
         boolean resp = false;
         try
@@ -467,12 +664,12 @@ public boolean NuevoActoMedico()
         return resp;
     }
 
-public boolean ActualizarVenta()
+    public boolean ActualizarVenta()
         {
         boolean resp = false;
         try
         {
-            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA ?,?,?,?,?,?,?,?";
+            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA ?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_documento());
             cmd.setDouble(2, getDESCUENTO());
@@ -482,6 +679,11 @@ public boolean ActualizarVenta()
             cmd.setInt(6, getId_ActoMedico());
             cmd.setString(7, getEstadoVisibleAdmision());
             cmd.setString(8,getCod_jerar_forma_pago());
+            cmd.setString(9, getId_hc());
+            
+            cmd.setString(10, getNUMREF());
+            cmd.setString(11, getCODRENAESREFE());
+            
             if(!cmd.execute())
             {
                 resp = true;
@@ -495,7 +697,45 @@ public boolean ActualizarVenta()
         }
         return resp;
     }
-public boolean ActualizarVentaEx()
+    
+    
+    public boolean ActualizarVenta_FR()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA_FR ?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_documento());
+            cmd.setDouble(2, getDESCUENTO());
+            cmd.setDouble(3, getTOTAL_DOCUUMENTO());
+            
+            cmd.setDouble(4, getIGV());
+            cmd.setDouble(5, getSUBTOTAL());
+            
+            cmd.setString(6, getUsu_Exoneracion());
+            cmd.setString(7, getPorcentaje_Exoneracion());
+            cmd.setInt(8, getId_ActoMedico());
+            cmd.setString(9, getEstadoVisibleAdmision());
+            cmd.setString(10,getCod_jerar_forma_pago());
+            cmd.setString(11, getSerie_documento());
+            cmd.setString(12, getNum_documento());
+            cmd.setDouble(13, getREDONDEO());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error ACTUALIZAR CABECERA: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean ActualizarVentaEx()
         {
         boolean resp = false;
         try
@@ -523,10 +763,10 @@ public boolean ActualizarVentaEx()
         return resp;
     }
 
-public boolean NuevaVenta(){
+    public boolean NuevaVenta(){
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_documento());
             cmd.setString(2, getCod_tipo_documento());
@@ -545,7 +785,10 @@ public boolean NuevaVenta(){
             cmd.setString(15, getUsu_Exoneracion());
             cmd.setString(16, getPorcentaje_Exoneracion());
             cmd.setInt(17, getID_SESION());
-            cmd.setString(18, getFUA());
+            cmd.setString(18, getFUA());    
+            cmd.setString(19, getCODRENAESREFE());
+            cmd.setString(20, getNUMREF());
+
             if(!cmd.execute())
             {
                 resp = true;
@@ -555,7 +798,7 @@ public boolean NuevaVenta(){
         }
         catch(Exception ex)
         {
-            System.out.println("Error : " + ex.getMessage());
+            System.out.println("Error NUEVA VENTA: " + ex.getMessage());
         }
         return resp;
     }
@@ -580,7 +823,7 @@ public boolean NuevaVenta(){
         return resp;
     }
 
-        public boolean DIAS_HOSPITALIZACION(){
+    public boolean DIAS_HOSPITALIZACION(){
         boolean resp = false;
         try{
             String sql = "EXEC CAJA_CALCULAR_DIAS_H ?";
@@ -623,7 +866,7 @@ public boolean NuevaVenta(){
         return resp;
     }
     
-     public boolean EliminarDetalle(){
+    public boolean EliminarDetalle(){
         boolean resp = false;
         try
         {
@@ -644,7 +887,31 @@ public boolean NuevaVenta(){
         }
         return resp;
     }
-     public boolean EliminarKARDEX_LA(){
+    
+    public boolean CAJA_NUM_FUA(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC CAJA_GENERAR_NUM_FUA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_documento());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar Detalle: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    
+    public boolean EliminarKARDEX_LA(){
         boolean resp = false;
         try
         {
@@ -668,7 +935,7 @@ public boolean NuevaVenta(){
      
      
 
- public String codUsuario(String nombreUsuario)
+    public String codUsuario(String nombreUsuario)
     {
         String cod="";
         try
@@ -689,7 +956,7 @@ public boolean NuevaVenta(){
         return cod;
     }
  
-  public String ActoMedico(String nombreUsuario)
+    public String ActoMedico(String nombreUsuario)
     {
         String cod="";
         try
@@ -710,7 +977,7 @@ public boolean NuevaVenta(){
         return cod;
     }
  
- public String id(String nombreUsuario)
+    public String id(String nombreUsuario)
     {
         String cod="";
         try
@@ -734,7 +1001,7 @@ public boolean NuevaVenta(){
 
 
 
-public String sinanulacion(){//muestra el codigo
+    public String sinanulacion(){//muestra el codigo
         String id = "";
         try {
             String consulta = "exec Caja_NuevaVentaSinAnulacion";
@@ -749,7 +1016,7 @@ public String sinanulacion(){//muestra el codigo
         return id;
     }
 
-public String codTipo(String tipo)
+    public String codTipo(String tipo)
     {
         String cod="";
         try
@@ -772,7 +1039,7 @@ public String codTipo(String tipo)
         return cod;
     }
 
-public String anular(String tipo)
+    public String anular(String tipo)
     {
         String cod="";
         try
@@ -795,16 +1062,16 @@ public String anular(String tipo)
         return cod;
     }
 
-public boolean modificarAnulacion(){
+    public boolean modificarAnulacion(){
         boolean resp = false;
         try
         {
-            String sql = "Exec CAJA_VENTA_CABECERA_ANULACION ?,?,?,?";
+            String sql = "Exec CAJA_VENTA_CABECERA_ANULACION ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_documento());
-            cmd.setString(2, getCod_motiv_anu());
-            cmd.setDouble(3, getDevolucion_doc());
-            cmd.setString(4, getCod_usu_anu());
+//            cmd.setString(2, getCod_motiv_anu());
+//            cmd.setDouble(3, getDevolucion_doc());
+//            cmd.setString(4, getCod_usu_anu());
 
             if(!cmd.execute())
             {
@@ -820,7 +1087,7 @@ public boolean modificarAnulacion(){
         return resp;
     }
 
-public void listarMedicos(String medico,String Servicio,JTable tabla){
+    public void listarMedicos(String medico,String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -856,7 +1123,7 @@ public void listarMedicos(String medico,String Servicio,JTable tabla){
         }
     }
 
-public void listarMedicos1(String Servicio,JTable tabla){
+    public void listarMedicos1(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -890,7 +1157,7 @@ public void listarMedicos1(String Servicio,JTable tabla){
             System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
         }
     }
-public void listarMedicosPapeleta(String Servicio,JTable tabla){
+    public void listarMedicosPapeleta(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -929,7 +1196,6 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(1).setPreferredWidth(350);  
-        
         tabla.getColumnModel().getColumn(2).setMinWidth(0);
         tabla.getColumnModel().getColumn(2).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
@@ -986,40 +1252,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
         }
     }
-    
-    public void PreventaFR(String parametro,JTable tabla){
-    String consulta="";
-        try {
-            tabla.setModel(new DefaultTableModel());
-                String titulos[]={"FORMA PAGO","DNI","Apellidos y Nombres","Fecha","Id"};
-            m=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m);
-            String fila[]=new String[5];
-            //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec CAJA_PREVENTAS_FARMACIA ?";
-            PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, parametro);;
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                fila[0]=r.getString(1);
-                fila[1]=r.getString(2);
-                fila[2]=r.getString(3);
-                fila[3]=r.getString(4);
-                fila[4]=r.getString(5);
-                    m.addRow(fila);
-                    c++;
-            }
-            tabla.setModel(m);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            tabla.setRowSorter(elQueOrdena);
-            tabla.setModel(m);
-            System.out.println("SI HAY");
-        } catch (Exception e) {
-            System.out.println("Error: listar PREVENTAS FR: " + e.getMessage());
-        }
-    }
-    
+ 
     
     public void ListarAsistentaSocial(JTable tabla){
     String consulta="";
@@ -1050,7 +1283,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
     }
     
-     public void formatoTablaAsistente(JTable tabla){
+    public void formatoTablaAsistente(JTable tabla){
 
         tabla.setRowHeight(37);
     }
@@ -1095,7 +1328,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
         }
     }
-     public void formatoTablaCPT(JTable tabla){
+    public void formatoTablaCPT(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(600);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(50);
@@ -1271,8 +1504,6 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(22).setMinWidth(0);
         tabla.getColumnModel().getColumn(22).setMaxWidth(0);
 
-   
-
 //        COLUMNAS OCULTAS
 //        TableColumn columna = tabla.getColumnModel().getColumn(0);
 //            columna.setMaxWidth(0);
@@ -1288,14 +1519,11 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(1).setMaxWidth(0);
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
         tabla.getColumnModel().getColumn(3).setMaxWidth(0);
-        
         tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
 //        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
         tabla.getColumnModel().getColumn(4).setPreferredWidth(30);
         tabla.getColumnModel().getColumn(5).setPreferredWidth(30);
         tabla.getColumnModel().getColumn(7).setPreferredWidth(160);
-       
-        
         tabla.getColumnModel().getColumn(6).setMinWidth(0);
         tabla.getColumnModel().getColumn(6).setMaxWidth(0);
         tabla.getColumnModel().getColumn(8).setMinWidth(0);
@@ -1341,29 +1569,72 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     }
      
      
-    public void reporteVentaLaRxEc(String id_documento) {
+    public void reporteVentaLaRxEc(String id_documento,String TOTAL_FR,String farma) {
         try {
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
-           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/report1.jasper"), parametros, con.conectar());   
+            parametros.put("TOTAL_FR",TOTAL_FR);
+            parametros.put("farma",farma);
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/LA_RX_EC_NO SIS.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
+//                JOptionPane.showMessageDialog(null, "ERROR GERMAN --------------------"+e.getMessage()+"ID   "+id_documento);
                 Caja_Pagos.ErrorPrint.setUndecorated(true);
                 Caja_Pagos.ErrorPrint.setVisible(true);
                 
             }
     } 
     
-    public void reporteVentaLaRxEcSIS(String id_documento) {
+//        public void reporteVentaLaRxEc(String ID){
+//        try {
+//            Map parametros = new HashMap();
+//            parametros.put("ID", ID);
+//            //E:\\HIMS_SIS\\PRUEBASIS\\src\\
+//            //jrxml
+//    String report = JasperCompileManager.compileReportToFile("E:\\HIMS_SIS\\PRUEBASIS\\src\\Reportes\\cajaCentral\\report1.jrxml");
+//    JasperPrint jasperPrint = JasperFillManager.fillReport(report, parametros, con.conectar());
+//    PrinterJob printerJob = PrinterJob.getPrinterJob();
+//    PageFormat pageFormat = PrinterJob.getPrinterJob().defaultPage();
+//    printerJob.defaultPage(pageFormat);
+//    int selectedService = 0;
+//    AttributeSet attributeSet = new HashPrintServiceAttributeSet(new PrinterName("Enviar a OneNote 16", null));
+//    PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, attributeSet);
+//    try {
+//        printerJob.setPrintService(printService[selectedService]);
+//    } catch (Exception e) {
+//        System.out.println(e);
+//    }
+//    JRPrintServiceExporter exporter;
+//    PrintRequestAttributeSet printRequestAttributeSet = new HashPrintRequestAttributeSet();
+//    printRequestAttributeSet.add(MediaSizeName.NA_LETTER);
+//    printRequestAttributeSet.add(new Copies(1));
+//    // these are deprecated
+//    exporter = new JRPrintServiceExporter();
+//    exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+//    exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, printService[selectedService]);
+//    exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE_ATTRIBUTE_SET, printService[selectedService].getAttributes());
+//    exporter.setParameter(JRPrintServiceExporterParameter.PRINT_REQUEST_ATTRIBUTE_SET, printRequestAttributeSet);
+//    exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.FALSE);
+//    exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.FALSE);
+//    exporter.exportReport();
+//
+//} catch (JRException e) {
+//    e.printStackTrace();
+//}
+//    }
+//     
+    
+    public void reporteVentaLaRxEcSIS(String id_documento,String TOTAL_FR,String farma) {
         try {
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
-           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/SIS.jasper"), parametros, con.conectar());   
+            parametros.put("TOTAL_FR",TOTAL_FR);
+            parametros.put("farma",farma);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/LA_RX_EC_SIS.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 Caja_Pagos.ErrorPrint.setUndecorated(true);
                 Caja_Pagos.ErrorPrint.setVisible(true);
-                
             }
     }
     
@@ -1374,8 +1645,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorio - copia.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
-                Caja_Pagos.ErrorPrint.setUndecorated(true);
-                Caja_Pagos.ErrorPrint.setVisible(true);
+                System.out.println("error i "+e);
                 
             }
     } 
@@ -1387,13 +1657,12 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorioSIS - copia.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
-                Caja_Pagos.ErrorPrint.setUndecorated(true);
-                Caja_Pagos.ErrorPrint.setVisible(true);
+               System.out.println("error i "+e);
                 
             }
     }
     
-     public void reporteALTA(String id_documento) {
+    public void reporteALTA(String id_documento) {
         try {
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
@@ -1406,7 +1675,34 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 
             }
     } 
-     public void reporteALTASIS(String id_documento) {
+    
+    public void ReporteFR_ANULADO(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/FR_ANULADO.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
+                Caja_Pagos.ErrorPrint.setVisible(true);  
+            }
+    } 
+    public void ReporteFR_PAGO(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/FR_PAGO.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+
+                Caja_Pagos.ErrorPrint.setUndecorated(true);
+                Caja_Pagos.ErrorPrint.setVisible(true);  
+            }
+    } 
+    
+    
+    public void reporteALTASIS(String id_documento) {
         try {
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
@@ -1419,7 +1715,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 
             }
     } 
-     public void reporteHOSPITALIZACION(String id_documento) {
+    public void reporteHOSPITALIZACION(String id_documento) {
         try {
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
@@ -1428,7 +1724,6 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             } catch (Exception e) {
                 Caja_Pagos.ErrorPrint.setUndecorated(true);
                 Caja_Pagos.ErrorPrint.setVisible(true);
-                
             }
     }
      
@@ -1441,10 +1736,25 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             } catch (Exception e) {
                 Caja_Pagos.ErrorPrint.setUndecorated(true);
                 Caja_Pagos.ErrorPrint.setVisible(true);
-                
             }
     }
-    
+     public void reporteFUA(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("DNI", id_documento);
+            System.out.println(id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/prueba.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            JasperPrint informe1 = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/report5.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor1 = new JasperViewer(informe1, false);
+            ventanavisor.setTitle("FUA");
+            ventanavisor1.setTitle("FUA");
+            ventanavisor.setVisible(true);
+            ventanavisor1.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+        } 
     public boolean ActualizarDNI(){
         boolean resp = false;
         try
@@ -1468,7 +1778,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         return resp;
     }
     
-     public boolean ActualizarCitas()
+    public boolean ActualizarCitas()
         {
         boolean resp = false;
         try{
@@ -1487,12 +1797,12 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
         catch(Exception ex)
         {
-            System.out.println("Error : " + ex.getMessage());
+            System.out.println("Error ACTUALIZAR CITAS: " + ex.getMessage());
         }
         return resp;
     }
      
-     public boolean ActualizarCitasFuturas()
+    public boolean ActualizarCitasFuturas()
         {
         boolean resp = false;
         try{
@@ -1511,11 +1821,12 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
         catch(Exception ex)
         {
-            System.out.println("Error : " + ex.getMessage());
+            System.out.println("ErrorCITAS FUTURAS : " + ex.getMessage());
         }
         return resp;
     }
-     public boolean ActualizarCitasAdicionales()
+    
+    public boolean ActualizarCitasAdicionales()
         {
         boolean resp = false;
         try{
@@ -1534,7 +1845,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
         catch(Exception ex)
         {
-            System.out.println("Error : " + ex.getMessage());
+            System.out.println("Error CITAS ADICIONALES : " + ex.getMessage());
         }
         return resp;
     }
@@ -1581,7 +1892,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: listarEmpresa : " + e.getMessage());
         }
     }
-      public void formatoTablaEmpresa(JTable tabla){
+    public void formatoTablaEmpresa(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(1).setMinWidth(0);
@@ -1654,7 +1965,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: listar REPORTE CABECERA" + e.getMessage());
         }
     }
-      public void ReporteFechasCajaCabecera(String Usuario,int Desde, int Hasta,String des,JTable tabla){
+    public void ReporteFechasCajaCabecera(String Usuario,int Desde, int Hasta,String des,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -1699,7 +2010,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: listar REPORTE FECHAS" + e.getMessage());
         }
     }
-        public void ReporteFechasCajeros(int Desde, int Hasta,JTable tabla){
+    public void ReporteFechasCajeros(int Desde, int Hasta,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -1739,7 +2050,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
     }
       
-        public void ReporteDiariocajaCabeceraCC(String Servicio,JTable tabla){
+    public void ReporteDiariocajaCabeceraCC(String Servicio,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -1782,7 +2093,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
     }
       
-      public void formatoTablaReporteCabecera(JTable tabla){
+    public void formatoTablaReporteCabecera(JTable tabla){
 
             tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -1815,7 +2126,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.setRowHeight(40);
         
     }
-            public void formatoTablaReporteCajeros(JTable tabla){
+    public void formatoTablaReporteCajeros(JTable tabla){
 
             tabla.getColumnModel().getColumn(0).setPreferredWidth(80);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(100);
@@ -1844,7 +2155,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         
     }
       
-      public void ReporteDiariocajaDetalleCC(String Servicio,JTable tabla){
+    public void ReporteDiariocajaDetalleCC(String Servicio,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -1887,7 +2198,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
     }
       
-      public void formatoTablaDetalleReporte(JTable tabla){
+    public void formatoTablaDetalleReporte(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(430);
         tabla.getColumnModel().getColumn(1).setMinWidth(0);
         tabla.getColumnModel().getColumn(1).setMaxWidth(0);
@@ -1913,7 +2224,8 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
   
         tabla.setRowHeight(40);
     }
-      public void FORMAPAGO(String Servicio,JTable tabla){
+    
+    public void FORMAPAGO(String Servicio,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -1947,7 +2259,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
       
       
       /////////////////////////////////////////////PREVENTAS
-      public void CAJA_PREVENTAS_TBC(String Texto,JTable tabla){
+    public void CAJA_PREVENTAS_TBC(String Texto,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -1986,7 +2298,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: PREVENTA TBC: " + e.getMessage());
         }
     }
-      public void formatoPreventaTBC(JTable tabla){
+    public void formatoPreventaTBC(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(70);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(250);
@@ -2007,16 +2319,16 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.setRowHeight(40);
     }
       ////////////////////FR
-      public void CAJA_PREVENTAS_FR(String Texto,JTable tabla){
+    public void CAJA_PREVENTAS_FR(String Texto,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Forma Pago","DNI","Paciente","Fecha","id"};
+            String titulos[]={"Forma Pago","DNI","Paciente","Fecha","id","Total","Quimico","Serie","Correlativo"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[5];
+            String fila[]=new String[9];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec CAJA_PREVENTAS_FARMACIA ?";
+            consulta="exec CAJA_PREVENTAS_FARMACIA_LOCAL ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, Texto);
             ResultSet r= cmd.executeQuery();
@@ -2027,6 +2339,11 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                     fila[2]=r.getString(3); 
                     fila[3]=r.getString(4); 
                     fila[4]=r.getString(5); 
+                    
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
                         m.addRow(fila);
                         c++;
                 }
@@ -2039,13 +2356,20 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: PREVENTA FR: " + e.getMessage());
         }
     }
-      public void formatoPreventaFR(JTable tabla){
+    public void formatoPreventaFR(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(70);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(250);
         tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(4).setMinWidth(0);
         tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
         tabla.setRowHeight(40);
     }
       
@@ -2053,12 +2377,12 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID_Detalle","ID_CABECERA","Descripción","Cantidad","Precio","Estado"};
+            String titulos[]={"ID_CAB","Descripción","Cantidad","Precio","estado","cod_precio","cod_nome_caja","descripcion_nomen_tipo","nomen_caja"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[6];
+            String fila[]=new String[9];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec CAJA_PREVENTAS_FARMACIA_DETALLE ?";
+            consulta="exec CAJA_PREVENTAS_FARMACIA_DETALLE_LOCAL ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, Texto);
             ResultSet r= cmd.executeQuery();
@@ -2070,6 +2394,9 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                     fila[3]=r.getString(4); 
                     fila[4]=r.getString(5); 
                     fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9);
                         m.addRow(fila);
                         c++;
                 }
@@ -2082,20 +2409,27 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: PREVENTA FR DETALLE: " + e.getMessage());
         }
     }
-     public void formatoPreventaFR_DETALLE(JTable tabla){
+    
+    public void formatoPreventaFR_DETALLE(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(1).setMinWidth(0);
-        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(3).setPreferredWidth(50);
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         tabla.getColumnModel().getColumn(5).setMinWidth(0);
         tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
         tabla.setRowHeight(40);
     }
      
-          public void ReporteFechasCajaCabeceraCC6(String Usuario,int Desde, int Hasta,String des,String CC6 ,JTable tabla){
+    public void ReporteFechasCajaCabeceraCC6(String Usuario,int Desde, int Hasta,String des,String CC6 ,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -2136,18 +2470,19 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: listar REPORTE FECHAS CC6 " + e.getMessage());
         }
     }
-            public void formatoTablaReporteCabeceraCC6(JTable tabla){
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(1).setMinWidth(0);
-            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(120);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(350);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(7).setMinWidth(0);
-            tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+    
+    public void formatoTablaReporteCabeceraCC6(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(120);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(350);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
       
         
 //        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
@@ -2226,35 +2561,124 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: BUSCAR HOSPITALIZACION " + e.getMessage());
         }
     }
-        public void formatoTablaLiquidacion(JTable tabla){
+    public void formatoTablaLiquidacion(JTable tabla){
 
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(120);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(80);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(350);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(7).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(8).setMinWidth(0);
-            tabla.getColumnModel().getColumn(8).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(9).setMinWidth(0);
-            tabla.getColumnModel().getColumn(9).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(10).setMinWidth(0);
-            tabla.getColumnModel().getColumn(10).setMaxWidth(0);
-      
-        
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(120);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(350);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0);       
 //        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
 //        tabla.getColumnModel().getColumn(3).setPreferredWidth(50); 
 //        tabla.getColumnModel().getColumn(4).setPreferredWidth(50); 
 //        tabla.getColumnModel().getColumn(5).setPreferredWidth(150); 
-//        
-  
         tabla.setRowHeight(40);
         
+    }  
+//    public void ReporteDiario_fua(String ID){
+//            
+//    try{
+//	    String dir= "/Reportes/cajaCentral/FUA.jrxml";
+//	    JasperReport reporteJasper = JasperCompileManager.compileReport(dir);
+//	    Map parametro = new HashMap();
+//	    parametro.put("ID", ID);
+//	    JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper,parametro, con.conectar());
+////
+//	   
+////            JasperPrint mostrarReporte = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/FUA.jasper"), parametro, con.conectar()); 
+//
+//	// ESTABLECE DATOS DE IMPRESORAS
+//
+//	    PrinterJob job = PrinterJob.getPrinterJob();
+//	    PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
+//	    int selectedService = 0;
+//	    for(int i = 0; i < services.length;i++){
+//	    if(services[i].getName().toUpperCase().contains("Hewlett-Packard HP LaserJet Professional P 1102w")){
+//	    selectedService = i;
+//	    }
+//	    }
+//	      job.setPrintService(services[selectedService]);
+//	      PrintRequestAttributeSet printRequestAttributeSet = new HashPrintRequestAttributeSet();
+//	      MediaSizeName mediaSizeName = MediaSize.findMedia(4,4,MediaPrintableArea.INCH);
+//	      printRequestAttributeSet.add(mediaSizeName);
+//	      printRequestAttributeSet.add(new Copies(1));
+//	      JRPrintServiceExporter exporter;
+//	      exporter = new JRPrintServiceExporter();
+//	      exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, services[selectedService]);
+//	    exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE_ATTRIBUTE_SET, services[selectedService].getAttributes());
+//	    exporter.setParameter(JRPrintServiceExporterParameter.PRINT_REQUEST_ATTRIBUTE_SET, printRequestAttributeSet);
+//	    exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.FALSE);
+//	    exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.FALSE);
+//	    exporter.setParameter(JRExporterParameter.JASPER_PRINT, mostrarReporte);
+//
+//	    exporter.exportReport();
+//
+//    }catch(JRException ex){
+//
+//        JOptionPane.showMessageDialog(null, "Error de JREEXEPCION: " + ex);
+//
+// 
+//
+//    } catch (PrinterException ex) {
+//
+//        JOptionPane.showMessageDialog(null,"ERROR PRINTEREXCEPCION " + ex);
+//
+//    }
+//
+// 
+//
+//}
+    
+ 
+    
+    public void FUA(String ID, String IM){
+        try {
+            Map parametros = new HashMap();
+            parametros.put("ID", ID);
+            //E:\\HIMS_SIS\\PRUEBASIS\\src\\
+            //jrxml
+            String report = JasperCompileManager.compileReportToFile("C:\\FUA\\FUA.jrxml");
+            JasperPrint jasperPrint = JasperFillManager.fillReport(report, parametros, con.conectar());
+            PrinterJob printerJob = PrinterJob.getPrinterJob();
+            PageFormat pageFormat = PrinterJob.getPrinterJob().defaultPage();
+            printerJob.defaultPage(pageFormat);
+            int selectedService = 0;
+            AttributeSet attributeSet = new HashPrintServiceAttributeSet(new PrinterName(IM, null));
+            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, attributeSet);
+            try {
+                printerJob.setPrintService(printService[selectedService]);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            JRPrintServiceExporter exporter;
+            PrintRequestAttributeSet printRequestAttributeSet = new HashPrintRequestAttributeSet();
+            printRequestAttributeSet.add(MediaSizeName.NA_LETTER);
+            printRequestAttributeSet.add(new Copies(1));
+            // these are deprecated
+            exporter = new JRPrintServiceExporter();
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+            exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, printService[selectedService]);
+            exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE_ATTRIBUTE_SET, printService[selectedService].getAttributes());
+            exporter.setParameter(JRPrintServiceExporterParameter.PRINT_REQUEST_ATTRIBUTE_SET, printRequestAttributeSet);
+            exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.FALSE);
+            exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.FALSE);
+            exporter.exportReport();
+
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
     }
      
- public Caja_NuevaVenta(){
+    public Caja_NuevaVenta(){
         Conexion con = new Conexion();
         cn = con.conectar();
     }
@@ -2387,7 +2811,6 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         this.cod_usu_anu = cod_usu_anu;
     }
     
-    
 ///////////////////////////////////////////////ACTO MEDICO
 
     public int getID_ACTOMEDICO1() {
@@ -2421,8 +2844,6 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     public void setDURACION(String DURACION) {
         this.DURACION = DURACION;
     }
-    
-    
     
     public Conexion getCon() {
         return con;
@@ -2550,6 +2971,30 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
 
     public void setFUA(String FUA) {
         this.FUA = FUA;
+    }
+
+    public double getIGV() {
+        return IGV;
+    }
+
+    public void setIGV(double IGV) {
+        this.IGV = IGV;
+    }
+
+    public double getSUBTOTAL() {
+        return SUBTOTAL;
+    }
+
+    public void setSUBTOTAL(double SUBTOTAL) {
+        this.SUBTOTAL = SUBTOTAL;
+    }
+
+    public double getREDONDEO() {
+        return REDONDEO;
+    }
+
+    public void setREDONDEO(double REDONDEO) {
+        this.REDONDEO = REDONDEO;
     }
     
     

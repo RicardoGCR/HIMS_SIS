@@ -140,7 +140,7 @@ Caja_Grupo cnn = new Caja_Grupo();
     
     tb_Grupo.setRowHeight(45);
 }
-     public void Guardar(){
+    public void Guardar(){
        if((txtgp.getText().equals("")) ||  txtav.getText().equals("")){
               cargareliminar.setVisible(true);        
                                 btnguardar.setEnabled(false);

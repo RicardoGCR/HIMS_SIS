@@ -132,6 +132,9 @@ Conexion c=new Conexion();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -509,6 +512,10 @@ enableDatos();
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
     }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        NewJFrame.ControlMensaje=false;
+    }//GEN-LAST:event_formWindowClosing
     public void guardarTipoUsuario(){
          ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/guardar.png")); 
           tipoUsuario u2=new tipoUsuario();

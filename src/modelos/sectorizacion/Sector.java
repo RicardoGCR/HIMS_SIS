@@ -4,6 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 
 public class Sector {
@@ -14,6 +21,9 @@ public class Sector {
     private String se_cod;
     private String se_tipo_dir;
     private String se_dir;
+    private String se_alias;
+
+    
     private String se_usu;
     private String se_fech;
     private String se_hora;
@@ -27,16 +37,17 @@ public class Sector {
         {
         boolean resp = false;
         try{
-            String sql = "EXEC SP_SISTEMASECTOR_NUEVO_DIRECCION ?,?,?,?,?,?,?,?";
+            String sql = "EXEC SP_SISTEMASECTOR_NUEVO_DIRECCION ?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getSe_id());
             cmd.setString(2, getCod_dis());
             cmd.setString(3, getSe_cod());
             cmd.setString(4, getSe_tipo_dir());
-            cmd.setString(5, getSe_dir());
-            cmd.setString(6, getSe_usuario());
-            cmd.setString(7, getCod_prov());
-            cmd.setString(8, getCod_dep());
+            cmd.setString(5, getSe_dir());  
+            cmd.setString(6, getSe_alias());
+            cmd.setString(7, getSe_usuario());
+            cmd.setString(8, getCod_prov());
+            cmd.setString(9, getCod_dep());
             if(!cmd.execute())
             {
                 resp = true;
@@ -50,7 +61,98 @@ public class Sector {
         }
         return resp;
     }
-    
+    public boolean nuevoSectorPersonal()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC [SP_NUEVO_SECTOR_PERSONAL] ?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getSe_cod()); 
+            cmd.setString(2, getSe_id());
+            cmd.setString(3, getSe_alias());
+            cmd.setString(4, getSe_fech());
+            cmd.setString(5, getSe_hora());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_nuevaDireccion: " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean modificarSectorPersonal()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC [SP_MODIFICAR_SECTOR_PERSONAL] ?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+             cmd.setString(1, getSe_usu());  
+             cmd.setString(2, getSe_cod()); 
+            cmd.setString(3, getSe_id());
+            cmd.setString(4, getSe_alias());
+            cmd.setString(5, getSe_fech());
+            cmd.setString(6, getSe_hora());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_nuevaDireccion: " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean eliminarSectorPersonal()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC [SP_ELIMINAR_SECTOR_PERSONAL] ? ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getSe_cod());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_nuevaDireccion: " + ex.getMessage());
+        }
+        return resp;
+    }
+     public boolean nuevoSEctor(String Se_id,String Cod_dist, String Cod_prov,String Cod_dep)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC SP_NUEVO_SECTOR ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, Se_id);
+            cmd.setString(2, Cod_dist);
+            cmd.setString(3, Cod_prov);
+            cmd.setString(4, Cod_dep);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_nuevaDireccion: " + ex.getMessage());
+        }
+        return resp;
+    }
     public boolean modificarDireccion()
     {
         boolean resp = false;
@@ -76,7 +178,36 @@ public class Sector {
         }
         return resp;
     }
-    
+    public void Sector() {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("AS", "AS");
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/sectorizacion/report2.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("SECTOTIZACIÓN");
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        } 
+        } 
+     public void Sector_Paciente(String PACIENTE,String opc1,String txt1,String txt2) {
+        try {
+            Map parametros = new HashMap();    
+            parametros.put("PACIENTE", PACIENTE);
+            parametros.put("opc1", opc1);
+            parametros.put("txt1", txt1);
+            parametros.put("txt2", txt2);
+            System.out.println(PACIENTE);     
+            System.out.println(opc1);
+            System.out.println(txt1);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/sectorizacion/sector_paciente.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("SECTOTIZACIÓN");
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporte Sector:"+e.getMessage());
+        } 
+        } 
     public boolean eliminarDireccion()
     {
         boolean resp = false;
@@ -389,5 +520,12 @@ public class Sector {
 
     public void setSe_usuario(String se_usuario) {
         this.se_usuario = se_usuario;
+    }
+    public String getSe_alias() {
+        return se_alias;
+    }
+
+    public void setSe_alias(String se_alias) {
+        this.se_alias = se_alias;
     }
 }

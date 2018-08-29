@@ -37,25 +37,35 @@ public class ConsultorioExConsultorio {
         {
         boolean resp = false;
         try{
+            System.out.println("1");
             String sql = "CONSULTORIO_EXT_CONSULTORIO_MANTENIMIENTO ?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
+            System.out.println("1");
             cmd.setInt(1, getId());
             cmd.setString(2, getNumero());
             cmd.setString(3, getDescripcion());
+            System.out.println("1");
             cmd.setString(4, getUsuario());
             cmd.setInt(5, getAR_ID());
             cmd.setString(6, tipo);
+            System.out.println(tipo);  
+            System.out.println(getAR_ID());
+
             if(!cmd.execute())
             {
+                
                 resp = true;
+                System.out.println("1");
             }
             cmd.close();
+            System.out.println("1");
         }
         catch(Exception ex)
         {
             System.out.println("Error: mantenimientoConsultorioExConsultorio: " + ex.getMessage());
         }
         return resp;
+        
     }
     
     public String consultorioID()

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.sis.gob.pe/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.sis.gob.pe/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sis.gob.pe/">
+      <s:element name="Buscar_EESSxCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IdEess" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_EESSxCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Buscar_EESSxCodigoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_PerSaludxNroDoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_PerSaludxNroDocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Buscar_PerSaludxNroDocResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_MedicamentosxCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_MedicamentosxCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Buscar_MedicamentosxCodigoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_InsumosxCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_InsumosxCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Buscar_InsumosxCodigoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_FFamaceuticaxCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_FFamaceuticaxCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Buscar_FFamaceuticaxCodigoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Buscar_EESSxCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:Buscar_EESSxCodigo" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_EESSxCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:Buscar_EESSxCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_PerSaludxNroDocSoapIn">
+    <wsdl:part name="parameters" element="tns:Buscar_PerSaludxNroDoc" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_PerSaludxNroDocSoapOut">
+    <wsdl:part name="parameters" element="tns:Buscar_PerSaludxNroDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_MedicamentosxCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:Buscar_MedicamentosxCodigo" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_MedicamentosxCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:Buscar_MedicamentosxCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_InsumosxCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:Buscar_InsumosxCodigo" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_InsumosxCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:Buscar_InsumosxCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_FFamaceuticaxCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:Buscar_FFamaceuticaxCodigo" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_FFamaceuticaxCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:Buscar_FFamaceuticaxCodigoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="maestrosSoap">
+    <wsdl:operation name="Buscar_EESSxCodigo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CONSULTA DE DATOS DEL ESTABLECIMIENTO</wsdl:documentation>
+      <wsdl:input message="tns:Buscar_EESSxCodigoSoapIn" />
+      <wsdl:output message="tns:Buscar_EESSxCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_PerSaludxNroDoc">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CONSULTA DE DATOS DEL PERSONAL DE SALUD</wsdl:documentation>
+      <wsdl:input message="tns:Buscar_PerSaludxNroDocSoapIn" />
+      <wsdl:output message="tns:Buscar_PerSaludxNroDocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_MedicamentosxCodigo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CONSULTA DE MEDICAMENTOS</wsdl:documentation>
+      <wsdl:input message="tns:Buscar_MedicamentosxCodigoSoapIn" />
+      <wsdl:output message="tns:Buscar_MedicamentosxCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_InsumosxCodigo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CONSULTA DE INSUMOS</wsdl:documentation>
+      <wsdl:input message="tns:Buscar_InsumosxCodigoSoapIn" />
+      <wsdl:output message="tns:Buscar_InsumosxCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_FFamaceuticaxCodigo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CONSULTA DE FORMULA FARMACEUTICA</wsdl:documentation>
+      <wsdl:input message="tns:Buscar_FFamaceuticaxCodigoSoapIn" />
+      <wsdl:output message="tns:Buscar_FFamaceuticaxCodigoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="maestrosSoap" type="tns:maestrosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Buscar_EESSxCodigo">
+      <soap:operation soapAction="http://www.sis.gob.pe/Buscar_EESSxCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_PerSaludxNroDoc">
+      <soap:operation soapAction="http://www.sis.gob.pe/Buscar_PerSaludxNroDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_MedicamentosxCodigo">
+      <soap:operation soapAction="http://www.sis.gob.pe/Buscar_MedicamentosxCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_InsumosxCodigo">
+      <soap:operation soapAction="http://www.sis.gob.pe/Buscar_InsumosxCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_FFamaceuticaxCodigo">
+      <soap:operation soapAction="http://www.sis.gob.pe/Buscar_FFamaceuticaxCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="maestrosSoap12" type="tns:maestrosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Buscar_EESSxCodigo">
+      <soap12:operation soapAction="http://www.sis.gob.pe/Buscar_EESSxCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_PerSaludxNroDoc">
+      <soap12:operation soapAction="http://www.sis.gob.pe/Buscar_PerSaludxNroDoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_MedicamentosxCodigo">
+      <soap12:operation soapAction="http://www.sis.gob.pe/Buscar_MedicamentosxCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_InsumosxCodigo">
+      <soap12:operation soapAction="http://www.sis.gob.pe/Buscar_InsumosxCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_FFamaceuticaxCodigo">
+      <soap12:operation soapAction="http://www.sis.gob.pe/Buscar_FFamaceuticaxCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="maestros">
+    <wsdl:port name="maestrosSoap" binding="tns:maestrosSoap">
+      <soap:address location="http://app.sis.gob.pe/edi/maestros.asmx" />
+    </wsdl:port>
+    <wsdl:port name="maestrosSoap12" binding="tns:maestrosSoap12">
+      <soap12:address location="http://app.sis.gob.pe/edi/maestros.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

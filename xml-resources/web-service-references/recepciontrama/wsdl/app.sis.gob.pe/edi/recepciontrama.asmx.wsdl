@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.sis.gob.pe/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.sis.gob.pe/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sis.gob.pe/">
+      <s:element name="BuscarAsegurados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Disa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TipoFormato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Correlativo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodTabla" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarAseguradosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarAseguradosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarAseguradosPE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDNIResponsable" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOpcion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sTipoDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDisa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sTipoFormato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sContrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCorrelativo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarAseguradosPEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarAseguradosPEResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarAseguradosARFSISV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Disa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TipoFormato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Correlativo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodTabla" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarAseguradosARFSISV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarAseguradosARFSISV2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validar_RC40V2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="disaFua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lotefua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numerofua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinoFua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="modalidad" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecing" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="feccorte" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="disavin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lotevin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numevin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="udrautorizavin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loteautorizavin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="secautorizavin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="disaafi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loteafi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numafi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="secafi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tablaafi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="compoafi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="V_FLAG_VALIDACION" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validar_RC40V2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Validar_RC40V2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validar_RC41V2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroSolicitud" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="afiDisa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="afiLote" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="afiNumero" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="afiSecuencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="afiTabla" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="afiComponente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="afiStuacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="montoTotalConsignado" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="V_FLAG_VALIDACION" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validar_RC41V2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Validar_RC41V2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validar_RC42V2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicio" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="disa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lote" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numformato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="secuencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tabla" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="componente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destino" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="V_FLAG_VALIDACION" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validar_RC42V2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Validar_RC42V2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consulta_Retroarfsis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="opcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consulta_RetroarfsisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Consulta_RetroarfsisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaFUADuplicadoV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Disa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TipoFormato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaFUADuplicadoV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificaFUADuplicadoV2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPersonalSaludV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Documento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPersonalSaludV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarPersonalSaludV2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BuscarAseguradosSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarAsegurados" />
+  </wsdl:message>
+  <wsdl:message name="BuscarAseguradosSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarAseguradosResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarAseguradosPESoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarAseguradosPE" />
+  </wsdl:message>
+  <wsdl:message name="BuscarAseguradosPESoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarAseguradosPEResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarAseguradosARFSISV2SoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarAseguradosARFSISV2" />
+  </wsdl:message>
+  <wsdl:message name="BuscarAseguradosARFSISV2SoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarAseguradosARFSISV2Response" />
+  </wsdl:message>
+  <wsdl:message name="Validar_RC40V2SoapIn">
+    <wsdl:part name="parameters" element="tns:Validar_RC40V2" />
+  </wsdl:message>
+  <wsdl:message name="Validar_RC40V2SoapOut">
+    <wsdl:part name="parameters" element="tns:Validar_RC40V2Response" />
+  </wsdl:message>
+  <wsdl:message name="Validar_RC41V2SoapIn">
+    <wsdl:part name="parameters" element="tns:Validar_RC41V2" />
+  </wsdl:message>
+  <wsdl:message name="Validar_RC41V2SoapOut">
+    <wsdl:part name="parameters" element="tns:Validar_RC41V2Response" />
+  </wsdl:message>
+  <wsdl:message name="Validar_RC42V2SoapIn">
+    <wsdl:part name="parameters" element="tns:Validar_RC42V2" />
+  </wsdl:message>
+  <wsdl:message name="Validar_RC42V2SoapOut">
+    <wsdl:part name="parameters" element="tns:Validar_RC42V2Response" />
+  </wsdl:message>
+  <wsdl:message name="Consulta_RetroarfsisSoapIn">
+    <wsdl:part name="parameters" element="tns:Consulta_Retroarfsis" />
+  </wsdl:message>
+  <wsdl:message name="Consulta_RetroarfsisSoapOut">
+    <wsdl:part name="parameters" element="tns:Consulta_RetroarfsisResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificaFUADuplicadoV2SoapIn">
+    <wsdl:part name="parameters" element="tns:VerificaFUADuplicadoV2" />
+  </wsdl:message>
+  <wsdl:message name="VerificaFUADuplicadoV2SoapOut">
+    <wsdl:part name="parameters" element="tns:VerificaFUADuplicadoV2Response" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPersonalSaludV2SoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarPersonalSaludV2" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPersonalSaludV2SoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarPersonalSaludV2Response" />
+  </wsdl:message>
+  <wsdl:portType name="RecepcionTramaSoap">
+    <wsdl:operation name="BuscarAsegurados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Buscar datos del asegurado por contrato</wsdl:documentation>
+      <wsdl:input message="tns:BuscarAseguradosSoapIn" />
+      <wsdl:output message="tns:BuscarAseguradosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAseguradosPE">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Buscar datos del asegurado por contrato</wsdl:documentation>
+      <wsdl:input message="tns:BuscarAseguradosPESoapIn" />
+      <wsdl:output message="tns:BuscarAseguradosPESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAseguradosARFSISV2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Buscar datos del asegurado por contrato para el aplicativo ARFSIS V2</wsdl:documentation>
+      <wsdl:input message="tns:BuscarAseguradosARFSISV2SoapIn" />
+      <wsdl:output message="tns:BuscarAseguradosARFSISV2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validar_RC40V2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Validar Regla 40 desde ARFSIS V2</wsdl:documentation>
+      <wsdl:input message="tns:Validar_RC40V2SoapIn" />
+      <wsdl:output message="tns:Validar_RC40V2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validar_RC41V2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Validar Regla 41 desde ARFSIS V2</wsdl:documentation>
+      <wsdl:input message="tns:Validar_RC41V2SoapIn" />
+      <wsdl:output message="tns:Validar_RC41V2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validar_RC42V2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Validar Regla 42 desde ARFSIS V2</wsdl:documentation>
+      <wsdl:input message="tns:Validar_RC42V2SoapIn" />
+      <wsdl:output message="tns:Validar_RC42V2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consulta_Retroarfsis">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Permite devolver informacion de paquetes para retorarfsis</wsdl:documentation>
+      <wsdl:input message="tns:Consulta_RetroarfsisSoapIn" />
+      <wsdl:output message="tns:Consulta_RetroarfsisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaFUADuplicadoV2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca si el formatos se en BD central V2</wsdl:documentation>
+      <wsdl:input message="tns:VerificaFUADuplicadoV2SoapIn" />
+      <wsdl:output message="tns:VerificaFUADuplicadoV2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPersonalSaludV2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca datos del profesional de salud V2</wsdl:documentation>
+      <wsdl:input message="tns:BuscarPersonalSaludV2SoapIn" />
+      <wsdl:output message="tns:BuscarPersonalSaludV2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RecepcionTramaSoap" type="tns:RecepcionTramaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarAsegurados">
+      <soap:operation soapAction="http://www.sis.gob.pe/BuscarAsegurados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAseguradosPE">
+      <soap:operation soapAction="http://www.sis.gob.pe/BuscarAseguradosPE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAseguradosARFSISV2">
+      <soap:operation soapAction="http://www.sis.gob.pe/BuscarAseguradosARFSISV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar_RC40V2">
+      <soap:operation soapAction="http://www.sis.gob.pe/Validar_RC40V2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar_RC41V2">
+      <soap:operation soapAction="http://www.sis.gob.pe/Validar_RC41V2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar_RC42V2">
+      <soap:operation soapAction="http://www.sis.gob.pe/Validar_RC42V2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consulta_Retroarfsis">
+      <soap:operation soapAction="http://www.sis.gob.pe/Consulta_Retroarfsis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaFUADuplicadoV2">
+      <soap:operation soapAction="http://www.sis.gob.pe/VerificaFUADuplicadoV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPersonalSaludV2">
+      <soap:operation soapAction="http://www.sis.gob.pe/BuscarPersonalSaludV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RecepcionTramaSoap12" type="tns:RecepcionTramaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarAsegurados">
+      <soap12:operation soapAction="http://www.sis.gob.pe/BuscarAsegurados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAseguradosPE">
+      <soap12:operation soapAction="http://www.sis.gob.pe/BuscarAseguradosPE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAseguradosARFSISV2">
+      <soap12:operation soapAction="http://www.sis.gob.pe/BuscarAseguradosARFSISV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar_RC40V2">
+      <soap12:operation soapAction="http://www.sis.gob.pe/Validar_RC40V2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar_RC41V2">
+      <soap12:operation soapAction="http://www.sis.gob.pe/Validar_RC41V2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar_RC42V2">
+      <soap12:operation soapAction="http://www.sis.gob.pe/Validar_RC42V2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consulta_Retroarfsis">
+      <soap12:operation soapAction="http://www.sis.gob.pe/Consulta_Retroarfsis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaFUADuplicadoV2">
+      <soap12:operation soapAction="http://www.sis.gob.pe/VerificaFUADuplicadoV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPersonalSaludV2">
+      <soap12:operation soapAction="http://www.sis.gob.pe/BuscarPersonalSaludV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RecepcionTrama">
+    <wsdl:port name="RecepcionTramaSoap" binding="tns:RecepcionTramaSoap">
+      <soap:address location="http://app.sis.gob.pe/edi/recepciontrama.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RecepcionTramaSoap12" binding="tns:RecepcionTramaSoap12">
+      <soap12:address location="http://app.sis.gob.pe/edi/recepciontrama.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

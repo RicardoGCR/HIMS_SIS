@@ -7,6 +7,7 @@ package vista;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import modelos.Impresora;
 
 /**
@@ -19,6 +20,8 @@ public class Impresoras extends javax.swing.JFrame {
      * Creates new form Impresoras
      */
     public Impresoras() {
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+   
         setLocationRelativeTo(null);//en el centro
         initComponents();
         Impresora IMP = new Impresora();
@@ -95,7 +98,7 @@ public class Impresoras extends javax.swing.JFrame {
             eli = new javax.swing.JButton();
             noeli = new javax.swing.JButton();
 
-            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
             jPanel1.setBackground(new java.awt.Color(41, 127, 184));
 
@@ -136,6 +139,7 @@ public class Impresoras extends javax.swing.JFrame {
                 }
             });
 
+            lblusu.setForeground(new java.awt.Color(41, 127, 184));
             lblusu.setText("jLabel1");
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

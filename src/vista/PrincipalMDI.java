@@ -1774,7 +1774,7 @@ String tg="";
 
         jPanel6.setBackground(new java.awt.Color(40, 40, 43));
 
-        lblUsu.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+        lblUsu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblUsu.setForeground(new java.awt.Color(255, 255, 255));
         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imagen/B1.png"))); // NOI18N
         lblUsu.setText("jLabel2");

@@ -1519,7 +1519,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Relato");
 
-        jLabel1.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

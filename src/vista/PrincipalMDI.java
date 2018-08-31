@@ -32,6 +32,7 @@ import vista.COSTOS.BUSCAR_ESTIMACION_COSTOS;
 import vista.COSTOS.BUSCAR_NOMENCLATURA;
 import vista.COSTOS.COSTOS_PRODUCTO_REFERENCIAL;
 import vista.COSTOS.COSTOS_SERVICIOS_VARIOS;
+import vista.COSTOS.CS_PRINCIPAL;
 import vista.COSTOS.Costos_Depreciacion;
 import vista.COSTOS.TipoSustentacion;
 import vista.CRED.RegistroSeguimiento;
@@ -2037,11 +2038,12 @@ String tg="";
         Caja_Pagos CP = new Caja_Pagos();
         CP.setVisible(true);
         String IDS=PrincipalMDI.lblIDSESION.getText();
-        CP.lblID_SESION.setText(IDS);
+        Caja_Pagos.lblID_SESION.setText(IDS);
         String u=PrincipalMDI.lblUsu.getText();
-        CP.lblusu.setText(u);
+        Caja_Pagos.lblusu.setText(u);
         String ID=PrincipalMDI.ibiIDAPERTURA.getText();
-        CP.lblID_APERTURA.setText(ID);
+        Caja_Pagos.lblID_APERTURA.setText(ID);
+        System.out.println(""+Caja_Pagos.lblID_SESION.getText());
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered
@@ -2306,8 +2308,25 @@ String tg="";
     }//GEN-LAST:event_btnCajaMouseClicked
 
     private void btnCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCostosActionPerformed
-
-        jTabbedPane1.setSelectedIndex(1);
+tg="CST";
+//        Caja_PC_Registro CPC = new Caja_PC_Registro();
+//        CPC.VerificarExistencia(PrincipalMDI.lblUsu.getText(),"LAB",tbPC);
+//        if(tbPC.getRowCount()==0){
+//            Caja_Registro frmPC = new Caja_Registro();
+//            frmPC.setVisible(true);
+//            frmPC.lblUsuario.setText(PrincipalMDI.lblUsu.getText());
+//        }else   if(tbPC.getRowCount()>0){
+            CS_PRINCIPAL f=new CS_PRINCIPAL();
+            panelFACTURAS.add(f);
+            //        String u=Principal.lblUsu.getText();
+            f.setVisible(true);
+            try {
+                f.setMaximum(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            jTabbedPane1.setSelectedIndex(1);
+//        }
     }//GEN-LAST:event_btnCostosActionPerformed
 
 

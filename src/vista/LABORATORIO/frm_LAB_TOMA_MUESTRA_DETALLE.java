@@ -14,7 +14,9 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -96,10 +98,9 @@ DefaultTableModel m,n,muestra;
         //fecha
        Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
-       
-        lblFechaEmi.setText(fechaActual());
-       
-   Muestras_formato();
+        Calendar c2 = new GregorianCalendar();
+        date.setCalendar(c2);
+        Muestras_formato();
        LAB_subdetalle_formato();
   //para no intercambiar columnas
         tb_Muestras.getTableHeader().setReorderingAllowed(false);
@@ -1687,7 +1688,8 @@ public void calcula() {
             cod_barras=cod_ba.substring(0, 2)+cod_ba.substring(6, 8)+cod_ba.substring(2, 6)+
                     df.format(ndias)
                     +lblCodMuestra.getText().substring(2, 5)
-                    +lblCodNomen.getText().substring(2,7);
+                    +lblCodNomen.getText().substring(2,7)
+                    +frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico.getText();
            
           if(tb_MuestrasRegis.getRowCount()==0){
               muestra=(DefaultTableModel)tb_MuestrasRegis.getModel();
@@ -1696,15 +1698,15 @@ public void calcula() {
                limpiarMuestra();
           }
           else{
-           if(repiteMuestra()==true){
-               JOptionPane.showMessageDialog(this,"La Muestra ya ha sido ingresada.");   
-          } 
-           else{
-              muestra=(DefaultTableModel) tb_MuestrasRegis.getModel();
-           String filaelemento[]={cod_muestra,cod_conten,ar_id,muestram,contenedorm,area,cantidad,cod_barras};
-               muestra.addRow(filaelemento); 
-               limpiarMuestra();
-           }
+//           if(repiteMuestra()==true){
+//               JOptionPane.showMessageDialog(this,"La Muestra ya ha sido ingresada.");   
+//          } 
+//           else{
+            muestra=(DefaultTableModel) tb_MuestrasRegis.getModel();
+            String filaelemento[]={cod_muestra,cod_conten,ar_id,muestram,contenedorm,area,cantidad,cod_barras};
+            muestra.addRow(filaelemento); 
+            limpiarMuestra();
+//          }
           }
            
         } catch (Exception e) {
@@ -1729,7 +1731,7 @@ public void calcula() {
          txtContenedor.setText("");
          txtArea.setText("");
          txtCantidadRegis.setText("");
-        
+        tb_Muestras.requestFocus();
      }
     
     private void btnQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarActionPerformed

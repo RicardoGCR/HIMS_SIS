@@ -1078,7 +1078,7 @@ public void buscar_examenes(){
             String fila[]=new String[10];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
-                    consulta="exec sp_LAB_TOMA_MUESTRA_CAJA ?,?,?,?,?";
+            consulta="exec sp_LAB_TOMA_MUESTRA_CAJA ?,?,?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setInt(1,desde);
             cmd.setInt(2, hasta);
@@ -1132,13 +1132,30 @@ public void buscar_examenes(){
                         frm_LAB_TOMA_MUESTRA_CABECERA.lblCantidad.setText(tb_Pacientes.getValueAt(filaselec, 7).toString());
                         frm_LAB_TOMA_MUESTRA_CABECERA.lblCantidad1.setText(tb_Pacientes.getValueAt(filaselec, 7).toString());
                         frm_LAB_TOMA_MUESTRA_CABECERA.lblDocumento.setText(tb_Pacientes.getValueAt(filaselec, 8).toString());
-                    
                         frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico.setText(tb_Pacientes.getValueAt(filaselec, 9).toString());
-                        
-                         
                         frm_LAB_TOMA_MUESTRA_CABECERA.lblServicio.setText(lblServicio.getText());
                         frm_LAB_TOMA_MUESTRA_CABECERA.lblArea.setText(lblArea.getText());
-                    
+                        String consulta="";
+                        LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
+                        consulta="exec [CONSULTA_REEF_SIS] ?";
+                        System.out.println(tb_Pacientes.getValueAt(filaselec, 9).toString());
+                        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+                        cmd.setString(1,tb_Pacientes.getValueAt(filaselec, 9).toString());
+                        ResultSet r= cmd.executeQuery();  
+                        String ref="";
+                        while(r.next()){
+                            ref=r.getString(1);
+                        }
+                        System.out.println("ref");   
+                        System.out.println(ref);
+                        if (ref.equals("")){
+                            frm_LAB_TOMA_MUESTRA_CABECERA.jLabel20.setVisible(true);      
+                            frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico1.setVisible(true);
+                        }else{
+                            frm_LAB_TOMA_MUESTRA_CABECERA.jLabel20.setVisible(false);      
+                            frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico1.setVisible(false);    
+                            frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico1.setText("0");
+                        }
                     
                         String u=lblUsu.getText();
                              frm_LAB_TOMA_MUESTRA_CABECERA.lblUsu.setText(u);

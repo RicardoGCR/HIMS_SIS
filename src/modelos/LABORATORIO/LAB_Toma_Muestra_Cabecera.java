@@ -8,6 +8,12 @@ package modelos.LABORATORIO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 
 /**
@@ -101,13 +107,23 @@ public class LAB_Toma_Muestra_Cabecera {
         return resp;
     }
     
-    
-    
-    
-
+    public void cod_barra_muestra(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("cod_det_toma_mu_ana", id_documento);
+            System.out.println(id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/LAB/codbarra.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("MUESTRA");
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+        } 
     /**
      * @return the cn
      */
+    Conexion con = new Conexion();
     public Connection getCn() {
         return cn;
     }

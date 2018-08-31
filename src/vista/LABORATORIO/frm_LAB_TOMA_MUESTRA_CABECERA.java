@@ -1399,6 +1399,7 @@ public void calcula() {
                      mdGuardar.setNom_usu(lblUsu.getText());
                      mdGuardar.LAB_Toma_Muestra_Det_guardar();
                      LAB_Toma_Muestra_Cabecera F = new LAB_Toma_Muestra_Cabecera();
+                     System.out.println(" barra"+txtCodigoDet.getText());
                     try { 
                         F.cod_barra_muestra(txtCodigoDet.getText());
                     } catch (Exception e) {

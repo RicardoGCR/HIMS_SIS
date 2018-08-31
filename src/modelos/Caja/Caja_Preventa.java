@@ -545,6 +545,26 @@ public class Caja_Preventa {
         }
     }
     
+    public void RUTA_FUA_CANTIDAD_EC(){
+        String consulta="";
+        try {
+            consulta="EC_RUTA_FUA";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                EC_PRINCIPAL.HOY.setText(r.getString(1));   
+                EC_PRINCIPAL.jLabel14.setText(r.getString(2));
+                EC_PRINCIPAL.jLabel12.setText(r.getString(3));
+                EC_PRINCIPAL.jLabel10.setText(r.getString(4));
+                EC_PRINCIPAL.jLabel6.setText(r.getString(5));
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
     
     public void RUTA_FUA_DIA(){
         String consulta="";
@@ -559,6 +579,26 @@ public class Caja_Preventa {
                 RX_PRINCIPAL.jLabel11.setText(r.getString(3));
                 RX_PRINCIPAL.jLabel9.setText(r.getString(4));
                 RX_PRINCIPAL.jLabel1.setText(r.getString(5));
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR CITAS  " + e.getMessage());
+        }
+    }
+    
+    public void RUTA_FUA_DIA_EC(){
+        String consulta="";
+        try {
+            consulta="EC_RUTA_FUA_DIAS";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                EC_PRINCIPAL.jLabel15.setText(r.getString(1));   
+                EC_PRINCIPAL.jLabel13.setText(r.getString(2));
+                EC_PRINCIPAL.jLabel11.setText(r.getString(3));
+                EC_PRINCIPAL.jLabel9.setText(r.getString(4));
+                EC_PRINCIPAL.jLabel1.setText(r.getString(5));
             }
             //
         } catch (Exception e) {

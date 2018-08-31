@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/pry/PRUEBASIS/src/vista/PrincipalMDI.java</file>
-            <file>file:/E:/pry/PRUEBASIS/src/vista/Impresoras.java</file>
+            <file>file:/E:/HIMS%20V2/HIMS_SIS-master/src/vista/EC/EC_PRINCIPAL.java</file>
+            <file>file:/E:/HIMS%20V2/HIMS_SIS-master/src/vista/RX/RX_PRINCIPAL.java</file>
+            <file>file:/E:/HIMS%20V2/HIMS_SIS-master/src/vista/Caja/Caja_Registro.java</file>
+            <file>file:/E:/HIMS%20V2/HIMS_SIS-master/src/modelos/Caja/Caja_Preventa.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1291,6 +1291,7 @@ DefaultTableModel m;
                     break;    
                 }
                 cn.NUMERACION(M);
+                System.out.println("numero"+M);
                 panelCPT4.setVisible(true);
                 jLabel6.setVisible(true);
                 

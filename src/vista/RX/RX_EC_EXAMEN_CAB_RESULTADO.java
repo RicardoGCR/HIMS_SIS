@@ -67,6 +67,9 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     public RX_EC_EXAMEN_CAB_RESULTADO() {
 
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        
+        
         con=conectar.conectar();
         setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);

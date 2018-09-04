@@ -19,6 +19,9 @@ public class EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO {
     private int ID_CIE10;
     private String NOM_USU;
     private String ID_DOCUMENTO;
+    private int FUA;
+    private String SERVICIO;
+    private int ID_DETALLE;
     
     
     public EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO()
@@ -73,6 +76,31 @@ public class EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO {
         return resp;
     }
     
+        
+    public boolean EC_FUA_LOCAL()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC EC_GENERAR_FUA_LOCAL ?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_DETALLE());
+            cmd.setInt(2, getFUA());
+            cmd.setString(3, getSERVICIO());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error INSERTAR FUA: " + ex.getMessage());
+        }
+        return resp;
+    }
+        
     public int getID_DETALLE_RESULTADO_EC() {
         return ID_DETALLE_RESULTADO_EC;
     }
@@ -112,7 +140,31 @@ public class EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO {
     public void setID_DOCUMENTO(String ID_DOCUMENTO) {
         this.ID_DOCUMENTO = ID_DOCUMENTO;
     }
+
+    public int getFUA() {
+        return FUA;
+    }
+
+    public void setFUA(int FUA) {
+        this.FUA = FUA;
+    }
+
+    public String getSERVICIO() {
+        return SERVICIO;
+    }
+
+    public void setSERVICIO(String SERVICIO) {
+        this.SERVICIO = SERVICIO;
+    }
+
+    public int getID_DETALLE() {
+        return ID_DETALLE;
+    }
+
+    public void setID_DETALLE(int ID_DETALLE) {
+        this.ID_DETALLE = ID_DETALLE;
+    }
     
     
-   
+    
 }

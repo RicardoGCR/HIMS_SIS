@@ -730,6 +730,7 @@ String tg="";
         txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(51, 51, 51));
         txtUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtUsuario.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         txtUsuario.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtUsuarioCaretUpdate(evt);
@@ -1715,7 +1716,6 @@ String tg="";
             }
         });
 
-        ibiIDAPERTURA.setForeground(new java.awt.Color(255, 255, 255));
         ibiIDAPERTURA.setText("jLabel48");
 
         javax.swing.GroupLayout jPanel46Layout = new javax.swing.GroupLayout(jPanel46);
@@ -1786,7 +1786,7 @@ String tg="";
         jPanel6.setBackground(new java.awt.Color(40, 40, 43));
 
         lblUsu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblUsu.setForeground(new java.awt.Color(204, 204, 204));
+        lblUsu.setForeground(new java.awt.Color(255, 255, 255));
         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imagen/B1.png"))); // NOI18N
         lblUsu.setText("jLabel2");
         lblUsu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -2053,7 +2053,7 @@ String tg="";
         Caja_Pagos.lblusu.setText(u);
         String ID=PrincipalMDI.ibiIDAPERTURA.getText();
         Caja_Pagos.lblID_APERTURA.setText(ID);
-        System.out.println(""+Caja_Pagos.lblID_SESION.getText());
+        System.out.println(" "+Caja_Pagos.lblID_SESION.getText());
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered

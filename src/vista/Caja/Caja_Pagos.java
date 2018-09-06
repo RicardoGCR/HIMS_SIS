@@ -8116,10 +8116,10 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                             .addGroup(jPanel25Layout.createSequentialGroup()
                                                                                                                 .addContainerGap()
-                                                                                                                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                .addGap(18, 18, 18)
                                                                                                                 .addComponent(panelFormaPago2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(33, 33, 33)
+                                                                                                                .addGap(18, 18, 18)
                                                                                                                 .addComponent(jPanel71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                         );
 

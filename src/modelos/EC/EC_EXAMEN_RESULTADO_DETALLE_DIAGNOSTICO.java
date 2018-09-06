@@ -7,7 +7,10 @@ package modelos.EC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import servicios.Conexion;
+import vista.EC.EC_EXAMEN_CAB;
+import static vista.EC.EC_EXAMEN_CAB.btnGuardarCabeceraRes1;
 
 /**
  *
@@ -75,6 +78,41 @@ public class EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO {
         }
         return resp;
     }
+        
+     public void mostrar_FP_EC(String cod){
+        String consulta="";
+        try {
+            String sql = "EXEC RX_EC_FP ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, cod);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                EC_EXAMEN_CAB.lblFP_EC.setText(r.getString(1));
+                EC_EXAMEN_CAB.lblFUA_EC.setText(r.getString(2));
+                String a = "";
+                  String b = "";
+                  a=String.valueOf(EC_EXAMEN_CAB.lblFP_EC.getText().charAt(0));
+                  b=String.valueOf(EC_EXAMEN_CAB.lblFP_EC.getText().charAt(1));
+                  a=(String.valueOf(a)+String.valueOf(b));
+                  System.out.println("aa"+a);
+
+                  if(a.equals("SI")){
+                      EC_EXAMEN_CAB.btnGuardarCabeceraRes1.setEnabled(true);
+                  }else{
+                      EC_EXAMEN_CAB.btnGuardarCabeceraRes1.setEnabled(false);
+                  }
+                  if(r.getString(2).equals("             ")){
+                      EC_EXAMEN_CAB.panelFormaPago1.setVisible(true);
+                  }else{
+                      EC_EXAMEN_CAB.panelFormaPago1.setVisible(false);
+                  }
+            }
+            
+        }catch (Exception e) {
+            System.out.println("Error carga cod cabecera: " + e.getMessage());
+        }
+    }   
     
         
     public boolean EC_FUA_LOCAL()

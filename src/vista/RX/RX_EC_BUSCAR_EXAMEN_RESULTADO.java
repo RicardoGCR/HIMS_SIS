@@ -199,21 +199,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         }
     }
     
-    public void GENERAR_FUA_REFERENCIA(){
-      
-        try {
-                Caja_NuevaVenta CFUA = new Caja_NuevaVenta();
-                CFUA.setId_documento(lblID_DOCUEMENTO.getText());
-                    if(CFUA.CAJA_NUM_FUA()==true){
-                        System.out.println("NUM FUA GENERADO");
-                       } else {
-                        System.out.println("ERROR AL GENERAR NUMERO DE FUA REFERIDO");
-                    }  
-        } catch (Exception e ) {
-            System.out.println("ERROR PLIN PLIN" + e);
-        }
-                
-   }
+
     
     public void NUEVO_REGISTRO(java.sql.Connection con) {
         try {
@@ -1219,6 +1205,17 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                             rx.setVisible(true);
                             
                             RX_EC_EXAMEN_CAB_RESULTADO.txtID_EXAMEN_CAB.setText(tb_Examenes.getValueAt(filaselec, 10).toString());
+                            
+                            
+                            RX_EC_EXAMEN cno1 = new RX_EC_EXAMEN();
+                            cno1.setID_DOCUMENTO(tb_Examenes.getValueAt(filaselec, 10).toString());
+                                if(cno1.RX_FUA()==true){
+                                       System.out.println("FUA GENERADO");
+                                } else {
+                                        System.out.println("ERROR GENERAR FUA");
+                                }
+                            
+                            
                             RX_EC_EXAMEN_CAB_RESULTADO.txtAM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
                             RX_EC_EXAMEN_CAB_RESULTADO.txtAM1.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
                             RX_EC_EXAMEN_CAB_RESULTADO.txtHC.setText(tb_Examenes.getValueAt(filaselec, 1).toString());

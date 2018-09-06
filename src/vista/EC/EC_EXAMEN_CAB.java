@@ -690,7 +690,6 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1369, 775));
 
         jpanel.setBackground(new java.awt.Color(25, 188, 157));
         jpanel.setPreferredSize(new java.awt.Dimension(632, 131));
@@ -1208,8 +1207,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cargareliminarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addComponent(Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(eli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(noeli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1279,7 +1278,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             panelCPT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCPT2Layout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(txtPersonalRegistra_EC, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                .addComponent(txtPersonalRegistra_EC, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPersonalRegistra_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
@@ -1545,7 +1544,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             panelFormaPago1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFormaPago1Layout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                 .addGap(3, 3, 3))
         );
         panelFormaPago1Layout.setVerticalGroup(
@@ -1599,16 +1598,13 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                                                     .addComponent(lblHoraReg_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(34, 34, 34)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblNumExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(43, 43, 43)
-                                                .addComponent(panelCPT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblFP_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(panelFormaPago1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(1, 1, 1)))))))
+                                                .addComponent(lblFP_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(panelFormaPago1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(panelCPT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -1640,28 +1636,27 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 .addGap(0, 0, 0)
                 .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel29)
                             .addComponent(lblNumExamen))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel23)
-                            .addComponent(lblFP_EC)))
+                            .addComponent(lblFP_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
                             .addComponent(lblFechaReg_EC)
                             .addComponent(lblHoraReg_EC))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel36)
-                                .addComponent(jLabel39))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel39)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblFUA_EC)
-                                .addComponent(jLabel1))))
+                                .addComponent(jLabel1))
+                            .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)))
                     .addComponent(panelFormaPago1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1700,7 +1695,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
 
     private void txtCodigoDoc_ECCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCodigoDoc_ECCaretUpdate
          mostrar_VER_DETALLE_EC();
-         mostrar_FP_EC(txtCodigoDoc_EC.getText());
+         EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO MD = new EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO();
+         MD.mostrar_FP_EC(txtCodigoDoc_EC.getText());
          RX_EC_VER_CODIGO_RES_INFORME(txtCodigoDoc_EC.getText());
     }//GEN-LAST:event_txtCodigoDoc_ECCaretUpdate
 
@@ -2081,7 +2077,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
     }//GEN-LAST:event_eliActionPerformed
 
     private void noeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noeliActionPerformed
-
+        cargareliminar.setVisible(false);
     }//GEN-LAST:event_noeliActionPerformed
 
     private void txtPersonalRegistra_ECCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPersonalRegistra_ECCaretUpdate
@@ -2751,36 +2747,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         }
     }
     
-    public void mostrar_FP_EC(String cod){
-        String consulta="";
-        try {
-            consulta="EXEC RX_EC_FP ?";
-            PreparedStatement cmd = EXC.getCn().prepareStatement(consulta);
-            cmd.setString(1, cod);
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                lblFP_EC.setText(r.getString(1));
-                lblFUA_EC.setText(r.getString(2));
-                String a = "";
-                  String b = "";
-                  a=String.valueOf(lblFP_EC.getText().charAt(0));
-                  b=String.valueOf(lblFP_EC.getText().charAt(1));
-                  a=(String.valueOf(a)+String.valueOf(b));
-                  System.out.println("aa"+a);
-
-                  if(a.equals("SI")){
-                      btnGuardarCabeceraRes1.setEnabled(true);
-                  }else{
-                      btnGuardarCabeceraRes1.setEnabled(false);
-                  }
-                
-            }
-            
-        }catch (Exception e) {
-            System.out.println("Error carga cod cabecera: " + e.getMessage());
-        }
-    }
+    
     
     public void RX_EC_VER_CODIGO_RES_INFORME(String cod){
         String consulta="";
@@ -2965,8 +2932,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
     private javax.swing.JLabel lblCod_Per_Registra;
     private javax.swing.JLabel lblCod_Per_realiza;
     private javax.swing.JLabel lblCod_Personal_Sol_EC;
-    private javax.swing.JLabel lblFP_EC;
-    private javax.swing.JLabel lblFUA_EC;
+    public static javax.swing.JLabel lblFP_EC;
+    public static javax.swing.JLabel lblFUA_EC;
     private javax.swing.JLabel lblFechaReg_EC;
     private javax.swing.JLabel lblHoraReg_EC;
     public static javax.swing.JLabel lblHospi;
@@ -2984,7 +2951,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
     private javax.swing.JPanel panelCPT3;
     private javax.swing.JPanel panelCPT4;
     private javax.swing.JPanel panelCPT6;
-    private javax.swing.JPanel panelFormaPago1;
+    public static javax.swing.JPanel panelFormaPago1;
     private javax.swing.JTable tbCIE10_EC;
     private javax.swing.JTable tb_CIE10_EC;
     private javax.swing.JTable tb_Personal_rol_EC;

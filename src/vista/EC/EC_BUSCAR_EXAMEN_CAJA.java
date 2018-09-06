@@ -31,6 +31,7 @@ import static vista.EC.EC_EXAMEN_CAB.btnPersonalRegistra_EC;
 import static vista.EC.EC_EXAMEN_CAB.btnPersonalSolicita;
 import static vista.EC.EC_EXAMEN_CAB.tb_examen_det_EC;
 import static vista.EC.EC_EXAMEN_CAB.txtCOD_CABECERA;
+import static vista.EC.EC_EXAMEN_CAB.txtCodigoDoc_EC;
 
 /**
  *
@@ -1152,6 +1153,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                            
                             EC_EXAMEN_CAB.txtCodigoDoc_EC.setText(tb_Examen_EC.getValueAt(filaselec, 10).toString());
                             
+                            
+                            
                             EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO cno1 = new EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO();
                             cno1.setID_DOCUMENTO(tb_Examen_EC.getValueAt(filaselec, 10).toString());
                                 if(cno1.EC_FUA()==true){
@@ -1159,6 +1162,9 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                                 } else {
                                         System.out.println("ERROR GENERAR FUA");
                                 }
+                            
+                            EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO MD = new EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO();
+                            MD.mostrar_FP_EC(txtCodigoDoc_EC.getText());    
                             
                             EC_EXAMEN_CAB.txtAM.setText(tb_Examen_EC.getValueAt(filaselec, 7).toString());
                             EC_EXAMEN_CAB.txtHC.setText(tb_Examen_EC.getValueAt(filaselec, 1).toString());

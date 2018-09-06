@@ -156,7 +156,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jPanel86Layout.setHorizontalGroup(
             jPanel86Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel86Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(btnTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnConsultorio, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,7 +214,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_btnAdmEme2MouseEntered
 
     private void btnAdmEme2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdmEme2ActionPerformed
-        // TODO add your handling code here:
+        RegistroEmbarazo REM = new RegistroEmbarazo();
+        REM.setVisible(true);
+        String u=lblUsu.getText();
+        RegistroEmbarazo.lblUsu.setText(u);
     }//GEN-LAST:event_btnAdmEme2ActionPerformed
 
     private void btnAdmEme1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdmEme1MouseEntered

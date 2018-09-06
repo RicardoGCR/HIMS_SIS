@@ -58,6 +58,28 @@ public class RX_EC_EXAMEN {
         return cod;
     }
     
+    public boolean RX_FUA(){
+        boolean resp = false;
+        try
+        {
+            String sql = "exec RX_GENERAR_FUA_REF ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getID_DOCUMENTO());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error guardar cabecera ex: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public boolean RX_EC_EXAMEN_GUARDAR(){
         boolean resp = false;
         try

@@ -181,10 +181,10 @@ public class ConsultorioExtEsnitss implements Serializable {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"ID","Acto Médico","DNI","Nº H.C.",
                 "Paciente","Edad","Ocupación","FC","FR",
-                "PA","Peso","T°","Talla","HC","Código","Codigo2"};
+                "PA","Peso","T°","Talla","HC","Código","Codigo2","ID_HC","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[16];
+            String fila[]=new String[19];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CONSULTORIO_EXT_TRIAJE_LISTAR ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -210,6 +210,9 @@ public class ConsultorioExtEsnitss implements Serializable {
                 fila[13]=r.getString(14); // 
                 fila[14]=r.getString(15); // 
                 fila[15]=r.getString(16); // 
+                fila[16]=r.getString(17); // 
+                fila[17]=r.getString(18); // 
+                fila[18]=r.getString(19); // 
                     m.addRow(fila);
                     c++;
             }

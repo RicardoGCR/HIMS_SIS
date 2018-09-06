@@ -256,14 +256,12 @@ private String ID_CAB;
         try {
             consulta="EXEC SISTEMA_LISTA_IMPRESORAS ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-//            cmd.setString(1, cp_id);
+            cmd.setString(1, usuario);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
                 Caja_Pagos.lblIMPRESORA.setText(r.getString(2)); 
-
                 }
-            //
         } catch (Exception e) {
             System.out.println("Error: PRINT " + e.getMessage());
         }

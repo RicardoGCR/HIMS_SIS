@@ -70,7 +70,6 @@ String hora, minutos, segundos, ampm;
         h1 = new Thread(this);
         h1.start();
 //        barra.setBackground(new Color(155,155,155));
-        barra.setForeground(new Color(0,0,0));
 //       setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
@@ -115,112 +114,84 @@ String hora, minutos, segundos, ampm;
        }else if(cap.equalsIgnoreCase(codAdmin("ADMINISTRACION"))){//Para editar tipo de usuario
                 
         //p.pack();
-         cont=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
+        cont=-1;
         tiempo=new Timer(TWO_SECOND, new TimerListener());
         activar();
       }else if(cap.equalsIgnoreCase(codAdmin("ADMISION CENTRAL"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=1;
       }else if(cap.equalsIgnoreCase(codAdmin("ADMISION EMERGENCIA"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=2;
       }else if(cap.equalsIgnoreCase(codAdmin("CAJA"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=3;
       }else if(cap.equalsIgnoreCase(codAdmin("COSTOS"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=4;
       }else if(cap.equalsIgnoreCase(codAdmin("HOSPITALIZACION"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=5;
       }else if(cap.equalsIgnoreCase(codAdmin("LABORATORIO"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=6;
       }else if(cap.equalsIgnoreCase(codAdmin("RAYOS X"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=7;
       }else if(cap.equalsIgnoreCase(codAdmin("ECOGRAFIA"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=8;
       }else if(cap.equalsIgnoreCase(codAdmin("CONSULTORIOS EXTERNOS"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=9;
       }else if(cap.equalsIgnoreCase(codAdmin("INVESTIGACION BACTEREOLOGICA"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=10;
       }else if(cap.equalsIgnoreCase(codAdmin("ALMACEN"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=11;
       }else if(cap.equalsIgnoreCase(codAdmin("PERSONAL"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=12;
       }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
 
         cont1=-1;
-        barra.setValue(0);
-        barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=13;
@@ -282,7 +253,6 @@ String hora, minutos, segundos, ampm;
         btnRecuperar = new javax.swing.JButton();
         txtRespuesta = new javax.swing.JTextField();
         txtPregunta = new javax.swing.JTextField();
-        barra = new javax.swing.JProgressBar();
         lblFecha = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -328,7 +298,7 @@ String hora, minutos, segundos, ampm;
             }
         });
 
-        panelRecuperar.setBackground(new java.awt.Color(0, 153, 153));
+        panelRecuperar.setBackground(new java.awt.Color(40, 40, 43));
         panelRecuperar.setForeground(new java.awt.Color(0, 153, 153));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -354,30 +324,23 @@ String hora, minutos, segundos, ampm;
         panelRecuperarLayout.setHorizontalGroup(
             panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRecuperarLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRecuperar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelRecuperarLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
                         .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRecuperar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelRecuperarLayout.createSequentialGroup()
-                                .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                                    .addComponent(txtRespuesta)))))
-                    .addGroup(panelRecuperarLayout.createSequentialGroup()
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel6))
                         .addGap(18, 18, 18)
-                        .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                            .addComponent(txtRespuesta))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRecuperarLayout.setVerticalGroup(
             panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRecuperarLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(panelRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
@@ -677,7 +640,6 @@ String hora, minutos, segundos, ampm;
         @Override
         public void actionPerformed(ActionEvent e) {
            cont++;
-           barra.setValue(cont);
            if(cont==101){
                tiempo.stop();
                esconder();
@@ -695,7 +657,6 @@ String hora, minutos, segundos, ampm;
         @Override
         public void actionPerformed(ActionEvent e) {
            cont1++;
-           barra.setValue(cont1);
            if(cont1==101){
                tiempo1.stop();
                esconder();
@@ -846,7 +807,6 @@ String hora, minutos, segundos, ampm;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JProgressBar barra;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRecuperar;
     private javax.swing.JLabel jLabel10;

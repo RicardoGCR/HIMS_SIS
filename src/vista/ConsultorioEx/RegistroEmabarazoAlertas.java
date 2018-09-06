@@ -313,7 +313,7 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
             tbAlertas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
             tbAlertas.setGridColor(new java.awt.Color(255, 255, 255));
             tbAlertas.setRowHeight(25);
-            tbAlertas.setSelectionBackground(new java.awt.Color(232, 76, 61));
+            tbAlertas.setSelectionBackground(new java.awt.Color(51, 51, 255));
             tbAlertas.getTableHeader().setReorderingAllowed(false);
             tbAlertas.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {

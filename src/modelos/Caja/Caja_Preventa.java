@@ -1008,7 +1008,7 @@ public class Caja_Preventa {
             tabla.setModel(m);
             FORMATO_RX(tabla);
         } catch (Exception e) {
-            System.out.println("Error: listarDatosEmergencia: " + e.getMessage());
+            System.out.println("Error: LISTAR EC DEL DIA : " + e.getMessage());
         }
     }
     

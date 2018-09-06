@@ -1278,7 +1278,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jPanel64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         dtCita.setBackground(new java.awt.Color(255, 255, 255));
-        dtCita.setDateFormatString("dd/MM/yyyy");
 
         javax.swing.GroupLayout jPanel64Layout = new javax.swing.GroupLayout(jPanel64);
         jPanel64.setLayout(jPanel64Layout);
@@ -1680,7 +1679,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         lblAtencion3.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         lblAtencion3.setForeground(new java.awt.Color(204, 204, 204));
-        lblAtencion3.setText("Atención 3");
+        lblAtencion3.setText("3 Control");
         lblAtencion3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAtencion3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1726,7 +1725,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         lblAtencion4.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         lblAtencion4.setForeground(new java.awt.Color(204, 204, 204));
-        lblAtencion4.setText("Atención 4");
+        lblAtencion4.setText("4 Control");
         lblAtencion4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAtencion4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1772,7 +1771,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         lblAtencion5.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         lblAtencion5.setForeground(new java.awt.Color(204, 204, 204));
-        lblAtencion5.setText("Atención 5");
+        lblAtencion5.setText("5 Control");
         lblAtencion5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAtencion5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1805,7 +1804,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         lblAtencion6.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         lblAtencion6.setForeground(new java.awt.Color(204, 204, 204));
-        lblAtencion6.setText("Atención 6");
+        lblAtencion6.setText("6 Control");
         lblAtencion6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAtencion6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1851,7 +1850,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         lblAtencion7.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         lblAtencion7.setForeground(new java.awt.Color(204, 204, 204));
-        lblAtencion7.setText("Atención 7");
+        lblAtencion7.setText("7 Control");
         lblAtencion7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAtencion7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1897,7 +1896,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         lblAtencion8.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         lblAtencion8.setForeground(new java.awt.Color(204, 204, 204));
-        lblAtencion8.setText("Atención 8");
+        lblAtencion8.setText("8 Control");
         lblAtencion8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAtencion8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1942,7 +1941,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         lblAtencion9.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         lblAtencion9.setForeground(new java.awt.Color(204, 204, 204));
-        lblAtencion9.setText("Atención 9");
+        lblAtencion9.setText("9 Control");
         lblAtencion9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAtencion9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2000,7 +1999,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         lblAtencion1.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         lblAtencion1.setForeground(new java.awt.Color(204, 204, 204));
-        lblAtencion1.setText("Atención 1");
+        lblAtencion1.setText("1 Control");
         lblAtencion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAtencion1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2046,7 +2045,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         lblAtencion2.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         lblAtencion2.setForeground(new java.awt.Color(204, 204, 204));
-        lblAtencion2.setText("Atención 2");
+        lblAtencion2.setText("2 Control");
         lblAtencion2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAtencion2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

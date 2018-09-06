@@ -112,7 +112,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         lblDni.setText(String.valueOf(tbMadres.getValueAt(fila, 2)));
         txtPaciente.setText(String.valueOf(tbMadres.getValueAt(fila, 4)));
         lblHc.setText(String.valueOf(tbMadres.getValueAt(fila, 3)));
-        txtIdHc.setText(String.valueOf(tbMadres.getValueAt(fila, 13)));
+        txtIdHc.setText(String.valueOf(tbMadres.getValueAt(fila, 18)));
         pnlControl.setVisible(true);
         btnGuardar.setVisible(true);
         lblMant.setText("I");
@@ -124,12 +124,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
 
     public boolean mantenimientoRegistroEmbarazo(){
         boolean retorna = false;
+        System.out.println("HC  "+txtIdHc.getText());
         try {
             ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
             AdmisionEmergenciaCabecera adEmerCab = new AdmisionEmergenciaCabecera();
             if(lblMant.getText().equals("U") || lblMant.getText().equals("E"))
                 consultorio1.setCpId(Integer.parseInt(lblId.getText()));
-            consultorio1.setIdHc("HC000000000000191316");
+            consultorio1.setIdHc(txtIdHc.getText());
             consultorio1.setCpEstbOrigen(txtEstabOrigen.getText());
             consultorio1.setCpAniosAprob(ChkAnAp.getText());
             consultorio1.setCpEstbAct(txtEstablecimiento.getText());

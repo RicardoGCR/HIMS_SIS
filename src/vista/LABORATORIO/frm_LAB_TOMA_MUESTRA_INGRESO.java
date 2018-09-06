@@ -345,7 +345,7 @@ DefaultTableModel m,n,muestra;
             
             formato();
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(" LISTAR_examenes Error: " + e.getMessage());
         }
 }
     
@@ -960,7 +960,7 @@ public void buscar_histClinica(){
             LAB_HC_formato();
 
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(" buscar_histClinica Error: " + e.getMessage());
         }
         }
 }
@@ -993,13 +993,11 @@ public void buscar_histClinica(){
             try{
                 buscar_HC.setVisible(false);
                 int filaselec=tb_HC.getSelectedRow();
-             
-                
                 txtPacientes.setText(tb_HC.getValueAt(filaselec, 1).toString());
             }
             catch(Exception ex)
             {
-                System.out.println("Error: " + ex.getMessage());
+                System.out.println(" tb_HCKeyPressed Error: " + ex.getMessage());
             }
         }
         // TODO add your handling code here:
@@ -1108,7 +1106,7 @@ public void buscar_examenes(){
             
             formato();
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("buscar_examenes Error: " + e.getMessage());
         }
 }
     private void tb_PacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_PacientesKeyPressed
@@ -1142,21 +1140,27 @@ public void buscar_examenes(){
                         PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
                         cmd.setString(1,tb_Pacientes.getValueAt(filaselec, 9).toString());
                         ResultSet r= cmd.executeQuery();  
-                        String ref="";
+                        String ref="",pago="";
                         while(r.next()){
-                            ref=r.getString(1);
+                            ref=r.getString(1); 
+                            pago=r.getString(2);
                         }
-                        System.out.println("ref");   
-                        System.out.println(ref);
-                        if (ref.equals("")){
-                            frm_LAB_TOMA_MUESTRA_CABECERA.jLabel20.setVisible(true);      
-                            frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico1.setVisible(true);
-                        }else{
-                            frm_LAB_TOMA_MUESTRA_CABECERA.jLabel20.setVisible(false);      
+                        System.out.println("ref "+ref);    
+                        System.out.println("pago "+pago);
+                        if (pago.equals("P0003")){//SIS
+                            if (ref.equals("")){
+                                frm_LAB_TOMA_MUESTRA_CABECERA.jLabel20.setVisible(true);  //MISMO HOSPITAL     
+                                frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico1.setVisible(true);
+                            }else{
+                                frm_LAB_TOMA_MUESTRA_CABECERA.jLabel20.setVisible(false);  //   ref  
+                                frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico1.setVisible(false);    
+                                frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico1.setText("0");
+                            }
+                        }if (!pago.equals("P0003")){//NO SIS
+                            frm_LAB_TOMA_MUESTRA_CABECERA.jLabel20.setVisible(false);  //MISMO HOSPITAL        
                             frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico1.setVisible(false);    
                             frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico1.setText("0");
                         }
-                    
                         String u=lblUsu.getText();
                              frm_LAB_TOMA_MUESTRA_CABECERA.lblUsu.setText(u);
                              frm_LAB_TOMA_MUESTRA_CABECERA.txtPersonalTomaMuestra.requestFocus();

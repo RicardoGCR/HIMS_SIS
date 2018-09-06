@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a769e506-e196-4157-968b-b40641300bb8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<parameter name="SIS" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[[SEGUIMIENTO_FUA]]]>
+	</queryString>
+	<field name="LA" class="java.lang.Integer"/>
+	<field name="PLA" class="java.math.BigDecimal"/>
+	<field name="EC" class="java.lang.Integer"/>
+	<field name="PEC" class="java.math.BigDecimal"/>
+	<field name="RX" class="java.lang.Integer"/>
+	<field name="PRX" class="java.math.BigDecimal"/>
+	<field name="FR" class="java.lang.Integer"/>
+	<field name="PFR" class="java.math.BigDecimal"/>
+	<field name="CJ" class="java.lang.Integer"/>
+	<field name="PCJ" class="java.math.BigDecimal"/>
+	<field name="EM" class="java.lang.Integer"/>
+	<field name="PEM" class="java.math.BigDecimal"/>
+	<field name="SI" class="java.lang.Integer"/>
+	<field name="PSI" class="java.math.BigDecimal"/>
+	<field name="NUMFUA" class="java.lang.Integer"/>
+	<field name="AL" class="java.lang.Integer"/>
+	<field name="PAL" class="java.math.BigDecimal"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="PAGO" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="139" y="0" width="275" height="22" uuid="8e54e9b5-7407-4542-9ea2-179908cbc9c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Seguimiento de la RUTA FUA  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="42" width="48" height="20" uuid="25616ec3-a9ef-4c2a-b1e7-dcd855d2e3d6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Mes de :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="251" y="42" width="186" height="20" uuid="22057d63-ef5f-41ba-b9da-9cb89153af9c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="139" y="22" width="275" height="20" uuid="f3f76632-ab70-4406-9065-1847ae5bf591"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Porcentaje de gestion de avance]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="167" splitType="Stretch">
+			<textField>
+				<reportElement x="139" y="0" width="14" height="20" uuid="7970f285-74e7-4639-bee6-f6a3bd0ad50a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{LA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="39" y="0" width="100" height="20" uuid="5d3a5e1f-ff2d-480d-9cd6-37e1afb0a73d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laboratorio:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="353" y="0" width="202" height="125" uuid="b1e3200d-e39c-4cd3-85c4-863365273e41"/>
+				<imageExpression><![CDATA["F:\\git\\HIMS_SIS\\src\\imagenes\\SEGUIMIENTO-FUA.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="153" y="0" width="37" height="20" uuid="3a394af8-7409-4c63-bed2-8677633caa36"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PLA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="0" width="18" height="20" forecolor="#F5B631" backcolor="#F5B631" uuid="f353dc03-67e1-4a89-9d44-678b61a76335"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laboratorio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="20" width="100" height="20" uuid="3e3efbc0-7d8d-4504-936d-c000bce32eaf"/>
+				<text><![CDATA[Ecografia: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="20" width="14" height="20" uuid="9072dfcf-ae76-41b7-a70a-7927ca0cb662"/>
+				<textFieldExpression><![CDATA[$F{EC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="20" width="37" height="20" uuid="aec421c1-0b61-40ae-9a6d-af8dce463b3f"/>
+				<textFieldExpression><![CDATA[$F{PEC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="20" width="18" height="20" forecolor="#F07830" backcolor="#F07830" uuid="77a22643-0a06-4af6-aa23-98e2bb01ee66"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laboratorio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="40" width="100" height="20" uuid="a4006250-7305-4cd4-bdee-55719e018c67"/>
+				<text><![CDATA[Rayos X:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="40" width="14" height="20" uuid="824f7c3f-580b-41fb-8ef0-6ab9c710ef55"/>
+				<textFieldExpression><![CDATA[$F{RX}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="40" width="37" height="20" uuid="7b03921d-9a2e-43a4-8da2-06f2448a6617"/>
+				<textFieldExpression><![CDATA[$F{PRX}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="40" width="18" height="20" forecolor="#D33D2B" backcolor="#D33D2B" uuid="d67d3701-b190-43b2-ab59-3f5448b4ccd2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laboratorio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="60" width="100" height="20" uuid="4e631881-d126-455b-a7ee-3faa7254de34"/>
+				<text><![CDATA[Farmacia: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="60" width="14" height="20" uuid="c0d58382-e82c-46fa-a2b2-c204dc9df097"/>
+				<textFieldExpression><![CDATA[$F{FR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="60" width="37" height="20" uuid="740197c2-5b2d-4130-adaa-568af806638a"/>
+				<textFieldExpression><![CDATA[$F{PFR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="60" width="18" height="20" forecolor="#54BA8B" backcolor="#54BA8B" uuid="459fe3fb-e9e1-4092-b3f6-96dc6aca39b0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laboratorio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="80" width="100" height="20" uuid="4653f8d8-8497-4532-8cbc-b916c03f8893"/>
+				<text><![CDATA[Consultorio: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="80" width="14" height="20" uuid="133e24e6-dfb6-4cc2-81d5-72d558784ba6"/>
+				<textFieldExpression><![CDATA[$F{CJ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="80" width="37" height="20" uuid="2184c40b-66d1-4b25-bcbe-b90e275ad850"/>
+				<textFieldExpression><![CDATA[$F{PCJ}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="80" width="18" height="20" forecolor="#4D799D" backcolor="#4D799D" uuid="adcfff26-1177-4e2b-8c05-5d74389845af"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laboratorio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="100" width="100" height="20" uuid="54cfe4a9-04de-4a85-9f0d-4d631e24aff8"/>
+				<text><![CDATA[Emergencia: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="100" width="14" height="20" uuid="c7aeaad6-b6ea-444b-9251-d7ef9bb6f566"/>
+				<textFieldExpression><![CDATA[$F{EM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="100" width="37" height="20" uuid="b169d31b-b0eb-48d0-aeab-143da3d42f09"/>
+				<textFieldExpression><![CDATA[$F{PEM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="100" width="18" height="20" forecolor="#52C1CB" backcolor="#52C1CB" uuid="21c04d3b-c767-4b89-a212-13012488badd"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laboratorio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="120" width="15" height="20" uuid="d7b42b7a-9f85-46d9-aa36-0735bac92898"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{SI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="120" width="37" height="20" uuid="2515105f-439e-45ab-96f6-478c974f5960"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PSI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="52" width="35" height="20" uuid="2b08c842-2e44-4725-88ae-4284f26d945a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUMFUA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="382" y="52" width="33" height="20" uuid="d6a6041f-62b4-44a8-b2b0-a90502439355"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[FUAS: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="120" width="100" height="20" uuid="786e0c20-a97b-4f2b-b7e7-f0d8984bd18a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Sis:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="120" width="18" height="20" forecolor="#D46BA7" backcolor="#D46BA7" uuid="08d49e85-7f58-4721-8089-68ddbc50d6fb"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laboratorio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="140" width="100" height="20" uuid="b81cb7f9-b165-4311-87a5-8f63c1ae001a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Almacen: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="140" width="15" height="20" uuid="8c63d046-412e-432a-b18f-6b855af647a6"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="140" width="36" height="20" uuid="fc29391c-0cd0-403d-a93d-4fd3aa4402fa"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="140" width="18" height="20" forecolor="#2159FF" backcolor="#2159FF" uuid="11a0129d-1630-4961-9e34-16dff8246763"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laboratorio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="409" y="72" width="36" height="20" uuid="2620db09-d44d-4b0a-938a-0b7cd44813e5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{PAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="72" width="15" height="20" uuid="39737f87-c11c-4878-9436-a2a868796a25"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{AL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

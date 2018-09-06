@@ -1689,6 +1689,7 @@ public void calcula() {
                     df.format(ndias)
                     +lblCodMuestra.getText().substring(2, 5)
                     +lblCodNomen.getText().substring(2,7)
+                    +ar_id
                     +frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico.getText();
            
           if(tb_MuestrasRegis.getRowCount()==0){

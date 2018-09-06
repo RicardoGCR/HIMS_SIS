@@ -1335,23 +1335,29 @@ public void calcula() {
                     dispose();
                     String acto ="";  
                     String fua ="";
+                    LAB_Toma_Muestra_Cabecera F = new LAB_Toma_Muestra_Cabecera();
+                    System.out.println(" barra "+ meGuardar.getCod_cab_toma_mu_exa());
+                    try { 
+                        F.cod_barra_muestra(meGuardar.getCod_cab_toma_mu_exa());
+                    } catch (Exception e) {
+                        System.out.println("ERROR BARRA Generado");
+                    }
                     acto=(lblDocumento.getText()); 
                     fua=(txtActoMedico1.getText());
+                    System.out.println("ACTO "+acto);   
+                    System.out.println("fua "+fua);
                     String sql = "EXEC LA_GENERAR_FUA_REF ?,?";
                     LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     PreparedStatement cmd = obj.getCn().prepareStatement(sql);
                     cmd.setString(1, acto);  
                     cmd.setString(2, fua);
-                    if(!cmd.execute())
-                    {
+                    if(!cmd.execute()){
                         System.out.println("Fua Generado");
-                    }
-                    else{
+                    }else{
                         System.out.println("Error FUA");
                     }
                     cmd.close();
                     obj.getCn().close();
-                     
                   }
                   else{
                     JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");
@@ -1398,12 +1404,7 @@ public void calcula() {
                      
                      mdGuardar.setNom_usu(lblUsu.getText());
                      mdGuardar.LAB_Toma_Muestra_Det_guardar();
-                     LAB_Toma_Muestra_Cabecera F = new LAB_Toma_Muestra_Cabecera();
-                     System.out.println(" barra"+txtCodigoDet.getText());
-                    try { 
-                        F.cod_barra_muestra(txtCodigoDet.getText());
-                    } catch (Exception e) {
-                    }
+                     
                 for (int j = 0; j < tb_Subdetalle.getRowCount(); j++){ 
                      if(tb_Detalle.getValueAt(i, 2).toString().equalsIgnoreCase(tb_Subdetalle.getValueAt(j, 0).toString())){
                      LAB_Toma_Muestra_Subdetalle msdGuardar = new LAB_Toma_Muestra_Subdetalle();
@@ -1479,7 +1480,7 @@ public void calcula() {
             }
             catch(Exception ex)
             {
-                System.out.println("Error: " + ex.getMessage());
+                System.out.println(" tbPersonalKeyPressed Error: " + ex.getMessage());
             }
         }
     }//GEN-LAST:event_tbPersonalKeyPressed
@@ -1497,7 +1498,6 @@ public void calcula() {
                     txtBuscar.setEnabled(true);
                     btnBuscar.setEnabled(true);
                 }
-
             }
             else{
                 txtBuscar.setEnabled(false);
@@ -1505,7 +1505,7 @@ public void calcula() {
             }}
             catch(Exception ex)
             {
-                System.out.println("Error: " + ex.getMessage());
+                System.out.println(" cbxBuscar2ItemStateChanged Error: " + ex.getMessage());
             }
     }//GEN-LAST:event_cbxBuscar2ItemStateChanged
 

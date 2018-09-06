@@ -3,18 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/F:/git/HIMS_SIS/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_DETALLE.java</file>
-            <file>file:/F:/git/HIMS_SIS/src/vista/LABORATORIO/LAB_PRINCIPAL.java</file>
-            <file>file:/F:/git/HIMS_SIS/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_CABECERA.java</file>
-            <file>file:/F:/git/HIMS_SIS/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_INGRESO.java</file>
-            <file>file:/F:/git/HIMS_SIS/src/Reportes/Sis/segimiento_sis.jrxml</file>
-            <file>file:/F:/git/HIMS_SIS/src/vista/SIS/recepcion_fua.java</file>
-=======
             <file>file:/E:/HIMS%20V2/HIMS_SIS-master/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/E:/HIMS%20V2/HIMS_SIS-master/src/vista/EC/EC_EXAMEN_CAB.java</file>
             <file>file:/E:/HIMS%20V2/HIMS_SIS-master/src/vista/RX/RX_EC_EXAMEN_CAB_RESULTADO.java</file>
->>>>>>> c5561a87a1e5bafa5090d0de3a5841df9088d10b
         </group>
     </open-files>
 </project-private>

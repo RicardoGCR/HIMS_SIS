@@ -1716,6 +1716,7 @@ String tg="";
             }
         });
 
+        ibiIDAPERTURA.setForeground(new java.awt.Color(255, 255, 255));
         ibiIDAPERTURA.setText("jLabel48");
 
         javax.swing.GroupLayout jPanel46Layout = new javax.swing.GroupLayout(jPanel46);

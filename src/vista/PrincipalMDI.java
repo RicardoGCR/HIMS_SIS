@@ -1894,6 +1894,9 @@ String tg="";
         case "LAB":
 //            ADM_PRINCIPAL.jButton2.doClick();
             break;  
+        case "CEX":
+            CEX_PRINCIPAL.jButton2.doClick();
+            break; 
     }
 
     }//GEN-LAST:event_lblUsuMouseClicked
@@ -2133,6 +2136,7 @@ String tg="";
     }//GEN-LAST:event_btnHospitalizacionActionPerformed
 
     private void btnConExtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConExtActionPerformed
+        tg="CEX";
         CEX_PRINCIPAL f=new CEX_PRINCIPAL();
         panelFACTURAS.add(f);
         //        String u=Principal.lblUsu.getText();

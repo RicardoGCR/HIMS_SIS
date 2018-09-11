@@ -921,9 +921,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel27Layout.createSequentialGroup()
-                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         lblPorcentajeV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -981,7 +979,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         ELAB.setPreferredSize(new java.awt.Dimension(120, 88));
 
         dtElab.setBackground(new java.awt.Color(255, 255, 255));
-        dtElab.setDateFormatString("dd/MM/yyyy");
         dtElab.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         txtFuaElab.setEditable(false);
@@ -1052,7 +1049,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         EJEC.setPreferredSize(new java.awt.Dimension(120, 88));
 
         dtEjec.setBackground(new java.awt.Color(255, 255, 255));
-        dtEjec.setDateFormatString("dd/MM/yyyy");
         dtEjec.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         txtFuaEjec.setEditable(false);
@@ -1130,7 +1126,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel35.setBackground(new java.awt.Color(153, 153, 153));
 
         dtBcg.setBackground(new java.awt.Color(255, 255, 255));
-        dtBcg.setDateFormatString("dd/MM/yyyy");
         dtBcg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rbcg.setBackground(new java.awt.Color(153, 153, 153));
@@ -1165,7 +1160,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel36.setBackground(new java.awt.Color(153, 153, 153));
 
         dtHvb.setBackground(new java.awt.Color(255, 255, 255));
-        dtHvb.setDateFormatString("dd/MM/yyyy");
         dtHvb.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rhvb.setBackground(new java.awt.Color(153, 153, 153));
@@ -1264,7 +1258,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel53.setBackground(new java.awt.Color(153, 153, 153));
 
         dtNeumo1.setBackground(new java.awt.Color(255, 255, 255));
-        dtNeumo1.setDateFormatString("dd/MM/yyyy");
         dtNeumo1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rn1.setBackground(new java.awt.Color(153, 153, 153));
@@ -1299,7 +1292,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel54.setBackground(new java.awt.Color(153, 153, 153));
 
         dtNeumo2.setBackground(new java.awt.Color(255, 255, 255));
-        dtNeumo2.setDateFormatString("dd/MM/yyyy");
         dtNeumo2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rn2.setBackground(new java.awt.Color(153, 153, 153));
@@ -1334,7 +1326,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel55.setBackground(new java.awt.Color(153, 153, 153));
 
         dtNeumo3.setBackground(new java.awt.Color(255, 255, 255));
-        dtNeumo3.setDateFormatString("dd/MM/yyyy");
         dtNeumo3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rn3.setBackground(new java.awt.Color(153, 153, 153));
@@ -1451,7 +1442,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel37.setBackground(new java.awt.Color(153, 153, 153));
 
         dtInfl1.setBackground(new java.awt.Color(255, 255, 255));
-        dtInfl1.setDateFormatString("dd/MM/yyyy");
         dtInfl1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Ri1.setBackground(new java.awt.Color(153, 153, 153));
@@ -1486,7 +1476,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel38.setBackground(new java.awt.Color(153, 153, 153));
 
         dtInfl2.setBackground(new java.awt.Color(255, 255, 255));
-        dtInfl2.setDateFormatString("dd/MM/yyyy");
         dtInfl2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Ri2.setBackground(new java.awt.Color(153, 153, 153));
@@ -1584,7 +1573,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel39.setBackground(new java.awt.Color(153, 153, 153));
 
         dtRot1.setBackground(new java.awt.Color(255, 255, 255));
-        dtRot1.setDateFormatString("dd/MM/yyyy");
         dtRot1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rr1.setBackground(new java.awt.Color(153, 153, 153));
@@ -1619,7 +1607,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel42.setBackground(new java.awt.Color(153, 153, 153));
 
         dtRot2.setBackground(new java.awt.Color(255, 255, 255));
-        dtRot2.setDateFormatString("dd/MM/yyyy");
         dtRot2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rr2.setBackground(new java.awt.Color(153, 153, 153));
@@ -1720,7 +1707,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel45.setBackground(new java.awt.Color(153, 153, 153));
 
         dtSpr1.setBackground(new java.awt.Color(255, 255, 255));
-        dtSpr1.setDateFormatString("dd/MM/yyyy");
         dtSpr1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rspr1.setBackground(new java.awt.Color(153, 153, 153));
@@ -1755,7 +1741,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel46.setBackground(new java.awt.Color(153, 153, 153));
 
         dtSpr2.setBackground(new java.awt.Color(255, 255, 255));
-        dtSpr2.setDateFormatString("dd/MM/yyyy");
         dtSpr2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rspr2.setBackground(new java.awt.Color(153, 153, 153));
@@ -1856,7 +1841,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel56.setBackground(new java.awt.Color(153, 153, 153));
 
         dtAmadu.setBackground(new java.awt.Color(255, 255, 255));
-        dtAmadu.setDateFormatString("dd/MM/yyyy");
         dtAmadu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rama.setBackground(new java.awt.Color(153, 153, 153));
@@ -1947,7 +1931,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel58.setBackground(new java.awt.Color(153, 153, 153));
 
         dtIpv1.setBackground(new java.awt.Color(255, 255, 255));
-        dtIpv1.setDateFormatString("dd/MM/yyyy");
         dtIpv1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Ripv1.setBackground(new java.awt.Color(153, 153, 153));
@@ -1982,7 +1965,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel59.setBackground(new java.awt.Color(153, 153, 153));
 
         dtIpv2.setBackground(new java.awt.Color(255, 255, 255));
-        dtIpv2.setDateFormatString("dd/MM/yyyy");
         dtIpv2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Ripv2.setBackground(new java.awt.Color(153, 153, 153));
@@ -2017,7 +1999,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel60.setBackground(new java.awt.Color(153, 153, 153));
 
         dtIpv3.setBackground(new java.awt.Color(255, 255, 255));
-        dtIpv3.setDateFormatString("dd/MM/yyyy");
         dtIpv3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Ripv3.setBackground(new java.awt.Color(153, 153, 153));
@@ -2134,7 +2115,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel62.setBackground(new java.awt.Color(153, 153, 153));
 
         dtPent1.setBackground(new java.awt.Color(255, 255, 255));
-        dtPent1.setDateFormatString("dd/MM/yyyy");
         dtPent1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rp1.setBackground(new java.awt.Color(153, 153, 153));
@@ -2169,7 +2149,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel63.setBackground(new java.awt.Color(153, 153, 153));
 
         dtPent2.setBackground(new java.awt.Color(255, 255, 255));
-        dtPent2.setDateFormatString("dd/MM/yyyy");
         dtPent2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rp2.setBackground(new java.awt.Color(153, 153, 153));
@@ -2204,7 +2183,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel64.setBackground(new java.awt.Color(153, 153, 153));
 
         dtPent3.setBackground(new java.awt.Color(255, 255, 255));
-        dtPent3.setDateFormatString("dd/MM/yyyy");
         dtPent3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rp3.setBackground(new java.awt.Color(153, 153, 153));
@@ -2322,7 +2300,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel41.setBackground(new java.awt.Color(153, 153, 153));
 
         dtDpt1.setBackground(new java.awt.Color(255, 255, 255));
-        dtDpt1.setDateFormatString("dd/MM/yyyy");
         dtDpt1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rdpt1.setBackground(new java.awt.Color(153, 153, 153));
@@ -2357,7 +2334,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel43.setBackground(new java.awt.Color(153, 153, 153));
 
         dtDpt2.setBackground(new java.awt.Color(255, 255, 255));
-        dtDpt2.setDateFormatString("dd/MM/yyyy");
         dtDpt2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rdpt2.setBackground(new java.awt.Color(153, 153, 153));
@@ -2458,7 +2434,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel48.setBackground(new java.awt.Color(153, 153, 153));
 
         dtInflR1.setBackground(new java.awt.Color(255, 255, 255));
-        dtInflR1.setDateFormatString("dd/MM/yyyy");
         dtInflR1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rir1.setBackground(new java.awt.Color(153, 153, 153));
@@ -2493,7 +2468,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel49.setBackground(new java.awt.Color(153, 153, 153));
 
         dtInflR2.setBackground(new java.awt.Color(255, 255, 255));
-        dtInflR2.setDateFormatString("dd/MM/yyyy");
         dtInflR2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rir2.setBackground(new java.awt.Color(153, 153, 153));
@@ -2594,7 +2568,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel65.setBackground(new java.awt.Color(153, 153, 153));
 
         dtApoR1.setBackground(new java.awt.Color(255, 255, 255));
-        dtApoR1.setDateFormatString("dd/MM/yyyy");
         dtApoR1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rapo1.setBackground(new java.awt.Color(153, 153, 153));
@@ -2629,7 +2602,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel66.setBackground(new java.awt.Color(153, 153, 153));
 
         dtApoR2.setBackground(new java.awt.Color(255, 255, 255));
-        dtApoR2.setDateFormatString("dd/MM/yyyy");
         dtApoR2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         Rapo2.setBackground(new java.awt.Color(153, 153, 153));

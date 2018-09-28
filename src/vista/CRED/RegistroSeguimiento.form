@@ -534,18 +534,14 @@
                   </Group>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnGuardar" alignment="1" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnImprimir" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
-                              <Component id="btnLista" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="btnGuardar" max="32767" attributes="0"/>
+                      <Component id="btnImprimir" alignment="1" pref="227" max="32767" attributes="0"/>
+                      <Component id="btnLista" alignment="1" pref="227" max="32767" attributes="0"/>
                   </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

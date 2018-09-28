@@ -101,7 +101,7 @@ public class AConsultorioExtRsVacunas implements Serializable {
                     ARSAIVacunas.jPanel4.setBackground(new Color(255,255,255)); 
                     ARSAIVacunas.jPanel5.setBackground(new Color(255,255,255)); 
                     ARSAIVacunas.jLabel9.setText(r.getString(1));
-                }else{
+                }else {
                     ARSAIVacunas.jPanel3.setBackground(new Color(232,76,61)); 
                     ARSAIVacunas.jPanel4.setBackground(new Color(255,255,255)); 
                     ARSAIVacunas.jPanel5.setBackground(new Color(255,255,255)); 

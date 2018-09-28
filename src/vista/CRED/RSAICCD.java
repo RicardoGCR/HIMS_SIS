@@ -1779,7 +1779,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel68.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDRN1.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDRN1.setDateFormatString("dd/MM/yyyy");
             FCCDRN1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rrn1.setBackground(new java.awt.Color(153, 153, 153));
@@ -1815,7 +1814,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel69.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDRN2.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDRN2.setDateFormatString("dd/MM/yyyy");
             FCCDRN2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rrn2.setBackground(new java.awt.Color(153, 153, 153));
@@ -1850,7 +1848,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel70.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDRN3.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDRN3.setDateFormatString("dd/MM/yyyy");
             FCCDRN3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rrn3.setBackground(new java.awt.Color(153, 153, 153));
@@ -1913,7 +1910,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel71.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDRN4.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDRN4.setDateFormatString("dd/MM/yyyy");
             FCCDRN4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rrn4.setBackground(new java.awt.Color(153, 153, 153));
@@ -2181,7 +2177,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel77.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM1.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM1.setDateFormatString("dd/MM/yyyy");
             FCCDM1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm11.setBackground(new java.awt.Color(153, 153, 153));
@@ -2216,7 +2211,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel78.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM2.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM2.setDateFormatString("dd/MM/yyyy");
             FCCDM2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm12.setBackground(new java.awt.Color(153, 153, 153));
@@ -2251,7 +2245,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel79.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM3.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM3.setDateFormatString("dd/MM/yyyy");
             FCCDM3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm13.setBackground(new java.awt.Color(153, 153, 153));
@@ -2286,7 +2279,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel80.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM4.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM4.setDateFormatString("dd/MM/yyyy");
             FCCDM4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm14.setBackground(new java.awt.Color(153, 153, 153));
@@ -2434,7 +2426,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel82.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM5.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM5.setDateFormatString("dd/MM/yyyy");
             FCCDM5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm15.setBackground(new java.awt.Color(153, 153, 153));
@@ -2469,7 +2460,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel83.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM6.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM6.setDateFormatString("dd/MM/yyyy");
             FCCDM6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm16.setBackground(new java.awt.Color(153, 153, 153));
@@ -2504,7 +2494,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel84.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM7.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM7.setDateFormatString("dd/MM/yyyy");
             FCCDM7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm17.setBackground(new java.awt.Color(153, 153, 153));
@@ -2575,7 +2564,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel85.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM8.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM8.setDateFormatString("dd/MM/yyyy");
             FCCDM8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm18.setBackground(new java.awt.Color(153, 153, 153));
@@ -2620,7 +2608,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel86.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM9.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM9.setDateFormatString("dd/MM/yyyy");
             FCCDM9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm19.setBackground(new java.awt.Color(153, 153, 153));
@@ -2665,7 +2652,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel87.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM10.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM10.setDateFormatString("dd/MM/yyyy");
             FCCDM10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm110.setBackground(new java.awt.Color(153, 153, 153));
@@ -2710,7 +2696,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel88.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCDM11.setBackground(new java.awt.Color(255, 255, 255));
-            FCCDM11.setDateFormatString("dd/MM/yyyy");
             FCCDM11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             Rm111.setBackground(new java.awt.Color(153, 153, 153));
@@ -2872,9 +2857,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             );
             jPanel37Layout.setVerticalGroup(
                 jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel37Layout.createSequentialGroup()
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap())
+                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
 
             lblPorcentajeV1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -2988,9 +2971,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CCDM12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                     .addComponent(lblId)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap(17, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("Menores de 1 año", CCD);
@@ -3022,7 +3005,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel90.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD11.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD11.setDateFormatString("dd/MM/yyyy");
             FCCD11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R11.setBackground(new java.awt.Color(153, 153, 153));
@@ -3058,7 +3040,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel91.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD12.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD12.setDateFormatString("dd/MM/yyyy");
             FCCD12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R12.setBackground(new java.awt.Color(153, 153, 153));
@@ -3093,7 +3074,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel92.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD13.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD13.setDateFormatString("dd/MM/yyyy");
             FCCD13.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R13.setBackground(new java.awt.Color(153, 153, 153));
@@ -3158,7 +3138,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel93.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD14.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD14.setDateFormatString("dd/MM/yyyy");
             FCCD14.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R14.setBackground(new java.awt.Color(153, 153, 153));
@@ -3203,7 +3182,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel94.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD15.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD15.setDateFormatString("dd/MM/yyyy");
             FCCD15.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R15.setBackground(new java.awt.Color(153, 153, 153));
@@ -3248,7 +3226,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel95.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD16.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD16.setDateFormatString("dd/MM/yyyy");
             FCCD16.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R16.setBackground(new java.awt.Color(153, 153, 153));
@@ -3394,7 +3371,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel97.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD21.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD21.setDateFormatString("dd/MM/yyyy");
             FCCD21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R21.setBackground(new java.awt.Color(153, 153, 153));
@@ -3429,7 +3405,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel98.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD22.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD22.setDateFormatString("dd/MM/yyyy");
             FCCD22.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R22.setBackground(new java.awt.Color(153, 153, 153));
@@ -3464,7 +3439,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel99.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD23.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD23.setDateFormatString("dd/MM/yyyy");
             FCCD23.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R23.setBackground(new java.awt.Color(153, 153, 153));
@@ -3499,7 +3473,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel100.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD24.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD24.setDateFormatString("dd/MM/yyyy");
             FCCD24.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R24.setBackground(new java.awt.Color(153, 153, 153));
@@ -3652,7 +3625,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel102.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD3A1.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD3A1.setDateFormatString("dd/MM/yyyy");
             FCCD3A1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R31.setBackground(new java.awt.Color(153, 153, 153));
@@ -3687,7 +3659,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel103.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD3A2.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD3A2.setDateFormatString("dd/MM/yyyy");
             FCCD3A2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R32.setBackground(new java.awt.Color(153, 153, 153));
@@ -3722,7 +3693,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel104.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD3A3.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD3A3.setDateFormatString("dd/MM/yyyy");
             FCCD3A3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R33.setBackground(new java.awt.Color(153, 153, 153));
@@ -3757,7 +3727,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel105.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD3A4.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD3A4.setDateFormatString("dd/MM/yyyy");
             FCCD3A4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R34.setBackground(new java.awt.Color(153, 153, 153));
@@ -3910,7 +3879,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel109.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD4A1.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD4A1.setDateFormatString("dd/MM/yyyy");
             FCCD4A1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R41.setBackground(new java.awt.Color(153, 153, 153));
@@ -3945,7 +3913,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel110.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD4A2.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD4A2.setDateFormatString("dd/MM/yyyy");
             FCCD4A2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R42.setBackground(new java.awt.Color(153, 153, 153));
@@ -3980,7 +3947,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel111.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD4A3.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD4A3.setDateFormatString("dd/MM/yyyy");
             FCCD4A3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R43.setBackground(new java.awt.Color(153, 153, 153));
@@ -4015,7 +3981,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel112.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD4A4.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD4A4.setDateFormatString("dd/MM/yyyy");
             FCCD4A4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R44.setBackground(new java.awt.Color(153, 153, 153));
@@ -4328,7 +4293,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel116.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD5A.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD5A.setDateFormatString("dd/MM/yyyy");
             FCCD5A.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R5.setBackground(new java.awt.Color(153, 153, 153));
@@ -4417,7 +4381,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel118.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD6A.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD6A.setDateFormatString("dd/MM/yyyy");
             FCCD6A.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R6.setBackground(new java.awt.Color(153, 153, 153));
@@ -4506,7 +4469,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel120.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD7A.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD7A.setDateFormatString("dd/MM/yyyy");
             FCCD7A.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R7.setBackground(new java.awt.Color(153, 153, 153));
@@ -4595,7 +4557,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel122.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD8A.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD8A.setDateFormatString("dd/MM/yyyy");
             FCCD8A.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R8.setBackground(new java.awt.Color(153, 153, 153));
@@ -4684,7 +4645,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel124.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD9A.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD9A.setDateFormatString("dd/MM/yyyy");
             FCCD9A.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R9.setBackground(new java.awt.Color(153, 153, 153));
@@ -4773,7 +4733,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel126.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD10A.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD10A.setDateFormatString("dd/MM/yyyy");
             FCCD10A.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R10.setBackground(new java.awt.Color(153, 153, 153));
@@ -4862,7 +4821,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel128.setBackground(new java.awt.Color(153, 153, 153));
 
             FCCD11A.setBackground(new java.awt.Color(204, 204, 204));
-            FCCD11A.setDateFormatString("dd/MM/yyyy");
             FCCD11A.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
             R11a.setBackground(new java.awt.Color(153, 153, 153));

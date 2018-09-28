@@ -79,6 +79,29 @@ public class EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO {
         return resp;
     }
         
+        
+    public boolean CEX_FUA()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CEX_GENERAR_FUA_REF ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getID_DOCUMENTO());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error : " + ex.getMessage());
+        }
+        return resp;
+    }    
+        
      public void mostrar_FP_EC(String cod){
         String consulta="";
         try {

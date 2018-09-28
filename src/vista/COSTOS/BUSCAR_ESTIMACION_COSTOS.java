@@ -73,7 +73,9 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
-        cargarEstimacionCostos();
+       // cargarEstimacionCostos();
+       buscar();
+       btnNuevo.setVisible(true);
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     }
@@ -113,7 +115,55 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
        }
       
     }
+    public void buscar(){
+         try{
+            //if(cbxBuscarEstimacion.getSelectedIndex()>0){
+                String tipo_sust =txtBuscarEstimacion.getText().toString(); 
+                String servicio = (String) cbxBuscarEstimacion1.getSelectedItem();
+                int combo = cbxBuscarEstimacion.getSelectedIndex();
+                DefaultTableModel tabla= new DefaultTableModel();
+                tabla.addColumn("Codigo");
+                tabla.addColumn("Codigo Precio");
+                tabla.addColumn("Codigo CPT");
+                tabla.addColumn("Servicio");
+                tabla.addColumn("Area");
+                tabla.addColumn("Forma de Pago");
+                tabla.addColumn("Precio");
+                tabla.addColumn("Tiempo(h)");
+                tabla.addColumn("Tiempo(Min)");
+                tabla.addColumn("Saldo");
+                tabla.addColumn("Nomenclatura");
+                System.out.println(servicio);      
+                System.out.println(tipo_sust);
+                System.out.println(combo);
+                cst=con.prepareCall("exec COSTOS_COSTOS_SUSTENTACION_ESTIMACION_buscar ?,?,?");     
+                     cst.setString(1, servicio);
+                      cst.setString(2, tipo_sust);
+                     cst.setInt(3, combo);
+                     r=cst.executeQuery();
+                     
 
+                while (r.next()){
+                Object dato[]=new  Object[11];
+                for (int i=0; i<11; i++){
+                    dato[i]=r.getString(i+1);
+                }
+                    tabla.addRow(dato);
+                }
+                this.tb_Buscar_Estimacion.setModel(tabla);
+                formatoEstimacionCostos();
+                tb_Buscar_Estimacion.getSelectionModel().setSelectionInterval(0, 0);
+                tb_Buscar_Estimacion.requestFocus();
+                txtBuscarEstimacion.requestFocus();
+//            } else {
+//                JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de busqueda");
+//                cbxBuscarEstimacion.requestFocus();
+//                txtBuscarEstimacion.setText("");
+//            }   
+        }catch (Exception e){
+             System.out.println("vista.COSTOS.BUSCAR_ESTIMACION_COSTOS.buscar()"+e.getMessage());
+        }
+    }
     public void formatoEstimacionCostos(){
         
     tb_Buscar_Estimacion.getColumnModel().getColumn(0).setPreferredWidth(100);
@@ -164,6 +214,9 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         cbxBuscarEstimacion = new javax.swing.JComboBox();
         txtBuscarEstimacion = new javax.swing.JTextField();
         lblUsu = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        cbxBuscarEstimacion1 = new javax.swing.JComboBox();
+        btnNuevo = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lbldia = new javax.swing.JLabel();
 
@@ -240,7 +293,6 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         REPORTES.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(0, 0));
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
@@ -301,7 +353,7 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         });
 
         cbxBuscarEstimacion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cbxBuscarEstimacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Codigo CPT", "Servicio", "Nomenclatura " }));
+        cbxBuscarEstimacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Codigo CPT", "Nomenclatura " }));
         cbxBuscarEstimacion.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxBuscarEstimacionItemStateChanged(evt);
@@ -330,24 +382,65 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblUsu.setText("Usuario");
 
+        jLabel22.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel22.setText("Servicio:");
+
+        cbxBuscarEstimacion1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxBuscarEstimacion1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Caja", "Laboratorio", "Rayos X", "Ecografias", "Farmacia" }));
+        cbxBuscarEstimacion1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxBuscarEstimacion1ItemStateChanged(evt);
+            }
+        });
+        cbxBuscarEstimacion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxBuscarEstimacion1ActionPerformed(evt);
+            }
+        });
+        cbxBuscarEstimacion1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cbxBuscarEstimacion1PropertyChange(evt);
+            }
+        });
+
+        btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Documento-32.png"))); // NOI18N
+        btnNuevo.setMnemonic('N');
+        btnNuevo.setText("     Nuevo");
+        btnNuevo.setToolTipText("Nuevo (Alt+N)");
+        btnNuevo.setContentAreaFilled(false);
+        btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNuevo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
         jpanel.setLayout(jpanelLayout);
         jpanelLayout.setHorizontalGroup(
             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelLayout.createSequentialGroup()
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jpanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cbxBuscarEstimacion, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                                .addComponent(txtBuscarEstimacion)))))
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxBuscarEstimacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                            .addComponent(txtBuscarEstimacion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbxBuscarEstimacion1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jpanelLayout.setVerticalGroup(
@@ -355,15 +448,21 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
             .addGroup(jpanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbxBuscarEstimacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbxBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
                 .addComponent(txtBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnNuevo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -760,53 +859,26 @@ exporterXLS.setParameter(JExcelApiExporterParameter.CHARACTER_ENCODING, "UTF-8")
     }//GEN-LAST:event_TODO_EXCELActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-       try{
-    if(cbxBuscarEstimacion.getSelectedIndex()>0){
-        
-    String tipo_sust =txtBuscarEstimacion.getText().toString(); 
-    int combo = cbxBuscarEstimacion.getSelectedIndex();
-        
-    DefaultTableModel tabla= new DefaultTableModel();
-       
-       tabla.addColumn("Codigo");
-       tabla.addColumn("Codigo Precio");
-       tabla.addColumn("Codigo CPT");
-       tabla.addColumn("Servicio");
-       tabla.addColumn("Area");
-       tabla.addColumn("Forma de Pago");
-       tabla.addColumn("Precio");
-       tabla.addColumn("Tiempo(h)");
-       tabla.addColumn("Tiempo(Min)");
-       tabla.addColumn("Saldo");
-       tabla.addColumn("Nomenclatura");
-       cst=con.prepareCall("exec COSTOS_COSTOS_SUSTENTACION_ESTIMACION_buscar ?,?");     
-            cst.setString(1, tipo_sust);
-            cst.setInt(2, combo);
-            r=cst.executeQuery();
-       while (r.next()){
-       Object dato[]=new  Object[11];
-       for (int i=0; i<11; i++){
-           dato[i]=r.getString(i+1);
-       }
-       tabla.addRow(dato);
-       }
-       
-       this.tb_Buscar_Estimacion.setModel(tabla);
-       
-       formatoEstimacionCostos();
-       tb_Buscar_Estimacion.getSelectionModel().setSelectionInterval(0, 0);
-       tb_Buscar_Estimacion.requestFocus();
-       txtBuscarEstimacion.requestFocus();
-      
-       } else {
-        JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de busqueda");
-        cbxBuscarEstimacion.requestFocus();
-        txtBuscarEstimacion.setText("");
-    }   
-
-       }catch (Exception e){
-       }
+        buscar();
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void cbxBuscarEstimacion1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxBuscarEstimacion1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxBuscarEstimacion1ItemStateChanged
+
+    private void cbxBuscarEstimacion1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbxBuscarEstimacion1PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxBuscarEstimacion1PropertyChange
+
+    private void cbxBuscarEstimacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxBuscarEstimacion1ActionPerformed
+        buscar();
+    }//GEN-LAST:event_cbxBuscarEstimacion1ActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        dispose();
+        BUSCAR_NOMENCLATURA cs=new BUSCAR_NOMENCLATURA();
+        cs.setVisible(true);
+    }//GEN-LAST:event_btnNuevoActionPerformed
 private void exportXls()
  {
      String ruta = "/reporteTotal/report1.jasper";
@@ -1262,8 +1334,11 @@ JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guarda
     private javax.swing.JMenuItem TODO_PDF;
     private javax.swing.JMenuItem TODO_REPORTE;
     private javax.swing.JButton btnBuscar;
+    public static javax.swing.JButton btnNuevo;
     private javax.swing.JComboBox cbxBuscarEstimacion;
+    private javax.swing.JComboBox cbxBuscarEstimacion1;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

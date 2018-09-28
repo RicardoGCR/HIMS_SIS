@@ -133,9 +133,9 @@ DefaultTableModel m,n,resultado;
         LAB_PC_AREA pa=new LAB_PC_AREA();
         lblServicio.setText(pa.LAB_PC_AREA_SERVICIO());
         lblArea.setText("");
-       LAB_BUSCAR_TM_DIA();
-      formato();
-   //salir presionando escape
+        LAB_BUSCAR_TM_DIA();
+        formato();
+        //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
         getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
@@ -158,44 +158,44 @@ JComponent.WHEN_IN_FOCUSED_WINDOW);
    }
       
     public void formato(){
-    tb_TomasRealizadas.getColumnModel().getColumn(4).setPreferredWidth(200);
-    tb_TomasRealizadas.getColumnModel().getColumn(5).setPreferredWidth(90);
-    tb_TomasRealizadas.getColumnModel().getColumn(6).setPreferredWidth(250);
-    tb_TomasRealizadas.getColumnModel().getColumn(7).setPreferredWidth(240);
-    tb_TomasRealizadas.getColumnModel().getColumn(8).setPreferredWidth(100);
-    tb_TomasRealizadas.getColumnModel().getColumn(9).setPreferredWidth(90);
-    tb_TomasRealizadas.getColumnModel().getColumn(10).setPreferredWidth(250);
-    tb_TomasRealizadas.getColumnModel().getColumn(11).setPreferredWidth(85);
-    tb_TomasRealizadas.getColumnModel().getColumn(12).setPreferredWidth(140);
-    tb_TomasRealizadas.getColumnModel().getColumn(13).setPreferredWidth(50);
-    tb_TomasRealizadas.getColumnModel().getColumn(14).setPreferredWidth(50);
-    tb_TomasRealizadas.getColumnModel().getColumn(15).setPreferredWidth(130);
-    tb_TomasRealizadas.getColumnModel().getColumn(16).setPreferredWidth(130);
-    tb_TomasRealizadas.getColumnModel().getColumn(17).setPreferredWidth(200);
-    tb_TomasRealizadas.getColumnModel().getColumn(18).setPreferredWidth(90);
-    tb_TomasRealizadas.getColumnModel().getColumn(19).setPreferredWidth(90);
-    //Ocultar    
-    tb_TomasRealizadas.getColumnModel().getColumn(0).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(0).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(1).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(1).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(2).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(2).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(3).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(3).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(20).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(20).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(21).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(21).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(22).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(22).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(23).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(23).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(24).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(24).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(25).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(25).setMaxWidth(0);
-    tb_TomasRealizadas.getSelectionModel().setSelectionInterval(0, 0);
+        tb_TomasRealizadas.getColumnModel().getColumn(4).setPreferredWidth(200);
+        tb_TomasRealizadas.getColumnModel().getColumn(5).setPreferredWidth(90);
+        tb_TomasRealizadas.getColumnModel().getColumn(6).setPreferredWidth(250);
+        tb_TomasRealizadas.getColumnModel().getColumn(7).setPreferredWidth(240);
+        tb_TomasRealizadas.getColumnModel().getColumn(8).setPreferredWidth(100);
+        tb_TomasRealizadas.getColumnModel().getColumn(9).setPreferredWidth(90);
+        tb_TomasRealizadas.getColumnModel().getColumn(10).setPreferredWidth(250);
+        tb_TomasRealizadas.getColumnModel().getColumn(11).setPreferredWidth(85);
+        tb_TomasRealizadas.getColumnModel().getColumn(12).setPreferredWidth(140);
+        tb_TomasRealizadas.getColumnModel().getColumn(13).setPreferredWidth(50);
+        tb_TomasRealizadas.getColumnModel().getColumn(14).setPreferredWidth(50);
+        tb_TomasRealizadas.getColumnModel().getColumn(15).setPreferredWidth(130);
+        tb_TomasRealizadas.getColumnModel().getColumn(16).setPreferredWidth(130);
+        tb_TomasRealizadas.getColumnModel().getColumn(17).setPreferredWidth(200);
+        tb_TomasRealizadas.getColumnModel().getColumn(18).setPreferredWidth(90);
+        tb_TomasRealizadas.getColumnModel().getColumn(19).setPreferredWidth(90);
+       // Ocultar    
+        tb_TomasRealizadas.getColumnModel().getColumn(0).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(0).setMaxWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(1).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(1).setMaxWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(2).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(2).setMaxWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(3).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(3).setMaxWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(20).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(20).setMaxWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(21).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(21).setMaxWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(22).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(22).setMaxWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(23).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(23).setMaxWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(24).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(24).setMaxWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(25).setMinWidth(0);
+        tb_TomasRealizadas.getColumnModel().getColumn(25).setMaxWidth(0);
+        tb_TomasRealizadas.getSelectionModel().setSelectionInterval(0, 0);
             tb_TomasRealizadas.requestFocus();
 }
     
@@ -207,7 +207,7 @@ JComponent.WHEN_IN_FOCUSED_WINDOW);
         servicioArea=lblServicio.getText();
         }
          
-    String consulta="";
+        String consulta="";
         try {
             tb_TomasRealizadas.setModel(new DefaultTableModel());
             String titulos[]={"cod_cab_toma_mu_exa","cod_det_toma_mu_ana","cod_exa_ana","id_hc","Servicio/Área","Código CPT",
@@ -257,7 +257,6 @@ JComponent.WHEN_IN_FOCUSED_WINDOW);
                 fila[23]=r.getString(24);
                 fila[24]=r.getString(25);
                 fila[25]=r.getString(26);
-
                 m.addRow(fila);
                 c++;
             }

@@ -2901,7 +2901,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 btnNo.setVisible(false);
                 pnlMensaje.setBackground(new Color(255,91,70));
             } else 
-            if(dtCita.getDate()==null){
+            if(dtCita.getDate()==null && !lblAtencion.getText().equals("9") ){
                     pnlMensaje.setVisible(true);
                     lblMensaje.setText("Ingrese la fecha de la siguiente cita");
                     btnSi.setVisible(false);
@@ -3071,9 +3071,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_txtPadre24CaretUpdate
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
-//        if(btnSi.getText().equals("Si")){ // Al guardar
-//            mantenimientoAtencionPrenatal();
-//        } else
+        if(btnSi.getText().equals("Si")){ // Al guardar
+            mantenimientoAtencionPrenatal();
+        } else
         if(btnSi.getText().equals("OK")){ // Al hacer OK hacerloinvisible
             pnlMensaje.setVisible(false);
         }

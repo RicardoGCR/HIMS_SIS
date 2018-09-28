@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JComponent;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAtencionPrenatal;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalCabecera;
+import vista.ConsultorioEx.RegistroEmbarazo;
 import tablas.FormatoTablaConsultorioExtAlertas;
 import tablas.FormatoTablaMovCONEXT;
 
@@ -17,14 +18,16 @@ import tablas.FormatoTablaMovCONEXT;
  *
  * @author MYS1
  */
-public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
-
+public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame implements Runnable{
+    //Thread h1;
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
     ConsultorioExtCarnetPerinatalCabecera cabecera = new ConsultorioExtCarnetPerinatalCabecera();
     public RegistroEmabarazoAlertas() {
         initComponents();
-        QuitarLaBarraTitulo();
+       // RegistroEmbarazo h2=new RegistroEmbarazo();
+       // h1 =new Thread((Runnable) h2);
+        QuitarLaBarraTitulo();  
         pnlDatosPaciente.setVisible(false);
         ConsultorioExtCarnetPerinatalAtencionPrenatal consultorio1 = new ConsultorioExtCarnetPerinatalAtencionPrenatal();
         consultorio1.calculoAlertas();
@@ -48,7 +51,9 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
         lblDistrito.setText("Distrito " + String.valueOf(tbAlertas.getValueAt(fila, 10)));
         lblSector.setText("Sector " + String.valueOf(tbAlertas.getValueAt(fila, 11)));
         lblDireccion.setText("Dirección " + String.valueOf(tbAlertas.getValueAt(fila, 12)) + " " + String.valueOf(tbAlertas.getValueAt(fila, 13)));
-      }
+        lblDireccion1.setText("Lic. Responsable   " + String.valueOf(tbAlertas.getValueAt(fila, 16)));
+
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,6 +75,8 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
         lblSector = new javax.swing.JLabel();
         lblDireccion = new javax.swing.JLabel();
         lblCelular = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblDireccion1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbAlertas = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -253,6 +260,12 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
             lblCelular.setForeground(new java.awt.Color(255, 255, 255));
             lblCelular.setText("Celular");
 
+            jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Sin título.png"))); // NOI18N
+
+            lblDireccion1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            lblDireccion1.setForeground(new java.awt.Color(255, 255, 255));
+            lblDireccion1.setText("Lic. Responsable");
+
             javax.swing.GroupLayout pnlDatosPacienteLayout = new javax.swing.GroupLayout(pnlDatosPaciente);
             pnlDatosPaciente.setLayout(pnlDatosPacienteLayout);
             pnlDatosPacienteLayout.setHorizontalGroup(
@@ -265,35 +278,44 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
                             .addGroup(pnlDatosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblDistrito)
                                 .addComponent(lblTelefono))
-                            .addGap(49, 49, 49)
-                            .addComponent(lblSector)
-                            .addGap(86, 86, 86)
+                            .addGap(148, 148, 148)
                             .addGroup(pnlDatosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblCelular)
-                                .addComponent(lblDireccion))))
-                    .addContainerGap(363, Short.MAX_VALUE))
+                                .addComponent(lblSector)
+                                .addComponent(lblCelular)))
+                        .addComponent(lblDireccion1)
+                        .addComponent(lblDireccion))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 535, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(35, 35, 35))
             );
             pnlDatosPacienteLayout.setVerticalGroup(
                 pnlDatosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlDatosPacienteLayout.createSequentialGroup()
-                    .addGap(19, 19, 19)
-                    .addComponent(jLabel2)
-                    .addGap(18, 18, 18)
-                    .addGroup(pnlDatosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblTelefono)
-                        .addComponent(lblCelular))
-                    .addGap(18, 18, 18)
-                    .addGroup(pnlDatosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblDistrito)
-                        .addComponent(lblSector)
-                        .addComponent(lblDireccion))
-                    .addContainerGap(40, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosPacienteLayout.createSequentialGroup()
+                    .addGroup(pnlDatosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(pnlDatosPacienteLayout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addComponent(jLabel2)
+                            .addGap(41, 41, 41)
+                            .addGroup(pnlDatosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblTelefono)
+                                .addComponent(lblCelular))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(pnlDatosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblDistrito)
+                                .addComponent(lblSector))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblDireccion1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                            .addComponent(lblDireccion))
+                        .addGroup(pnlDatosPacienteLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap())
             );
 
             jScrollPane3.setBorder(null);
 
-            tbAlertas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            tbAlertas.setForeground(new java.awt.Color(255, 255, 255));
+            tbAlertas.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
             tbAlertas.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
@@ -341,14 +363,14 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(pnlDatosPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1168, Short.MAX_VALUE)))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(pnlDatosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
@@ -411,6 +433,7 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
     public static javax.swing.JButton btnImprimir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel38;
@@ -418,6 +441,7 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblDireccion1;
     private javax.swing.JLabel lblDistrito;
     private javax.swing.JLabel lblSector;
     private javax.swing.JLabel lblTelefono;
@@ -426,4 +450,9 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
     private javax.swing.JTable tbAlertas;
     public static javax.swing.JTextField txtBuscarAlertas;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

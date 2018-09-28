@@ -2,11 +2,11 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sectorizacion" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="877b8323-8dbf-4a3f-a05d-1980ac0a5101">
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="0.9090909090909196"/>
-	<property name="ireport.x" value="6"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
-	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
-	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" isBold="true" pdfFontName="Times-Roman"/>
 	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
 	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
 		<conditionalStyle>
@@ -18,8 +18,8 @@
 	<queryString>
 		<![CDATA[SELECT AP.AP_ID,AP.CP_ID,AHC.dni,
 	CONCAT(SUBSTRING(AHC.COD_HC, 1, 4) , '-', SUBSTRING(AHC.COD_HC, 5,2)) AS 'Nº H.C.',
-	AHC.ape_pat + ' ' + AHC.ape_mat + ' ' + AHC.primer_nombre + ' ' +
-	AHC.segundo_nombre + ' ' + AHC.tercer_nombre AS 'PACIENTE',
+	rtrim(AHC.ape_pat) + ' ' + rtrim(AHC.ape_mat )+ ' ' + rtrim(AHC.primer_nombre) + ' ' + 
+	rtrim(AHC.segundo_nombre )+ ' ' + rtrim(AHC.tercer_nombre )AS 'PACIENTE',
 	case cast(datediff(dd,CONVERT(date,FEC_NAC,103),GETDATE()) / 365.25 as int)
 			when 0 then convert(varchar(10),datediff(month, FEC_NAC, getdate())) + ' M'
 			ELSE convert(varchar(10),cast(datediff(dd,CONVERT(date,FEC_NAC,103),GETDATE()) / 365.25 as int))
@@ -34,9 +34,11 @@
 	ADMISION_HISTORIA_CLINICA AHC
 	WHERE CP.CP_ID = AP.CP_ID
 	AND AHC.id_hc = CP.ID_HC
-	AND datepart(mm, AP_CITA) = datepart(mm, getdate())
-	AND AP.ESTADO = 'A'
-	AND EST IN(' ','V')]]>
+	--AND datepart(mm, AP_CITA) = datepart(mm, getdate())
+	--AND AP.ESTADO = 'A'
+	AND CONVERT(DATE,AP_CITA) BETWEEN GETDATE()-6 AND GETDATE()+1
+	AND AP.AP_ATENCION=(SELECT MAX(AP_ATENCION) FROM CONSULTORIO_EXT_CARNET_PERINATAL_ATENCION_PRENATAL APP  WHERE AP.CP_ID=APP.CP_ID)
+	--AND EST IN(' ','V')]]>
 	</queryString>
 	<field name="AP_ID" class="java.lang.Long"/>
 	<field name="CP_ID" class="java.lang.Long"/>
@@ -53,7 +55,7 @@
 	<field name="tipo_dir_nom" class="java.lang.String"/>
 	<field name="DIRECCION" class="java.lang.String"/>
 	<field name="EST" class="java.lang.String"/>
-	<field name="UE_LOGO" class="java.io.InputStream"/>
+	<field name="UE_LOGO" class="java.lang.Object"/>
 	<variable name="AÑOS_1" class="java.lang.Integer" resetType="Page" calculation="Count">
 		<variableExpression><![CDATA[$F{AÑOS}]]></variableExpression>
 	</variable>
@@ -77,7 +79,7 @@
 			<staticText>
 				<reportElement x="8" y="0" width="258" height="46" forecolor="#E84C3D" uuid="4b1add76-473c-4e97-80cd-8a95a54cbced"/>
 				<textElement>
-					<font fontName="Segoe UI Light" size="30" isBold="true"/>
+					<font fontName="Segoe UI Light" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Atención Prenatal]]></text>
 			</staticText>
@@ -85,7 +87,7 @@
 			<staticText>
 				<reportElement x="272" y="5" width="160" height="33" forecolor="#E84C3D" uuid="cec2bad2-6295-4fe5-9843-39e146d9d5a0"/>
 				<textElement>
-					<font fontName="Segoe UI Light" size="24" isBold="true"/>
+					<font fontName="Segoe UI Light" isBold="true"/>
 				</textElement>
 				<text><![CDATA[- Pendientes]]></text>
 			</staticText>
@@ -212,21 +214,21 @@
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement style="Column header" x="1" y="9" width="197" height="13" forecolor="#FFFFFF" uuid="130481e2-abe6-4c65-8641-21580495a5ae"/>
 				<textElement verticalAlignment="Middle">
-					<font size="10" isBold="false"/>
+					<font isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="Column header" x="662" y="10" width="80" height="13" forecolor="#FFFFFF" uuid="abf1db08-2c25-42f2-8b3d-66f9d2191130"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="10" isBold="false"/>
+					<font isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement style="Column header" x="762" y="10" width="40" height="13" forecolor="#FFFFFF" uuid="e2eaa92d-0515-4783-a440-4fd08c3ccb75"/>
 				<textElement verticalAlignment="Middle">
-					<font size="10" isBold="false"/>
+					<font isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>

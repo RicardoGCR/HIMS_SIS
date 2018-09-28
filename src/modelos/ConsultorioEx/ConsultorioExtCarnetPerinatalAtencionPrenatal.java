@@ -255,7 +255,16 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
             columna14.setMinWidth(0);
             columna14.setPreferredWidth(0);
         tabla.doLayout();
-        tabla.setRowHeight(35);
+        TableColumn columna15 = tabla.getColumnModel().getColumn(15);
+            columna15.setMaxWidth(0);
+            columna15.setMinWidth(0);
+            columna15.setPreferredWidth(0);
+        TableColumn columna16 = tabla.getColumnModel().getColumn(16);
+            columna16.setMaxWidth(0);
+            columna16.setMinWidth(0);
+            columna16.setPreferredWidth(0);
+        tabla.doLayout();
+        tabla.setRowHeight(20);
     }
     
     public void consultorioExAtencionPrenatalAlertas(String busqueda,JTable tabla){
@@ -263,10 +272,10 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
         try {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"ID","CP","DNI","Nº H.C.","Paciente","Edad","Cita","Mes",
-            "","","","","","",""};
+            "","","","","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[15];
+            String fila[]=new String[17];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC [CONSULTORIO_EXT_CARNET_PERINATAL_ATENCION_PRENATAL_ALERTAS] ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -288,7 +297,9 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
                 fila[11]=r.getString(12); 
                 fila[12]=r.getString(13);
                 fila[13]=r.getString(14); 
-                fila[14]=r.getString(15); 
+                fila[14]=r.getString(15);      
+                fila[15]=r.getString(16); 
+                fila[16]=r.getString(17); 
                     m.addRow(fila);
                     c++;
             }
@@ -300,7 +311,7 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
         } catch (Exception e) {
             System.out.println("Error: consultorioExAtencionPrenatalAlertas: " + e.getMessage());
         }
-    }
+    }   
     
     public String calculoAlertas(){
         String cod = "";

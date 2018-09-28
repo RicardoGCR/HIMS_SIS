@@ -8,15 +8,22 @@ package vista.ConsultorioEx;
 import campos.LimitadorDeDocumento;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyVetoException;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalCabecera;
 import modelos.ConsultorioEx.ConsultorioExtEsnitss;
@@ -27,14 +34,15 @@ import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
  *
  * @author MYS1
  */
-public class RegistroEmbarazo extends javax.swing.JFrame {
-
+public class RegistroEmbarazo extends javax.swing.JFrame implements Runnable {
+    Thread h1;
     String estadoSeleccion = "";
     ConsultorioExtCarnetPerinatalCabecera cabecera = new ConsultorioExtCarnetPerinatalCabecera();
     public RegistroEmbarazo() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
+        h1= new Thread(this);
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
@@ -70,8 +78,24 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         btnNuevoEmbarazo.setEnabled(false);
         btnGuardar.setEnabled(false);
         cabecera.conteoAlertas();
-    }
-    
+        
+        
+//        TimerTask timerTask = new TimerTask()
+//            {
+//            public void run()
+//            {
+//            ConsultorioExtEsnitss consultorio1 = new ConsultorioExtEsnitss();
+//            consultorio1.consultorioExListarC(txtBuscar.getText(), tbMadres);
+//            }
+//            };
+//
+//            // Aquí se pone en marcha el timer cada segundo.
+//            Timer time = new Timer();
+//            // Dentro de 0 milisegundos avísame cada 1000 milisegundos
+//            time.scheduleAtFixedRate(timerTask, 0, 1000);
+   }
+     
+        
     public void cerrar (){
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -108,11 +132,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         limpiar();
         int fila = tbMadres.getSelectedRow();
         lblTriaje.setText(String.valueOf(tbMadres.getValueAt(fila, 0)));
-        lblActoMed.setText(String.valueOf(tbMadres.getValueAt(fila, 1)));
+        lblActoMed.setText(String.valueOf(tbMadres.getValueAt(fila, 0)));
         lblDni.setText(String.valueOf(tbMadres.getValueAt(fila, 2)));
         txtPaciente.setText(String.valueOf(tbMadres.getValueAt(fila, 4)));
         lblHc.setText(String.valueOf(tbMadres.getValueAt(fila, 3)));
-        txtIdHc.setText(String.valueOf(tbMadres.getValueAt(fila, 18)));
+        txtIdHc.setText(String.valueOf(tbMadres.getValueAt(fila, 8)));
         pnlControl.setVisible(true);
         btnGuardar.setVisible(true);
         lblMant.setText("I");
@@ -168,6 +192,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera(lblMant.getText(),lblTriaje.getText())==true){
                 RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
                 Contenedor.add(GA);
+                RegistroEmbarazoPrincipal.lblActoMedico.setText(lblActoMed.getText());      
+                RegistroEmbarazoPrincipal.lblIdActoMedico.setText(lblActoMed.getText());
                 try {
                     GA.setMaximum(true);
                 } catch (PropertyVetoException ex) {
@@ -664,7 +690,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                         .addGroup(BuscarMadresLayout.createSequentialGroup()
                             .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
-                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addContainerGap())
                     );
 
@@ -1641,7 +1667,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                                                     .addGap(18, 18, 18)
                                                     .addComponent(lblHc, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlControlLayout.createSequentialGroup()
-                                                    .addGap(564, 564, 564)
+                                                    .addGap(558, 558, 558)
                                                     .addGroup(pnlControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(lblMant, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(lblTriaje)
@@ -2240,8 +2266,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             int fila = tbMadres.getSelectedRow();
             ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
             lblID.setText(String.valueOf(tbMadres.getValueAt(fila, 0)));
-            consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 13)),"AC",tbEmbarazoActual,"actual"); //llenar tabla de registro actuales
-            consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 13)),"AN",tbEmbarazoAntiguos,"antigua"); //llenar tabla de registro antiguos
+            consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 3)),"AC",tbEmbarazoActual,"actual"); //llenar tabla de registro actuales
+            consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 3)),"AN",tbEmbarazoAntiguos,"antigua"); //llenar tabla de registro antiguos
             if(tbEmbarazoActual.getRowCount()!=0){
                 btnNuevoEmbarazo.setEnabled(false);
                 tbEmbarazoActual.setVisible(true);
@@ -2326,8 +2352,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
            || evt.getExtendedKeyCode()==KeyEvent.VK_ENTER){
             int fila = tbMadres.getSelectedRow();
             ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
-            consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 13)),"AC",tbEmbarazoActual,"actual"); //llenar tabla de registro actuales
-            consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 13)),"AN",tbEmbarazoAntiguos,"antigua"); //llenar tabla de registro antiguos
+            consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 8)),"AC",tbEmbarazoActual,"actual"); //llenar tabla de registro actuales
+            consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 8)),"AN",tbEmbarazoAntiguos,"antigua"); //llenar tabla de registro antiguos
             if(tbEmbarazoActual.getRowCount()!=0){
                 btnNuevoEmbarazo.setEnabled(false);
                 tbEmbarazoActual.setVisible(true);
@@ -2417,7 +2443,35 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
 
     }//GEN-LAST:event_btnBuscarPacienteActionPerformed
-
+     public static void addEscapeListenerWindowDialog( final JDialog windowDialog) {
+       ActionListener escAction = new ActionListener() {
+@Override
+public void actionPerformed(ActionEvent e) {
+windowDialog.dispose();
+}
+};
+windowDialog.getRootPane().registerKeyboardAction(escAction,
+KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+JComponent.WHEN_IN_FOCUSED_WINDOW);
+   }
+    public void run() {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Thread ct = Thread.currentThread();
+        while (ct == h1) {
+//            calcula();
+//            if(lbldia.getText().equalsIgnoreCase("Exámenes del día")){
+//                formato();            
+//            }
+            try {
+                ConsultorioExtEsnitss consultorio1 = new ConsultorioExtEsnitss();
+                consultorio1.consultorioExListarC(txtBuscar.getText(), tbMadres);
+                System.out.println("vista.ConsultorioEx.RegistroEmbarazo.run()");
+                Thread.sleep(9000);
+            } catch (InterruptedException e) {
+                System.out.println("vista.ConsultorioEx.RegistroEmbarazo.run()"+e.getMessage());
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -2443,6 +2497,37 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(RegistroEmbarazo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -2577,4 +2662,6 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     public static javax.swing.JTextField txtPaciente;
     public static javax.swing.JTextField txtPadreRN;
     // End of variables declaration//GEN-END:variables
+
+    
 }

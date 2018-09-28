@@ -1534,6 +1534,7 @@ public void buscar_examenes(){
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_RESULTADO_TOMA_MUESTRA ?,?,?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            System.out.println(buscar+" "+servicioArea+" "+tipo);
             cmd.setInt(1,desde);
             cmd.setInt(2, hasta);
             cmd.setString(3, buscar);
